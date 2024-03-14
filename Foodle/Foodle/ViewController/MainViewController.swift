@@ -86,7 +86,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch section{
         case 0 : 50
-        case 1: 10
+        case 1: 50
         default: 0
         }
     }
@@ -94,11 +94,19 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource{
         guard let header = view as? UITableViewHeaderFooterView else {return}
         if section == 0 {
             var config = header.defaultContentConfiguration()
-            config.textProperties.font = UIFont.boldSystemFont(ofSize: 20)
+            config.textProperties.font = UIFont.boldSystemFont(ofSize: 30)
             config.textProperties.color = .black
             config.text = "오늘의 약속"
             
             header.contentConfiguration = config
+        } else if section == 1{
+            var config = header.defaultContentConfiguration()
+            config.textProperties.font = UIFont.boldSystemFont(ofSize: 20)
+            config.textProperties.color = .gray
+            config.text = "다가오는 약속"
+            
+            header.contentConfiguration = config
+
         }
     }
 }
