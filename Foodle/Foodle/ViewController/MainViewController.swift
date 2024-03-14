@@ -9,6 +9,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    @IBOutlet weak var mainTableView: UITableView!
     @IBAction func openMap(_ sender: Any) {
     }
     
@@ -20,6 +21,7 @@ class MainViewController: UIViewController {
     func setNavigationContrlloer(){
         addSearchBar()
         addProfileIcon()
+        
     }
     
     func addSearchBar(){
@@ -69,6 +71,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource{
         if indexPath.section != 0 || indexPath.row != 0{
             cell.prepare(color: .systemGray6)
         }
+        
         return cell
     }
     
