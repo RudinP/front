@@ -18,9 +18,14 @@ class MainCollectionViewCell: UICollectionViewCell {
     @IBAction func openMap(_ sender: Any) {
     }
     
-    func prepare(color: UIColor){
+    func prepare(bgColor: UIColor, textColor: UIColor){
         self.layer.cornerRadius = 10
-        self.cardView.backgroundColor = color
+        self.cardView.backgroundColor = bgColor
+        
+        self.date.textColor = textColor
+        self.meetingName.textColor = textColor
+        self.placeName.textColor = textColor
+        self.placeTime.textColor = textColor
     }
     
 }

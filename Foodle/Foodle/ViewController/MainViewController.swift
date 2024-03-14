@@ -68,8 +68,11 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "mainTableViewCell", for: indexPath) as? MainTableViewCell else {return UITableViewCell()}
         
-        if indexPath.section != 0 || indexPath.row != 0{
-            cell.prepare(color: .systemGray6)
+        if indexPath.row != 0{
+            cell.prepare(bgColor: .systemGray6, textColor: .gray)
+        }
+        if indexPath.section != 0{
+            cell.prepare(bgColor: .systemGray6, textColor: .black)
         }
         
         return cell
@@ -85,7 +88,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch section{
-        case 0 : 50
+        case 0 : 70
         case 1: 50
         default: 0
         }

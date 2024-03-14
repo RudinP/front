@@ -10,7 +10,8 @@ import UIKit
 class MainTableViewCell: UITableViewCell {
 
     @IBOutlet weak var mainCollectionView: UICollectionView!
-    var color: UIColor?
+    var bgColor: UIColor?
+    var textColor: UIColor?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,8 +26,9 @@ class MainTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func prepare(color: UIColor?){
-        self.color = color
+    func prepare(bgColor: UIColor?, textColor: UIColor?){
+        self.bgColor = bgColor
+        self.textColor = textColor
         self.mainCollectionView.reloadData()
     }
     
@@ -45,7 +47,7 @@ extension MainTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
         cell.order.text = "\(indexPath.item + 1)"
         cell.placeName.text = "숙명여자 대학교"
         cell.placeTime.text = "2:00 AM"
-        cell.prepare(color: self.color ?? .secondAccent)
+        cell.prepare(bgColor: self.bgColor ?? .secondAccent, textColor: textColor ?? .black)
         
         return cell
     }
