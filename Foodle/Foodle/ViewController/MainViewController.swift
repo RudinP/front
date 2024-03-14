@@ -71,9 +71,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource{
         if indexPath.row != 0{
             cell.prepare(bgColor: .systemGray6, textColor: .gray)
         }
-        if indexPath.section != 0{
-            cell.prepare(bgColor: .systemGray6, textColor: .black)
-        }
+        cell.section = indexPath.section
         
         return cell
     }
