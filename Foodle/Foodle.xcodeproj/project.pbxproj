@@ -9,25 +9,25 @@
 /* Begin PBXBuildFile section */
 		4BA12D7F2BA004CE00BC4EB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA12D7E2BA004CE00BC4EB0 /* AppDelegate.swift */; };
 		4BA12D812BA004CE00BC4EB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA12D802BA004CE00BC4EB0 /* SceneDelegate.swift */; };
-		4BA12D832BA004CE00BC4EB0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA12D822BA004CE00BC4EB0 /* ViewController.swift */; };
 		4BA12D862BA004CE00BC4EB0 /* Jinhee.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA12D842BA004CE00BC4EB0 /* Jinhee.storyboard */; };
 		4BA12D892BA004CE00BC4EB0 /* Foodle.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4BA12D872BA004CE00BC4EB0 /* Foodle.xcdatamodeld */; };
 		4BA12D8B2BA004CF00BC4EB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BA12D8A2BA004CF00BC4EB0 /* Assets.xcassets */; };
 		4BA12D8E2BA004CF00BC4EB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA12D8C2BA004CF00BC4EB0 /* LaunchScreen.storyboard */; };
 		4BA12D962BA0054F00BC4EB0 /* Minjeong.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA12D952BA0054F00BC4EB0 /* Minjeong.storyboard */; };
+		4BC68AAD2BA2B67300FC6546 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC68AAC2BA2B67300FC6546 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4BA12D7B2BA004CE00BC4EB0 /* Foodle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foodle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BA12D7E2BA004CE00BC4EB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BA12D802BA004CE00BC4EB0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4BA12D822BA004CE00BC4EB0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4BA12D852BA004CE00BC4EB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Jinhee.storyboard; sourceTree = "<group>"; };
 		4BA12D882BA004CE00BC4EB0 /* Foodle.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Foodle.xcdatamodel; sourceTree = "<group>"; };
 		4BA12D8A2BA004CF00BC4EB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BA12D8D2BA004CF00BC4EB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4BA12D8F2BA004CF00BC4EB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BA12D952BA0054F00BC4EB0 /* Minjeong.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Minjeong.storyboard; sourceTree = "<group>"; };
+		4BC68AAC2BA2B67300FC6546 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +60,9 @@
 		4BA12D7D2BA004CE00BC4EB0 /* Foodle */ = {
 			isa = PBXGroup;
 			children = (
+				4BA12D972BA2AAA800BC4EB0 /* ViewController */,
 				4BA12D7E2BA004CE00BC4EB0 /* AppDelegate.swift */,
 				4BA12D802BA004CE00BC4EB0 /* SceneDelegate.swift */,
-				4BA12D822BA004CE00BC4EB0 /* ViewController.swift */,
 				4BA12D842BA004CE00BC4EB0 /* Jinhee.storyboard */,
 				4BA12D952BA0054F00BC4EB0 /* Minjeong.storyboard */,
 				4BA12D8A2BA004CF00BC4EB0 /* Assets.xcassets */,
@@ -71,6 +71,14 @@
 				4BA12D872BA004CE00BC4EB0 /* Foodle.xcdatamodeld */,
 			);
 			path = Foodle;
+			sourceTree = "<group>";
+		};
+		4BA12D972BA2AAA800BC4EB0 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4BC68AAC2BA2B67300FC6546 /* MainViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,9 +154,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BA12D892BA004CE00BC4EB0 /* Foodle.xcdatamodeld in Sources */,
-				4BA12D832BA004CE00BC4EB0 /* ViewController.swift in Sources */,
 				4BA12D7F2BA004CE00BC4EB0 /* AppDelegate.swift in Sources */,
 				4BA12D812BA004CE00BC4EB0 /* SceneDelegate.swift in Sources */,
+				4BC68AAD2BA2B67300FC6546 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,13 +308,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2KZXB85M2Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Foodle/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Foodle;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Jinhee;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
@@ -330,13 +339,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2KZXB85M2Q;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Foodle/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Foodle;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Jinhee;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
