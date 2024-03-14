@@ -15,6 +15,8 @@
 		4BA12D8E2BA004CF00BC4EB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA12D8C2BA004CF00BC4EB0 /* LaunchScreen.storyboard */; };
 		4BA12D962BA0054F00BC4EB0 /* Minjeong.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA12D952BA0054F00BC4EB0 /* Minjeong.storyboard */; };
 		4BC68AAD2BA2B67300FC6546 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC68AAC2BA2B67300FC6546 /* MainViewController.swift */; };
+		4BC68AB02BA2DAF200FC6546 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC68AAF2BA2DAF200FC6546 /* MainCollectionViewCell.swift */; };
+		4BC68AB22BA2DBD300FC6546 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC68AB12BA2DBD300FC6546 /* MainTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		4BA12D8F2BA004CF00BC4EB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BA12D952BA0054F00BC4EB0 /* Minjeong.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Minjeong.storyboard; sourceTree = "<group>"; };
 		4BC68AAC2BA2B67300FC6546 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		4BC68AAF2BA2DAF200FC6546 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
+		4BC68AB12BA2DBD300FC6546 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 		4BA12D7D2BA004CE00BC4EB0 /* Foodle */ = {
 			isa = PBXGroup;
 			children = (
+				4BC68AB32BA2DCA800FC6546 /* Cell */,
+				4BC68AAE2BA2D7FF00FC6546 /* Model */,
 				4BA12D972BA2AAA800BC4EB0 /* ViewController */,
 				4BA12D7E2BA004CE00BC4EB0 /* AppDelegate.swift */,
 				4BA12D802BA004CE00BC4EB0 /* SceneDelegate.swift */,
@@ -79,6 +85,22 @@
 				4BC68AAC2BA2B67300FC6546 /* MainViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		4BC68AAE2BA2D7FF00FC6546 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4BC68AB32BA2DCA800FC6546 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				4BC68AB12BA2DBD300FC6546 /* MainTableViewCell.swift */,
+				4BC68AAF2BA2DAF200FC6546 /* MainCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,9 +175,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BC68AB02BA2DAF200FC6546 /* MainCollectionViewCell.swift in Sources */,
 				4BA12D892BA004CE00BC4EB0 /* Foodle.xcdatamodeld in Sources */,
 				4BA12D7F2BA004CE00BC4EB0 /* AppDelegate.swift in Sources */,
 				4BA12D812BA004CE00BC4EB0 /* SceneDelegate.swift in Sources */,
+				4BC68AB22BA2DBD300FC6546 /* MainTableViewCell.swift in Sources */,
 				4BC68AAD2BA2B67300FC6546 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
