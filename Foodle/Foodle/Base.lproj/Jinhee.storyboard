@@ -249,6 +249,9 @@
                                                 <integer key="value" value="20"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="lCf-VJ-IoM" kind="show" id="sWg-79-mNi"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gbg-rp-Zto">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -291,20 +294,75 @@
             </objects>
             <point key="canvasLocation" x="3753.4351145038167" y="-2.1126760563380285"/>
         </scene>
-        <!--View Controller-->
+        <!--친구 선택-->
         <scene sceneID="xus-IG-q8n">
             <objects>
-                <viewController id="lCf-VJ-IoM" sceneMemberID="viewController">
+                <viewController id="lCf-VJ-IoM" customClass="SelectFriendsViewController" customModule="Foodle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xw5-dK-A2J">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="AFb-Rg-MWg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="tintColor" name="AccentColor"/>
                     </view>
+                    <navigationItem key="navigationItem" title="친구 선택" id="8y2-ch-FOB">
+                        <barButtonItem key="rightBarButtonItem" title="다음" id="qjU-9D-9bW">
+                            <connections>
+                                <segue destination="PIT-BE-dgP" kind="show" id="4Eg-Ki-6gq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NQO-Ou-rdj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4509" y="21"/>
+            <point key="canvasLocation" x="4811" y="-2"/>
+        </scene>
+        <!--일정 설정-->
+        <scene sceneID="5fh-K7-dim">
+            <objects>
+                <viewController id="PIT-BE-dgP" customClass="SetMeetingViewController" customModule="Foodle" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QBj-Zk-28l">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="tgP-ve-ZS5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="tintColor" name="AccentColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="일정 설정" id="Z2B-It-bqZ">
+                        <barButtonItem key="rightBarButtonItem" title="다음" id="TbS-1L-XRK">
+                            <connections>
+                                <segue destination="etu-XA-FYn" kind="show" id="93C-6Z-TTw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tsx-WM-5Qo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5660" y="-2"/>
+        </scene>
+        <!--Add Meeting Place View Controller-->
+        <scene sceneID="86V-4z-ubj">
+            <objects>
+                <viewController id="etu-XA-FYn" customClass="AddMeetingPlaceViewController" customModule="Foodle" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZM5-Bm-CM0">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Qfi-Xr-fgv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="tintColor" name="AccentColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="FCh-mC-qeU">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="6XV-Lh-fTC">
+                            <connections>
+                                <segue destination="v9F-fN-4nJ" kind="unwind" unwindAction="unwindToMain:" id="AnP-f9-tvU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qku-7c-140" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="v9F-fN-4nJ" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="6515" y="-2"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="lRO-36-n6c">

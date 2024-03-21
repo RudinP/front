@@ -29,6 +29,16 @@ class MainViewController: UIViewController {
         return view
     }()
     
+    @IBAction func unwindToMain(_ unwindSegue: UIStoryboardSegue) {
+        let sourceViewController = unwindSegue.source
+        // Use data from the view controller which initiated the unwind segue
+    }
+    
+    override func canPerformUnwindSegueAction(_ action: Selector, from fromViewController: UIViewController, sender: Any?) -> Bool {
+        showFloatMenu(floatingButton)
+        return true
+    }
+    
     @IBAction func openMap(_ sender: Any) {
     }
     
