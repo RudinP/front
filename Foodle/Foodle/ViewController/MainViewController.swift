@@ -15,13 +15,9 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationContrlloer()
-    }
-    
-    func setNavigationContrlloer(){
-        addSearchBar()
-        addProfileIcon()
         
+        addSearchBar()
+        addProfileIcon(nil)
     }
     
     func addSearchBar(){
@@ -34,14 +30,14 @@ class MainViewController: UIViewController {
         search.searchBar.tintColor = .black
         }
     
-    func addProfileIcon(){
+    func addProfileIcon(_ image: UIImage?){
         let containView = UIView(frame: CGRect(x: 0, y: -5, width: 40, height: 40))
-        let imageview = UIImageView(frame: containView.frame)
-        imageview.image = UIImage(systemName: "pawprint.circle")
-        imageview.contentMode = UIView.ContentMode.scaleAspectFit
-        imageview.layer.cornerRadius = imageview.frame.width / 2
-        imageview.layer.masksToBounds = true
-        containView.addSubview(imageview)
+        let imageView = UIImageView(frame: containView.frame)
+        imageView.image = image ?? UIImage(systemName: "pawprint.circle")
+        imageView.contentMode = UIView.ContentMode.scaleAspectFit
+        imageView.layer.cornerRadius = imageView.frame.width / 2
+        imageView.layer.masksToBounds = true
+        containView.addSubview(imageView)
         
         let rightBarButton = UIBarButtonItem(customView: containView)
         self.navigationItem.rightBarButtonItem = rightBarButton
