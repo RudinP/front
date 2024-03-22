@@ -9,19 +9,44 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    @IBOutlet weak var floatingButton: UIButton!
+    @IBOutlet weak var addMeetButton: UIButton!
+    @IBOutlet weak var floatingStackView: UIStackView!
+    
     @IBOutlet weak var mainTableView: UITableView!
+    
+    lazy var buttons: [UIButton] = [self.addMeetButton]
+    var isFloatShowing = false
+
+    lazy var floatingDimView: UIView = {
+        let view = UIView(frame: self.view.frame)
+        view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        view.alpha = 0
+        view.isHidden = true
+
+        self.view.insertSubview(view, belowSubview: self.floatingStackView)
+
+        return view
+    }()
+    
+    @IBAction func unwindToMain(_ unwindSegue: UIStoryboardSegue) {
+        let sourceViewController = unwindSegue.source
+        // Use data from the view controller which initiated the unwind segue
+    }
+    
+    override func canPerformUnwindSegueAction(_ action: Selector, from fromViewController: UIViewController, sender: Any?) -> Bool {
+        showFloatMenu(floatingButton)
+        return true
+    }
+    
     @IBAction func openMap(_ sender: Any) {
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationContrlloer()
-    }
-    
-    func setNavigationContrlloer(){
-        addSearchBar()
-        addProfileIcon()
         
+        addSearchBar()
+        addProfileIcon(nil)
     }
     
     func addSearchBar(){
@@ -34,18 +59,77 @@ class MainViewController: UIViewController {
         search.searchBar.tintColor = .black
         }
     
-    func addProfileIcon(){
+    func addProfileIcon(_ image: UIImage?){
         let containView = UIView(frame: CGRect(x: 0, y: -5, width: 40, height: 40))
-        let imageview = UIImageView(frame: containView.frame)
-        imageview.image = UIImage(systemName: "pawprint.circle")
-        imageview.contentMode = UIView.ContentMode.scaleAspectFit
-        imageview.layer.cornerRadius = imageview.frame.width / 2
-        imageview.layer.masksToBounds = true
-        containView.addSubview(imageview)
+        let imageView = UIImageView(frame: containView.frame)
+        imageView.image = image ?? UIImage(systemName: "pawprint.circle")
+        imageView.contentMode = UIView.ContentMode.scaleAspectFit
+        imageView.layer.cornerRadius = imageView.frame.width / 2
+        imageView.layer.masksToBounds = true
+        containView.addSubview(imageView)
         
         let rightBarButton = UIBarButtonItem(customView: containView)
         self.navigationItem.rightBarButtonItem = rightBarButton
     }
+    
+    func showFloat(){
+        buttons.forEach { [weak self] button in
+            button.isHidden = false
+            button.alpha = 0
+
+            UIView.animate(withDuration: 0.3) {
+                button.alpha = 1
+                self?.view.layoutIfNeeded()
+            }
+        }
+        
+    }
+    
+    func hideFloat(){
+        buttons.reversed().forEach { button in
+            UIView.animate(withDuration: 0.3) {
+                button.isHidden = true
+                self.view.layoutIfNeeded()
+            }
+        }
+
+    }
+    
+    func dimViewAnim(_ flag: Bool){
+        if flag{
+            /** DimView Show 애니메이션 **/
+            UIView.animate(withDuration: 0.5, animations: {
+                self.floatingDimView.alpha = 0
+            }) { (_) in
+                self.floatingDimView.isHidden = true
+            }
+        } else{
+            /** DimView Hide 애니메이션 **/
+            self.floatingDimView.isHidden = false
+            
+            UIView.animate(withDuration: 0.5) {
+                self.floatingDimView.alpha = 1
+            }
+        }
+    }
+    
+    @IBAction func showFloatMenu(_ sender: UIButton) {
+                
+        if isFloatShowing{
+            hideFloat()
+            dimViewAnim(isFloatShowing)
+        } else {
+            showFloat()
+            dimViewAnim(isFloatShowing)
+        }
+        
+        isFloatShowing = !isFloatShowing
+        let rotation = isFloatShowing ? CGAffineTransform(rotationAngle: .pi - (.pi / 4)) : CGAffineTransform.identity
+        UIView.animate(withDuration: 0.3) {
+            sender.transform = rotation
+        }
+    }
+    
 }
 
 extension MainViewController: UISearchControllerDelegate, UISearchBarDelegate{

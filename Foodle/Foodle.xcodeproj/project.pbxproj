@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		4B1261372BA31450002F52BD /* UpcomingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1261362BA31450002F52BD /* UpcomingCollectionViewCell.swift */; };
+		4B73950C2BAC3187006843DB /* SelectFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B73950B2BAC3187006843DB /* SelectFriendsViewController.swift */; };
+		4B73950E2BAC31A4006843DB /* SetMeetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B73950D2BAC31A4006843DB /* SetMeetingViewController.swift */; };
+		4B7395102BAC31BB006843DB /* AddMeetingPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B73950F2BAC31BB006843DB /* AddMeetingPlaceViewController.swift */; };
+		4B7395122BAC3D32006843DB /* AddMeetingPlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7395112BAC3D32006843DB /* AddMeetingPlaceTableViewCell.swift */; };
 		4BA12D7F2BA004CE00BC4EB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA12D7E2BA004CE00BC4EB0 /* AppDelegate.swift */; };
 		4BA12D812BA004CE00BC4EB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA12D802BA004CE00BC4EB0 /* SceneDelegate.swift */; };
 		4BA12D862BA004CE00BC4EB0 /* Jinhee.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA12D842BA004CE00BC4EB0 /* Jinhee.storyboard */; };
@@ -22,6 +26,10 @@
 
 /* Begin PBXFileReference section */
 		4B1261362BA31450002F52BD /* UpcomingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingCollectionViewCell.swift; sourceTree = "<group>"; };
+		4B73950B2BAC3187006843DB /* SelectFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFriendsViewController.swift; sourceTree = "<group>"; };
+		4B73950D2BAC31A4006843DB /* SetMeetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetMeetingViewController.swift; sourceTree = "<group>"; };
+		4B73950F2BAC31BB006843DB /* AddMeetingPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMeetingPlaceViewController.swift; sourceTree = "<group>"; };
+		4B7395112BAC3D32006843DB /* AddMeetingPlaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMeetingPlaceTableViewCell.swift; sourceTree = "<group>"; };
 		4BA12D7B2BA004CE00BC4EB0 /* Foodle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foodle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BA12D7E2BA004CE00BC4EB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BA12D802BA004CE00BC4EB0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +93,9 @@
 			isa = PBXGroup;
 			children = (
 				4BC68AAC2BA2B67300FC6546 /* MainViewController.swift */,
+				4B73950B2BAC3187006843DB /* SelectFriendsViewController.swift */,
+				4B73950D2BAC31A4006843DB /* SetMeetingViewController.swift */,
+				4B73950F2BAC31BB006843DB /* AddMeetingPlaceViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -102,6 +113,7 @@
 				4BC68AB12BA2DBD300FC6546 /* MainTableViewCell.swift */,
 				4BC68AAF2BA2DAF200FC6546 /* MainCollectionViewCell.swift */,
 				4B1261362BA31450002F52BD /* UpcomingCollectionViewCell.swift */,
+				4B7395112BAC3D32006843DB /* AddMeetingPlaceTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -178,10 +190,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B7395122BAC3D32006843DB /* AddMeetingPlaceTableViewCell.swift in Sources */,
 				4BC68AB02BA2DAF200FC6546 /* MainCollectionViewCell.swift in Sources */,
 				4BA12D892BA004CE00BC4EB0 /* Foodle.xcdatamodeld in Sources */,
+				4B73950C2BAC3187006843DB /* SelectFriendsViewController.swift in Sources */,
 				4BA12D7F2BA004CE00BC4EB0 /* AppDelegate.swift in Sources */,
+				4B73950E2BAC31A4006843DB /* SetMeetingViewController.swift in Sources */,
 				4BA12D812BA004CE00BC4EB0 /* SceneDelegate.swift in Sources */,
+				4B7395102BAC31BB006843DB /* AddMeetingPlaceViewController.swift in Sources */,
 				4B1261372BA31450002F52BD /* UpcomingCollectionViewCell.swift in Sources */,
 				4BC68AB22BA2DBD300FC6546 /* MainTableViewCell.swift in Sources */,
 				4BC68AAD2BA2B67300FC6546 /* MainViewController.swift in Sources */,
