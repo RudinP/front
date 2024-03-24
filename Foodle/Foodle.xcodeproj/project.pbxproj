@@ -22,6 +22,10 @@
 		4BC68AAD2BA2B67300FC6546 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC68AAC2BA2B67300FC6546 /* MainViewController.swift */; };
 		4BC68AB02BA2DAF200FC6546 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC68AAF2BA2DAF200FC6546 /* MainCollectionViewCell.swift */; };
 		4BC68AB22BA2DBD300FC6546 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC68AB12BA2DBD300FC6546 /* MainTableViewCell.swift */; };
+		92B688482BB0A20400D7DF2C /* LoginViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B688472BB0A20400D7DF2C /* LoginViewCell.swift */; };
+		92B6884D2BB0A46E00D7DF2C /* icon_apple.png in Resources */ = {isa = PBXBuildFile; fileRef = 92B6884A2BB0A46D00D7DF2C /* icon_apple.png */; };
+		92B6884E2BB0A46E00D7DF2C /* icon_kakao.png in Resources */ = {isa = PBXBuildFile; fileRef = 92B6884B2BB0A46D00D7DF2C /* icon_kakao.png */; };
+		92B6884F2BB0A46E00D7DF2C /* icon_naver.png in Resources */ = {isa = PBXBuildFile; fileRef = 92B6884C2BB0A46E00D7DF2C /* icon_naver.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +46,10 @@
 		4BC68AAC2BA2B67300FC6546 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4BC68AAF2BA2DAF200FC6546 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		4BC68AB12BA2DBD300FC6546 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		92B688472BB0A20400D7DF2C /* LoginViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewCell.swift; sourceTree = "<group>"; };
+		92B6884A2BB0A46D00D7DF2C /* icon_apple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_apple.png; sourceTree = "<group>"; };
+		92B6884B2BB0A46D00D7DF2C /* icon_kakao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_kakao.png; sourceTree = "<group>"; };
+		92B6884C2BB0A46E00D7DF2C /* icon_naver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_naver.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +82,7 @@
 		4BA12D7D2BA004CE00BC4EB0 /* Foodle */ = {
 			isa = PBXGroup;
 			children = (
+				92B688492BB0A45500D7DF2C /* Image */,
 				4BC68AB32BA2DCA800FC6546 /* Cell */,
 				4BC68AAE2BA2D7FF00FC6546 /* Model */,
 				4BA12D972BA2AAA800BC4EB0 /* ViewController */,
@@ -114,8 +123,19 @@
 				4BC68AAF2BA2DAF200FC6546 /* MainCollectionViewCell.swift */,
 				4B1261362BA31450002F52BD /* UpcomingCollectionViewCell.swift */,
 				4B7395112BAC3D32006843DB /* AddMeetingPlaceTableViewCell.swift */,
+				92B688472BB0A20400D7DF2C /* LoginViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		92B688492BB0A45500D7DF2C /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				92B6884A2BB0A46D00D7DF2C /* icon_apple.png */,
+				92B6884B2BB0A46D00D7DF2C /* icon_kakao.png */,
+				92B6884C2BB0A46E00D7DF2C /* icon_naver.png */,
+			);
+			path = Image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,7 +198,10 @@
 			files = (
 				4BA12D8E2BA004CF00BC4EB0 /* LaunchScreen.storyboard in Resources */,
 				4BA12D962BA0054F00BC4EB0 /* Minjeong.storyboard in Resources */,
+				92B6884D2BB0A46E00D7DF2C /* icon_apple.png in Resources */,
+				92B6884F2BB0A46E00D7DF2C /* icon_naver.png in Resources */,
 				4BA12D8B2BA004CF00BC4EB0 /* Assets.xcassets in Resources */,
+				92B6884E2BB0A46E00D7DF2C /* icon_kakao.png in Resources */,
 				4BA12D862BA004CE00BC4EB0 /* Jinhee.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,6 +219,7 @@
 				4B73950C2BAC3187006843DB /* SelectFriendsViewController.swift in Sources */,
 				4BA12D7F2BA004CE00BC4EB0 /* AppDelegate.swift in Sources */,
 				4B73950E2BAC31A4006843DB /* SetMeetingViewController.swift in Sources */,
+				92B688482BB0A20400D7DF2C /* LoginViewCell.swift in Sources */,
 				4BA12D812BA004CE00BC4EB0 /* SceneDelegate.swift in Sources */,
 				4B7395102BAC31BB006843DB /* AddMeetingPlaceViewController.swift in Sources */,
 				4B1261372BA31450002F52BD /* UpcomingCollectionViewCell.swift in Sources */,
