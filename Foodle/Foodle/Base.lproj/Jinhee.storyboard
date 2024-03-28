@@ -288,6 +288,7 @@
                         <outlet property="addMeetButton" destination="V5l-1f-QKf" id="VUq-Vy-h2R"/>
                         <outlet property="floatingButton" destination="Gbg-rp-Zto" id="87S-s2-uWa"/>
                         <outlet property="floatingStackView" destination="FnV-nd-NA8" id="hBy-jj-fdY"/>
+                        <segue destination="oXt-Ob-nUh" kind="show" identifier="ToProfile" id="qTS-Is-2No"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -539,6 +540,16 @@
             </objects>
             <point key="canvasLocation" x="6513.740458015267" y="-2.1126760563380285"/>
         </scene>
+        <!--Minjeong-->
+        <scene sceneID="iay-o0-Hqv">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Minjeong" id="oXt-Ob-nUh" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="8gU-dK-cxA"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d5t-Uc-YQV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4333" y="-443"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="lRO-36-n6c">
             <objects>
@@ -656,13 +667,13 @@
             <color red="0.81699997186660767" green="0.80699998140335083" blue="0.91399997472763062" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
