@@ -637,6 +637,34 @@
                                             <outlet property="timeLabel" destination="uTa-Vd-BkB" id="9qe-iY-2ws"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddPlaceCell" id="KGH-9U-niP">
+                                        <rect key="frame" x="0.0" y="274" width="393" height="40"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KGH-9U-niP" id="N1e-D1-iXm">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="40"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5hb-DE-L1L">
+                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="n5Z-T1-hww"/>
+                                                    </constraints>
+                                                    <color key="tintColor" systemColor="labelColor"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="plus.circle.fill" catalog="system" title=" 장소 추가하기">
+                                                        <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
+                                                    </buttonConfiguration>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="5hb-DE-L1L" secondAttribute="trailing" id="03M-6a-yv2"/>
+                                                <constraint firstItem="5hb-DE-L1L" firstAttribute="top" secondItem="N1e-D1-iXm" secondAttribute="top" id="2DE-DO-cU8"/>
+                                                <constraint firstItem="5hb-DE-L1L" firstAttribute="leading" secondItem="N1e-D1-iXm" secondAttribute="leading" id="P6o-kN-avh"/>
+                                                <constraint firstAttribute="bottom" secondItem="5hb-DE-L1L" secondAttribute="bottom" id="aye-Dv-pkV"/>
+                                                <constraint firstItem="5hb-DE-L1L" firstAttribute="centerX" secondItem="N1e-D1-iXm" secondAttribute="centerX" id="v7Q-Jr-94g"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="etu-XA-FYn" id="q4p-Tj-O6k"/>
@@ -790,6 +818,9 @@
         <namedColor name="SecondAccent">
             <color red="0.81699997186660767" green="0.80699998140335083" blue="0.91399997472763062" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
