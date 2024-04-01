@@ -27,6 +27,7 @@
 		92B6884D2BB0A46E00D7DF2C /* icon_apple.png in Resources */ = {isa = PBXBuildFile; fileRef = 92B6884A2BB0A46D00D7DF2C /* icon_apple.png */; };
 		92B6884E2BB0A46E00D7DF2C /* icon_kakao.png in Resources */ = {isa = PBXBuildFile; fileRef = 92B6884B2BB0A46D00D7DF2C /* icon_kakao.png */; };
 		92B6884F2BB0A46E00D7DF2C /* icon_naver.png in Resources */ = {isa = PBXBuildFile; fileRef = 92B6884C2BB0A46E00D7DF2C /* icon_naver.png */; };
+		92B688632BBB177D00D7DF2C /* FriendsListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B688622BBB177D00D7DF2C /* FriendsListViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		92B6884A2BB0A46D00D7DF2C /* icon_apple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_apple.png; sourceTree = "<group>"; };
 		92B6884B2BB0A46D00D7DF2C /* icon_kakao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_kakao.png; sourceTree = "<group>"; };
 		92B6884C2BB0A46E00D7DF2C /* icon_naver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_naver.png; sourceTree = "<group>"; };
+		92B688622BBB177D00D7DF2C /* FriendsListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 				4B1261362BA31450002F52BD /* UpcomingCollectionViewCell.swift */,
 				4B7395112BAC3D32006843DB /* AddMeetingPlaceTableViewCell.swift */,
 				92B688472BB0A20400D7DF2C /* LoginViewCell.swift */,
+				92B688622BBB177D00D7DF2C /* FriendsListViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 			files = (
 				4B7395122BAC3D32006843DB /* AddMeetingPlaceTableViewCell.swift in Sources */,
 				4BC68AB02BA2DAF200FC6546 /* MainCollectionViewCell.swift in Sources */,
+				92B688632BBB177D00D7DF2C /* FriendsListViewCell.swift in Sources */,
 				4BA12D892BA004CE00BC4EB0 /* Foodle.xcdatamodeld in Sources */,
 				4B73950C2BAC3187006843DB /* SelectFriendsViewController.swift in Sources */,
 				4BA12D7F2BA004CE00BC4EB0 /* AppDelegate.swift in Sources */,
