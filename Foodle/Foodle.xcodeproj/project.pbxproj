@@ -19,6 +19,7 @@
 		4BA12D8B2BA004CF00BC4EB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BA12D8A2BA004CF00BC4EB0 /* Assets.xcassets */; };
 		4BA12D8E2BA004CF00BC4EB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA12D8C2BA004CF00BC4EB0 /* LaunchScreen.storyboard */; };
 		4BA12D962BA0054F00BC4EB0 /* Minjeong.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA12D952BA0054F00BC4EB0 /* Minjeong.storyboard */; };
+		4BB15A002BB532BC0090A6DE /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB159FF2BB532BC0090A6DE /* UIImageExtension.swift */; };
 		4BC68AAD2BA2B67300FC6546 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC68AAC2BA2B67300FC6546 /* MainViewController.swift */; };
 		4BC68AB02BA2DAF200FC6546 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC68AAF2BA2DAF200FC6546 /* MainCollectionViewCell.swift */; };
 		4BC68AB22BA2DBD300FC6546 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC68AB12BA2DBD300FC6546 /* MainTableViewCell.swift */; };
@@ -43,6 +44,7 @@
 		4BA12D8D2BA004CF00BC4EB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4BA12D8F2BA004CF00BC4EB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BA12D952BA0054F00BC4EB0 /* Minjeong.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Minjeong.storyboard; sourceTree = "<group>"; };
+		4BB159FF2BB532BC0090A6DE /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		4BC68AAC2BA2B67300FC6546 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4BC68AAF2BA2DAF200FC6546 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		4BC68AB12BA2DBD300FC6546 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				92B688492BB0A45500D7DF2C /* Image */,
+				4BB159FE2BB5329E0090A6DE /* Utility */,
 				4BC68AB32BA2DCA800FC6546 /* Cell */,
 				4BC68AAE2BA2D7FF00FC6546 /* Model */,
 				4BA12D972BA2AAA800BC4EB0 /* ViewController */,
@@ -107,6 +110,14 @@
 				4B73950F2BAC31BB006843DB /* AddMeetingPlaceViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		4BB159FE2BB5329E0090A6DE /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				4BB159FF2BB532BC0090A6DE /* UIImageExtension.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		4BC68AAE2BA2D7FF00FC6546 /* Model */ = {
@@ -223,6 +234,7 @@
 				4BA12D812BA004CE00BC4EB0 /* SceneDelegate.swift in Sources */,
 				4B7395102BAC31BB006843DB /* AddMeetingPlaceViewController.swift in Sources */,
 				4B1261372BA31450002F52BD /* UpcomingCollectionViewCell.swift in Sources */,
+				4BB15A002BB532BC0090A6DE /* UIImageExtension.swift in Sources */,
 				4BC68AB22BA2DBD300FC6546 /* MainTableViewCell.swift in Sources */,
 				4BC68AAD2BA2B67300FC6546 /* MainViewController.swift in Sources */,
 			);

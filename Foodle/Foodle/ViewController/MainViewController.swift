@@ -60,16 +60,18 @@ class MainViewController: UIViewController {
         }
     
     func addProfileIcon(_ image: UIImage?){
-        let containView = UIView(frame: CGRect(x: 0, y: -5, width: 40, height: 40))
-        let imageView = UIImageView(frame: containView.frame)
-        imageView.image = image ?? UIImage(systemName: "pawprint.circle")
-        imageView.contentMode = UIView.ContentMode.scaleAspectFit
-        imageView.layer.cornerRadius = imageView.frame.width / 2
-        imageView.layer.masksToBounds = true
-        containView.addSubview(imageView)
-        
-        let rightBarButton = UIBarButtonItem(customView: containView)
-        self.navigationItem.rightBarButtonItem = rightBarButton
+        let profileButton = UIButton(frame: CGRect(x: 0, y: -5, width: 40, height: 40))
+        profileButton.setBackgroundImage(image ?? UIImage(systemName: "pawprint.circle"), for: .normal)
+        profileButton.addTarget(self, action: #selector(toProfile), for: .touchUpInside)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: profileButton)
+    }
+    
+    @objc func toProfile(){
+        performSegue(withIdentifier: "ToProfile", sender: nil)
+    }
+    
+    override func performSegue(withIdentifier identifier: String, sender: Any?) {
+        super.performSegue(withIdentifier: identifier, sender: sender)
     }
     
     func showFloat(){

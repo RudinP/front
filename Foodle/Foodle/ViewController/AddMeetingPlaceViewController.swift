@@ -46,6 +46,11 @@ extension AddMeetingPlaceViewController: UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //나중에 마지막 인덱스로 변경
+        guard indexPath.row != 1 else {
+            let cell = addMeetingPlaceTableView.dequeueReusableCell(withIdentifier: "AddPlaceCell", for: indexPath)
+            return cell
+        }
         guard let cell = addMeetingPlaceTableView.dequeueReusableCell(withIdentifier: "AddMeetingPlaceTableViewCell", for: indexPath) as? AddMeetingPlaceTableViewCell else {return UITableViewCell()}
         
         cell.placeLabel.text = "가나다라마바사아자차카타파하"
