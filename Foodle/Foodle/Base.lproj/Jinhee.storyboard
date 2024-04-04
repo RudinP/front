@@ -707,10 +707,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2gZ-95-yab">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="685.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="705.33333333333337"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Svm-xg-FRg">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
+                                                <rect key="frame" x="10" y="10" width="373" height="200"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="G9O-sg-zit"/>
@@ -730,7 +730,7 @@
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WZe-ZV-zSx">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="256" height="193"/>
+                                                                    <rect key="frame" x="5" y="0.0" width="246" height="193"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="200" id="CbD-k7-zi2"/>
                                                                         <constraint firstAttribute="width" constant="256" id="DkX-tb-CMB"/>
@@ -739,8 +739,8 @@
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="WZe-ZV-zSx" firstAttribute="top" secondItem="9no-4B-vI9" secondAttribute="top" id="CS2-mU-TVw"/>
-                                                                <constraint firstItem="WZe-ZV-zSx" firstAttribute="leading" secondItem="9no-4B-vI9" secondAttribute="leading" id="JWv-Ff-AfT"/>
-                                                                <constraint firstAttribute="trailing" secondItem="WZe-ZV-zSx" secondAttribute="trailing" id="TS3-y0-Ibh"/>
+                                                                <constraint firstItem="WZe-ZV-zSx" firstAttribute="leading" secondItem="9no-4B-vI9" secondAttribute="leading" constant="5" id="JWv-Ff-AfT"/>
+                                                                <constraint firstAttribute="trailing" secondItem="WZe-ZV-zSx" secondAttribute="trailing" constant="5" id="TS3-y0-Ibh"/>
                                                                 <constraint firstAttribute="bottom" secondItem="WZe-ZV-zSx" secondAttribute="bottom" id="v93-ZV-cGP"/>
                                                             </constraints>
                                                         </collectionViewCellContentView>
@@ -755,7 +755,7 @@
                                                 </connections>
                                             </collectionView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hfL-vD-A8D">
-                                                <rect key="frame" x="0.0" y="209.99999999999997" width="393" height="475.33333333333326"/>
+                                                <rect key="frame" x="10" y="219.99999999999997" width="373" height="475.33333333333326"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="ZMk-jY-hcQ">
                                                         <rect key="frame" x="0.0" y="0.0" width="237.66666666666666" height="80.333333333333329"/>
@@ -815,7 +815,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="ljC-7V-h6X">
-                                                        <rect key="frame" x="0.0" y="174.33333333333331" width="393" height="64.666666666666686"/>
+                                                        <rect key="frame" x="0.0" y="174.33333333333331" width="373" height="64.666666666666686"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인스타그램 바로가기&gt;" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rBd-nr-Ydh">
                                                                 <rect key="frame" x="0.0" y="0.0" width="172.66666666666666" height="24"/>
@@ -824,7 +824,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인스타그램에 임시 휴무 공지가 있을 수 있으니 확인해보세요!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEa-mm-4qc">
-                                                                <rect key="frame" x="0.0" y="23.999999999999996" width="393" height="40.666666666666657"/>
+                                                                <rect key="frame" x="0.0" y="23.999999999999996" width="373" height="40.666666666666657"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -859,14 +859,15 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
+                                        <edgeInsets key="layoutMargins" top="10" left="10" bottom="10" right="10"/>
                                     </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="2gZ-95-yab" firstAttribute="bottom" secondItem="U4s-IH-dMC" secondAttribute="bottom" id="5GI-Yz-bIS"/>
-                                    <constraint firstItem="2gZ-95-yab" firstAttribute="width" secondItem="GRs-T7-AJg" secondAttribute="width" id="Ddj-If-9Wg"/>
                                     <constraint firstItem="2gZ-95-yab" firstAttribute="leading" secondItem="U4s-IH-dMC" secondAttribute="leading" id="Sm1-hk-lKB"/>
                                     <constraint firstItem="2gZ-95-yab" firstAttribute="top" secondItem="U4s-IH-dMC" secondAttribute="top" id="VGq-wR-a10"/>
                                     <constraint firstItem="2gZ-95-yab" firstAttribute="trailing" secondItem="U4s-IH-dMC" secondAttribute="trailing" id="Wj6-vL-1W2"/>
+                                    <constraint firstItem="2gZ-95-yab" firstAttribute="width" secondItem="GRs-T7-AJg" secondAttribute="width" id="XcF-Uv-48R"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="U4s-IH-dMC"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="GRs-T7-AJg"/>
@@ -877,7 +878,7 @@
                         <constraints>
                             <constraint firstItem="RlX-2u-jFg" firstAttribute="top" secondItem="kUP-ri-HED" secondAttribute="top" id="PmP-U2-dai"/>
                             <constraint firstItem="RlX-2u-jFg" firstAttribute="leading" secondItem="kUP-ri-HED" secondAttribute="leading" id="cZM-pO-xM1"/>
-                            <constraint firstItem="KEa-mm-4qc" firstAttribute="width" secondItem="Ojj-dV-Lf3" secondAttribute="width" id="mYj-Xt-1I2"/>
+                            <constraint firstItem="KEa-mm-4qc" firstAttribute="width" secondItem="Ojj-dV-Lf3" secondAttribute="width" priority="750" id="mYj-Xt-1I2"/>
                             <constraint firstAttribute="trailing" secondItem="RlX-2u-jFg" secondAttribute="trailing" id="qN7-YM-9yE"/>
                             <constraint firstAttribute="bottom" secondItem="RlX-2u-jFg" secondAttribute="bottom" id="xOe-zR-t9r"/>
                         </constraints>
