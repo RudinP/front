@@ -50,10 +50,11 @@ class MainViewController: UIViewController {
     }
     
     func addSearchBar(){
-        let search = UISearchController(searchResultsController: nil)
+        let search = UISearchController(searchResultsController: SearchViewController())
         search.delegate = self
         search.searchBar.delegate = self
         self.navigationItem.searchController = search
+        self.navigationItem.hidesSearchBarWhenScrolling = false
         search.searchBar.placeholder = ""
         search.searchBar.searchTextField.backgroundColor = .white
         search.searchBar.tintColor = .black
@@ -134,7 +135,13 @@ class MainViewController: UIViewController {
     
 }
 
-extension MainViewController: UISearchControllerDelegate, UISearchBarDelegate{
+extension MainViewController: UISearchControllerDelegate, UISearchBarDelegate, UISearchResultsUpdating{
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else {
+            return
+        }
+        print(text)
+    }
     
 }
 
