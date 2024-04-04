@@ -8,7 +8,7 @@
 import UIKit
 
 class DetailPlaceViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -17,7 +17,7 @@ class DetailPlaceViewController: UIViewController {
 
 extension DetailPlaceViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3;
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

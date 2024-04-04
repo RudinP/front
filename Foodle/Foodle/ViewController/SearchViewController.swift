@@ -51,11 +51,7 @@ class SearchViewController: UIViewController {
         setMapConstraints()
         mapView.showsUserLocation = true
     }
-    
-    func move(to location: CLLocation){
-        let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 100, longitudinalMeters: 100)
-        mapView.setRegion(region, animated: true)
-    }
+        
 }
 
 extension SearchViewController: MKMapViewDelegate{
@@ -63,6 +59,12 @@ extension SearchViewController: MKMapViewDelegate{
 }
 
 extension SearchViewController: CLLocationManagerDelegate{
+    
+    func move(to location: CLLocation){
+        let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 100, longitudinalMeters: 100)
+        mapView.setRegion(region, animated: true)
+    }
+    
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch manager.authorizationStatus {
         case .notDetermined:

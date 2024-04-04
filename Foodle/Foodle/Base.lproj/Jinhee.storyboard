@@ -654,6 +654,9 @@
                                                     <buttonConfiguration key="configuration" style="plain" image="plus.circle.fill" catalog="system" title=" 장소 추가하기">
                                                         <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
                                                     </buttonConfiguration>
+                                                    <connections>
+                                                        <segue destination="b3Z-rC-oH0" kind="presentation" id="PBu-mC-Grq"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -697,11 +700,11 @@
             <objects>
                 <viewController id="b3Z-rC-oH0" customClass="DetailPlaceViewController" customModule="Foodle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kUP-ri-HED">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RlX-2u-jFg">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2gZ-95-yab">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="685.33333333333337"/>
@@ -712,7 +715,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="G9O-sg-zit"/>
                                                 </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HBO-Kz-oSG">
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HBO-Kz-oSG">
                                                     <size key="itemSize" width="256" height="193"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -720,7 +723,7 @@
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PlaceImageCell" id="GA2-gw-emG" customClass="PlaceImageCollectionViewCell" customModule="Foodle" customModuleProvider="target">
-                                                        <rect key="frame" x="68.666666666666671" y="0.0" width="256" height="193"/>
+                                                        <rect key="frame" x="0.0" y="3.6666666666666665" width="256" height="193"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9no-4B-vI9">
                                                             <rect key="frame" x="0.0" y="0.0" width="256" height="193"/>
@@ -882,7 +885,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kQj-hw-e5X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3736.6412213740455" y="-685.21126760563379"/>
+            <point key="canvasLocation" x="7326" y="-2"/>
         </scene>
         <!--LoginView-->
         <scene sceneID="iay-o0-Hqv">
