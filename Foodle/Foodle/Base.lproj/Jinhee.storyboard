@@ -692,10 +692,10 @@
             </objects>
             <point key="canvasLocation" x="6513.740458015267" y="-2.1126760563380285"/>
         </scene>
-        <!--Minjeong-->
+        <!--LoginView-->
         <scene sceneID="iay-o0-Hqv">
             <objects>
-                <viewControllerPlaceholder storyboardName="Minjeong" id="oXt-Ob-nUh" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Minjeong" referencedIdentifier="LoginView" id="oXt-Ob-nUh" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="8gU-dK-cxA"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d5t-Uc-YQV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -717,7 +717,7 @@
                         <segue destination="Zrf-eY-Vsr" kind="relationship" relationship="viewControllers" id="Pdd-Yo-qha"/>
                         <segue destination="6Di-2w-rPI" kind="relationship" relationship="viewControllers" id="29k-OS-V7I"/>
                         <segue destination="PS4-1t-AAv" kind="relationship" relationship="viewControllers" id="7i3-Nd-0Ip"/>
-                        <segue destination="8lj-O8-b1O" kind="relationship" relationship="viewControllers" id="1ej-1v-TXE"/>
+                        <segue destination="zYi-g3-aDW" kind="relationship" relationship="viewControllers" id="WWf-1o-bnZ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uGG-X1-uBq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -769,7 +769,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z7R-TE-K1e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1900" y="809"/>
+            <point key="canvasLocation" x="909" y="808"/>
         </scene>
         <!--일정목록-->
         <scene sceneID="G08-Kw-gcY">
@@ -785,23 +785,17 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7aN-vE-FTl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2866" y="808"/>
+            <point key="canvasLocation" x="1973" y="808"/>
         </scene>
-        <!--친구 목록-->
-        <scene sceneID="5ha-Qu-tVR">
+        <!--Minjeong-->
+        <scene sceneID="m7Z-Ae-oRT">
             <objects>
-                <viewController id="8lj-O8-b1O" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ilN-jA-vsk">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="pvr-7a-LPu"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="친구 목록" image="pawprint" catalog="system" id="aEz-Cq-rxj"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UQg-Lw-L9X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Minjeong" id="zYi-g3-aDW" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="친구 목록" image="pawprint" catalog="system" id="oNz-Vi-Q4G"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iqV-HE-hHH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3753" y="808"/>
+            <point key="canvasLocation" x="3002" y="517"/>
         </scene>
     </scenes>
     <resources>

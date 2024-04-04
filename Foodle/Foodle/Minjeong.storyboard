@@ -13,7 +13,7 @@
         <!--Login View Cell-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="LoginViewCell" customModule="Foodle" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginView" id="Y6W-OH-hqX" customClass="LoginViewCell" customModule="Foodle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -68,10 +68,10 @@
             </objects>
             <point key="canvasLocation" x="67.938931297709928" y="-28.169014084507044"/>
         </scene>
-        <!--Friends List View Cell-->
+        <!--친구 목록-->
         <scene sceneID="1YV-uZ-GES">
             <objects>
-                <viewController id="Qyf-86-DDs" customClass="FriendsListViewCell" customModule="Foodle" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FriendListView" id="Qyf-86-DDs" customClass="FriendsListViewCell" customModule="Foodle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FDE-Mg-lFZ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -194,6 +194,8 @@
                         <viewLayoutGuide key="safeArea" id="bUq-qF-hMs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="친구 목록" image="pawprint" catalog="system" id="vYd-Iv-WII"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="allLabel" destination="6yk-pc-Q8M" id="uNd-yy-tbQ"/>
                         <outlet property="allTable" destination="yhW-cs-JZ5" id="lum-6p-IrN"/>
@@ -208,6 +210,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="pawprint" catalog="system" width="128" height="114"/>
         <namedColor name="AccentColor">
             <color red="0.67799997329711914" green="0.57599997520446777" blue="0.9100000262260437" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
