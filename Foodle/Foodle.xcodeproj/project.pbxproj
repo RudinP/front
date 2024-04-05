@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		4B1261372BA31450002F52BD /* UpcomingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1261362BA31450002F52BD /* UpcomingCollectionViewCell.swift */; };
+		4B5D9B6D2BBE3FFB00F1BD58 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D9B6C2BBE3FFB00F1BD58 /* SearchViewController.swift */; };
+		4B5D9B6F2BBE406400F1BD58 /* DetailPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D9B6E2BBE406400F1BD58 /* DetailPlaceViewController.swift */; };
+		4B5D9B712BBE4CB200F1BD58 /* PlaceImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D9B702BBE4CB200F1BD58 /* PlaceImageCollectionViewCell.swift */; };
+		4B5D9B732BBE53A400F1BD58 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4B5D9B722BBE53A400F1BD58 /* Settings.bundle */; };
 		4B73950C2BAC3187006843DB /* SelectFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B73950B2BAC3187006843DB /* SelectFriendsViewController.swift */; };
 		4B73950E2BAC31A4006843DB /* SetMeetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B73950D2BAC31A4006843DB /* SetMeetingViewController.swift */; };
 		4B7395102BAC31BB006843DB /* AddMeetingPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B73950F2BAC31BB006843DB /* AddMeetingPlaceViewController.swift */; };
@@ -32,6 +36,10 @@
 
 /* Begin PBXFileReference section */
 		4B1261362BA31450002F52BD /* UpcomingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingCollectionViewCell.swift; sourceTree = "<group>"; };
+		4B5D9B6C2BBE3FFB00F1BD58 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		4B5D9B6E2BBE406400F1BD58 /* DetailPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPlaceViewController.swift; sourceTree = "<group>"; };
+		4B5D9B702BBE4CB200F1BD58 /* PlaceImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		4B5D9B722BBE53A400F1BD58 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		4B73950B2BAC3187006843DB /* SelectFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFriendsViewController.swift; sourceTree = "<group>"; };
 		4B73950D2BAC31A4006843DB /* SetMeetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetMeetingViewController.swift; sourceTree = "<group>"; };
 		4B73950F2BAC31BB006843DB /* AddMeetingPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMeetingPlaceViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +107,7 @@
 				4BA12D8C2BA004CF00BC4EB0 /* LaunchScreen.storyboard */,
 				4BA12D8F2BA004CF00BC4EB0 /* Info.plist */,
 				4BA12D872BA004CE00BC4EB0 /* Foodle.xcdatamodeld */,
+				4B5D9B722BBE53A400F1BD58 /* Settings.bundle */,
 			);
 			path = Foodle;
 			sourceTree = "<group>";
@@ -110,6 +119,8 @@
 				4B73950B2BAC3187006843DB /* SelectFriendsViewController.swift */,
 				4B73950D2BAC31A4006843DB /* SetMeetingViewController.swift */,
 				4B73950F2BAC31BB006843DB /* AddMeetingPlaceViewController.swift */,
+				4B5D9B6C2BBE3FFB00F1BD58 /* SearchViewController.swift */,
+				4B5D9B6E2BBE406400F1BD58 /* DetailPlaceViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -138,6 +149,7 @@
 				4B7395112BAC3D32006843DB /* AddMeetingPlaceTableViewCell.swift */,
 				92B688472BB0A20400D7DF2C /* LoginViewCell.swift */,
 				92B688622BBB177D00D7DF2C /* FriendsListViewCell.swift */,
+				4B5D9B702BBE4CB200F1BD58 /* PlaceImageCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -210,6 +222,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B5D9B732BBE53A400F1BD58 /* Settings.bundle in Resources */,
 				4BA12D8E2BA004CF00BC4EB0 /* LaunchScreen.storyboard in Resources */,
 				4BA12D962BA0054F00BC4EB0 /* Minjeong.storyboard in Resources */,
 				92B6884D2BB0A46E00D7DF2C /* icon_apple.png in Resources */,
@@ -227,9 +240,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B5D9B6D2BBE3FFB00F1BD58 /* SearchViewController.swift in Sources */,
+				4B5D9B6F2BBE406400F1BD58 /* DetailPlaceViewController.swift in Sources */,
 				4B7395122BAC3D32006843DB /* AddMeetingPlaceTableViewCell.swift in Sources */,
 				4BC68AB02BA2DAF200FC6546 /* MainCollectionViewCell.swift in Sources */,
 				92B688632BBB177D00D7DF2C /* FriendsListViewCell.swift in Sources */,
+				4B5D9B712BBE4CB200F1BD58 /* PlaceImageCollectionViewCell.swift in Sources */,
 				4BA12D892BA004CE00BC4EB0 /* Foodle.xcdatamodeld in Sources */,
 				4B73950C2BAC3187006843DB /* SelectFriendsViewController.swift in Sources */,
 				4BA12D7F2BA004CE00BC4EB0 /* AppDelegate.swift in Sources */,
