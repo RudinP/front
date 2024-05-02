@@ -36,6 +36,7 @@ class SearchViewController: UIViewController {
         manager.delegate = self
         manager.requestWhenInUseAuthorization()
         setMap()
+        setResultView()
     }
     
     private func setMapConstraints(){
@@ -49,9 +50,18 @@ class SearchViewController: UIViewController {
     
     private func setMap(){
         setMapConstraints()
-        mapView.showsUserLocation = true
     }
         
+    private func setResultView(){
+        let bottomSheetVC = ScrollableBottomSheetViewController()
+        self.addChild(bottomSheetVC)
+        self.view.addSubview(bottomSheetVC.view)
+        bottomSheetVC.didMove(toParent: self)
+        
+        let height = view.frame.height
+        let width = view.frame.width
+        bottomSheetVC.view.frame = CGRect(x: 0, y: self.view.frame.maxY, width: width, height: height)
+    }
 }
 
 extension SearchViewController: MKMapViewDelegate{
