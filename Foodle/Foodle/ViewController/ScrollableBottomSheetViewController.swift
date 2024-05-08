@@ -13,8 +13,8 @@ class ScrollableBottomSheetViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let fullView: CGFloat = 100
-    var partialView: CGFloat {
-        return UIScreen.main.bounds.height - 150
+    var partialView: CGFloat{
+        return UIScreen.main.bounds.height - 130
     }
 
     override func viewDidLoad() {
@@ -89,13 +89,14 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 170
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "resultTableViewCell") as! ResultTableViewcell
         return cell
     }
+    
 }
 
 extension ScrollableBottomSheetViewController: UIGestureRecognizerDelegate {

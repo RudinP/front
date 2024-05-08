@@ -16,6 +16,7 @@ class ResultTableViewcell: UITableViewCell {
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var placeImageView: UIImageView!
+    @IBOutlet weak var starButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
