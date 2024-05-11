@@ -13,8 +13,8 @@ class ScrollableBottomSheetViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let fullView: CGFloat = 100
-    var partialView: CGFloat {
-        return UIScreen.main.bounds.height - 150
+    var partialView: CGFloat{
+        return UIScreen.main.bounds.height - 130
     }
 
     override func viewDidLoad() {
@@ -22,7 +22,7 @@ class ScrollableBottomSheetViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UINib(nibName: "DefaultTableViewCell", bundle: nil), forCellReuseIdentifier: "default")
+        tableView.register(UINib(nibName: "ResultTableViewCell", bundle: nil), forCellReuseIdentifier: "resultTableViewCell")
         
         let gesture = UIPanGestureRecognizer.init(target: self, action: #selector(ScrollableBottomSheetViewController.panGesture))
         gesture.delegate = self
@@ -89,12 +89,14 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 170
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCell(withIdentifier: "default")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "resultTableViewCell") as! ResultTableViewcell
+        return cell
     }
+    
 }
 
 extension ScrollableBottomSheetViewController: UIGestureRecognizerDelegate {
