@@ -37,6 +37,8 @@
 		92B6884E2BB0A46E00D7DF2C /* icon_kakao.png in Resources */ = {isa = PBXBuildFile; fileRef = 92B6884B2BB0A46D00D7DF2C /* icon_kakao.png */; };
 		92B6884F2BB0A46E00D7DF2C /* icon_naver.png in Resources */ = {isa = PBXBuildFile; fileRef = 92B6884C2BB0A46E00D7DF2C /* icon_naver.png */; };
 		92B688632BBB177D00D7DF2C /* FriendsListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B688622BBB177D00D7DF2C /* FriendsListViewCell.swift */; };
+		92EA73172BF0D1830075472C /* MyPageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA73162BF0D1830075472C /* MyPageViewCell.swift */; };
+		92EA73192BF0D1FA0075472C /* icon_profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 92EA73182BF0D1FA0075472C /* icon_profile.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +74,8 @@
 		92B6884B2BB0A46D00D7DF2C /* icon_kakao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_kakao.png; sourceTree = "<group>"; };
 		92B6884C2BB0A46E00D7DF2C /* icon_naver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_naver.png; sourceTree = "<group>"; };
 		92B688622BBB177D00D7DF2C /* FriendsListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListViewCell.swift; sourceTree = "<group>"; };
+		92EA73162BF0D1830075472C /* MyPageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewCell.swift; sourceTree = "<group>"; };
+		92EA73182BF0D1FA0075472C /* icon_profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_profile.png; path = ../../../../Desktop/icon_profile.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +177,7 @@
 				92B688622BBB177D00D7DF2C /* FriendsListViewCell.swift */,
 				4B5D9B702BBE4CB200F1BD58 /* PlaceImageCollectionViewCell.swift */,
 				4B11223F2BE351D200A2E577 /* ResultTableViewcell.swift */,
+				92EA73162BF0D1830075472C /* MyPageViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -182,6 +187,7 @@
 			children = (
 				92B6884A2BB0A46D00D7DF2C /* icon_apple.png */,
 				92B6884B2BB0A46D00D7DF2C /* icon_kakao.png */,
+				92EA73182BF0D1FA0075472C /* icon_profile.png */,
 				92B6884C2BB0A46E00D7DF2C /* icon_naver.png */,
 			);
 			path = Image;
@@ -249,6 +255,7 @@
 				4BA12D8E2BA004CF00BC4EB0 /* LaunchScreen.storyboard in Resources */,
 				4BA12D962BA0054F00BC4EB0 /* Minjeong.storyboard in Resources */,
 				4B11223E2BE351CC00A2E577 /* ResultTableViewCell.xib in Resources */,
+				92EA73192BF0D1FA0075472C /* icon_profile.png in Resources */,
 				92B6884D2BB0A46E00D7DF2C /* icon_apple.png in Resources */,
 				92B6884F2BB0A46E00D7DF2C /* icon_naver.png in Resources */,
 				4BA12D8B2BA004CF00BC4EB0 /* Assets.xcassets in Resources */,
@@ -266,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B5D9B6D2BBE3FFB00F1BD58 /* SearchViewController.swift in Sources */,
+				92EA73172BF0D1830075472C /* MyPageViewCell.swift in Sources */,
 				4B5D9B6F2BBE406400F1BD58 /* DetailPlaceViewController.swift in Sources */,
 				4B7395122BAC3D32006843DB /* AddMeetingPlaceTableViewCell.swift in Sources */,
 				4BC68AB02BA2DAF200FC6546 /* MainCollectionViewCell.swift in Sources */,
