@@ -14,23 +14,16 @@ class MyPlaceScrollableViewController: UIViewController {
     
     var fullView: CGFloat = 100
     var partialView: CGFloat = UIScreen.main.bounds.height - 130
-    var nibFileName = "MyPlaceTableViewCell"
-    var cellName = "MyPlaceTableViewCell"
         
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
-        cellRegister(nibFilename: nibFileName, cellName: cellName)
         
         let gesture = UIPanGestureRecognizer.init(target: self, action: #selector(MyPlaceScrollableViewController.panGesture))
         gesture.delegate = self
         view.addGestureRecognizer(gesture)
-    }
-    
-    func cellRegister(nibFilename: String, cellName: String){
-        tableView.register(UINib(nibName: nibFileName, bundle: nil), forCellReuseIdentifier: cellName)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -97,8 +90,12 @@ extension MyPlaceScrollableViewController: UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellName) as! MyPlaceTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MyPlaceTableViewCell") as! MyPlaceTableViewCell
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
     }
     
 }

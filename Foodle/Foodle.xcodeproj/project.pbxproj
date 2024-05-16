@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		4B1122372BE33BA500A2E577 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1122362BE33BA500A2E577 /* UIViewExtension.swift */; };
 		4B1122392BE33EA000A2E577 /* ScrollableBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1122382BE33EA000A2E577 /* ScrollableBottomSheetViewController.swift */; };
-		4B11223C2BE3514800A2E577 /* ScrollableBottomSheetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B11223B2BE3514800A2E577 /* ScrollableBottomSheetViewController.xib */; };
-		4B11223E2BE351CC00A2E577 /* ResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B11223D2BE351CC00A2E577 /* ResultTableViewCell.xib */; };
 		4B1122402BE351D200A2E577 /* ResultTableViewcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B11223F2BE351D200A2E577 /* ResultTableViewcell.swift */; };
 		4B1261372BA31450002F52BD /* UpcomingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1261362BA31450002F52BD /* UpcomingCollectionViewCell.swift */; };
 		4B5D9B6D2BBE3FFB00F1BD58 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D9B6C2BBE3FFB00F1BD58 /* SearchViewController.swift */; };
@@ -18,10 +16,8 @@
 		4B5D9B712BBE4CB200F1BD58 /* PlaceImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D9B702BBE4CB200F1BD58 /* PlaceImageCollectionViewCell.swift */; };
 		4B5D9B732BBE53A400F1BD58 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4B5D9B722BBE53A400F1BD58 /* Settings.bundle */; };
 		4B70D9BD2BF5AF4D00F3C965 /* MyPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B70D9BC2BF5AF4D00F3C965 /* MyPlaceViewController.swift */; };
-		4B70D9C12BF5BAB800F3C965 /* MyPlaceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B70D9C02BF5BAB800F3C965 /* MyPlaceTableViewCell.xib */; };
 		4B70D9C32BF5BAF600F3C965 /* MyPlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B70D9C22BF5BAF600F3C965 /* MyPlaceTableViewCell.swift */; };
 		4B70D9C52BF5BC1800F3C965 /* MyPlaceScrollableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B70D9C42BF5BC1800F3C965 /* MyPlaceScrollableViewController.swift */; };
-		4B70D9C72BF5BCA100F3C965 /* MyPlaceScrollableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B70D9C62BF5BCA100F3C965 /* MyPlaceScrollableView.xib */; };
 		4B73950C2BAC3187006843DB /* SelectFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B73950B2BAC3187006843DB /* SelectFriendsViewController.swift */; };
 		4B73950E2BAC31A4006843DB /* SetMeetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B73950D2BAC31A4006843DB /* SetMeetingViewController.swift */; };
 		4B7395102BAC31BB006843DB /* AddMeetingPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B73950F2BAC31BB006843DB /* AddMeetingPlaceViewController.swift */; };
@@ -49,8 +45,6 @@
 /* Begin PBXFileReference section */
 		4B1122362BE33BA500A2E577 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		4B1122382BE33EA000A2E577 /* ScrollableBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableBottomSheetViewController.swift; sourceTree = "<group>"; };
-		4B11223B2BE3514800A2E577 /* ScrollableBottomSheetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScrollableBottomSheetViewController.xib; sourceTree = "<group>"; };
-		4B11223D2BE351CC00A2E577 /* ResultTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultTableViewCell.xib; sourceTree = "<group>"; };
 		4B11223F2BE351D200A2E577 /* ResultTableViewcell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultTableViewcell.swift; sourceTree = "<group>"; };
 		4B1261362BA31450002F52BD /* UpcomingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingCollectionViewCell.swift; sourceTree = "<group>"; };
 		4B5D9B6C2BBE3FFB00F1BD58 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -58,10 +52,8 @@
 		4B5D9B702BBE4CB200F1BD58 /* PlaceImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		4B5D9B722BBE53A400F1BD58 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		4B70D9BC2BF5AF4D00F3C965 /* MyPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlaceViewController.swift; sourceTree = "<group>"; };
-		4B70D9C02BF5BAB800F3C965 /* MyPlaceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyPlaceTableViewCell.xib; sourceTree = "<group>"; };
 		4B70D9C22BF5BAF600F3C965 /* MyPlaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlaceTableViewCell.swift; sourceTree = "<group>"; };
 		4B70D9C42BF5BC1800F3C965 /* MyPlaceScrollableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlaceScrollableViewController.swift; sourceTree = "<group>"; };
-		4B70D9C62BF5BCA100F3C965 /* MyPlaceScrollableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyPlaceScrollableView.xib; sourceTree = "<group>"; };
 		4B73950B2BAC3187006843DB /* SelectFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFriendsViewController.swift; sourceTree = "<group>"; };
 		4B73950D2BAC31A4006843DB /* SetMeetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetMeetingViewController.swift; sourceTree = "<group>"; };
 		4B73950F2BAC31BB006843DB /* AddMeetingPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMeetingPlaceViewController.swift; sourceTree = "<group>"; };
@@ -99,17 +91,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4B11223A2BE3512A00A2E577 /* xib */ = {
-			isa = PBXGroup;
-			children = (
-				4B11223B2BE3514800A2E577 /* ScrollableBottomSheetViewController.xib */,
-				4B11223D2BE351CC00A2E577 /* ResultTableViewCell.xib */,
-				4B70D9C02BF5BAB800F3C965 /* MyPlaceTableViewCell.xib */,
-				4B70D9C62BF5BCA100F3C965 /* MyPlaceScrollableView.xib */,
-			);
-			path = xib;
-			sourceTree = "<group>";
-		};
 		4BA12D722BA004CE00BC4EB0 = {
 			isa = PBXGroup;
 			children = (
@@ -133,7 +114,6 @@
 				4BB159FE2BB5329E0090A6DE /* Utility */,
 				4BC68AB32BA2DCA800FC6546 /* Cell */,
 				4BC68AAE2BA2D7FF00FC6546 /* Model */,
-				4B11223A2BE3512A00A2E577 /* xib */,
 				4BA12D972BA2AAA800BC4EB0 /* ViewController */,
 				4BA12D7E2BA004CE00BC4EB0 /* AppDelegate.swift */,
 				4BA12D802BA004CE00BC4EB0 /* SceneDelegate.swift */,
@@ -269,16 +249,12 @@
 				4B5D9B732BBE53A400F1BD58 /* Settings.bundle in Resources */,
 				4BA12D8E2BA004CF00BC4EB0 /* LaunchScreen.storyboard in Resources */,
 				4BA12D962BA0054F00BC4EB0 /* Minjeong.storyboard in Resources */,
-				4B11223E2BE351CC00A2E577 /* ResultTableViewCell.xib in Resources */,
 				92EA73192BF0D1FA0075472C /* icon_profile.png in Resources */,
 				92B6884D2BB0A46E00D7DF2C /* icon_apple.png in Resources */,
-				4B70D9C72BF5BCA100F3C965 /* MyPlaceScrollableView.xib in Resources */,
 				92B6884F2BB0A46E00D7DF2C /* icon_naver.png in Resources */,
-				4B70D9C12BF5BAB800F3C965 /* MyPlaceTableViewCell.xib in Resources */,
 				4BA12D8B2BA004CF00BC4EB0 /* Assets.xcassets in Resources */,
 				92B6884E2BB0A46E00D7DF2C /* icon_kakao.png in Resources */,
 				4BA12D862BA004CE00BC4EB0 /* Jinhee.storyboard in Resources */,
-				4B11223C2BE3514800A2E577 /* ScrollableBottomSheetViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

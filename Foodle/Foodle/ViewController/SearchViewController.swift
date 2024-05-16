@@ -53,7 +53,8 @@ class SearchViewController: UIViewController {
     }
         
     private func setResultView(){
-        let bottomSheetVC = ScrollableBottomSheetViewController()
+        let bottomSheetVCSB = UIStoryboard(name: "Jinhee", bundle: nil)
+        let bottomSheetVC = bottomSheetVCSB.instantiateViewController(withIdentifier: "ScrollableBottomSheetViewController")
         self.addChild(bottomSheetVC)
         self.view.addSubview(bottomSheetVC.view)
         bottomSheetVC.didMove(toParent: self)

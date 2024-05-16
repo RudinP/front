@@ -7,23 +7,16 @@ class ScrollableBottomSheetViewController: UIViewController {
     
     var fullView: CGFloat = 100
     var partialView: CGFloat = UIScreen.main.bounds.height - 130
-    var nibFileName = "ResultTableViewCell"
-    var cellName = "resultTableViewCell"
         
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
-        cellRegister(nibFilename: nibFileName, cellName: cellName)
         
         let gesture = UIPanGestureRecognizer.init(target: self, action: #selector(ScrollableBottomSheetViewController.panGesture))
         gesture.delegate = self
         view.addGestureRecognizer(gesture)
-    }
-    
-    func cellRegister(nibFilename: String, cellName: String){
-        tableView.register(UINib(nibName: nibFileName, bundle: nil), forCellReuseIdentifier: cellName)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -90,8 +83,15 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellName) as! ResultTableViewcell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "resultTableViewCell") as! ResultTableViewcell
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "DetailPlaceViewController", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "DetailPlaceViewController")
+        
+        present(vc, animated: true)
     }
     
 }

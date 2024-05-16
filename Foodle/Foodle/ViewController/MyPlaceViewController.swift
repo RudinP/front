@@ -51,7 +51,8 @@ class MyPlaceViewController: UIViewController {
     }
         
     private func setSheetView(){
-        let bottomSheetVC = MyPlaceScrollableViewController()
+        let bottomSheetVCSB = UIStoryboard(name: "Jinhee", bundle: nil)
+        let bottomSheetVC = bottomSheetVCSB.instantiateViewController(withIdentifier: "MyPlaceScrollableViewController")
         self.addChild(bottomSheetVC)
         self.view.addSubview(bottomSheetVC.view)
         bottomSheetVC.didMove(toParent: self)
