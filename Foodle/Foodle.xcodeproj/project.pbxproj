@@ -17,6 +17,11 @@
 		4B5D9B6F2BBE406400F1BD58 /* DetailPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D9B6E2BBE406400F1BD58 /* DetailPlaceViewController.swift */; };
 		4B5D9B712BBE4CB200F1BD58 /* PlaceImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D9B702BBE4CB200F1BD58 /* PlaceImageCollectionViewCell.swift */; };
 		4B5D9B732BBE53A400F1BD58 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4B5D9B722BBE53A400F1BD58 /* Settings.bundle */; };
+		4B70D9BD2BF5AF4D00F3C965 /* MyPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B70D9BC2BF5AF4D00F3C965 /* MyPlaceViewController.swift */; };
+		4B70D9C12BF5BAB800F3C965 /* MyPlaceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B70D9C02BF5BAB800F3C965 /* MyPlaceTableViewCell.xib */; };
+		4B70D9C32BF5BAF600F3C965 /* MyPlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B70D9C22BF5BAF600F3C965 /* MyPlaceTableViewCell.swift */; };
+		4B70D9C52BF5BC1800F3C965 /* MyPlaceScrollableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B70D9C42BF5BC1800F3C965 /* MyPlaceScrollableViewController.swift */; };
+		4B70D9C72BF5BCA100F3C965 /* MyPlaceScrollableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B70D9C62BF5BCA100F3C965 /* MyPlaceScrollableView.xib */; };
 		4B73950C2BAC3187006843DB /* SelectFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B73950B2BAC3187006843DB /* SelectFriendsViewController.swift */; };
 		4B73950E2BAC31A4006843DB /* SetMeetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B73950D2BAC31A4006843DB /* SetMeetingViewController.swift */; };
 		4B7395102BAC31BB006843DB /* AddMeetingPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B73950F2BAC31BB006843DB /* AddMeetingPlaceViewController.swift */; };
@@ -52,6 +57,11 @@
 		4B5D9B6E2BBE406400F1BD58 /* DetailPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPlaceViewController.swift; sourceTree = "<group>"; };
 		4B5D9B702BBE4CB200F1BD58 /* PlaceImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		4B5D9B722BBE53A400F1BD58 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		4B70D9BC2BF5AF4D00F3C965 /* MyPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlaceViewController.swift; sourceTree = "<group>"; };
+		4B70D9C02BF5BAB800F3C965 /* MyPlaceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyPlaceTableViewCell.xib; sourceTree = "<group>"; };
+		4B70D9C22BF5BAF600F3C965 /* MyPlaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlaceTableViewCell.swift; sourceTree = "<group>"; };
+		4B70D9C42BF5BC1800F3C965 /* MyPlaceScrollableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlaceScrollableViewController.swift; sourceTree = "<group>"; };
+		4B70D9C62BF5BCA100F3C965 /* MyPlaceScrollableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyPlaceScrollableView.xib; sourceTree = "<group>"; };
 		4B73950B2BAC3187006843DB /* SelectFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFriendsViewController.swift; sourceTree = "<group>"; };
 		4B73950D2BAC31A4006843DB /* SetMeetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetMeetingViewController.swift; sourceTree = "<group>"; };
 		4B73950F2BAC31BB006843DB /* AddMeetingPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMeetingPlaceViewController.swift; sourceTree = "<group>"; };
@@ -75,7 +85,7 @@
 		92B6884C2BB0A46E00D7DF2C /* icon_naver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_naver.png; sourceTree = "<group>"; };
 		92B688622BBB177D00D7DF2C /* FriendsListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListViewCell.swift; sourceTree = "<group>"; };
 		92EA73162BF0D1830075472C /* MyPageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewCell.swift; sourceTree = "<group>"; };
-		92EA73182BF0D1FA0075472C /* icon_profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_profile.png; path = ../../../../Desktop/icon_profile.png; sourceTree = "<group>"; };
+		92EA73182BF0D1FA0075472C /* icon_profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_profile.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +104,8 @@
 			children = (
 				4B11223B2BE3514800A2E577 /* ScrollableBottomSheetViewController.xib */,
 				4B11223D2BE351CC00A2E577 /* ResultTableViewCell.xib */,
+				4B70D9C02BF5BAB800F3C965 /* MyPlaceTableViewCell.xib */,
+				4B70D9C62BF5BCA100F3C965 /* MyPlaceScrollableView.xib */,
 			);
 			path = xib;
 			sourceTree = "<group>";
@@ -146,6 +158,8 @@
 				4B5D9B6C2BBE3FFB00F1BD58 /* SearchViewController.swift */,
 				4B5D9B6E2BBE406400F1BD58 /* DetailPlaceViewController.swift */,
 				4B1122382BE33EA000A2E577 /* ScrollableBottomSheetViewController.swift */,
+				4B70D9BC2BF5AF4D00F3C965 /* MyPlaceViewController.swift */,
+				4B70D9C42BF5BC1800F3C965 /* MyPlaceScrollableViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -178,6 +192,7 @@
 				4B5D9B702BBE4CB200F1BD58 /* PlaceImageCollectionViewCell.swift */,
 				4B11223F2BE351D200A2E577 /* ResultTableViewcell.swift */,
 				92EA73162BF0D1830075472C /* MyPageViewCell.swift */,
+				4B70D9C22BF5BAF600F3C965 /* MyPlaceTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -257,7 +272,9 @@
 				4B11223E2BE351CC00A2E577 /* ResultTableViewCell.xib in Resources */,
 				92EA73192BF0D1FA0075472C /* icon_profile.png in Resources */,
 				92B6884D2BB0A46E00D7DF2C /* icon_apple.png in Resources */,
+				4B70D9C72BF5BCA100F3C965 /* MyPlaceScrollableView.xib in Resources */,
 				92B6884F2BB0A46E00D7DF2C /* icon_naver.png in Resources */,
+				4B70D9C12BF5BAB800F3C965 /* MyPlaceTableViewCell.xib in Resources */,
 				4BA12D8B2BA004CF00BC4EB0 /* Assets.xcassets in Resources */,
 				92B6884E2BB0A46E00D7DF2C /* icon_kakao.png in Resources */,
 				4BA12D862BA004CE00BC4EB0 /* Jinhee.storyboard in Resources */,
@@ -273,9 +290,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B5D9B6D2BBE3FFB00F1BD58 /* SearchViewController.swift in Sources */,
+				4B70D9C32BF5BAF600F3C965 /* MyPlaceTableViewCell.swift in Sources */,
 				92EA73172BF0D1830075472C /* MyPageViewCell.swift in Sources */,
 				4B5D9B6F2BBE406400F1BD58 /* DetailPlaceViewController.swift in Sources */,
 				4B7395122BAC3D32006843DB /* AddMeetingPlaceTableViewCell.swift in Sources */,
+				4B70D9C52BF5BC1800F3C965 /* MyPlaceScrollableViewController.swift in Sources */,
+				4B70D9BD2BF5AF4D00F3C965 /* MyPlaceViewController.swift in Sources */,
 				4BC68AB02BA2DAF200FC6546 /* MainCollectionViewCell.swift in Sources */,
 				92B688632BBB177D00D7DF2C /* FriendsListViewCell.swift in Sources */,
 				4B5D9B712BBE4CB200F1BD58 /* PlaceImageCollectionViewCell.swift in Sources */,
