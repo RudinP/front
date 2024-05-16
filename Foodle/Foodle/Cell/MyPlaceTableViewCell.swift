@@ -8,10 +8,14 @@
 import UIKit
 
 class MyPlaceTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var circleImageView: UIImageView!
+    @IBOutlet weak var listNameLabel: UILabel!
+    var color: UIColor?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        circleImageView.tintColor = color ?? .accent
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
