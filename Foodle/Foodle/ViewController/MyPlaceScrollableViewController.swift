@@ -93,11 +93,7 @@ extension MyPlaceScrollableViewController: UITableViewDelegate, UITableViewDataS
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyPlaceTableViewCell") as! MyPlaceTableViewCell
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-    }
-    
 }
 
 extension MyPlaceScrollableViewController: UIGestureRecognizerDelegate {

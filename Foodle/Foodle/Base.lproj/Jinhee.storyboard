@@ -654,9 +654,6 @@
                                                     <buttonConfiguration key="configuration" style="plain" image="plus.circle.fill" catalog="system" title=" 장소 추가하기">
                                                         <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
                                                     </buttonConfiguration>
-                                                    <connections>
-                                                        <segue destination="b3Z-rC-oH0" kind="presentation" id="PBu-mC-Grq"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -926,11 +923,11 @@
             <objects>
                 <viewController storyboardIdentifier="ScrollableBottomSheetViewController" id="9sO-5h-AcD" customClass="ScrollableBottomSheetViewController" customModule="Foodle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="ccv-mc-LCA">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Vrr-Jv-MNr">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BHm-aP-eWE">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
@@ -957,7 +954,7 @@
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="N8X-HC-tqT">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="802"/>
+                                        <rect key="frame" x="0.0" y="50" width="393" height="792"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="resultTableViewCell" rowHeight="170" id="2wc-2Z-Nef" customClass="ResultTableViewcell" customModule="Foodle" customModuleProvider="target">
@@ -1071,6 +1068,7 @@
                                                     <outlet property="placeImageView" destination="SeQ-Sz-ie9" id="zpR-MJ-exo"/>
                                                     <outlet property="placeNameLabel" destination="pdU-NB-Gcf" id="27m-m2-y6e"/>
                                                     <outlet property="starButton" destination="bqT-q2-Dk9" id="nCm-PH-KCy"/>
+                                                    <segue destination="b3Z-rC-oH0" kind="show" id="Xot-hR-CQr"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -1091,6 +1089,7 @@
                             <constraint firstAttribute="bottom" secondItem="Vrr-Jv-MNr" secondAttribute="bottom" id="vae-Qx-Ma3"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="yU0-Dz-YOX"/>
                     <connections>
                         <outlet property="headerView" destination="xTZ-xp-7lS" id="wSO-4t-goQ"/>
                         <outlet property="tableView" destination="N8X-HC-tqT" id="eO9-rG-j7A"/>
@@ -1172,6 +1171,7 @@
                                                 <connections>
                                                     <outlet property="circleImageView" destination="bbp-T0-Mw2" id="awE-Jp-PwH"/>
                                                     <outlet property="listNameLabel" destination="upu-8b-6YD" id="6rz-se-Biy"/>
+                                                    <segue destination="9sO-5h-AcD" kind="show" id="A5L-8F-OVr"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -1294,16 +1294,16 @@
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="secondarySystemFillColor">
-            <color red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.16" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.16" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

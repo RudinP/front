@@ -87,13 +87,6 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewD
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "DetailPlaceViewController", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "DetailPlaceViewController")
-        
-        present(vc, animated: true)
-    }
-    
 }
 
 extension ScrollableBottomSheetViewController: UIGestureRecognizerDelegate {
