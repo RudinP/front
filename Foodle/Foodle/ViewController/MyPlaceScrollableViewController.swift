@@ -1,7 +1,14 @@
+//
+//  MyPlaceScrollableViewController.swift
+//  Foodle
+//
+//  Created by 루딘 on 5/16/24.
+//
 
 import UIKit
 
-class ScrollableBottomSheetViewController: UIViewController {
+class MyPlaceScrollableViewController: UIViewController {
+
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
@@ -14,7 +21,7 @@ class ScrollableBottomSheetViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        let gesture = UIPanGestureRecognizer.init(target: self, action: #selector(ScrollableBottomSheetViewController.panGesture))
+        let gesture = UIPanGestureRecognizer.init(target: self, action: #selector(MyPlaceScrollableViewController.panGesture))
         gesture.delegate = self
         view.addGestureRecognizer(gesture)
     }
@@ -68,7 +75,7 @@ class ScrollableBottomSheetViewController: UIViewController {
 
 }
 
-extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewDataSource {
+extension MyPlaceScrollableViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -79,17 +86,17 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 170
+        return 100
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "resultTableViewCell") as! ResultTableViewcell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MyPlaceTableViewCell") as! MyPlaceTableViewCell
         return cell
     }
-    
+        
 }
 
-extension ScrollableBottomSheetViewController: UIGestureRecognizerDelegate {
+extension MyPlaceScrollableViewController: UIGestureRecognizerDelegate {
 
     // Solution
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
@@ -107,3 +114,4 @@ extension ScrollableBottomSheetViewController: UIGestureRecognizerDelegate {
     }
     
 }
+

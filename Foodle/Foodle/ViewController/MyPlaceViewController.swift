@@ -1,15 +1,14 @@
 //
-//  SearchViewController.swift
+//  MyPlaceViewController.swift
 //  Foodle
 //
-//  Created by 루딘 on 4/4/24.
+//  Created by 루딘 on 5/16/24.
 //
 
 import UIKit
 import MapKit
+class MyPlaceViewController: UIViewController {
 
-class SearchViewController: UIViewController {
-    
     let mapView : MKMapView = {
         let map = MKMapView()
         return map
@@ -19,7 +18,6 @@ class SearchViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         if manager.authorizationStatus == .authorizedWhenInUse || manager.authorizationStatus == .authorizedAlways{
             manager.startUpdatingLocation()
         }
@@ -36,7 +34,7 @@ class SearchViewController: UIViewController {
         manager.delegate = self
         manager.requestWhenInUseAuthorization()
         setMap()
-        setResultView()
+        setSheetView()
     }
     
     private func setMapConstraints(){
@@ -52,9 +50,9 @@ class SearchViewController: UIViewController {
         setMapConstraints()
     }
         
-    private func setResultView(){
+    private func setSheetView(){
         let bottomSheetVCSB = UIStoryboard(name: "Jinhee", bundle: nil)
-        let bottomSheetVC = bottomSheetVCSB.instantiateViewController(withIdentifier: "ScrollableBottomSheetViewController")
+        let bottomSheetVC = bottomSheetVCSB.instantiateViewController(withIdentifier: "MyPlaceScrollableViewController")
         self.addChild(bottomSheetVC)
         self.view.addSubview(bottomSheetVC.view)
         bottomSheetVC.didMove(toParent: self)
@@ -64,12 +62,11 @@ class SearchViewController: UIViewController {
         bottomSheetVC.view.frame = CGRect(x: 0, y: self.view.frame.maxY, width: width, height: height)
     }
 }
-
-extension SearchViewController: MKMapViewDelegate{
+extension MyPlaceViewController: MKMapViewDelegate{
     
 }
 
-extension SearchViewController: CLLocationManagerDelegate{
+extension MyPlaceViewController: CLLocationManagerDelegate{
     
     func move(to location: CLLocation){
         let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 100, longitudinalMeters: 100)
@@ -120,3 +117,4 @@ extension SearchViewController: CLLocationManagerDelegate{
         }
     }
 }
+
