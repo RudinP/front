@@ -6,11 +6,17 @@ class ScrollableBottomSheetViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var fullView: CGFloat = 100
-    var partialView: CGFloat = UIScreen.main.bounds.height - 130
+    var partialView: CGFloat {
+        UIScreen.main.bounds.height - 130
+    }
+    var secondPartialView: CGFloat {
+        UIScreen.main.bounds.height - headerView.bounds.height - 245  - (self.tabBarController?.tabBar.bounds.height ?? 49)
+    }
+
+
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -24,7 +30,10 @@ class ScrollableBottomSheetViewController: UIViewController {
         
         UIView.animate(withDuration: 0.6, animations: { [weak self] in
             let frame = self?.view.frame
-            let yComponent = self?.partialView
+            let yComponent = self?.secondPartialView
+            
+            print(self?.partialView)
+            print(self?.secondPartialView)
             self?.view.frame = CGRect(x: 0, y: yComponent!, width: frame!.width, height: frame!.height - 100)
             })
         self.view.roundCorners(corners: [.topLeft,.topRight], radius: 10)
