@@ -1327,6 +1327,7 @@
                     </view>
                     <connections>
                         <outlet property="headerView" destination="YoZ-pn-I6h" id="7yw-qH-dBh"/>
+                        <outlet property="stackView" destination="auK-bg-x2q" id="koH-hn-R4C"/>
                         <outlet property="tableView" destination="rPc-OL-Oel" id="LNc-dC-cyf"/>
                     </connections>
                 </viewController>

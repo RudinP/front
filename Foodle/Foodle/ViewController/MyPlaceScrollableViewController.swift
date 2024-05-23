@@ -11,7 +11,8 @@ class MyPlaceScrollableViewController: UIViewController {
 
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var stackView: UIStackView!
+       
     var fullView: CGFloat = 100
     var partialView: CGFloat {
         UIScreen.main.bounds.height - headerView.bounds.height - (self.tabBarController?.tabBar.bounds.height ?? 49)
@@ -19,8 +20,6 @@ class MyPlaceScrollableViewController: UIViewController {
     var secondPartialView: CGFloat {
         UIScreen.main.bounds.height - headerView.bounds.height - 300 - (self.tabBarController?.tabBar.bounds.height ?? 49)
     }
-
-        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,6 +30,8 @@ class MyPlaceScrollableViewController: UIViewController {
         gesture.delegate = self
         view.addGestureRecognizer(gesture)
     }
+    
+    var childView: UIView!
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -46,6 +47,11 @@ class MyPlaceScrollableViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @objc func returnToList(_ sender: UIButton){
+        stackView.removeArrangedSubview(childView)
+        sender.removeFromSuperview()
     }
     
     @objc func panGesture(_ recognizer: UIPanGestureRecognizer) {
@@ -101,7 +107,20 @@ extension MyPlaceScrollableViewController: UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let bottomSheetVCSB = UIStoryboard(name: "Jinhee", bundle: nil)
+        let bottomSheetVC = bottomSheetVCSB.instantiateViewController(withIdentifier: "MyPlaceTableViewController")
+        self.addChild(bottomSheetVC)
         
+        childView = bottomSheetVC.view
+        stackView.addArrangedSubview(childView)
+        bottomSheetVC.didMove(toParent: self)
+        
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        button.setImage(UIImage(systemName: "xmark.circle.fill"), for: .normal)
+        button.setTitleColor(.accent, for: .normal)
+        
+        self.view.addSubview(button)
+        button.addTarget(self, action: #selector(returnToList), for: .touchUpInside)
     }
         
 }
