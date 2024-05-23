@@ -895,7 +895,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="resultTableViewCell" rowHeight="170" id="C8N-C6-N1I" customClass="ResultTableViewcell" customModule="Foodle" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="resultTableViewCell" rowHeight="170" id="C8N-C6-N1I" customClass="ResultTableViewcell" customModule="Foodle" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="393" height="170"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="C8N-C6-N1I" id="bHf-qw-PcC">
@@ -1272,7 +1272,7 @@
                                         <rect key="frame" x="0.0" y="50" width="393" height="802"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MyPlaceTableViewCell" rowHeight="124" id="nVG-04-PVx" customClass="MyPlaceTableViewCell" customModule="Foodle" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MyPlaceTableViewCell" rowHeight="124" id="nVG-04-PVx" customClass="MyPlaceTableViewCell" customModule="Foodle" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="50" width="393" height="124"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nVG-04-PVx" id="t9I-lH-vKJ">

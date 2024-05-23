@@ -32,6 +32,7 @@ class MyPlaceScrollableViewController: UIViewController {
     }
     
     var childView: UIView!
+    var button: UIButton?
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -52,6 +53,7 @@ class MyPlaceScrollableViewController: UIViewController {
     @objc func returnToList(_ sender: UIButton){
         stackView.removeArrangedSubview(childView)
         sender.removeFromSuperview()
+        button = nil
     }
     
     @objc func panGesture(_ recognizer: UIPanGestureRecognizer) {
@@ -115,12 +117,18 @@ extension MyPlaceScrollableViewController: UITableViewDelegate, UITableViewDataS
         stackView.addArrangedSubview(childView)
         bottomSheetVC.didMove(toParent: self)
         
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-        button.setImage(UIImage(systemName: "xmark.circle.fill"), for: .normal)
-        button.setTitleColor(.accent, for: .normal)
+        stackView.setNeedsLayout()
+        stackView.layoutIfNeeded()
         
-        self.view.addSubview(button)
-        button.addTarget(self, action: #selector(returnToList), for: .touchUpInside)
+        if button == nil{
+            button = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+            button?.setImage(UIImage(systemName: "xmark.circle.fill"), for: .normal)
+            button?.setTitleColor(.accent, for: .normal)
+            
+            self.view.addSubview(button ?? UIButton())
+            button?.addTarget(self, action: #selector(returnToList), for: .touchUpInside)
+
+        }
     }
         
 }
@@ -133,7 +141,7 @@ extension MyPlaceScrollableViewController: UIGestureRecognizerDelegate {
         let direction = gesture.velocity(in: view).y
 
         let y = view.frame.minY
-        if (y == fullView && tableView.contentOffset.y == 0 && direction > 0) || (y == partialView) {
+        if (y == fullView && tableView.contentOffset.y == 0 && direction > 0) || (y == secondPartialView) {
             tableView.isScrollEnabled = false
         } else {
             tableView.isScrollEnabled = true
