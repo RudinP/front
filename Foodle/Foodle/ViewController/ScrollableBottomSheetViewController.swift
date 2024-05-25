@@ -6,11 +6,17 @@ class ScrollableBottomSheetViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var fullView: CGFloat = 100
-    var partialView: CGFloat = UIScreen.main.bounds.height - 130
+    var partialView: CGFloat {
+        UIScreen.main.bounds.height - 130
+    }
+    var secondPartialView: CGFloat {
+        UIScreen.main.bounds.height - headerView.bounds.height - 245  - (self.tabBarController?.tabBar.bounds.height ?? 49)
+    }
+
+
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -24,7 +30,8 @@ class ScrollableBottomSheetViewController: UIViewController {
         
         UIView.animate(withDuration: 0.6, animations: { [weak self] in
             let frame = self?.view.frame
-            let yComponent = self?.partialView
+            let yComponent = self?.secondPartialView
+            
             self?.view.frame = CGRect(x: 0, y: yComponent!, width: frame!.width, height: frame!.height - 100)
             })
         self.view.roundCorners(corners: [.topLeft,.topRight], radius: 10)
@@ -53,7 +60,7 @@ class ScrollableBottomSheetViewController: UIViewController {
             
             UIView.animate(withDuration: duration, delay: 0.0, options: [.allowUserInteraction], animations: {
                 if  velocity.y >= 0 {
-                    self.view.frame = CGRect(x: 0, y: self.partialView, width: self.view.frame.width, height: self.view.frame.height)
+                    self.view.frame = CGRect(x: 0, y: self.secondPartialView, width: self.view.frame.width, height: self.view.frame.height)
                 } else {
                     self.view.frame = CGRect(x: 0, y: self.fullView, width: self.view.frame.width, height: self.view.frame.height)
                 }
@@ -85,6 +92,15 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "resultTableViewCell") as! ResultTableViewcell
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        UIView.animate(withDuration: 0.6, animations: { [weak self] in
+            let frame = self?.view.frame
+            let yComponent = self?.secondPartialView
+            
+            self?.view.frame = CGRect(x: 0, y: yComponent!, width: frame!.width, height: frame!.height)
+        })
     }
     
 }

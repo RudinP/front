@@ -11,6 +11,7 @@
 		4B1122392BE33EA000A2E577 /* ScrollableBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1122382BE33EA000A2E577 /* ScrollableBottomSheetViewController.swift */; };
 		4B1122402BE351D200A2E577 /* ResultTableViewcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B11223F2BE351D200A2E577 /* ResultTableViewcell.swift */; };
 		4B1261372BA31450002F52BD /* UpcomingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1261362BA31450002F52BD /* UpcomingCollectionViewCell.swift */; };
+		4B23DBDF2BFEF09600E5E4FD /* MyPlaceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B23DBDE2BFEF09600E5E4FD /* MyPlaceTableViewController.swift */; };
 		4B5D9B6D2BBE3FFB00F1BD58 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D9B6C2BBE3FFB00F1BD58 /* SearchViewController.swift */; };
 		4B5D9B6F2BBE406400F1BD58 /* DetailPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D9B6E2BBE406400F1BD58 /* DetailPlaceViewController.swift */; };
 		4B5D9B712BBE4CB200F1BD58 /* PlaceImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D9B702BBE4CB200F1BD58 /* PlaceImageCollectionViewCell.swift */; };
@@ -47,6 +48,7 @@
 		4B1122382BE33EA000A2E577 /* ScrollableBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableBottomSheetViewController.swift; sourceTree = "<group>"; };
 		4B11223F2BE351D200A2E577 /* ResultTableViewcell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultTableViewcell.swift; sourceTree = "<group>"; };
 		4B1261362BA31450002F52BD /* UpcomingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingCollectionViewCell.swift; sourceTree = "<group>"; };
+		4B23DBDE2BFEF09600E5E4FD /* MyPlaceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlaceTableViewController.swift; sourceTree = "<group>"; };
 		4B5D9B6C2BBE3FFB00F1BD58 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		4B5D9B6E2BBE406400F1BD58 /* DetailPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPlaceViewController.swift; sourceTree = "<group>"; };
 		4B5D9B702BBE4CB200F1BD58 /* PlaceImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceImageCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				4B1122382BE33EA000A2E577 /* ScrollableBottomSheetViewController.swift */,
 				4B70D9BC2BF5AF4D00F3C965 /* MyPlaceViewController.swift */,
 				4B70D9C42BF5BC1800F3C965 /* MyPlaceScrollableViewController.swift */,
+				4B23DBDE2BFEF09600E5E4FD /* MyPlaceTableViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				4BA12D7F2BA004CE00BC4EB0 /* AppDelegate.swift in Sources */,
 				4B73950E2BAC31A4006843DB /* SetMeetingViewController.swift in Sources */,
 				92B688482BB0A20400D7DF2C /* LoginViewCell.swift in Sources */,
+				4B23DBDF2BFEF09600E5E4FD /* MyPlaceTableViewController.swift in Sources */,
 				4BA12D812BA004CE00BC4EB0 /* SceneDelegate.swift in Sources */,
 				4B1122392BE33EA000A2E577 /* ScrollableBottomSheetViewController.swift in Sources */,
 				4B7395102BAC31BB006843DB /* AddMeetingPlaceViewController.swift in Sources */,
