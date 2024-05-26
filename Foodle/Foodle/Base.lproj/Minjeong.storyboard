@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VjF-NV-nZS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -71,7 +72,7 @@
         <!--친구 목록-->
         <scene sceneID="1YV-uZ-GES">
             <objects>
-                <viewController storyboardIdentifier="FriendListView" id="Qyf-86-DDs" customClass="FriendsListViewCell" customModule="Foodle" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="FriendListView" storyboardIdentifier="FriendListView" id="Qyf-86-DDs" customClass="FriendsListViewCell" customModule="Foodle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FDE-Mg-lFZ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -208,6 +209,93 @@
             </objects>
             <point key="canvasLocation" x="61.832061068702288" y="688.73239436619724"/>
         </scene>
+        <!--일정 목록-->
+        <scene sceneID="wUe-6n-K2x">
+            <objects>
+                <viewController restorationIdentifier="ScheduleListView" storyboardIdentifier="ScheduleListView" id="CXr-rK-u3c" customClass="ScheduleListViewController" customModule="Foodle" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6am-gI-FT3">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="일정 목록" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aqS-k3-C4v">
+                                <rect key="frame" x="27" y="69" width="118" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="0yD-7z-eqI">
+                                <rect key="frame" x="36" y="112" width="304" height="295"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </datePicker>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hJS-oa-CyT">
+                                <rect key="frame" x="16" y="449" width="361" height="320"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Izf-oy-NSB" customClass="ScheduleCollectionViewCell">
+                                    <size key="itemSize" width="347" height="87"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ScheduleCell" id="huY-Id-7Ig" customClass="ScheduleCollectionViewCell" customModule="Foodle" customModuleProvider="target">
+                                        <rect key="frame" x="7" y="0.0" width="347" height="87"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9Ro-cl-qO2">
+                                            <rect key="frame" x="0.0" y="0.0" width="347" height="87"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2024/01/01 월" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kX2-FI-odJ">
+                                                    <rect key="frame" x="24.999999999999943" y="18" width="116.00000000000006" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="고등학교 동창회" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aC4-ti-tqJ">
+                                                    <rect key="frame" x="24.999999999999943" y="47" width="114.00000000000006" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" name="SecondAccent"/>
+                                        <size key="customSize" width="347" height="87"/>
+                                        <connections>
+                                            <outlet property="scheDateLabel" destination="kX2-FI-odJ" id="MId-1U-xmH"/>
+                                            <outlet property="scheNameLabel" destination="aC4-ti-tqJ" id="fP8-iL-YRm"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="CXr-rK-u3c" id="HBD-tP-QsB"/>
+                                    <outlet property="delegate" destination="CXr-rK-u3c" id="oMr-RA-trL"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Rfk-x5-pjI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hJS-oa-CyT" firstAttribute="leading" secondItem="Rfk-x5-pjI" secondAttribute="leading" constant="16" id="HB3-q6-RpB"/>
+                            <constraint firstItem="hJS-oa-CyT" firstAttribute="top" secondItem="Rfk-x5-pjI" secondAttribute="top" constant="390" id="IXJ-Su-n3r"/>
+                            <constraint firstItem="Rfk-x5-pjI" firstAttribute="bottom" secondItem="hJS-oa-CyT" secondAttribute="bottom" id="XBp-4W-UWg"/>
+                            <constraint firstItem="Rfk-x5-pjI" firstAttribute="trailing" secondItem="hJS-oa-CyT" secondAttribute="trailing" constant="16" id="aEY-GG-FFa"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="일정 목록" image="calendar" catalog="system" id="Uab-lA-u1R"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="calendar" destination="0yD-7z-eqI" id="JIE-2T-0nd"/>
+                        <outlet property="collectionView" destination="hJS-oa-CyT" id="Ltc-mK-VUB"/>
+                        <outlet property="scheListLabel" destination="aqS-k3-C4v" id="3RJ-Yk-c3w"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gAc-q1-gq2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="878.62595419847321" y="688.73239436619724"/>
+        </scene>
         <!--My Page View Cell-->
         <scene sceneID="KXn-hs-8aN">
             <objects>
@@ -306,9 +394,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="pawprint" catalog="system" width="128" height="114"/>
         <namedColor name="AccentColor">
             <color red="0.67799997329711914" green="0.57599997520446777" blue="0.9100000262260437" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="SecondAccent">
+            <color red="0.81699997186660767" green="0.80699998140335083" blue="0.91399997472763062" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -317,7 +409,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

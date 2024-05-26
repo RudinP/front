@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -29,11 +29,12 @@
 		4BA12D892BA004CE00BC4EB0 /* Foodle.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4BA12D872BA004CE00BC4EB0 /* Foodle.xcdatamodeld */; };
 		4BA12D8B2BA004CF00BC4EB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BA12D8A2BA004CF00BC4EB0 /* Assets.xcassets */; };
 		4BA12D8E2BA004CF00BC4EB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA12D8C2BA004CF00BC4EB0 /* LaunchScreen.storyboard */; };
-		4BA12D962BA0054F00BC4EB0 /* Minjeong.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA12D952BA0054F00BC4EB0 /* Minjeong.storyboard */; };
 		4BB15A002BB532BC0090A6DE /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB159FF2BB532BC0090A6DE /* UIImageExtension.swift */; };
 		4BC68AAD2BA2B67300FC6546 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC68AAC2BA2B67300FC6546 /* MainViewController.swift */; };
 		4BC68AB02BA2DAF200FC6546 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC68AAF2BA2DAF200FC6546 /* MainCollectionViewCell.swift */; };
 		4BC68AB22BA2DBD300FC6546 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC68AB12BA2DBD300FC6546 /* MainTableViewCell.swift */; };
+		923B80FE2C0230C600B771E7 /* ScheduleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B80FD2C0230C600B771E7 /* ScheduleListViewController.swift */; };
+		927E19CE2C0239AD004D9F96 /* Minjeong.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 927E19CD2C0239AD004D9F96 /* Minjeong.storyboard */; };
 		92B688482BB0A20400D7DF2C /* LoginViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B688472BB0A20400D7DF2C /* LoginViewCell.swift */; };
 		92B6884D2BB0A46E00D7DF2C /* icon_apple.png in Resources */ = {isa = PBXBuildFile; fileRef = 92B6884A2BB0A46D00D7DF2C /* icon_apple.png */; };
 		92B6884E2BB0A46E00D7DF2C /* icon_kakao.png in Resources */ = {isa = PBXBuildFile; fileRef = 92B6884B2BB0A46D00D7DF2C /* icon_kakao.png */; };
@@ -68,11 +69,13 @@
 		4BA12D8A2BA004CF00BC4EB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BA12D8D2BA004CF00BC4EB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4BA12D8F2BA004CF00BC4EB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4BA12D952BA0054F00BC4EB0 /* Minjeong.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Minjeong.storyboard; sourceTree = "<group>"; };
 		4BB159FF2BB532BC0090A6DE /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		4BC68AAC2BA2B67300FC6546 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4BC68AAF2BA2DAF200FC6546 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		4BC68AB12BA2DBD300FC6546 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		923B80FD2C0230C600B771E7 /* ScheduleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleListViewController.swift; sourceTree = "<group>"; };
+		927E19CC2C0239AD004D9F96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Minjeong.storyboard; sourceTree = "<group>"; };
+		927E19CF2C0239AD004D9F96 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/Minjeong.xcstrings; sourceTree = "<group>"; };
 		92B688472BB0A20400D7DF2C /* LoginViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewCell.swift; sourceTree = "<group>"; };
 		92B6884A2BB0A46D00D7DF2C /* icon_apple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_apple.png; sourceTree = "<group>"; };
 		92B6884B2BB0A46D00D7DF2C /* icon_kakao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_kakao.png; sourceTree = "<group>"; };
@@ -120,7 +123,7 @@
 				4BA12D7E2BA004CE00BC4EB0 /* AppDelegate.swift */,
 				4BA12D802BA004CE00BC4EB0 /* SceneDelegate.swift */,
 				4BA12D842BA004CE00BC4EB0 /* Jinhee.storyboard */,
-				4BA12D952BA0054F00BC4EB0 /* Minjeong.storyboard */,
+				927E19CD2C0239AD004D9F96 /* Minjeong.storyboard */,
 				4BA12D8A2BA004CF00BC4EB0 /* Assets.xcassets */,
 				4BA12D8C2BA004CF00BC4EB0 /* LaunchScreen.storyboard */,
 				4BA12D8F2BA004CF00BC4EB0 /* Info.plist */,
@@ -143,6 +146,7 @@
 				4B70D9BC2BF5AF4D00F3C965 /* MyPlaceViewController.swift */,
 				4B70D9C42BF5BC1800F3C965 /* MyPlaceScrollableViewController.swift */,
 				4B23DBDE2BFEF09600E5E4FD /* MyPlaceTableViewController.swift */,
+				923B80FD2C0230C600B771E7 /* ScheduleListViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -251,7 +255,7 @@
 			files = (
 				4B5D9B732BBE53A400F1BD58 /* Settings.bundle in Resources */,
 				4BA12D8E2BA004CF00BC4EB0 /* LaunchScreen.storyboard in Resources */,
-				4BA12D962BA0054F00BC4EB0 /* Minjeong.storyboard in Resources */,
+				927E19CE2C0239AD004D9F96 /* Minjeong.storyboard in Resources */,
 				92EA73192BF0D1FA0075472C /* icon_profile.png in Resources */,
 				92B6884D2BB0A46E00D7DF2C /* icon_apple.png in Resources */,
 				92B6884F2BB0A46E00D7DF2C /* icon_naver.png in Resources */,
@@ -286,6 +290,7 @@
 				4B73950E2BAC31A4006843DB /* SetMeetingViewController.swift in Sources */,
 				92B688482BB0A20400D7DF2C /* LoginViewCell.swift in Sources */,
 				4B23DBDF2BFEF09600E5E4FD /* MyPlaceTableViewController.swift in Sources */,
+				923B80FE2C0230C600B771E7 /* ScheduleListViewController.swift in Sources */,
 				4BA12D812BA004CE00BC4EB0 /* SceneDelegate.swift in Sources */,
 				4B1122392BE33EA000A2E577 /* ScrollableBottomSheetViewController.swift in Sources */,
 				4B7395102BAC31BB006843DB /* AddMeetingPlaceViewController.swift in Sources */,
@@ -313,6 +318,15 @@
 				4BA12D8D2BA004CF00BC4EB0 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		927E19CD2C0239AD004D9F96 /* Minjeong.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				927E19CC2C0239AD004D9F96 /* Base */,
+				927E19CF2C0239AD004D9F96 /* mul */,
+			);
+			name = Minjeong.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

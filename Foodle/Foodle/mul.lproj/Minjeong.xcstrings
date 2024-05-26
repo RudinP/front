@@ -1,0 +1,270 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "0Mo-aH-5HO.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"소셜 로그인\"; ObjectID = \"0Mo-aH-5HO\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "소셜 로그인"
+          }
+        }
+      }
+    },
+    "4HF-VQ-yvV.configuration.title" : {
+      "comment" : "Class = \"UIButton\"; configuration.title = \"저장하기\"; ObjectID = \"4HF-VQ-yvV\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "저장하기"
+          }
+        }
+      }
+    },
+    "4HF-VQ-yvV.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"4HF-VQ-yvV\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        }
+      }
+    },
+    "5r2-V9-dDe.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"5r2-V9-dDe\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        }
+      }
+    },
+    "6yk-pc-Q8M.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"친구 목록\"; ObjectID = \"6yk-pc-Q8M\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "친구 목록"
+          }
+        }
+      }
+    },
+    "a2Q-BT-9q9.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"2~10글자 까지만 가능해요!\"; ObjectID = \"a2Q-BT-9q9\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "2~10글자 까지만 가능해요!"
+          }
+        }
+      }
+    },
+    "aC4-ti-tqJ.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"고등학교 동창회\"; ObjectID = \"aC4-ti-tqJ\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "고등학교 동창회"
+          }
+        }
+      }
+    },
+    "acw-Oo-jCw.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"닉네임\"; ObjectID = \"acw-Oo-jCw\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "닉네임"
+          }
+        }
+      }
+    },
+    "aqS-k3-C4v.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"일정 목록\"; ObjectID = \"aqS-k3-C4v\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "일정 목록"
+          }
+        }
+      }
+    },
+    "BgU-ox-tcd.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"회원탈퇴\"; ObjectID = \"BgU-ox-tcd\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "회원탈퇴"
+          }
+        }
+      }
+    },
+    "cKw-XS-s5u.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Label\"; ObjectID = \"cKw-XS-s5u\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Label"
+          }
+        }
+      }
+    },
+    "dcb-jx-zp0.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"프로필 사진\"; ObjectID = \"dcb-jx-zp0\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "프로필 사진"
+          }
+        }
+      }
+    },
+    "djx-do-mlJ.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"즐겨찾기한 친구\"; ObjectID = \"djx-do-mlJ\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "즐겨찾기한 친구"
+          }
+        }
+      }
+    },
+    "F6u-4h-fWU.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"개인정보 이용 처리 방침\"; ObjectID = \"F6u-4h-fWU\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "개인정보 이용 처리 방침"
+          }
+        }
+      }
+    },
+    "kX2-FI-odJ.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"2024/01/01 월\"; ObjectID = \"kX2-FI-odJ\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "2024/01/01 월"
+          }
+        }
+      }
+    },
+    "Mge-M9-bXJ.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"프들로 약속을 잡아보세요!\"; ObjectID = \"Mge-M9-bXJ\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "프들로 약속을 잡아보세요!"
+          }
+        }
+      }
+    },
+    "r03-hE-JAM.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"이름\"; ObjectID = \"r03-hE-JAM\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "이름"
+          }
+        }
+      }
+    },
+    "RIJ-X8-IJI.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"RIJ-X8-IJI\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        }
+      }
+    },
+    "Uab-lA-u1R.title" : {
+      "comment" : "Class = \"UITabBarItem\"; title = \"일정 목록\"; ObjectID = \"Uab-lA-u1R\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "일정 목록"
+          }
+        }
+      }
+    },
+    "vYd-Iv-WII.title" : {
+      "comment" : "Class = \"UITabBarItem\"; title = \"친구 목록\"; ObjectID = \"vYd-Iv-WII\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "친구 목록"
+          }
+        }
+      }
+    },
+    "Wu8-vr-LdX.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"로그아웃\"; ObjectID = \"Wu8-vr-LdX\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "로그아웃"
+          }
+        }
+      }
+    },
+    "Xcq-zV-W99.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Label\"; ObjectID = \"Xcq-zV-W99\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Label"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
