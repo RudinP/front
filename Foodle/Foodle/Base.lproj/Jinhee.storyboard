@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F9u-qe-fIA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F9u-qe-fIA">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -1044,8 +1044,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="Zrf-eY-Vsr" kind="relationship" relationship="viewControllers" id="Pdd-Yo-qha"/>
+                        <segue destination="Vj9-nb-hLr" kind="relationship" relationship="viewControllers" id="Eyq-Ma-5D7"/>
                         <segue destination="6Di-2w-rPI" kind="relationship" relationship="viewControllers" id="29k-OS-V7I"/>
-                        <segue destination="PS4-1t-AAv" kind="relationship" relationship="viewControllers" id="7i3-Nd-0Ip"/>
                         <segue destination="zYi-g3-aDW" kind="relationship" relationship="viewControllers" id="WWf-1o-bnZ"/>
                     </connections>
                 </tabBarController>
@@ -1382,26 +1382,20 @@
             </objects>
             <point key="canvasLocation" x="907.63358778625945" y="807.74647887323943"/>
         </scene>
-        <!--일정목록-->
-        <scene sceneID="G08-Kw-gcY">
+        <!--ScheduleListView-->
+        <scene sceneID="aLX-Y1-xYe">
             <objects>
-                <viewController title="일정목록" id="PS4-1t-AAv" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="yBk-Tm-jGA">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="XKa-pp-pv5"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="일정 목록" image="calendar" catalog="system" id="Bwl-H9-PPx"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7aN-vE-FTl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Minjeong" referencedIdentifier="ScheduleListView" id="Vj9-nb-hLr" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="cd1-aT-sLe"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D8g-XK-xDG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1973" y="808"/>
+            <point key="canvasLocation" x="2020" y="517"/>
         </scene>
-        <!--Minjeong-->
+        <!--FriendListView-->
         <scene sceneID="m7Z-Ae-oRT">
             <objects>
-                <viewControllerPlaceholder storyboardName="Minjeong" id="zYi-g3-aDW" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Minjeong" referencedIdentifier="FriendListView" id="zYi-g3-aDW" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="친구 목록" image="pawprint" catalog="system" id="oNz-Vi-Q4G"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iqV-HE-hHH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1410,7 +1404,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="circle.fill" catalog="system" width="128" height="123"/>
         <image name="dummy" width="210" height="150"/>
         <image name="house" catalog="system" width="128" height="104"/>
@@ -1428,16 +1421,16 @@
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="secondarySystemFillColor">
-            <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.16" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.16" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
