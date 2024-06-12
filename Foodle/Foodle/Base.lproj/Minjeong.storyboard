@@ -123,6 +123,7 @@
                                             <outlet property="favButton" destination="5r2-V9-dDe" id="YGz-m1-6OV"/>
                                             <outlet property="favImg" destination="9se-4f-Ap2" id="oej-5f-HO9"/>
                                             <outlet property="favName" destination="cKw-XS-s5u" id="Szh-r1-8Eh"/>
+                                            <segue destination="hbg-Fz-Noe" kind="show" id="UGv-Mj-Hhj"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -169,6 +170,7 @@
                                             <outlet property="allButton" destination="RIJ-X8-IJI" id="Rzs-NH-93Y"/>
                                             <outlet property="allImg" destination="HfB-Z2-J6R" id="ncJ-ij-5YL"/>
                                             <outlet property="allName" destination="Xcq-zV-W99" id="Zbn-4N-h93"/>
+                                            <segue destination="hbg-Fz-Noe" kind="show" id="sm7-wZ-grR"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -208,6 +210,28 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuS-ac-YfK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="61.832061068702288" y="688.73239436619724"/>
+        </scene>
+        <!--Friends Detail View Controller-->
+        <scene sceneID="sVa-26-xke">
+            <objects>
+                <viewController id="hbg-Fz-Noe" customClass="FriendsDetailViewController" customModule="Foodle" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HHS-Yr-ADi">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LGf-cl-1NF">
+                                <rect key="frame" x="0.0" y="42" width="393" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </navigationBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="SUG-Qr-fdx"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="d3c-Ea-DA5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2j0-E5-IeM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="879" y="689"/>
         </scene>
         <!--일정 목록-->
         <scene sceneID="wUe-6n-K2x">
@@ -294,7 +318,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gAc-q1-gq2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="878.62595419847321" y="688.73239436619724"/>
+            <point key="canvasLocation" x="-703" y="689"/>
         </scene>
         <!--My Page View Cell-->
         <scene sceneID="KXn-hs-8aN">
@@ -390,9 +414,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nGY-T6-PJx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="58" y="1432"/>
+            <point key="canvasLocation" x="879" y="-28"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="UGv-Mj-Hhj"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="pawprint" catalog="system" width="128" height="114"/>
@@ -409,7 +436,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -42,6 +42,7 @@
 		92B688632BBB177D00D7DF2C /* FriendsListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B688622BBB177D00D7DF2C /* FriendsListViewCell.swift */; };
 		92EA73172BF0D1830075472C /* MyPageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA73162BF0D1830075472C /* MyPageViewCell.swift */; };
 		92EA73192BF0D1FA0075472C /* icon_profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 92EA73182BF0D1FA0075472C /* icon_profile.png */; };
+		92FABE102C172641000E2DE6 /* FriendsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FABE0F2C172641000E2DE6 /* FriendsDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +84,7 @@
 		92B688622BBB177D00D7DF2C /* FriendsListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListViewCell.swift; sourceTree = "<group>"; };
 		92EA73162BF0D1830075472C /* MyPageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewCell.swift; sourceTree = "<group>"; };
 		92EA73182BF0D1FA0075472C /* icon_profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_profile.png; sourceTree = "<group>"; };
+		92FABE0F2C172641000E2DE6 /* FriendsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 				4B70D9C42BF5BC1800F3C965 /* MyPlaceScrollableViewController.swift */,
 				4B23DBDE2BFEF09600E5E4FD /* MyPlaceTableViewController.swift */,
 				923B80FD2C0230C600B771E7 /* ScheduleListViewController.swift */,
+				92FABE0F2C172641000E2DE6 /* FriendsDetailViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				4B70D9C52BF5BC1800F3C965 /* MyPlaceScrollableViewController.swift in Sources */,
 				4B70D9BD2BF5AF4D00F3C965 /* MyPlaceViewController.swift in Sources */,
 				4BC68AB02BA2DAF200FC6546 /* MainCollectionViewCell.swift in Sources */,
+				92FABE102C172641000E2DE6 /* FriendsDetailViewController.swift in Sources */,
 				92B688632BBB177D00D7DF2C /* FriendsListViewCell.swift in Sources */,
 				4B5D9B712BBE4CB200F1BD58 /* PlaceImageCollectionViewCell.swift in Sources */,
 				4B1122372BE33BA500A2E577 /* UIViewExtension.swift in Sources */,
