@@ -68,15 +68,11 @@ extension FriendsListViewCell: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView == favTable {
-            return friendsName.count
-        } else {
-            return friendsName.count
-        }
+        return friendsName.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return 75 // 셀의 높이를 75픽셀로 설정
+        return 75 // 셀의 높이를 75픽셀로 설정
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -92,6 +88,22 @@ extension FriendsListViewCell: UITableViewDelegate, UITableViewDataSource {
             cell.allName.text = friendsName[indexPath.row]
             cell.allImg.layer.cornerRadius = 30
             return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedFriendName = friendsName[indexPath.row]
+        let selectedFriendImageName = friendsImg[indexPath.row]
+        performSegue(withIdentifier: "showDetail", sender: (name: selectedFriendName, imageName: selectedFriendImageName))
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetail" {
+            if let destinationVC = segue.destination as? FriendsDetailViewController,
+               let friendInfo = sender as? (name: String, imageName: String) {                
+                destinationVC.friendsNameText = friendInfo.name
+                destinationVC.profileImgName = friendInfo.imageName
+            }
         }
     }
 }

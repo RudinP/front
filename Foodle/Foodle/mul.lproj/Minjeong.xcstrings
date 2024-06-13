@@ -37,6 +37,18 @@
         }
       }
     },
+    "4PY-3x-9P4.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"이름\"; ObjectID = \"4PY-3x-9P4\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "이름"
+          }
+        }
+      }
+    },
     "5r2-V9-dDe.normalTitle" : {
       "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"5r2-V9-dDe\";",
       "extractionState" : "extracted_with_value",
@@ -217,6 +229,18 @@
         }
       }
     },
+    "Tl8-6F-157.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"나와의 다가오는 약속\"; ObjectID = \"Tl8-6F-157\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "나와의 다가오는 약속"
+          }
+        }
+      }
+    },
     "Uab-lA-u1R.title" : {
       "comment" : "Class = \"UITabBarItem\"; title = \"일정 목록\"; ObjectID = \"Uab-lA-u1R\";",
       "extractionState" : "extracted_with_value",
@@ -261,6 +285,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Label"
+          }
+        }
+      }
+    },
+    "XTi-Fl-eVP.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"친구의 플레이스\"; ObjectID = \"XTi-Fl-eVP\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "친구의 플레이스"
           }
         }
       }

@@ -123,7 +123,6 @@
                                             <outlet property="favButton" destination="5r2-V9-dDe" id="YGz-m1-6OV"/>
                                             <outlet property="favImg" destination="9se-4f-Ap2" id="oej-5f-HO9"/>
                                             <outlet property="favName" destination="cKw-XS-s5u" id="Szh-r1-8Eh"/>
-                                            <segue destination="hbg-Fz-Noe" kind="show" id="UGv-Mj-Hhj"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -170,7 +169,6 @@
                                             <outlet property="allButton" destination="RIJ-X8-IJI" id="Rzs-NH-93Y"/>
                                             <outlet property="allImg" destination="HfB-Z2-J6R" id="ncJ-ij-5YL"/>
                                             <outlet property="allName" destination="Xcq-zV-W99" id="Zbn-4N-h93"/>
-                                            <segue destination="hbg-Fz-Noe" kind="show" id="sm7-wZ-grR"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -205,6 +203,7 @@
                         <outlet property="favLabel" destination="djx-do-mlJ" id="fy2-3X-OwJ"/>
                         <outlet property="favTable" destination="V0e-ZS-EpI" id="anR-Y2-0ir"/>
                         <outlet property="searchBar" destination="Pz1-wS-kta" id="vIj-N8-1UF"/>
+                        <segue destination="hbg-Fz-Noe" kind="show" identifier="showDetail" id="Jab-Rd-Y2Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuS-ac-YfK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -219,19 +218,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LGf-cl-1NF">
-                                <rect key="frame" x="0.0" y="42" width="393" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4PY-3x-9P4">
+                                <rect key="frame" x="110" y="58" width="127" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="나와의 다가오는 약속" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tl8-6F-157">
+                                <rect key="frame" x="24" y="143" width="263" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sCT-Rw-4hT">
+                                <rect key="frame" x="24" y="45" width="65" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="친구의 플레이스" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XTi-Fl-eVP">
+                                <rect key="frame" x="24" y="420" width="201" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="SUG-Qr-fdx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="d3c-Ea-DA5"/>
+                    <navigationItem key="navigationItem" id="uR1-f1-xdJ"/>
+                    <connections>
+                        <outlet property="friendsNameLabel" destination="4PY-3x-9P4" id="nxO-Sp-mAK"/>
+                        <outlet property="profileImg" destination="sCT-Rw-4hT" id="BeQ-d3-yU1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2j0-E5-IeM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="879" y="689"/>
+            <point key="canvasLocation" x="878.62595419847321" y="688.73239436619724"/>
         </scene>
         <!--일정 목록-->
         <scene sceneID="wUe-6n-K2x">
@@ -417,9 +441,6 @@
             <point key="canvasLocation" x="879" y="-28"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="UGv-Mj-Hhj"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="pawprint" catalog="system" width="128" height="114"/>
