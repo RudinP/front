@@ -237,20 +237,64 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="친구의 플레이스" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XTi-Fl-eVP">
-                                <rect key="frame" x="24" y="420" width="201" height="39"/>
+                                <rect key="frame" x="24" y="360" width="201" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4g6-aV-OKU">
+                                <rect key="frame" x="11" y="204" width="370" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aE0-Hp-CBv" customClass="ScheduleCollectionViewCell">
+                                    <size key="itemSize" width="287" height="85.666666666666671"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FriendsScheduleCell" id="MAr-6T-cay" customClass="FriendsScheduleCollectionViewCell" customModule="Foodle" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="-0.33333333333333331" width="287" height="85.666666666666671"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="PQX-Mk-hj0">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="85.666666666666671"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2024/01/01 월" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ha-ZS-hNI">
+                                                    <rect key="frame" x="24.999999999999943" y="18" width="116.00000000000006" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="고등학교 동창회" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xms-62-65z">
+                                                    <rect key="frame" x="24.999999999999943" y="47" width="114.00000000000006" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" name="SecondAccent"/>
+                                        <size key="customSize" width="287" height="85.666666666666671"/>
+                                        <connections>
+                                            <outlet property="friendsScheDateLabel" destination="5Ha-ZS-hNI" id="Hog-zE-oqh"/>
+                                            <outlet property="friendsScheNameLabel" destination="xms-62-65z" id="skD-QF-nhX"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="SUG-Qr-fdx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="uR1-f1-xdJ"/>
                     <connections>
-                        <outlet property="friendsNameLabel" destination="4PY-3x-9P4" id="nxO-Sp-mAK"/>
-                        <outlet property="profileImg" destination="sCT-Rw-4hT" id="BeQ-d3-yU1"/>
+                        <outlet property="collectionView" destination="4g6-aV-OKU" id="Yc8-kP-YGu"/>
+                        <outlet property="friendsNameLabel" destination="4PY-3x-9P4" id="QEb-gh-xs0"/>
+                        <outlet property="profileImg" destination="sCT-Rw-4hT" id="t8a-Ae-CY5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2j0-E5-IeM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

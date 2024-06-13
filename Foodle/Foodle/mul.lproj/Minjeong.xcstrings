@@ -49,6 +49,18 @@
         }
       }
     },
+    "5Ha-ZS-hNI.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"2024/01/01 월\"; ObjectID = \"5Ha-ZS-hNI\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "2024/01/01 월"
+          }
+        }
+      }
+    },
     "5r2-V9-dDe.normalTitle" : {
       "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"5r2-V9-dDe\";",
       "extractionState" : "extracted_with_value",
@@ -285,6 +297,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Label"
+          }
+        }
+      }
+    },
+    "xms-62-65z.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"고등학교 동창회\"; ObjectID = \"xms-62-65z\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "고등학교 동창회"
           }
         }
       }
