@@ -57,10 +57,4 @@ extension Schedule {
 class ScheduleCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var scheDateLabel: UILabel!
     @IBOutlet weak var scheNameLabel: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        layer.cornerRadius = 10
-        layer.masksToBounds = true
-    }
 }

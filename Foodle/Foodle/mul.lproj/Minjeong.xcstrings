@@ -217,6 +217,30 @@
         }
       }
     },
+    "nUY-mv-wWJ.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"nUY-mv-wWJ\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        }
+      }
+    },
+    "pKp-qt-15T.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"금별맥주\"; ObjectID = \"pKp-qt-15T\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "금별맥주"
+          }
+        }
+      }
+    },
     "r03-hE-JAM.text" : {
       "comment" : "Class = \"UILabel\"; text = \"이름\"; ObjectID = \"r03-hE-JAM\";",
       "extractionState" : "extracted_with_value",

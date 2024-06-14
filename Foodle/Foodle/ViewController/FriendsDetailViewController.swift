@@ -11,14 +11,17 @@ class FriendsDetailViewController: UIViewController, UICollectionViewDataSource,
     @IBOutlet var friendsNameLabel: UILabel!
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var placeCollectionView: UICollectionView!
     
     var friendsNameText: String?
     var profileImgName: String?
     
     let scheList: [FriendsSchedule] = FriendsSchedule.list
+    let placeList: [FriendsPlace] = FriendsPlace.list
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if let friendsNameText = friendsNameText {
             friendsNameLabel.text = friendsNameText
         }
@@ -29,25 +32,48 @@ class FriendsDetailViewController: UIViewController, UICollectionViewDataSource,
         
         collectionView.dataSource = self
         collectionView.delegate = self
+        
+        placeCollectionView.dataSource = self
+        placeCollectionView.delegate = self
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return scheList.count
+        if collectionView == self.collectionView {
+            return scheList.count
+        } else if collectionView == self.placeCollectionView {
+            return placeList.count
+        } else {
+            return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FriendsScheduleCell", for: indexPath) as? FriendsScheduleCollectionViewCell else {
-            fatalError("Unable to dequeue FriendsScheduleCollectionViewCell")
+        if collectionView == self.collectionView {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FriendsScheduleCell", for: indexPath) as? FriendsScheduleCollectionViewCell else {
+                fatalError("Unable to dequeue FriendsScheduleCollectionViewCell")
+            }
+            
+            let schedule = scheList[indexPath.item]
+            cell.friendsScheNameLabel.text = schedule.friendsScheName
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy/MM/dd"
+            cell.friendsScheDateLabel.text = dateFormatter.string(from: schedule.friendsScheDate)
+                    
+            return cell
+        } else if collectionView == self.placeCollectionView {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "placeCell", for: indexPath) as? PlaceCollectionViewCell else {
+                fatalError("Unable to dequeue PlaceCollectionViewCell")
+            }
+            
+            let place = placeList[indexPath.item]
+            cell.placeImg.image = UIImage(named: place.imageName)
+            cell.placeName.text = place.name
+            
+            return cell
+        } else {
+            return UICollectionViewCell()
         }
-        
-        let schedule = scheList[indexPath.item]
-        cell.friendsScheNameLabel.text = schedule.friendsScheName
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy/MM/dd"
-        cell.friendsScheDateLabel.text = dateFormatter.string(from: schedule.friendsScheDate)
-                
-        return cell
     }
 }
 
@@ -65,13 +91,26 @@ extension FriendsSchedule {
     ]
 }
 
+struct FriendsPlace {
+    let imageName: String
+    let name: String
+}
+
+extension FriendsPlace {
+    static let list: [FriendsPlace] = [
+        FriendsPlace(imageName: "dummy", name: "금별맥주"),
+        FriendsPlace(imageName: "dummy", name: "스타벅스"),
+        FriendsPlace(imageName: "dummy", name: "메가커피")
+    ]
+}
+
 class FriendsScheduleCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var friendsScheDateLabel: UILabel!
     @IBOutlet weak var friendsScheNameLabel: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        layer.cornerRadius = 10
-        layer.masksToBounds = true
-    }
+}
+
+class PlaceCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var placeImg: UIImageView!
+    @IBOutlet weak var placeName: UILabel!
+    @IBOutlet weak var placeButton: UIButton!
 }
