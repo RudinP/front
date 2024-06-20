@@ -25,6 +25,10 @@ class AddPlaceViewController: UIViewController {
         listTableView.layer.borderColor = UIColor.accent.cgColor
     }
     
+    func popUpListAddView(){
+        
+    }
+    
     @IBAction func showDropDown(_ sender: Any) {
         self.listTableView.isHidden = !self.listTableView.isHidden
     }
@@ -87,6 +91,15 @@ extension AddPlaceViewController: UITableViewDataSource, UITableViewDelegate{
         if indexPath.row != list.count{
             dropdownBtn.setTitle(list[indexPath.row], for: .normal)
             dropdownBtn.setTitle(list[indexPath.row], for: .selected)
+        } else {
+            let storyBoard = UIStoryboard.init(name: "Jinhee", bundle: nil)
+            let popupVC = storyBoard.instantiateViewController(withIdentifier: "AddListViewController")
+            popupVC.modalPresentationStyle = .overFullScreen
+            present(popupVC, animated: false, completion: nil)
+            tableView.cellForRow(at: indexPath)?.accessoryType = .none
+            
+            dropdownBtn.setTitle("리스트 선택하기", for: .normal)
+            dropdownBtn.setTitle("리스트 선택하기", for: .selected)
         }
         
     }

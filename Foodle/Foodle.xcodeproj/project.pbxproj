@@ -31,6 +31,8 @@
 		4BA12D8B2BA004CF00BC4EB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BA12D8A2BA004CF00BC4EB0 /* Assets.xcassets */; };
 		4BA12D8E2BA004CF00BC4EB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA12D8C2BA004CF00BC4EB0 /* LaunchScreen.storyboard */; };
 		4BB15A002BB532BC0090A6DE /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB159FF2BB532BC0090A6DE /* UIImageExtension.swift */; };
+		4BB965C92C23C33F00F7E429 /* AddListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB965C82C23C33F00F7E429 /* AddListViewController.swift */; };
+		4BB965CB2C23C44D00F7E429 /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB965CA2C23C44D00F7E429 /* ColorCollectionViewCell.swift */; };
 		4BC68AAD2BA2B67300FC6546 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC68AAC2BA2B67300FC6546 /* MainViewController.swift */; };
 		4BC68AB02BA2DAF200FC6546 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC68AAF2BA2DAF200FC6546 /* MainCollectionViewCell.swift */; };
 		4BC68AB22BA2DBD300FC6546 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC68AB12BA2DBD300FC6546 /* MainTableViewCell.swift */; };
@@ -73,6 +75,8 @@
 		4BA12D8D2BA004CF00BC4EB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4BA12D8F2BA004CF00BC4EB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BB159FF2BB532BC0090A6DE /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		4BB965C82C23C33F00F7E429 /* AddListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListViewController.swift; sourceTree = "<group>"; };
+		4BB965CA2C23C44D00F7E429 /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		4BC68AAC2BA2B67300FC6546 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4BC68AAF2BA2DAF200FC6546 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		4BC68AB12BA2DBD300FC6546 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
@@ -153,6 +157,7 @@
 				923B80FD2C0230C600B771E7 /* ScheduleListViewController.swift */,
 				92FABE0F2C172641000E2DE6 /* FriendsDetailViewController.swift */,
 				4B8D3EF12C22B2BC00A344D1 /* AddPlaceViewController.swift */,
+				4BB965C82C23C33F00F7E429 /* AddListViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -186,6 +191,7 @@
 				4B11223F2BE351D200A2E577 /* ResultTableViewcell.swift */,
 				92EA73162BF0D1830075472C /* MyPageViewCell.swift */,
 				4B70D9C22BF5BAF600F3C965 /* MyPlaceTableViewCell.swift */,
+				4BB965CA2C23C44D00F7E429 /* ColorCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -278,6 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BB965CB2C23C44D00F7E429 /* ColorCollectionViewCell.swift in Sources */,
 				4B5D9B6D2BBE3FFB00F1BD58 /* SearchViewController.swift in Sources */,
 				4B70D9C32BF5BAF600F3C965 /* MyPlaceTableViewCell.swift in Sources */,
 				92EA73172BF0D1830075472C /* MyPageViewCell.swift in Sources */,
@@ -290,6 +297,7 @@
 				92B688632BBB177D00D7DF2C /* FriendsListViewCell.swift in Sources */,
 				4B5D9B712BBE4CB200F1BD58 /* PlaceImageCollectionViewCell.swift in Sources */,
 				4B1122372BE33BA500A2E577 /* UIViewExtension.swift in Sources */,
+				4BB965C92C23C33F00F7E429 /* AddListViewController.swift in Sources */,
 				4BA12D892BA004CE00BC4EB0 /* Foodle.xcdatamodeld in Sources */,
 				4B73950C2BAC3187006843DB /* SelectFriendsViewController.swift in Sources */,
 				4B1122402BE351D200A2E577 /* ResultTableViewcell.swift in Sources */,
