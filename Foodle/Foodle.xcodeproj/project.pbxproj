@@ -43,6 +43,7 @@
 		92B6884E2BB0A46E00D7DF2C /* icon_kakao.png in Resources */ = {isa = PBXBuildFile; fileRef = 92B6884B2BB0A46D00D7DF2C /* icon_kakao.png */; };
 		92B6884F2BB0A46E00D7DF2C /* icon_naver.png in Resources */ = {isa = PBXBuildFile; fileRef = 92B6884C2BB0A46E00D7DF2C /* icon_naver.png */; };
 		92B688632BBB177D00D7DF2C /* FriendsListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B688622BBB177D00D7DF2C /* FriendsListViewCell.swift */; };
+		92D3DE662C2762E100CC3673 /* DetailMeetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3DE652C2762E100CC3673 /* DetailMeetingViewController.swift */; };
 		92EA73172BF0D1830075472C /* MyPageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA73162BF0D1830075472C /* MyPageViewCell.swift */; };
 		92EA73192BF0D1FA0075472C /* icon_profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 92EA73182BF0D1FA0075472C /* icon_profile.png */; };
 		92FABE102C172641000E2DE6 /* FriendsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FABE0F2C172641000E2DE6 /* FriendsDetailViewController.swift */; };
@@ -88,6 +89,7 @@
 		92B6884B2BB0A46D00D7DF2C /* icon_kakao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_kakao.png; sourceTree = "<group>"; };
 		92B6884C2BB0A46E00D7DF2C /* icon_naver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_naver.png; sourceTree = "<group>"; };
 		92B688622BBB177D00D7DF2C /* FriendsListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListViewCell.swift; sourceTree = "<group>"; };
+		92D3DE652C2762E100CC3673 /* DetailMeetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMeetingViewController.swift; sourceTree = "<group>"; };
 		92EA73162BF0D1830075472C /* MyPageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewCell.swift; sourceTree = "<group>"; };
 		92EA73182BF0D1FA0075472C /* icon_profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_profile.png; sourceTree = "<group>"; };
 		92FABE0F2C172641000E2DE6 /* FriendsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsDetailViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				92FABE0F2C172641000E2DE6 /* FriendsDetailViewController.swift */,
 				4B8D3EF12C22B2BC00A344D1 /* AddPlaceViewController.swift */,
 				4BB965C82C23C33F00F7E429 /* AddListViewController.swift */,
+				92D3DE652C2762E100CC3673 /* DetailMeetingViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				92B688482BB0A20400D7DF2C /* LoginViewCell.swift in Sources */,
 				4B23DBDF2BFEF09600E5E4FD /* MyPlaceTableViewController.swift in Sources */,
 				923B80FE2C0230C600B771E7 /* ScheduleListViewController.swift in Sources */,
+				92D3DE662C2762E100CC3673 /* DetailMeetingViewController.swift in Sources */,
 				4BA12D812BA004CE00BC4EB0 /* SceneDelegate.swift in Sources */,
 				4B1122392BE33EA000A2E577 /* ScrollableBottomSheetViewController.swift in Sources */,
 				4B7395102BAC31BB006843DB /* AddMeetingPlaceViewController.swift in Sources */,

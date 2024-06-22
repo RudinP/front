@@ -169,6 +169,18 @@
         }
       }
     },
+    "dfV-Ky-3Vw.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"●\"; ObjectID = \"dfV-Ky-3Vw\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "●"
+          }
+        }
+      }
+    },
     "djx-do-mlJ.text" : {
       "comment" : "Class = \"UILabel\"; text = \"즐겨찾기한 친구\"; ObjectID = \"djx-do-mlJ\";",
       "extractionState" : "extracted_with_value",
@@ -345,6 +357,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "친구의 플레이스"
+          }
+        }
+      }
+    },
+    "zUB-9h-lGd.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"정기 회의\"; ObjectID = \"zUB-9h-lGd\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "정기 회의"
           }
         }
       }
