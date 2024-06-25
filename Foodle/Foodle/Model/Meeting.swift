@@ -14,7 +14,8 @@ class Meeting{
     var dateString: String?{
         guard let date = date else {return nil}
         let formatter = DateFormatter()
-        formatter.dateFormat = "YYYY:MM:DD"
+        formatter.locale = Locale(identifier: "ko_KR")
+        formatter.dateFormat = "YYYY/MM/dd (E)"
         return formatter.string(from: date)
     }
     var dDay: String?{
@@ -24,7 +25,7 @@ class Meeting{
         let from = calendar.startOfDay(for: date)
         let to = calendar.startOfDay(for: Date())
         
-        return String(calendar.dateComponents([.day], from: from, to: to).day!)
+        return "D" + String(calendar.dateComponents([.day], from: from, to: to).day!)
     }
     var places: [MeetingPlace?] = []
     
