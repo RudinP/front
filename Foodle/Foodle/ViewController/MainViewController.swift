@@ -159,8 +159,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "mainTableViewCell", for: indexPath) as? MainTableViewCell else {return UITableViewCell()}
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "mainTableViewCell", for: indexPath) as! MainTableViewCell
         if indexPath.row != 0{
             cell.prepare(bgColor: .systemGray6, textColor: .gray)
         }

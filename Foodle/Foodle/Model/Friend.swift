@@ -8,10 +8,12 @@
 import Foundation
 
 class Friend: User{
-    var like: Bool?
+    var like: Bool = false
     
-    init(user: User, like: Bool? = nil) {
+    init(user: User, like: Bool) {
         super.init(user: user)
         self.like = like
     }
 }
+
+let dummyFriends = [Friend(user: dummyUser2, like: true)]

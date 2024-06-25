@@ -8,15 +8,17 @@
 import Foundation
 
 class Meeting{
-    var joiners: [Friend?] = []
+    var joiners: [User?] = []
     var name: String?
     var date: Date?
     var places: [MeetingPlace?] = []
     
-    init(joiners: [Friend?], name: String? = nil, date: Date? = nil, places: [MeetingPlace?]) {
+    init(joiners: [User], name: String, date: Date, places: [MeetingPlace?]) {
         self.joiners = joiners
         self.name = name
         self.date = date
         self.places = places
     }
 }
+
+let dummyMeeting = Meeting(joiners: [dummyUser, dummyUser2], name: "확인용 미팅", date: Date(), places: dummyMeetingPlaces)
