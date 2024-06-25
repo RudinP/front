@@ -152,7 +152,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section{
-        case 0: return 5
+        case 0: return dummyMeetings.count
         case 1: return 1
         default: return 0
         }
@@ -164,7 +164,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource{
             cell.prepare(bgColor: .systemGray6, textColor: .gray)
         }
         cell.section = indexPath.section
-        
+        cell.index = indexPath.row
         return cell
     }
     

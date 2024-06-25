@@ -19,22 +19,5 @@ extension UIImage {
         }
         return renderImage
     }
-    
-    func flippedVertically() -> UIImage? {
-            UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
-            guard let context = UIGraphicsGetCurrentContext() else {
-                return nil
-            }
-            
-            context.translateBy(x: self.size.width / 2, y: self.size.height / 2)
-            context.scaleBy(x: 1.0, y: -1.0)
-            context.translateBy(x: -self.size.width / 2, y: -self.size.height / 2)
-            context.draw(self.cgImage!, in: CGRect(origin: .zero, size: self.size))
-            
-            let flippedImage = UIGraphicsGetImageFromCurrentImageContext()
-            UIGraphicsEndImageContext()
-            
-            return flippedImage
-        }
 }
 

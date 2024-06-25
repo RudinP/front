@@ -11,6 +11,21 @@ class Meeting{
     var joiners: [User?] = []
     var name: String?
     var date: Date?
+    var dateString: String?{
+        guard let date = date else {return nil}
+        let formatter = DateFormatter()
+        formatter.dateFormat = "YYYY:MM:DD"
+        return formatter.string(from: date)
+    }
+    var dDay: String?{
+        guard let date = date else {return nil}
+        let calendar = Calendar.current
+        
+        let from = calendar.startOfDay(for: date)
+        let to = calendar.startOfDay(for: Date())
+        
+        return String(calendar.dateComponents([.day], from: from, to: to).day!)
+    }
     var places: [MeetingPlace?] = []
     
     init(joiners: [User], name: String, date: Date, places: [MeetingPlace?]) {
@@ -21,4 +36,9 @@ class Meeting{
     }
 }
 
-let dummyMeeting = Meeting(joiners: [dummyUser, dummyUser2], name: "확인용 미팅", date: Date(), places: dummyMeetingPlaces)
+let dummyMeetings = [Meeting(joiners: [dummyUser, dummyUser2], name: "확인용 미팅", date: Date(), places: dummyMeetingPlaces),
+                    Meeting(joiners: [dummyUser, dummyUser2], name: "확인용 미팅2", date: Date(), places: dummyMeetingPlaces),
+                    Meeting(joiners: [dummyUser, dummyUser2], name: "확인용 미팅3", date: Date(), places: dummyMeetingPlaces)]
+let dummyMeetingsUpcoming = [Meeting(joiners: [dummyUser, dummyUser2], name: "내일 미팅", date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!, places: dummyMeetingPlaces),
+                             Meeting(joiners: [dummyUser, dummyUser2], name: "내일 미팅2", date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!, places: dummyMeetingPlaces),
+                             Meeting(joiners: [dummyUser, dummyUser2], name: "내일 미팅3", date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!, places: dummyMeetingPlaces)]
