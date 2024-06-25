@@ -10,9 +10,17 @@ import Foundation
 class MeetingPlace{
     var place: Place?
     var time: Date?
+    var timeString: String?{
+        guard let time = time else { return nil }
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        return formatter.string(from: time)
+    }
     
-    init(place: Place? = nil, time: Date? = nil) {
+    init(place: Place, time: Date?) {
         self.place = place
         self.time = time
     }
 }
+
+let dummyMeetingPlaces = [MeetingPlace(place: dummyPlaces[0], time: Date()), MeetingPlace(place: dummyPlaces[1], time: Date())]

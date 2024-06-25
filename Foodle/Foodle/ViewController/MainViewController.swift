@@ -152,20 +152,19 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section{
-        case 0: return 5
+        case 0: return dummyMeetings.count
         case 1: return 1
         default: return 0
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "mainTableViewCell", for: indexPath) as? MainTableViewCell else {return UITableViewCell()}
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "mainTableViewCell", for: indexPath) as! MainTableViewCell
         if indexPath.row != 0{
             cell.prepare(bgColor: .systemGray6, textColor: .gray)
         }
         cell.section = indexPath.section
-        
+        cell.index = indexPath.row
         return cell
     }
     

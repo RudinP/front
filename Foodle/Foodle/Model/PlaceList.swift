@@ -14,7 +14,7 @@ class PlaceList{
     var color: CGColor?
     var places: [Place?] = []
     
-    init(listID: Int? = nil, name: String? = nil, color: CGColor? = nil, places: [Place?]) {
+    init(listID: Int, name: String, color: CGColor, places: [Place?]) {
         self.listID = listID
         self.name = name
         self.color = color
