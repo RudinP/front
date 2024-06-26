@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainCollectionViewCell: UICollectionViewCell {
+class MainCollectionViewCell: RoundedCollectionViewCell {
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var meetingName: UILabel!
     @IBOutlet weak var placeName: UILabel!
@@ -19,7 +19,6 @@ class MainCollectionViewCell: UICollectionViewCell {
     }
     
     func prepare(bgColor: UIColor, textColor: UIColor){
-        self.layer.cornerRadius = 10
         self.cardView.backgroundColor = bgColor
         
         self.date.textColor = textColor

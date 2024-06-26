@@ -7,21 +7,32 @@
 
 import UIKit
 
-class ScheduleListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
-    let scheList: [Schedule] = Schedule.list
+class ScheduleListViewController: UIViewController{
     
     @IBOutlet weak var scheListLabel: UILabel!
     @IBOutlet weak var calendar: UIDatePicker!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var date = Date()
+    
+    @IBAction func selectedDate(_ sender: UIDatePicker) {
+        date = sender.date
+        collectionView.reloadData()
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
+        calendar.date = date
     }
     
+}
+
+extension ScheduleListViewController: UICollectionViewDataSource, UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return scheList.count
+        return getToday(meetings: dummyMeetings, date: date).count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -29,29 +40,13 @@ class ScheduleListViewController: UIViewController, UICollectionViewDataSource, 
             fatalError("Unable to dequeue ScheduleCollectionViewCell")
             }
         
-        let schedule = scheList[indexPath.item]
-        cell.scheNameLabel.text = schedule.scheName
+        let schedule = getToday(meetings: dummyMeetings, date: date)[indexPath.item]
+        cell.scheNameLabel.text = schedule.name
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy/MM/dd"
-        cell.scheDateLabel.text = dateFormatter.string(from: schedule.scheDate)
+        cell.scheDateLabel.text = schedule.dateString
                 
         return cell
     }
-}
-
-struct Schedule {
-    let scheDate: Date
-    let scheName: String
-}
-
-extension Schedule {
-    static let list: [Schedule] = [
-        Schedule(scheDate: Calendar.current.date(from: DateComponents(year: 2024, month: 5, day: 26))!, scheName: "고등학교 동창회"),
-        Schedule(scheDate: Calendar.current.date(from: DateComponents(year: 2024, month: 5, day: 27))!, scheName: "친구 결혼식"),
-        Schedule(scheDate: Calendar.current.date(from: DateComponents(year: 2024, month: 5, day: 28))!, scheName: "회사 미팅"),
-        Schedule(scheDate: Calendar.current.date(from: DateComponents(year: 2024, month: 5, day: 28))!, scheName: "맛집 탐방")
-    ]
 }
 
 class ScheduleCollectionViewCell: UICollectionViewCell {

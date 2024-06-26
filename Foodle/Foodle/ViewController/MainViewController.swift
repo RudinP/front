@@ -47,6 +47,8 @@ class MainViewController: UIViewController {
 
         addSearchBar()
         addProfileIcon(nil)
+        
+        print(dummyMeetingsUpcoming)
     }
     
     func addSearchBar(){
@@ -152,7 +154,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section{
-        case 0: return dummyMeetings.count
+        case 0: return dummyTodayMeetings.isEmpty ? 1 : dummyTodayMeetings.count
         case 1: return 1
         default: return 0
         }

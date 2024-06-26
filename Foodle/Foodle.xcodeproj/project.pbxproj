@@ -42,6 +42,7 @@
 		4BF8193E2C292BD6006BE538 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF8193D2C292BD6006BE538 /* Friend.swift */; };
 		4BF819402C292BE5006BE538 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF8193F2C292BE5006BE538 /* User.swift */; };
 		4BF819422C292ED0006BE538 /* PlaceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF819412C292ED0006BE538 /* PlaceList.swift */; };
+		4BFA46132C2BB8DA00240F4E /* RoundedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFA46122C2BB8DA00240F4E /* RoundedCollectionViewCell.swift */; };
 		923B80FE2C0230C600B771E7 /* ScheduleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B80FD2C0230C600B771E7 /* ScheduleListViewController.swift */; };
 		927E19CE2C0239AD004D9F96 /* Minjeong.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 927E19CD2C0239AD004D9F96 /* Minjeong.storyboard */; };
 		92B688482BB0A20400D7DF2C /* LoginViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B688472BB0A20400D7DF2C /* LoginViewCell.swift */; };
@@ -93,6 +94,7 @@
 		4BF8193D2C292BD6006BE538 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		4BF8193F2C292BE5006BE538 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4BF819412C292ED0006BE538 /* PlaceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceList.swift; sourceTree = "<group>"; };
+		4BFA46122C2BB8DA00240F4E /* RoundedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCollectionViewCell.swift; sourceTree = "<group>"; };
 		923B80FD2C0230C600B771E7 /* ScheduleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleListViewController.swift; sourceTree = "<group>"; };
 		927E19CC2C0239AD004D9F96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Minjeong.storyboard; sourceTree = "<group>"; };
 		927E19CF2C0239AD004D9F96 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/Minjeong.xcstrings; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				92EA73162BF0D1830075472C /* MyPageViewCell.swift */,
 				4B70D9C22BF5BAF600F3C965 /* MyPlaceTableViewCell.swift */,
 				4BB965CA2C23C44D00F7E429 /* ColorCollectionViewCell.swift */,
+				4BFA46122C2BB8DA00240F4E /* RoundedCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				4B73950C2BAC3187006843DB /* SelectFriendsViewController.swift in Sources */,
 				4B1122402BE351D200A2E577 /* ResultTableViewcell.swift in Sources */,
 				4BA12D7F2BA004CE00BC4EB0 /* AppDelegate.swift in Sources */,
+				4BFA46132C2BB8DA00240F4E /* RoundedCollectionViewCell.swift in Sources */,
 				4BF8193A2C292B8E006BE538 /* MeetingPlace.swift in Sources */,
 				4B8D3EF22C22B2BC00A344D1 /* AddPlaceViewController.swift in Sources */,
 				4BF8193E2C292BD6006BE538 /* Friend.swift in Sources */,

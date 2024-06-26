@@ -37,9 +37,32 @@ class Meeting{
     }
 }
 
+func getToday(meetings: [Meeting], date: Date = Date()) -> [Meeting] {
+    meetings.filter {
+        let today = date
+        if let meetingday = $0.date{
+            let calendar = Calendar.current
+            return calendar.isDate(today, inSameDayAs: meetingday)
+        }
+        else {return false}
+    }
+}
+
+func getUpcoming(meetings: [Meeting]) -> [Meeting] {
+    meetings.filter {
+        let today = Date()
+        if let meetingday = $0.date{
+            let calendar = Calendar.current
+            return !calendar.isDate(today, inSameDayAs: meetingday) && today < meetingday
+        }
+        else {return false}
+    }
+}
+
 let dummyMeetings = [Meeting(joiners: [dummyUser, dummyUser2], name: "확인용 미팅", date: Date(), places: dummyMeetingPlaces),
-                    Meeting(joiners: [dummyUser, dummyUser2], name: "확인용 미팅2", date: Date(), places: dummyMeetingPlaces),
-                    Meeting(joiners: [dummyUser, dummyUser2], name: "확인용 미팅3", date: Date(), places: dummyMeetingPlaces)]
-let dummyMeetingsUpcoming = [Meeting(joiners: [dummyUser, dummyUser2], name: "내일 미팅", date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!, places: dummyMeetingPlaces),
-                             Meeting(joiners: [dummyUser, dummyUser2], name: "내일 미팅2", date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!, places: dummyMeetingPlaces),
-                             Meeting(joiners: [dummyUser, dummyUser2], name: "내일 미팅3", date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!, places: dummyMeetingPlaces)]
+                     Meeting(joiners: [dummyUser, dummyUser2], name: "확인용 미팅2", date: Date(), places: dummyMeetingPlaces),
+                     Meeting(joiners: [dummyUser, dummyUser2], name: "확인용 미팅3", date: Date(), places: dummyMeetingPlaces), Meeting(joiners: [dummyUser, dummyUser2], name: "내일 미팅", date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!, places: dummyMeetingPlaces),
+                     Meeting(joiners: [dummyUser, dummyUser2], name: "내일 미팅2", date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!, places: dummyMeetingPlaces),
+                     Meeting(joiners: [dummyUser, dummyUser2], name: "내일 미팅3", date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!, places: dummyMeetingPlaces)]
+let dummyTodayMeetings = getToday(meetings: dummyMeetings)
+let dummyMeetingsUpcoming = getUpcoming(meetings: dummyMeetings)
