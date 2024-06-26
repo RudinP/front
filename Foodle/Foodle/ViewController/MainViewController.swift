@@ -152,7 +152,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section{
-        case 0: return dummyMeetings.count
+        case 0: return dummyMeetings.isEmpty ? 1 : dummyMeetings.count
         case 1: return 1
         default: return 0
         }
