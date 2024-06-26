@@ -37,9 +37,9 @@ class Meeting{
     }
 }
 
-func getToday(meetings: [Meeting]) -> [Meeting] {
+func getToday(meetings: [Meeting], date: Date = Date()) -> [Meeting] {
     meetings.filter {
-        let today = Date()
+        let today = date
         if let meetingday = $0.date{
             let calendar = Calendar.current
             return calendar.isDate(today, inSameDayAs: meetingday)
