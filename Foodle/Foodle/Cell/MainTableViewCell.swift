@@ -41,9 +41,9 @@ extension MainTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch self.section {
         case 0:
-            return dummyMeetings.isEmpty ? 1 : dummyMeetings[index!].places.count
+            return dummyTodayMeetings.isEmpty ? 1 : dummyTodayMeetings[index!].places.count
         case 1:
-            return dummyMeetingsUpcoming.isEmpty ? 1 : dummyMeetingsUpcoming[index!].places.count
+            return dummyMeetingsUpcoming.isEmpty ? 1 : dummyMeetingsUpcoming.count
         default:
             return 0
         }
@@ -52,18 +52,18 @@ extension MainTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch self.section{
         case 0:
-            if dummyMeetings.isEmpty{
+            if dummyTodayMeetings.isEmpty{
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EmptyMeetingCell", for: indexPath) as! RoundedCollectionViewCell
                 return cell
             }else{
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mainCollectionViewCell", for: indexPath) as! MainCollectionViewCell
-                let target = dummyMeetings[index!]
-                cell.date.text = target.dateString
-                cell.meetingName.text = target.name
-                cell.order.text = "\(indexPath.item + 1)"
-                cell.placeName.text = target.places[indexPath.item]?.place?.placeName
-                cell.placeTime.text = target.places[indexPath.item]?.timeString
-                cell.prepare(bgColor: self.bgColor ?? .secondAccent, textColor: textColor ?? .black)
+                let target = dummyTodayMeetings[index!]
+                    cell.date.text = target.dateString
+                    cell.meetingName.text = target.name
+                    cell.order.text = "\(indexPath.item + 1)"
+                    cell.placeName.text = target.places[indexPath.item]?.place?.placeName
+                    cell.placeTime.text = target.places[indexPath.item]?.timeString
+                    cell.prepare(bgColor: self.bgColor ?? .secondAccent, textColor: textColor ?? .black)
                 
                 return cell
             }
@@ -74,10 +74,9 @@ extension MainTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
             } else {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "upcomingCell", for: indexPath) as! UpcomingCollectionViewCell
                 let target = dummyMeetingsUpcoming[indexPath.row]
-                cell.dDay.text = target.dDay
-                cell.date.text = target.dateString
-                cell.meetName.text = target.name
-                
+                    cell.dDay.text = target.dDay
+                    cell.date.text = target.dateString
+                    cell.meetName.text = target.name
                 return cell
             }
         default: return UICollectionViewCell()
