@@ -41,7 +41,7 @@ extension MainTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch self.section {
         case 0:
-            return dummyTodayMeetings.isEmpty ? 1 : dummyTodayMeetings[index!].places.count
+            return dummyTodayMeetings.isEmpty ? 1 : dummyTodayMeetings[index!].places?.count ?? 1
         case 1:
             return dummyMeetingsUpcoming.isEmpty ? 1 : dummyMeetingsUpcoming.count
         default:
@@ -61,8 +61,8 @@ extension MainTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
                     cell.date.text = target.dateString
                     cell.meetingName.text = target.name
                     cell.order.text = "\(indexPath.item + 1)"
-                    cell.placeName.text = target.places[indexPath.item]?.place?.placeName
-                    cell.placeTime.text = target.places[indexPath.item]?.timeString
+                    cell.placeName.text = target.places?[indexPath.item].place?.placeName
+                    cell.placeTime.text = target.places?[indexPath.item].timeString
                     cell.prepare(bgColor: self.bgColor ?? .secondAccent, textColor: textColor ?? .black)
                 
                 return cell

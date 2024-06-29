@@ -8,7 +8,7 @@
 import UIKit
 
 class MyPlaceTableViewCell: UITableViewCell {
-    @IBOutlet weak var circleImageView: UIImageView!
+    @IBOutlet private weak var circleImageView: UIImageView!
     @IBOutlet weak var listNameLabel: UILabel!
     var color: UIColor?
     

@@ -16,6 +16,7 @@
 		4B5D9B6F2BBE406400F1BD58 /* DetailPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D9B6E2BBE406400F1BD58 /* DetailPlaceViewController.swift */; };
 		4B5D9B712BBE4CB200F1BD58 /* PlaceImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D9B702BBE4CB200F1BD58 /* PlaceImageCollectionViewCell.swift */; };
 		4B5D9B732BBE53A400F1BD58 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4B5D9B722BBE53A400F1BD58 /* Settings.bundle */; };
+		4B63886C2C2FB5E800ED10F0 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B63886B2C2FB5E800ED10F0 /* Day.swift */; };
 		4B70D9BD2BF5AF4D00F3C965 /* MyPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B70D9BC2BF5AF4D00F3C965 /* MyPlaceViewController.swift */; };
 		4B70D9C32BF5BAF600F3C965 /* MyPlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B70D9C22BF5BAF600F3C965 /* MyPlaceTableViewCell.swift */; };
 		4B70D9C52BF5BC1800F3C965 /* MyPlaceScrollableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B70D9C42BF5BC1800F3C965 /* MyPlaceScrollableViewController.swift */; };
@@ -66,6 +67,7 @@
 		4B5D9B6E2BBE406400F1BD58 /* DetailPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPlaceViewController.swift; sourceTree = "<group>"; };
 		4B5D9B702BBE4CB200F1BD58 /* PlaceImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		4B5D9B722BBE53A400F1BD58 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		4B63886B2C2FB5E800ED10F0 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		4B70D9BC2BF5AF4D00F3C965 /* MyPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlaceViewController.swift; sourceTree = "<group>"; };
 		4B70D9C22BF5BAF600F3C965 /* MyPlaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlaceTableViewCell.swift; sourceTree = "<group>"; };
 		4B70D9C42BF5BC1800F3C965 /* MyPlaceScrollableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlaceScrollableViewController.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				4BF8193D2C292BD6006BE538 /* Friend.swift */,
 				4BF8193F2C292BE5006BE538 /* User.swift */,
 				4BF819412C292ED0006BE538 /* PlaceList.swift */,
+				4B63886B2C2FB5E800ED10F0 /* Day.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				4BA12D812BA004CE00BC4EB0 /* SceneDelegate.swift in Sources */,
 				4B1122392BE33EA000A2E577 /* ScrollableBottomSheetViewController.swift in Sources */,
 				4B7395102BAC31BB006843DB /* AddMeetingPlaceViewController.swift in Sources */,
+				4B63886C2C2FB5E800ED10F0 /* Day.swift in Sources */,
 				4B1261372BA31450002F52BD /* UpcomingCollectionViewCell.swift in Sources */,
 				4BF819402C292BE5006BE538 /* User.swift in Sources */,
 				4BF819422C292ED0006BE538 /* PlaceList.swift in Sources */,
