@@ -27,9 +27,8 @@ class Place{
         }
         return result
     }
-    var images: [String?] = []
-    
-    init(location: CLLocation, placeName: String, address: String, distance: Int, rate: Double?, reviewURL: String?, instaURL: String?, working: [String?], breakTime: [String?], images: [String?]) {
+    private var images: [String]?
+    init(location: CLLocation, placeName: String, address: String, distance: Int, rate: Double?, reviewURL: String?, instaURL: String?, working: [String]?, breakTime: [String]?, images: [String]?) {
         self.location = location
         self.placeName = placeName
         self.address = address
@@ -39,8 +38,8 @@ class Place{
         self.instaURL = instaURL
         
         for i in 0...6{
-            self.working.updateValue(working[i] ?? "", forKey: days[i])
-            self.breakTime.updateValue(breakTime[i] ?? "", forKey: days[i])
+            self.working.updateValue(working?[i] ?? "", forKey: days[i])
+            self.breakTime.updateValue(breakTime?[i] ?? "", forKey: days[i])
         }
         self.images = images
     }
