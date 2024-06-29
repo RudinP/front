@@ -16,8 +16,17 @@ class Place{
     var rate: Double?
     var reviewURL: String?
     var instaURL: String?
-    var working: Dictionary = ["월": "", "화": "", "수": "", "목": "", "금": "", "토": "", "일": ""] //서버에서 월화수목금토일에 맞춰 시간을 String 배열로 주세요
-    var breakTime: Dictionary = ["월": "", "화": "", "수": "", "목": "", "금": "", "토": "", "일": ""]
+    var working: Dictionary = [Day.월: "", Day.화: "", Day.수: "", Day.목: "", Day.금: "", Day.토: "", Day.일: ""] //서버에서 월화수목금토일에 맞춰 시간을 String 배열로 주세요. 만약 아예 값이 없다면 - 를 넘겨주세요.
+    var breakTime: Dictionary = [Day.월: "", Day.화: "", Day.수: "", Day.목: "", Day.금: "", Day.토: "", Day.일: ""]
+    var close: [Day]? {
+        var result: [Day]?
+        for time in working{
+            if time.value.isEmpty{
+                result?.append(time.key)
+            }
+        }
+        return result
+    }
     var images: [String?] = []
     
     init(location: CLLocation, placeName: String, address: String, distance: Int, rate: Double?, reviewURL: String?, instaURL: String?, working: [String?], breakTime: [String?], images: [String?]) {
@@ -29,22 +38,10 @@ class Place{
         self.reviewURL = reviewURL
         self.instaURL = instaURL
         
-        self.working.updateValue(working[0] ?? "", forKey: "월")
-        self.working.updateValue(working[1] ?? "", forKey: "화")
-        self.working.updateValue(working[2] ?? "", forKey: "수")
-        self.working.updateValue(working[3] ?? "", forKey: "목")
-        self.working.updateValue(working[4] ?? "", forKey: "금")
-        self.working.updateValue(working[5] ?? "", forKey: "토")
-        self.working.updateValue(working[6] ?? "", forKey: "일")
-        
-        self.breakTime.updateValue(working[0] ?? "", forKey: "월")
-        self.breakTime.updateValue(working[1] ?? "", forKey: "화")
-        self.breakTime.updateValue(working[2] ?? "", forKey: "수")
-        self.breakTime.updateValue(working[3] ?? "", forKey: "목")
-        self.breakTime.updateValue(working[4] ?? "", forKey: "금")
-        self.breakTime.updateValue(working[5] ?? "", forKey: "토")
-        self.breakTime.updateValue(working[6] ?? "", forKey: "일")
-        
+        for i in 0...6{
+            self.working.updateValue(working[i] ?? "", forKey: days[i])
+            self.breakTime.updateValue(breakTime[i] ?? "", forKey: days[i])
+        }
         self.images = images
     }
 }

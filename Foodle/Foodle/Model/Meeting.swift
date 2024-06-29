@@ -8,7 +8,7 @@
 import Foundation
 
 class Meeting{
-    var joiners: [User?] = []
+    var joiners: [User]?
     var name: String?
     var date: Date?
     var dateString: String?{
@@ -27,9 +27,9 @@ class Meeting{
         
         return "D" + String(calendar.dateComponents([.day], from: from, to: to).day!)
     }
-    var places: [MeetingPlace?] = []
+    var places: [MeetingPlace]?
     
-    init(joiners: [User], name: String, date: Date, places: [MeetingPlace?]) {
+    init(joiners: [User], name: String, date: Date, places: [MeetingPlace]?) {
         self.joiners = joiners
         self.name = name
         self.date = date

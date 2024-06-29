@@ -96,7 +96,7 @@ extension MyPlaceScrollableViewController: UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 30
+        return dummyPlaceLists.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -105,6 +105,8 @@ extension MyPlaceScrollableViewController: UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyPlaceTableViewCell") as! MyPlaceTableViewCell
+        cell.color = dummyPlaceLists[indexPath.row].color ?? UIColor.accent
+        cell.listNameLabel.text = dummyPlaceLists[indexPath.row].name
         return cell
     }
     
