@@ -40,6 +40,7 @@ class MyPlaceTableViewController: UITableViewController {
                 cell.distanceLabel.text = target.distance
                 cell.isOpenLabel.text = target.isWorking
                 cell.placeCategoryLabel.text = target.category
+                cell.placeNameLabel.text = target.placeName
             }
         }
         return cell

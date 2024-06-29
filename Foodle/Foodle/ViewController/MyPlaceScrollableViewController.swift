@@ -112,13 +112,15 @@ extension MyPlaceScrollableViewController: UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let bottomSheetVCSB = UIStoryboard(name: "Jinhee", bundle: nil)
-        let bottomSheetVC = bottomSheetVCSB.instantiateViewController(withIdentifier: "MyPlaceTableViewController")
-        self.addChild(bottomSheetVC)
-        
-        childView = bottomSheetVC.view
-        stackView.addArrangedSubview(childView)
-        bottomSheetVC.didMove(toParent: self)
-        
+        let bottomSheetVC = bottomSheetVCSB.instantiateViewController(withIdentifier: "MyPlaceTableViewController") as? MyPlaceTableViewController
+        if let bottomSheetVC{
+            bottomSheetVC.placeListIndex = indexPath.row
+            self.addChild(bottomSheetVC)
+            
+            childView = bottomSheetVC.view
+            stackView.addArrangedSubview(childView)
+            bottomSheetVC.didMove(toParent: self)
+        }
         stackView.setNeedsLayout()
         stackView.layoutIfNeeded()
         

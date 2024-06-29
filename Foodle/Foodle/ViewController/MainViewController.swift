@@ -47,8 +47,7 @@ class MainViewController: UIViewController {
 
         addSearchBar()
         addProfileIcon(nil)
-        
-        print(dummyMeetingsUpcoming)
+
     }
     
     func addSearchBar(){
