@@ -46,13 +46,14 @@
 		4BFA46132C2BB8DA00240F4E /* RoundedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFA46122C2BB8DA00240F4E /* RoundedCollectionViewCell.swift */; };
 		923B80FE2C0230C600B771E7 /* ScheduleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B80FD2C0230C600B771E7 /* ScheduleListViewController.swift */; };
 		927E19CE2C0239AD004D9F96 /* Minjeong.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 927E19CD2C0239AD004D9F96 /* Minjeong.storyboard */; };
+		928893B92C3002BA008950B7 /* icon_apple_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 928893B82C3002BA008950B7 /* icon_apple_2.jpg */; };
 		92B688482BB0A20400D7DF2C /* LoginViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B688472BB0A20400D7DF2C /* LoginViewCell.swift */; };
 		92B6884D2BB0A46E00D7DF2C /* icon_apple.png in Resources */ = {isa = PBXBuildFile; fileRef = 92B6884A2BB0A46D00D7DF2C /* icon_apple.png */; };
 		92B6884E2BB0A46E00D7DF2C /* icon_kakao.png in Resources */ = {isa = PBXBuildFile; fileRef = 92B6884B2BB0A46D00D7DF2C /* icon_kakao.png */; };
 		92B6884F2BB0A46E00D7DF2C /* icon_naver.png in Resources */ = {isa = PBXBuildFile; fileRef = 92B6884C2BB0A46E00D7DF2C /* icon_naver.png */; };
 		92B688632BBB177D00D7DF2C /* FriendsListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B688622BBB177D00D7DF2C /* FriendsListViewCell.swift */; };
 		92D3DE662C2762E100CC3673 /* DetailMeetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3DE652C2762E100CC3673 /* DetailMeetingViewController.swift */; };
-		92EA73172BF0D1830075472C /* MyPageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA73162BF0D1830075472C /* MyPageViewCell.swift */; };
+		92EA73172BF0D1830075472C /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA73162BF0D1830075472C /* MyPageViewController.swift */; };
 		92EA73192BF0D1FA0075472C /* icon_profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 92EA73182BF0D1FA0075472C /* icon_profile.png */; };
 		92FABE102C172641000E2DE6 /* FriendsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FABE0F2C172641000E2DE6 /* FriendsDetailViewController.swift */; };
 /* End PBXBuildFile section */
@@ -100,13 +101,14 @@
 		923B80FD2C0230C600B771E7 /* ScheduleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleListViewController.swift; sourceTree = "<group>"; };
 		927E19CC2C0239AD004D9F96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Minjeong.storyboard; sourceTree = "<group>"; };
 		927E19CF2C0239AD004D9F96 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/Minjeong.xcstrings; sourceTree = "<group>"; };
+		928893B82C3002BA008950B7 /* icon_apple_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = icon_apple_2.jpg; path = ../../../../Downloads/icon_apple_2.jpg; sourceTree = "<group>"; };
 		92B688472BB0A20400D7DF2C /* LoginViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewCell.swift; sourceTree = "<group>"; };
 		92B6884A2BB0A46D00D7DF2C /* icon_apple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_apple.png; sourceTree = "<group>"; };
 		92B6884B2BB0A46D00D7DF2C /* icon_kakao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_kakao.png; sourceTree = "<group>"; };
 		92B6884C2BB0A46E00D7DF2C /* icon_naver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_naver.png; sourceTree = "<group>"; };
 		92B688622BBB177D00D7DF2C /* FriendsListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListViewCell.swift; sourceTree = "<group>"; };
 		92D3DE652C2762E100CC3673 /* DetailMeetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMeetingViewController.swift; sourceTree = "<group>"; };
-		92EA73162BF0D1830075472C /* MyPageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewCell.swift; sourceTree = "<group>"; };
+		92EA73162BF0D1830075472C /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		92EA73182BF0D1FA0075472C /* icon_profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_profile.png; sourceTree = "<group>"; };
 		92FABE0F2C172641000E2DE6 /* FriendsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -162,6 +164,7 @@
 		4BA12D972BA2AAA800BC4EB0 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				92EA73162BF0D1830075472C /* MyPageViewController.swift */,
 				4BC68AAC2BA2B67300FC6546 /* MainViewController.swift */,
 				4B73950B2BAC3187006843DB /* SelectFriendsViewController.swift */,
 				4B73950D2BAC31A4006843DB /* SetMeetingViewController.swift */,
@@ -215,7 +218,6 @@
 				92B688622BBB177D00D7DF2C /* FriendsListViewCell.swift */,
 				4B5D9B702BBE4CB200F1BD58 /* PlaceImageCollectionViewCell.swift */,
 				4B11223F2BE351D200A2E577 /* ResultTableViewcell.swift */,
-				92EA73162BF0D1830075472C /* MyPageViewCell.swift */,
 				4B70D9C22BF5BAF600F3C965 /* MyPlaceTableViewCell.swift */,
 				4BB965CA2C23C44D00F7E429 /* ColorCollectionViewCell.swift */,
 				4BFA46122C2BB8DA00240F4E /* RoundedCollectionViewCell.swift */,
@@ -228,6 +230,7 @@
 			children = (
 				92B6884A2BB0A46D00D7DF2C /* icon_apple.png */,
 				92B6884B2BB0A46D00D7DF2C /* icon_kakao.png */,
+				928893B82C3002BA008950B7 /* icon_apple_2.jpg */,
 				92EA73182BF0D1FA0075472C /* icon_profile.png */,
 				92B6884C2BB0A46E00D7DF2C /* icon_naver.png */,
 			);
@@ -292,6 +295,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				928893B92C3002BA008950B7 /* icon_apple_2.jpg in Resources */,
 				4B5D9B732BBE53A400F1BD58 /* Settings.bundle in Resources */,
 				4BA12D8E2BA004CF00BC4EB0 /* LaunchScreen.storyboard in Resources */,
 				927E19CE2C0239AD004D9F96 /* Minjeong.storyboard in Resources */,
@@ -315,7 +319,7 @@
 				4BF8193C2C292BAE006BE538 /* Meeting.swift in Sources */,
 				4B5D9B6D2BBE3FFB00F1BD58 /* SearchViewController.swift in Sources */,
 				4B70D9C32BF5BAF600F3C965 /* MyPlaceTableViewCell.swift in Sources */,
-				92EA73172BF0D1830075472C /* MyPageViewCell.swift in Sources */,
+				92EA73172BF0D1830075472C /* MyPageViewController.swift in Sources */,
 				4B5D9B6F2BBE406400F1BD58 /* DetailPlaceViewController.swift in Sources */,
 				4B7395122BAC3D32006843DB /* AddMeetingPlaceTableViewCell.swift in Sources */,
 				4B70D9C52BF5BC1800F3C965 /* MyPlaceScrollableViewController.swift in Sources */,

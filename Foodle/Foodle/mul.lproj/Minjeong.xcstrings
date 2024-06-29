@@ -1,6 +1,18 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "0KH-hQ-MXf.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"닉네임\"; ObjectID = \"0KH-hQ-MXf\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "닉네임"
+          }
+        }
+      }
+    },
     "0Mo-aH-5HO.text" : {
       "comment" : "Class = \"UILabel\"; text = \"소셜 로그인\"; ObjectID = \"0Mo-aH-5HO\";",
       "extractionState" : "extracted_with_value",
@@ -13,26 +25,14 @@
         }
       }
     },
-    "4HF-VQ-yvV.configuration.title" : {
-      "comment" : "Class = \"UIButton\"; configuration.title = \"저장하기\"; ObjectID = \"4HF-VQ-yvV\";",
+    "4HF-VQ-yvV.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"저장하기\"; ObjectID = \"4HF-VQ-yvV\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "저장하기"
-          }
-        }
-      }
-    },
-    "4HF-VQ-yvV.normalTitle" : {
-      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"4HF-VQ-yvV\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Button"
           }
         }
       }
@@ -145,18 +145,6 @@
         }
       }
     },
-    "BgU-ox-tcd.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"회원탈퇴\"; ObjectID = \"BgU-ox-tcd\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "회원탈퇴"
-          }
-        }
-      }
-    },
     "cKw-XS-s5u.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Label\"; ObjectID = \"cKw-XS-s5u\";",
       "extractionState" : "extracted_with_value",
@@ -225,6 +213,30 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "1"
+          }
+        }
+      }
+    },
+    "gen-5q-BgZ.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"회원탈퇴\"; ObjectID = \"gen-5q-BgZ\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "회원탈퇴"
+          }
+        }
+      }
+    },
+    "Koz-IQ-UHk.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"로그아웃\"; ObjectID = \"Koz-IQ-UHk\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "로그아웃"
           }
         }
       }
@@ -325,6 +337,18 @@
         }
       }
     },
+    "rpc-w2-bMt.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"rpc-w2-bMt\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        }
+      }
+    },
     "Tl8-6F-157.text" : {
       "comment" : "Class = \"UILabel\"; text = \"나와의 다가오는 약속\"; ObjectID = \"Tl8-6F-157\";",
       "extractionState" : "extracted_with_value",
@@ -373,14 +397,14 @@
         }
       }
     },
-    "Wu8-vr-LdX.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"로그아웃\"; ObjectID = \"Wu8-vr-LdX\";",
+    "wHp-xW-TCD.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"wHp-xW-TCD\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "로그아웃"
+            "value" : "Button"
           }
         }
       }
