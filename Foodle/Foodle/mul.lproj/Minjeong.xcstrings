@@ -373,6 +373,18 @@
         }
       }
     },
+    "v3w-Yp-EYP.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"친구 추가하기\"; ObjectID = \"v3w-Yp-EYP\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "친구 추가하기"
+          }
+        }
+      }
+    },
     "vYd-Iv-WII.title" : {
       "comment" : "Class = \"UITabBarItem\"; title = \"친구 목록\"; ObjectID = \"vYd-Iv-WII\";",
       "extractionState" : "extracted_with_value",

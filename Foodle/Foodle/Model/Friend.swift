@@ -16,4 +16,9 @@ class Friend: User{
     }
 }
 
-let dummyFriends = [Friend(user: dummyUser2, like: true)]
+let dummyFriends = [Friend(user: dummyUser2, like: true),
+                    Friend(user: dummyUser3, like: false),
+                    Friend(user: dummyUser4, like: false),
+                    Friend(user: dummyUser5, like: true),
+                    Friend(user: dummyUser6, like: true),
+                    Friend(user: dummyUser7, like: false)]

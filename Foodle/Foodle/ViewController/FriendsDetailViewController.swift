@@ -9,12 +9,12 @@ import UIKit
 
 class FriendsDetailViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     @IBOutlet var friendsNameLabel: UILabel!
-    @IBOutlet weak var profileImg: UIImageView!
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var placeCollectionView: UICollectionView!
+    @IBOutlet var profileImg: UIImageView!
+    @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet var placeCollectionView: UICollectionView!
     
     var friendsNameText: String?
-    var profileImgName: String?
+    var profileImgUrl: String?
     
     let scheList: [FriendsSchedule] = FriendsSchedule.list
     let placeList: [FriendsPlace] = FriendsPlace.list
@@ -26,8 +26,10 @@ class FriendsDetailViewController: UIViewController, UICollectionViewDataSource,
             friendsNameLabel.text = friendsNameText
         }
         
-        if let profileImgName = profileImgName {
-            profileImg.image = UIImage(named: profileImgName)
+        if let profileImgUrl = profileImgUrl, let url = URL(string: profileImgUrl) {
+            if let data = try? Data(contentsOf: url) {
+                profileImg.image = UIImage(data: data)
+            }
         }
         
         collectionView.dataSource = self
