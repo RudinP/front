@@ -10,7 +10,16 @@ import UIKit
 class MyPlaceTableViewController: UITableViewController {
     
     var placeListIndex: Int?
-        
+    var placeIndex: Int?
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? DetailPlaceViewController{
+            if let placeIndex{
+                vc.place = dummyPlaceLists[placeListIndex!].places?[placeIndex]
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -34,7 +43,7 @@ class MyPlaceTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "resultTableViewCell") as! ResultTableViewcell
         if let placeListIndex{
             if let target = dummyPlaceLists[placeListIndex].places?[indexPath.row]{
-                cell.starButton.setImage(UIImage(systemName: "star.filled"), for: .normal)
+                cell.starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
                 cell.addressLabel.text = target.address
                 cell.breakLabel.text = "휴일 " + target.close
                 cell.distanceLabel.text = target.distance
@@ -44,5 +53,10 @@ class MyPlaceTableViewController: UITableViewController {
             }
         }
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        placeIndex = indexPath.row
+        performSegue(withIdentifier: "ToDetail", sender: nil)
     }
 }

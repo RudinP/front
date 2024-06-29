@@ -42,13 +42,11 @@ class Place{
         let today = Day(rawValue: formatter.string(from: now))
         formatter.dateFormat = "HH:mm"
         let nowTime = formatter.string(from: now)
-        print(now.formatted())
         if let today {
             let workingTime = working[today]?.components(separatedBy: ["~", " "])
             let bTime = breakTime[today]?.components(separatedBy: ["~", " "])
             if let workingTime{
                 if workingTime[0] <= nowTime && workingTime[1] >= nowTime {
-                    print("\(workingTime[0])/\(nowTime)/\(workingTime[1])")
                     result = "영업중"
                 }
             }
