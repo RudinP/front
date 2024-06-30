@@ -16,8 +16,8 @@ class FriendsDetailViewController: UIViewController, UICollectionViewDataSource,
     var friendsNameText: String?
     var profileImgUrl: String?
     
-    let scheList: [FriendsSchedule] = FriendsSchedule.list
-    let placeList: [FriendsPlace] = FriendsPlace.list
+    let upcomingMeetings: [Meeting] = dummyMeetingsUpcoming
+    let placeList: [Place] = dummyPlaces
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +41,7 @@ class FriendsDetailViewController: UIViewController, UICollectionViewDataSource,
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.collectionView {
-            return scheList.count
+            return upcomingMeetings.count
         } else if collectionView == self.placeCollectionView {
             return placeList.count
         } else {
@@ -55,13 +55,13 @@ class FriendsDetailViewController: UIViewController, UICollectionViewDataSource,
                 fatalError("Unable to dequeue FriendsScheduleCollectionViewCell")
             }
             
-            let schedule = scheList[indexPath.item]
-            cell.friendsScheNameLabel.text = schedule.friendsScheName
+            let meeting = upcomingMeetings[indexPath.item]
+            cell.meetingNameLabel.text = meeting.name
             
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy/MM/dd"
-            cell.friendsScheDateLabel.text = dateFormatter.string(from: schedule.friendsScheDate)
-                    
+            if let dateString = meeting.dateString {
+                cell.meetingDateLabel.text = dateString
+            }
+            
             return cell
         } else if collectionView == self.placeCollectionView {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "placeCell", for: indexPath) as? PlaceCollectionViewCell else {
@@ -69,8 +69,12 @@ class FriendsDetailViewController: UIViewController, UICollectionViewDataSource,
             }
             
             let place = placeList[indexPath.item]
-            cell.placeImg.image = UIImage(named: place.imageName)
-            cell.placeName.text = place.name
+            
+            if let imageUrlString = place.images?.first, let url = URL(string: imageUrlString), let data = try? Data(contentsOf: url) {
+                cell.placeImg.image = UIImage(data: data)
+            }
+            
+            cell.placeName.text = place.placeName
             
             return cell
         } else {
@@ -79,36 +83,9 @@ class FriendsDetailViewController: UIViewController, UICollectionViewDataSource,
     }
 }
 
-struct FriendsSchedule {
-    let friendsScheDate: Date
-    let friendsScheName: String
-}
-
-extension FriendsSchedule {
-    static let list: [FriendsSchedule] = [
-        FriendsSchedule(friendsScheDate: Calendar.current.date(from: DateComponents(year: 2024, month: 5, day: 26))!, friendsScheName: "고등학교 동창회"),
-        FriendsSchedule(friendsScheDate: Calendar.current.date(from: DateComponents(year: 2024, month: 5, day: 27))!, friendsScheName: "친구 결혼식"),
-        FriendsSchedule(friendsScheDate: Calendar.current.date(from: DateComponents(year: 2024, month: 5, day: 28))!, friendsScheName: "회사 미팅"),
-        FriendsSchedule(friendsScheDate: Calendar.current.date(from: DateComponents(year: 2024, month: 5, day: 28))!, friendsScheName: "맛집 탐방")
-    ]
-}
-
-struct FriendsPlace {
-    let imageName: String
-    let name: String
-}
-
-extension FriendsPlace {
-    static let list: [FriendsPlace] = [
-        FriendsPlace(imageName: "dummy", name: "금별맥주"),
-        FriendsPlace(imageName: "dummy", name: "스타벅스"),
-        FriendsPlace(imageName: "dummy", name: "메가커피")
-    ]
-}
-
 class FriendsScheduleCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var friendsScheDateLabel: UILabel!
-    @IBOutlet weak var friendsScheNameLabel: UILabel!
+    @IBOutlet weak var meetingNameLabel: UILabel!
+    @IBOutlet weak var meetingDateLabel: UILabel!
 }
 
 class PlaceCollectionViewCell: UICollectionViewCell {
