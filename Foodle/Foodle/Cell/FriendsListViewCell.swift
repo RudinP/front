@@ -15,7 +15,7 @@ class FriendsListViewCell: UIViewController {
     @IBOutlet var allTable: UITableView!
     @IBOutlet var addFriends: UIButton!
     
-    let friends: [Friend] = dummyFriends
+    var friends: [Friend] = dummyFriends
     
     // 모든 친구 데이터 (즐겨찾기 포함)
     var allFriends: [Friend] {
@@ -96,28 +96,22 @@ extension FriendsListViewCell: UITableViewDelegate, UITableViewDataSource {
         if tableView == favTable {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FavCell", for: indexPath) as! FavCell
             let friend = favFriends[indexPath.row]
-            
-            if let url = URL(string: friend.profileImage ?? ""), let data = try? Data(contentsOf: url) {
-                cell.favImg.image = UIImage(data: data)
-            }
-            
-            cell.favName.text = friend.nickName
-            cell.favButton.isSelected = friend.like
-            
+            cell.configure(with: friend)
+            cell.delegate = self
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "AllCell", for: indexPath) as! AllCell
             let friend = allFriends[indexPath.row]
-            
-            if let url = URL(string: friend.profileImage ?? ""), let data = try? Data(contentsOf: url) {
-                cell.allImg.image = UIImage(data: data)
-            }
-            
-            cell.allName.text = friend.nickName
-            cell.allButton.isSelected = friend.like
-                
+            cell.configure(with: friend)
+            cell.delegate = self
             return cell
         }
+    }
+    
+    func reloadTables() {
+        favTable.reloadData()
+        allTable.reloadData()
+        viewDidLayoutSubviews()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -143,20 +137,60 @@ extension FriendsListViewCell: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+extension FriendsListViewCell: FavCellDelegate {
+    func didTapFavoriteButton(on cell: FavCell) {
+        if let indexPath = favTable.indexPath(for: cell) {
+            let friend = favFriends[indexPath.row]
+            if let index = friends.firstIndex(where: { $0.uid == friend.uid }) {
+                friends[index].like.toggle()
+                reloadTables()
+            }
+        }
+    }
+}
+
+extension FriendsListViewCell: AllCellDelegate {
+    func didTapFavoriteButton(on cell: AllCell) {
+        if let indexPath = allTable.indexPath(for: cell) {
+            let friend = allFriends[indexPath.row]
+            if let index = friends.firstIndex(where: { $0.uid == friend.uid }) {
+                friends[index].like.toggle()
+                reloadTables()
+            }
+        }
+    }
+}
+
+protocol FavCellDelegate: AnyObject {
+    func didTapFavoriteButton(on cell: FavCell)
+}
+
+protocol AllCellDelegate: AnyObject {
+    func didTapFavoriteButton(on cell: AllCell)
+}
+
 class FavCell: UITableViewCell {
     @IBOutlet var favImg: UIImageView!
     @IBOutlet var favName: UILabel!
     @IBOutlet var favButton: UIButton!
     
-    var isStarred = true
-       
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        setupButton()
+    weak var delegate: FavCellDelegate?
+    private var friend: Friend?
+    
+    func configure(with friend: Friend) {
+        self.friend = friend
+        favName.text = friend.nickName
+        
+        if let url = URL(string: friend.profileImage ?? ""), let data = try? Data(contentsOf: url) {
+            favImg.image = UIImage(data: data)
+        }
+        
+        favButton.isSelected = friend.like
+        updateButtonImage()
     }
     
-    func setupButton() {
-        if isStarred {
+    private func updateButtonImage() {
+        if favButton.isSelected {
             favButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
         } else {
             favButton.setImage(UIImage(systemName: "star"), for: .normal)
@@ -164,14 +198,7 @@ class FavCell: UITableViewCell {
     }
     
     @IBAction func buttonTapped(_ sender: UIButton) {
-        isStarred.toggle()
-        
-        // 버튼 상태에 따라 이미지 변경
-        if isStarred {
-            sender.setImage(UIImage(systemName: "star.fill"), for: .normal)
-        } else {
-            sender.setImage(UIImage(systemName: "star"), for: .normal)
-        }
+        delegate?.didTapFavoriteButton(on: self)
     }
 }
 
@@ -180,15 +207,23 @@ class AllCell: UITableViewCell {
     @IBOutlet var allName: UILabel!
     @IBOutlet var allButton: UIButton!
     
-    var isStarred = false
-                
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        setupButton()
+    weak var delegate: AllCellDelegate?
+    private var friend: Friend?
+    
+    func configure(with friend: Friend) {
+        self.friend = friend
+        allName.text = friend.nickName
+        
+        if let url = URL(string: friend.profileImage ?? ""), let data = try? Data(contentsOf: url) {
+            allImg.image = UIImage(data: data)
+        }
+        
+        allButton.isSelected = friend.like
+        updateButtonImage()
     }
     
-    func setupButton() {
-        if isStarred {
+    private func updateButtonImage() {
+        if allButton.isSelected {
             allButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
         } else {
             allButton.setImage(UIImage(systemName: "star"), for: .normal)
@@ -196,13 +231,6 @@ class AllCell: UITableViewCell {
     }
     
     @IBAction func buttonTapped(_ sender: UIButton) {
-        isStarred.toggle()
-        
-        // 버튼 상태에 따라 이미지 변경
-        if isStarred {
-            sender.setImage(UIImage(systemName: "star.fill"), for: .normal)
-        } else {
-            sender.setImage(UIImage(systemName: "star"), for: .normal)
-        }
+        delegate?.didTapFavoriteButton(on: self)
     }
 }
