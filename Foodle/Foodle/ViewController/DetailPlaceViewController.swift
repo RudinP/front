@@ -67,13 +67,15 @@ class DetailPlaceViewController: UIViewController {
 
 extension DetailPlaceViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return place?.images?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlaceImageCell", for: indexPath) as? PlaceImageCollectionViewCell else { return UICollectionViewCell() }
         
-        cell.placeImageView.image = UIImage(named: "dummy")
+        if let imageUrlString = place?.images?[indexPath.item] {
+            cell.placeImageView.setImageFromStringURL(imageUrlString)
+        }
         
         return cell
     }
