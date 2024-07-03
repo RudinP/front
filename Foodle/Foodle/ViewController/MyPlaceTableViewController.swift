@@ -50,6 +50,10 @@ class MyPlaceTableViewController: UITableViewController {
                 cell.isOpenLabel.text = target.isWorking
                 cell.placeCategoryLabel.text = target.category
                 cell.placeNameLabel.text = target.placeName
+                
+                if let imageUrlString = target.images?.first {
+                    cell.placeImageView.setImageFromStringURL(imageUrlString)
+                }
             }
         }
         return cell

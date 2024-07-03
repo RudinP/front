@@ -7,10 +7,14 @@
 
 import Foundation
 
-class Meeting{
+struct Meeting{
     var joiners: [User]?
     var name: String?
     var date: Date?
+    var places: [MeetingPlace]?
+}
+
+extension Meeting{
     var dateString: String?{
         guard let date = date else {return nil}
         let formatter = DateFormatter()
@@ -26,14 +30,6 @@ class Meeting{
         let to = calendar.startOfDay(for: Date())
         
         return "D" + String(calendar.dateComponents([.day], from: from, to: to).day!)
-    }
-    var places: [MeetingPlace]?
-    
-    init(joiners: [User], name: String, date: Date, places: [MeetingPlace]?) {
-        self.joiners = joiners
-        self.name = name
-        self.date = date
-        self.places = places
     }
 }
 
