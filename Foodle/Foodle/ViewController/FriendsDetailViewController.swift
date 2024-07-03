@@ -26,10 +26,8 @@ class FriendsDetailViewController: UIViewController, UICollectionViewDataSource,
             friendsNameLabel.text = friendsNameText
         }
         
-        if let profileImgUrl = profileImgUrl, let url = URL(string: profileImgUrl) {
-            if let data = try? Data(contentsOf: url) {
-                profileImg.image = UIImage(data: data)
-            }
+        if let profileImgUrl = profileImgUrl{
+            profileImg.setImageFromStringURL(profileImgUrl)
         }
         
         collectionView.dataSource = self
@@ -70,8 +68,8 @@ class FriendsDetailViewController: UIViewController, UICollectionViewDataSource,
             
             let place = placeList[indexPath.item]
             
-            if let imageUrlString = place.images?.first, let url = URL(string: imageUrlString), let data = try? Data(contentsOf: url) {
-                cell.placeImg.image = UIImage(data: data)
+            if let imageUrlString = place.images?.first{
+                cell.placeImg.setImageFromStringURL(imageUrlString)
             }
             
             cell.placeName.text = place.placeName

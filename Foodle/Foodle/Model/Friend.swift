@@ -7,13 +7,9 @@
 
 import Foundation
 
-class Friend: User{
+struct Friend : Codable{
+    var user: User
     var like: Bool = false
-    
-    init(user: User, like: Bool) {
-        super.init(user: user)
-        self.like = like
-    }
 }
 
 let dummyFriends = [Friend(user: dummyUser2, like: true),

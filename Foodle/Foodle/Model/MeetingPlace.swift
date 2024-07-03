@@ -7,19 +7,17 @@
 
 import Foundation
 
-class MeetingPlace{
+struct MeetingPlace: Codable{
     var place: Place?
     var time: Date?
+}
+
+extension MeetingPlace{
     var timeString: String?{
         guard let time = time else { return nil }
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm"
         return formatter.string(from: time)
-    }
-    
-    init(place: Place, time: Date?) {
-        self.place = place
-        self.time = time
     }
 }
 

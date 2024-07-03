@@ -130,8 +130,8 @@ extension FriendsListViewCell: UITableViewDelegate, UITableViewDataSource {
         if segue.identifier == "showDetail" {
             if let destinationVC = segue.destination as? FriendsDetailViewController,
                let selectedFriend = sender as? Friend {
-                destinationVC.friendsNameText = selectedFriend.nickName
-                destinationVC.profileImgUrl = selectedFriend.profileImage
+                destinationVC.friendsNameText = selectedFriend.user.nickName
+                destinationVC.profileImgUrl = selectedFriend.user.profileImage
             }
         }
     }
@@ -141,7 +141,7 @@ extension FriendsListViewCell: FavCellDelegate {
     func didTapFavoriteButton(on cell: FavCell) {
         if let indexPath = favTable.indexPath(for: cell) {
             let friend = favFriends[indexPath.row]
-            if let index = friends.firstIndex(where: { $0.uid == friend.uid }) {
+            if let index = friends.firstIndex(where: { $0.user.uid == friend.user.uid }) {
                 friends[index].like.toggle()
                 reloadTables()
             }
@@ -153,7 +153,7 @@ extension FriendsListViewCell: AllCellDelegate {
     func didTapFavoriteButton(on cell: AllCell) {
         if let indexPath = allTable.indexPath(for: cell) {
             let friend = allFriends[indexPath.row]
-            if let index = friends.firstIndex(where: { $0.uid == friend.uid }) {
+            if let index = friends.firstIndex(where: { $0.user.uid == friend.user.uid }) {
                 friends[index].like.toggle()
                 reloadTables()
             }
@@ -179,10 +179,10 @@ class FavCell: UITableViewCell {
     
     func configure(with friend: Friend) {
         self.friend = friend
-        favName.text = friend.nickName
+        favName.text = friend.user.nickName
         
-        if let url = URL(string: friend.profileImage ?? ""), let data = try? Data(contentsOf: url) {
-            favImg.image = UIImage(data: data)
+        if let str = friend.user.profileImage {
+            favImg.setImageFromStringURL(str)
         }
         
         favButton.isSelected = friend.like
@@ -212,10 +212,10 @@ class AllCell: UITableViewCell {
     
     func configure(with friend: Friend) {
         self.friend = friend
-        allName.text = friend.nickName
+        allName.text = friend.user.nickName
         
-        if let url = URL(string: friend.profileImage ?? ""), let data = try? Data(contentsOf: url) {
-            allImg.image = UIImage(data: data)
+        if let url = friend.user.profileImage {
+            allImg.setImageFromStringURL(url)
         }
         
         allButton.isSelected = friend.like

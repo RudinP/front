@@ -25,6 +25,7 @@
 		4B7395102BAC31BB006843DB /* AddMeetingPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B73950F2BAC31BB006843DB /* AddMeetingPlaceViewController.swift */; };
 		4B7395122BAC3D32006843DB /* AddMeetingPlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7395112BAC3D32006843DB /* AddMeetingPlaceTableViewCell.swift */; };
 		4B772F4A2C34EDEE00975B4C /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B772F492C34EDEE00975B4C /* UIImageViewExtension.swift */; };
+		4B772F4C2C34F1DD00975B4C /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B772F4B2C34F1DD00975B4C /* UIColorExtension.swift */; };
 		4B8D3EF22C22B2BC00A344D1 /* AddPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8D3EF12C22B2BC00A344D1 /* AddPlaceViewController.swift */; };
 		4BA12D7F2BA004CE00BC4EB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA12D7E2BA004CE00BC4EB0 /* AppDelegate.swift */; };
 		4BA12D812BA004CE00BC4EB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA12D802BA004CE00BC4EB0 /* SceneDelegate.swift */; };
@@ -73,6 +74,7 @@
 		4B73950F2BAC31BB006843DB /* AddMeetingPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMeetingPlaceViewController.swift; sourceTree = "<group>"; };
 		4B7395112BAC3D32006843DB /* AddMeetingPlaceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMeetingPlaceTableViewCell.swift; sourceTree = "<group>"; };
 		4B772F492C34EDEE00975B4C /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
+		4B772F4B2C34F1DD00975B4C /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		4B8D3EF12C22B2BC00A344D1 /* AddPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlaceViewController.swift; sourceTree = "<group>"; };
 		4BA12D7B2BA004CE00BC4EB0 /* Foodle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foodle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BA12D7E2BA004CE00BC4EB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				4BB159FF2BB532BC0090A6DE /* UIImageExtension.swift */,
 				4B1122362BE33BA500A2E577 /* UIViewExtension.swift */,
 				4B772F492C34EDEE00975B4C /* UIImageViewExtension.swift */,
+				4B772F4B2C34F1DD00975B4C /* UIColorExtension.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				4B8D3EF22C22B2BC00A344D1 /* AddPlaceViewController.swift in Sources */,
 				4BF8193E2C292BD6006BE538 /* Friend.swift in Sources */,
 				4B73950E2BAC31A4006843DB /* SetMeetingViewController.swift in Sources */,
+				4B772F4C2C34F1DD00975B4C /* UIColorExtension.swift in Sources */,
 				92B688482BB0A20400D7DF2C /* LoginViewCell.swift in Sources */,
 				4B23DBDF2BFEF09600E5E4FD /* MyPlaceTableViewController.swift in Sources */,
 				923B80FE2C0230C600B771E7 /* ScheduleListViewController.swift in Sources */,

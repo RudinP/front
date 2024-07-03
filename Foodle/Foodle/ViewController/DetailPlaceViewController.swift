@@ -34,19 +34,19 @@ class DetailPlaceViewController: UIViewController {
         formatter.dateFormat = "E"
         formatter.locale =  Locale(identifier: "ko_KR")
         let today = formatter.string(from: Date())
-        todayWorkingLabel.text = today + (place?.working.first(where: { (key: Day, value: String) in
+        todayWorkingLabel.text = today + (place?.workingDay.first(where: { (key: Day, value: String) in
             return key == Day(rawValue: today)
-        })?.value ?? "") + "   브레이크타임 " + (place?.breakTime.first(where: { (key: Day, value: String) in
+        })?.value ?? "") + "   브레이크타임 " + (place?.breakTimeDay.first(where: { (key: Day, value: String) in
             return key == Day(rawValue: today)
         })?.value ?? "")
 
         
         var str = ""
-        for work in place?.working ?? [:]{
+        for work in place?.workingDay ?? [:]{
             if work.key.rawValue == today{
                 continue
             }
-            let val = place?.breakTime[work.key] ?? ""
+            let val = place?.breakTimeDay[work.key] ?? ""
             str.append("\(work.key.rawValue) \(work.value)   브레이크타임 \(val)\n")
         }
         workingLabel.text = str
