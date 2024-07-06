@@ -57,6 +57,18 @@ class AddPlaceViewController: UIViewController {
     }
     
     @IBAction func addPlace(_ sender: Any) {
+        let indexes = selectedIndexPath.map { $0.row }
+        for i in 0..<dummyPlaceLists.count{
+            if indexes.contains(i){
+                dummyPlaceLists[i].addPlace(place)
+            } else {
+                dummyPlaceLists[i].removePlace(place)
+            }
+        }
+        
+        print(dummyPlaceLists)
+        NotificationCenter.default.post(name: .placeAdded, object: nil)
+        
         dismiss(animated: true)
     }
     
@@ -94,12 +106,15 @@ extension AddPlaceViewController: UITableViewDataSource, UITableViewDelegate{
             str.removeAll {
                 $0 == dummyPlaceLists[indexPath.row].name
             }
+            
             self.selectedIndexPath.removeAll(where: {
                 $0 == indexPath
             })
+            
             if let currentCell = tableView.cellForRow(at: indexPath) {
                 currentCell.accessoryType = .none
             }
+            
         } else {
             if let name = dummyPlaceLists[indexPath.row].name{
                 str.append(name)
@@ -128,4 +143,8 @@ extension AddPlaceViewController: UITableViewDataSource, UITableViewDelegate{
         
     }
     
+}
+
+extension Notification.Name{
+    static let placeAdded = Notification.Name(rawValue: "placeAdded")
 }
