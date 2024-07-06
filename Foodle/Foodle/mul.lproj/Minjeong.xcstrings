@@ -409,6 +409,18 @@
         }
       }
     },
+    "whg-z2-jdE.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"친구 선택\"; ObjectID = \"whg-z2-jdE\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "친구 선택"
+          }
+        }
+      }
+    },
     "wHp-xW-TCD.normalTitle" : {
       "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"wHp-xW-TCD\";",
       "extractionState" : "extracted_with_value",

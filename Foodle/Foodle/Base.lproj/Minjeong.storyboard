@@ -260,6 +260,43 @@
             </objects>
             <point key="canvasLocation" x="61.832061068702288" y="688.73239436619724"/>
         </scene>
+        <!--SetMeeting-->
+        <scene sceneID="6XD-ND-SXm">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Jinhee" referencedIdentifier="SetMeeting" id="YGh-xP-x37" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Kl7-Wa-Ujm"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="asz-xt-viE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-321" y="1025"/>
+        </scene>
+        <!--Select Friends View Controller-->
+        <scene sceneID="G3j-zv-iCR">
+            <objects>
+                <viewController restorationIdentifier="SelectFriends" storyboardIdentifier="SelectFriends" id="W76-Um-Dfs" customClass="SelectFriendsViewController" customModule="Foodle" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="A1n-G8-FN0">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="친구 선택" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="whg-z2-jdE">
+                                <rect key="frame" x="175" y="404" width="64" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="VrK-9A-msL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <segue destination="YGh-xP-x37" kind="show" identifier="showSetMeeting" id="6r2-VX-s0r"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JN7-Df-aMO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-703.05343511450383" y="688.73239436619724"/>
+        </scene>
         <!--Friends Detail View Controller-->
         <scene sceneID="sVa-26-xke">
             <objects>
@@ -509,7 +546,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gAc-q1-gq2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-703.05343511450383" y="688.73239436619724"/>
+            <point key="canvasLocation" x="-703" y="1373"/>
         </scene>
         <!--My Page View Controller-->
         <scene sceneID="KXn-hs-8aN">
@@ -829,13 +866,13 @@
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

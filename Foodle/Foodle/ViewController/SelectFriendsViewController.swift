@@ -8,22 +8,17 @@
 import UIKit
 
 class SelectFriendsViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.title = "친구 선택"
+        
+        let nextButton = UIBarButtonItem(title: "다음", style: .plain, target: self, action: #selector(nextButtonTapped))
+        navigationItem.rightBarButtonItem = nextButton
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func nextButtonTapped() {
+        performSegue(withIdentifier: "showSetMeeting", sender: self)
     }
-    */
-
 }
