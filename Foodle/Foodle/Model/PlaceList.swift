@@ -16,4 +16,5 @@ struct PlaceList: Codable{
     var places: [Place]?
 }
 
-let dummyPlaceLists = [PlaceList(listID: 0, name: "리스트 이름", color: "", places: dummyPlaces)]
+let dummyPlaceLists = [PlaceList(listID: 0, name: "리스트 이름", color: "", places: dummyPlaces),
+                       PlaceList(listID: 1, name: "리스트 이름2", color: "")]

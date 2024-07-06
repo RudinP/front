@@ -11,8 +11,9 @@ class AddPlaceViewController: UIViewController {
     
     @IBOutlet weak var listTableView: UITableView!
     @IBOutlet weak var dropdownBtn: UIButton!
-    var list = ["리스트1","리스트2","리스트3"]
-    var selectedIndexPath: IndexPath?
+    var selectedIndexPath: [IndexPath] = [IndexPath]()
+    var place: Place?
+    var str: [String] = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,28 @@ class AddPlaceViewController: UIViewController {
         listTableView.layer.borderWidth = 1
         listTableView.layer.cornerRadius = 5
         listTableView.layer.borderColor = UIColor.accent.cgColor
+        
+        var config = dropdownBtn.configuration
+        config?.titleLineBreakMode = .byTruncatingTail
+        dropdownBtn.configuration = config
+                
+        if let place{
+            for i in 0 ..< dummyPlaceLists.count{
+                if let places = dummyPlaceLists[i].places, places.contains(where: {
+                    $0.isEqual(place)
+                }){
+                    selectedIndexPath.append(IndexPath(row: i, section: 0))
+                    if let name = dummyPlaceLists[i].name{
+                        str.append(name)
+                    }
+                }
+            }
+        }
+        
+        if !str.isEmpty{
+            dropdownBtn.setTitle(str.joined(separator: ","), for: .normal)
+            dropdownBtn.setTitle(str.joined(separator: ","), for: .selected)
+        }
     }
     
     func popUpListAddView(){
@@ -37,35 +60,27 @@ class AddPlaceViewController: UIViewController {
         dismiss(animated: true)
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }
 
 extension AddPlaceViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list.count + 1
+        return dummyPlaceLists.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "listTableViewCell", for: indexPath)
         
         //리스트 추가 셀 생성
-        if indexPath.row == list.count{
+        if indexPath.row == dummyPlaceLists.count{
             cell.imageView?.image = UIImage(systemName: "plus.circle")
             cell.textLabel?.text = "리스트 추가하기"
             cell.textLabel?.textAlignment = .center
             cell.textLabel?.textColor = UIColor.accent
-            cell.accessoryType = selectedIndexPath == indexPath ? .checkmark : .none
+            cell.accessoryType = .none
         } else {
-            cell.textLabel?.text = list[indexPath.row]
+            cell.accessoryType = selectedIndexPath.contains(indexPath) ? .checkmark : .none
+            cell.imageView?.tintColor = UIColor(hexCode: dummyPlaceLists[indexPath.row].color)
+            cell.textLabel?.text = dummyPlaceLists[indexPath.row].name
             cell.textLabel?.textAlignment = .left
         }
         
@@ -75,31 +90,40 @@ extension AddPlaceViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.listTableView.isHidden = true
         
-        if let selectedIndexPath = selectedIndexPath {
-            
-            if let previousCell = tableView.cellForRow(at: selectedIndexPath) {
-                previousCell.accessoryType = .none
+        if selectedIndexPath.contains(indexPath){
+            str.removeAll {
+                $0 == dummyPlaceLists[indexPath.row].name
+            }
+            self.selectedIndexPath.removeAll(where: {
+                $0 == indexPath
+            })
+            if let currentCell = tableView.cellForRow(at: indexPath) {
+                currentCell.accessoryType = .none
+            }
+        } else {
+            if let name = dummyPlaceLists[indexPath.row].name{
+                str.append(name)
+            }
+            self.selectedIndexPath.append(indexPath)
+            if let currentCell = tableView.cellForRow(at: indexPath) {
+                currentCell.accessoryType = .checkmark
             }
         }
         
-        if let currentCell = tableView.cellForRow(at: indexPath) {
-            currentCell.accessoryType = .checkmark
-        }
-        
-        selectedIndexPath = indexPath
-        
-        if indexPath.row != list.count{
-            dropdownBtn.setTitle(list[indexPath.row], for: .normal)
-            dropdownBtn.setTitle(list[indexPath.row], for: .selected)
+        if indexPath.row != dummyPlaceLists.count{
+            if selectedIndexPath.isEmpty{
+                dropdownBtn.setTitle("리스트 선택하기", for: .normal)
+                dropdownBtn.setTitle("리스트 선택하기", for: .selected)
+            } else {
+                dropdownBtn.setTitle(str.joined(separator: ","), for: .normal)
+                dropdownBtn.setTitle(str.joined(separator: ","), for: .selected)
+            }
         } else {
             let storyBoard = UIStoryboard.init(name: "Jinhee", bundle: nil)
             let popupVC = storyBoard.instantiateViewController(withIdentifier: "AddListViewController")
             popupVC.modalPresentationStyle = .overFullScreen
             present(popupVC, animated: false, completion: nil)
             tableView.cellForRow(at: indexPath)?.accessoryType = .none
-            
-            dropdownBtn.setTitle("리스트 선택하기", for: .normal)
-            dropdownBtn.setTitle("리스트 선택하기", for: .selected)
         }
         
     }
