@@ -46,6 +46,10 @@ class AddPlaceViewController: UIViewController {
             dropdownBtn.setTitle(str.joined(separator: ","), for: .normal)
             dropdownBtn.setTitle(str.joined(separator: ","), for: .selected)
         }
+        
+        NotificationCenter.default.addObserver(forName: .addedList, object: nil, queue: .main) { _ in
+            self.listTableView.reloadData()
+        }
     }
     
     func popUpListAddView(){
@@ -66,7 +70,6 @@ class AddPlaceViewController: UIViewController {
             }
         }
         
-        print(dummyPlaceLists)
         NotificationCenter.default.post(name: .placeAdded, object: nil)
         
         dismiss(animated: true)
@@ -90,9 +93,11 @@ extension AddPlaceViewController: UITableViewDataSource, UITableViewDelegate{
             cell.textLabel?.textColor = UIColor.accent
             cell.accessoryType = .none
         } else {
+            cell.imageView?.image = UIImage(systemName: "circle.fill")
             cell.accessoryType = selectedIndexPath.contains(indexPath) ? .checkmark : .none
             cell.imageView?.tintColor = UIColor(hexCode: dummyPlaceLists[indexPath.row].color)
             cell.textLabel?.text = dummyPlaceLists[indexPath.row].name
+            cell.textLabel?.textColor = UIColor.black
             cell.textLabel?.textAlignment = .left
         }
         
@@ -115,7 +120,7 @@ extension AddPlaceViewController: UITableViewDataSource, UITableViewDelegate{
                 currentCell.accessoryType = .none
             }
             
-        } else {
+        } else if indexPath.row < dummyPlaceLists.count{
             if let name = dummyPlaceLists[indexPath.row].name{
                 str.append(name)
             }

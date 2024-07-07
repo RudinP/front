@@ -105,7 +105,7 @@ extension MyPlaceScrollableViewController: UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyPlaceTableViewCell") as! MyPlaceTableViewCell
-        cell.color = UIColor(hexCode: dummyPlaceLists[indexPath.row].color, alpha: 1.0)
+        cell.circleImageView.tintColor = UIColor(hexCode: dummyPlaceLists[indexPath.row].color, alpha: 1.0)
         cell.listNameLabel.text = dummyPlaceLists[indexPath.row].name
         return cell
     }

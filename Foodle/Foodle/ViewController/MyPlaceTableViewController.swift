@@ -22,7 +22,10 @@ class MyPlaceTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(forName: .placeAdded, object: nil, queue: .main) {_ in 
+        NotificationCenter.default.addObserver(forName: .placeAdded, object: nil, queue: .main) {_ in
+            self.tableView.reloadData()
+        }
+        NotificationCenter.default.addObserver(forName: .addedList, object: nil, queue: .main) {_ in
             self.tableView.reloadData()
         }
     }

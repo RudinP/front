@@ -1195,15 +1195,24 @@
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Oro-Ly-j2e">
                                                                     <rect key="frame" x="5" y="6" width="20" height="19"/>
                                                                 </imageView>
+                                                                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="sMm-k4-Ojf">
+                                                                    <rect key="frame" x="-90.666666666666629" y="-34" width="240" height="128"/>
+                                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </imageView>
                                                             </subviews>
                                                             <constraints>
+                                                                <constraint firstItem="sMm-k4-Ojf" firstAttribute="height" secondItem="Oro-Ly-j2e" secondAttribute="height" multiplier="0.5" id="8G9-rw-sXi"/>
+                                                                <constraint firstItem="sMm-k4-Ojf" firstAttribute="width" secondItem="Oro-Ly-j2e" secondAttribute="width" multiplier="0.5" id="P3q-Ds-mZP"/>
                                                                 <constraint firstAttribute="bottom" secondItem="Oro-Ly-j2e" secondAttribute="bottom" constant="5" id="RbY-a3-6qM"/>
                                                                 <constraint firstItem="Oro-Ly-j2e" firstAttribute="leading" secondItem="6gg-W9-8jY" secondAttribute="leading" constant="5" id="VDP-3d-4TI"/>
+                                                                <constraint firstItem="sMm-k4-Ojf" firstAttribute="centerY" secondItem="Oro-Ly-j2e" secondAttribute="centerY" id="fAE-q9-egj"/>
+                                                                <constraint firstItem="sMm-k4-Ojf" firstAttribute="centerX" secondItem="Oro-Ly-j2e" secondAttribute="centerX" id="j5P-HK-cM5"/>
                                                                 <constraint firstItem="Oro-Ly-j2e" firstAttribute="top" secondItem="6gg-W9-8jY" secondAttribute="top" constant="5" id="llA-zO-SEC"/>
                                                                 <constraint firstAttribute="trailing" secondItem="Oro-Ly-j2e" secondAttribute="trailing" constant="5" id="nGb-Iu-lhh"/>
                                                             </constraints>
                                                         </collectionViewCellContentView>
                                                         <connections>
+                                                            <outlet property="checkMarkImageView" destination="sMm-k4-Ojf" id="Z1E-nL-K16"/>
                                                             <outlet property="imageView" destination="Oro-Ly-j2e" id="0lW-TM-hiz"/>
                                                         </connections>
                                                     </collectionViewCell>
@@ -1740,6 +1749,7 @@
         <segue reference="5FZ-ju-y38"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="circle.fill" catalog="system" width="128" height="123"/>
         <image name="dummy" width="210" height="150"/>
         <image name="house" catalog="system" width="128" height="104"/>
@@ -1761,22 +1771,22 @@
             <color red="0.43529411764705883" green="0.44313725490196076" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="secondaryLabelColor">
-            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="secondarySystemFillColor">
-            <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.16" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.16" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

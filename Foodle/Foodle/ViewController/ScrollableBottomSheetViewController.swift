@@ -33,6 +33,10 @@ class ScrollableBottomSheetViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+        NotificationCenter.default.addObserver(forName: .placeAdded, object: nil, queue: .main) { _ in
+            self.tableView.reloadData()
+        }
+        
         let gesture = UIPanGestureRecognizer.init(target: self, action: #selector(ScrollableBottomSheetViewController.panGesture))
         gesture.delegate = self
         view.addGestureRecognizer(gesture)
