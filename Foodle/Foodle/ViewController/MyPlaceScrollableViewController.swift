@@ -29,6 +29,10 @@ class MyPlaceScrollableViewController: UIViewController {
         let gesture = UIPanGestureRecognizer.init(target: self, action: #selector(MyPlaceScrollableViewController.panGesture))
         gesture.delegate = self
         view.addGestureRecognizer(gesture)
+        
+        NotificationCenter.default.addObserver(forName: .addedList, object: nil, queue: .main) { _ in
+            self.tableView.reloadData()
+        }
     }
     
     var childView: UIView!
