@@ -62,3 +62,4 @@ let dummyMeetings = [Meeting(joiners: [dummyUser, dummyUser2], name: "확인용 
                      Meeting(joiners: [dummyUser, dummyUser2], name: "내일 미팅3", date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!, places: dummyMeetingPlaces)]
 let dummyTodayMeetings = getToday(meetings: dummyMeetings)
 let dummyMeetingsUpcoming = getUpcoming(meetings: dummyMeetings)
+let dummyMeeting = Meeting(joiners: [], name: "", date: Date(), places: [])
