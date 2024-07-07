@@ -26,6 +26,10 @@ class DetailMeetingViewController: UIViewController, CLLocationManagerDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let editButton = UIBarButtonItem(title: "편집", style: .plain, target: self, action: #selector(nextButtonTapped))
+        navigationItem.rightBarButtonItem = editButton
+        
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         // locationManager.requestWhenInUseAuthorization() // 위치 승인 요청
@@ -36,6 +40,10 @@ class DetailMeetingViewController: UIViewController, CLLocationManagerDelegate, 
         fName.delegate = self
         meeting.dataSource = self
         meeting.delegate = self
+    }
+    
+    @objc func nextButtonTapped() {
+        performSegue(withIdentifier: "showEdit", sender: self)
     }
     
     func goLocation(latitudeValue: CLLocationDegrees, longitudeValue : CLLocationDegrees, delta span :Double) {

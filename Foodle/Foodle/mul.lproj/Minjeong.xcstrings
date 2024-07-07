@@ -181,6 +181,18 @@
         }
       }
     },
+    "Blj-FY-IIB.title" : {
+      "comment" : "Class = \"UIViewController\"; title = \"약속 상세\"; ObjectID = \"Blj-FY-IIB\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "약속 상세"
+          }
+        }
+      }
+    },
     "cKw-XS-s5u.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Label\"; ObjectID = \"cKw-XS-s5u\";",
       "extractionState" : "extracted_with_value",
@@ -189,6 +201,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Label"
+          }
+        }
+      }
+    },
+    "CXr-rK-u3c.title" : {
+      "comment" : "Class = \"UIViewController\"; title = \"일정 목록\"; ObjectID = \"CXr-rK-u3c\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "일정 목록"
           }
         }
       }
@@ -261,6 +285,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "회원탈퇴"
+          }
+        }
+      }
+    },
+    "hbg-Fz-Noe.title" : {
+      "comment" : "Class = \"UIViewController\"; title = \"친구 상세\"; ObjectID = \"hbg-Fz-Noe\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "친구 상세"
           }
         }
       }
@@ -481,6 +517,18 @@
         }
       }
     },
+    "VjF-NV-nZS.title" : {
+      "comment" : "Class = \"UIViewController\"; title = \"마이페이지\"; ObjectID = \"VjF-NV-nZS\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "마이페이지"
+          }
+        }
+      }
+    },
     "vYd-Iv-WII.title" : {
       "comment" : "Class = \"UITabBarItem\"; title = \"친구 목록\"; ObjectID = \"vYd-Iv-WII\";",
       "extractionState" : "extracted_with_value",
@@ -489,6 +537,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "친구 목록"
+          }
+        }
+      }
+    },
+    "W76-Um-Dfs.title" : {
+      "comment" : "Class = \"UIViewController\"; title = \"일정 추가 - 친구 선택\"; ObjectID = \"W76-Um-Dfs\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "일정 추가 - 친구 선택"
           }
         }
       }
@@ -549,6 +609,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "친구의 플레이스"
+          }
+        }
+      }
+    },
+    "Y6W-OH-hqX.title" : {
+      "comment" : "Class = \"UIViewController\"; title = \"로그인\"; ObjectID = \"Y6W-OH-hqX\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "로그인"
           }
         }
       }

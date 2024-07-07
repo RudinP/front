@@ -12,10 +12,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login View Cell-->
+        <!--로그인-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="LoginView" id="Y6W-OH-hqX" customClass="LoginViewCell" customModule="Foodle" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginView" title="로그인" id="Y6W-OH-hqX" customClass="LoginViewCell" customModule="Foodle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" autoresizesSubviews="NO" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -267,12 +267,12 @@
             </objects>
             <point key="canvasLocation" x="-321" y="1025"/>
         </scene>
-        <!--Select Friends View Controller-->
+        <!--일정 추가 - 친구 선택-->
         <scene sceneID="G3j-zv-iCR">
             <objects>
-                <viewController restorationIdentifier="SelectFriends" storyboardIdentifier="SelectFriends" id="W76-Um-Dfs" customClass="SelectFriendsViewController" customModule="Foodle" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="SelectFriends" storyboardIdentifier="SelectFriends" title="일정 추가 - 친구 선택" id="W76-Um-Dfs" customClass="SelectFriendsViewController" customModule="Foodle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A1n-G8-FN0">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DHM-Zt-ICo">
@@ -462,6 +462,7 @@
                         <viewLayoutGuide key="safeArea" id="VrK-9A-msL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="RMl-lf-WTM"/>
                     <connections>
                         <outlet property="addFriends" destination="Ld2-I4-VJu" id="Ujr-Ie-Hig"/>
                         <outlet property="allLabel" destination="vDK-S8-V0X" id="Gga-gf-MRA"/>
@@ -477,10 +478,10 @@
             </objects>
             <point key="canvasLocation" x="-703.05343511450383" y="688.73239436619724"/>
         </scene>
-        <!--Friends Detail View Controller-->
+        <!--친구 상세-->
         <scene sceneID="sVa-26-xke">
             <objects>
-                <viewController id="hbg-Fz-Noe" customClass="FriendsDetailViewController" customModule="Foodle" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="친구 상세" id="hbg-Fz-Noe" customClass="FriendsDetailViewController" customModule="Foodle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HHS-Yr-ADi">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -635,7 +636,7 @@
         <!--일정 목록-->
         <scene sceneID="wUe-6n-K2x">
             <objects>
-                <viewController restorationIdentifier="ScheduleListView" storyboardIdentifier="ScheduleListView" id="CXr-rK-u3c" customClass="ScheduleListViewController" customModule="Foodle" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="ScheduleListView" storyboardIdentifier="ScheduleListView" title="일정 목록" id="CXr-rK-u3c" customClass="ScheduleListViewController" customModule="Foodle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6am-gI-FT3">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -728,10 +729,10 @@
             </objects>
             <point key="canvasLocation" x="-703" y="1373"/>
         </scene>
-        <!--My Page View Controller-->
+        <!--마이페이지-->
         <scene sceneID="KXn-hs-8aN">
             <objects>
-                <viewController id="VjF-NV-nZS" customClass="MyPageViewController" customModule="Foodle" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="마이페이지" id="VjF-NV-nZS" customClass="MyPageViewController" customModule="Foodle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iRJ-dV-lL5">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -848,10 +849,10 @@
             </objects>
             <point key="canvasLocation" x="878.62595419847321" y="-28.169014084507044"/>
         </scene>
-        <!--Detail Meeting View Controller-->
+        <!--약속 상세-->
         <scene sceneID="23s-UZ-KL7">
             <objects>
-                <viewController restorationIdentifier="DetailMeeting" storyboardIdentifier="DetailMeeting" id="Blj-FY-IIB" customClass="DetailMeetingViewController" customModule="Foodle" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="DetailMeeting" storyboardIdentifier="DetailMeeting" title="약속 상세" id="Blj-FY-IIB" customClass="DetailMeetingViewController" customModule="Foodle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5uQ-lP-ViO">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1011,6 +1012,7 @@
                         <outlet property="meeting" destination="nhe-qF-m9u" id="Tjm-bA-M4x"/>
                         <outlet property="meetingDate" destination="WgV-gH-Vuf" id="g5y-29-7uC"/>
                         <outlet property="meetingName" destination="zUB-9h-lGd" id="ZCZ-eS-xZ3"/>
+                        <segue destination="W76-Um-Dfs" kind="show" identifier="showEdit" id="lbo-hc-1cf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vYT-qT-aM1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
