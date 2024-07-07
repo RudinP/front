@@ -79,6 +79,23 @@ extension Place{
         }
         return result
     }
+    
+    func getIsStarred() -> Bool{
+        var result = false
+        for placeList in dummyPlaceLists{
+            if let place = placeList.places{
+                result = place.contains(where: {
+                    $0.isEqual(self)
+                })
+                if result {return result}
+            }
+        }
+        return result
+    }
+    
+    func isEqual(_ place: Place) -> Bool{
+        return self.placeName == place.placeName && self.location == place.location
+    }
 }
 
 let dummyPlaces: [Place] = [

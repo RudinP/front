@@ -16,4 +16,24 @@ struct PlaceList: Codable{
     var places: [Place]?
 }
 
-let dummyPlaceLists = [PlaceList(listID: 0, name: "리스트 이름", color: "", places: dummyPlaces)]
+extension PlaceList{
+    mutating func addPlace(_ place: Place?){
+        if let place, let places{
+            if !places.contains(where: {
+                $0.isEqual(place)
+            }){
+                self.places?.append(place)
+            }
+        }
+    }
+    
+    mutating func removePlace(_ place: Place?){
+        if let place{
+            self.places?.removeAll(where: {
+                $0.isEqual(place)
+            })
+        }
+    }
+}
+var dummyPlaceLists = [PlaceList(listID: 0, name: "리스트 이름", color: "", places: dummyPlaces),
+                       PlaceList(listID: 1, name: "리스트 이름2", color: "", places: [Place]())]

@@ -9,4 +9,5 @@ import UIKit
 
 class ColorCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var checkMarkImageView: UIImageView!
 }

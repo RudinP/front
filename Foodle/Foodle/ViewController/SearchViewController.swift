@@ -16,7 +16,7 @@ class SearchViewController: UIViewController {
     }()
     
     let manager = CLLocationManager()
-    
+    var bottomSheetVC: UIViewController?
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -26,8 +26,8 @@ class SearchViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        bottomSheetVC?.dismiss(animated: true)
         super.viewWillDisappear(animated)
-        
         manager.stopUpdatingLocation()
     }
     override func viewDidLoad() {
@@ -36,6 +36,10 @@ class SearchViewController: UIViewController {
         manager.delegate = self
         manager.requestWhenInUseAuthorization()
         setMap()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         setResultView()
     }
     
@@ -51,18 +55,26 @@ class SearchViewController: UIViewController {
     private func setMap(){
         setMapConstraints()
     }
-        
+    
     private func setResultView(){
         let bottomSheetVCSB = UIStoryboard(name: "Jinhee", bundle: nil)
-        let bottomSheetVC = bottomSheetVCSB.instantiateViewController(withIdentifier: "ScrollableBottomSheetViewController")
-        self.addChild(bottomSheetVC)
-        self.view.addSubview(bottomSheetVC.view)
-        bottomSheetVC.didMove(toParent: self)
+        bottomSheetVC = bottomSheetVCSB.instantiateViewController(withIdentifier: "ScrollableBottomSheetViewController")
+        if let sheet = bottomSheetVC?.sheetPresentationController {
+            sheet.detents = [.medium(), .large()]
+            sheet.largestUndimmedDetentIdentifier = .medium  // nil 기본값
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false  // true 기본값
+            sheet.prefersEdgeAttachedInCompactHeight = true // false 기본값
+            sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true // false 기본값
+            sheet.prefersGrabberVisible = true
+        }
         
-        let height = view.frame.height
-        let width = view.frame.width
-        bottomSheetVC.view.frame = CGRect(x: 0, y: self.view.frame.maxY, width: width, height: height)
+        
+        if let bottomSheetVC{
+            bottomSheetVC.isModalInPresentation = true
+            present(bottomSheetVC, animated: true)
+        }
     }
+    
 }
 
 extension SearchViewController: MKMapViewDelegate{

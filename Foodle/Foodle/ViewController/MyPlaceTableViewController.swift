@@ -7,11 +7,16 @@
 
 import UIKit
 
-class MyPlaceTableViewController: UITableViewController {
+class MyPlaceTableViewController: UIViewController {
     
     var placeListIndex: Int?
     var placeIndex: Int?
+    @IBOutlet weak var tableView: UITableView!
     
+    
+    @IBAction func close(_ sender: Any) {
+        dismiss(animated: false)
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? DetailPlaceViewController{
             if let placeIndex{
@@ -22,27 +27,34 @@ class MyPlaceTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(forName: .placeAdded, object: nil, queue: .main) {_ in
+            self.tableView.reloadData()
+        }
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+}
+
+extension MyPlaceTableViewController: UITableViewDataSource, UITableViewDelegate{
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let placeListIndex{
             return dummyPlaceLists[placeListIndex].places?.count ?? 0
         }
         return 0
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 170
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "resultTableViewCell") as! ResultTableViewcell
         if let placeListIndex{
             if let target = dummyPlaceLists[placeListIndex].places?[indexPath.row]{
+                print(target)
                 cell.starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
                 cell.addressLabel.text = target.address
                 cell.breakLabel.text = "휴일 " + target.close
@@ -59,8 +71,9 @@ class MyPlaceTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         placeIndex = indexPath.row
         performSegue(withIdentifier: "ToDetail", sender: nil)
     }
+
 }
