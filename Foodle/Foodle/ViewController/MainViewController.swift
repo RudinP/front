@@ -50,6 +50,7 @@ class MainViewController: UIViewController {
 
     }
     
+    
     func addSearchBar(){
         let search = UISearchController(searchResultsController: SearchViewController())
         search.delegate = self
@@ -143,7 +144,6 @@ extension MainViewController: UISearchControllerDelegate, UISearchBarDelegate, U
         }
         print(text)
     }
-    
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource{

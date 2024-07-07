@@ -8,12 +8,13 @@
 import UIKit
 import MapKit
 class MyPlaceViewController: UIViewController {
-
+    
     let mapView : MKMapView = {
         let map = MKMapView()
         return map
     }()
     
+
     let manager = CLLocationManager()
     
     override func viewWillAppear(_ animated: Bool) {
@@ -21,6 +22,8 @@ class MyPlaceViewController: UIViewController {
         if manager.authorizationStatus == .authorizedWhenInUse || manager.authorizationStatus == .authorizedAlways{
             manager.startUpdatingLocation()
         }
+        
+        setSheetView()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -34,7 +37,6 @@ class MyPlaceViewController: UIViewController {
         manager.delegate = self
         manager.requestWhenInUseAuthorization()
         setMap()
-        setSheetView()
     }
     
     private func setMapConstraints(){
@@ -49,19 +51,28 @@ class MyPlaceViewController: UIViewController {
     private func setMap(){
         setMapConstraints()
     }
-        
+    
     private func setSheetView(){
+        
         let bottomSheetVCSB = UIStoryboard(name: "Jinhee", bundle: nil)
         let bottomSheetVC = bottomSheetVCSB.instantiateViewController(withIdentifier: "MyPlaceScrollableViewController")
-        self.addChild(bottomSheetVC)
-        self.view.addSubview(bottomSheetVC.view)
-        bottomSheetVC.didMove(toParent: self)
+        if let sheet = bottomSheetVC.sheetPresentationController {
+            // ✅ 다음 프로퍼티들은 찬찬히 알아가봅시다.
+            sheet.detents = [.medium(), .large()]
+            sheet.largestUndimmedDetentIdentifier = .medium  // nil 기본값
+            sheet.prefersScrollingExpandsWhenScrolledToEdge = false  // true 기본값
+            sheet.prefersEdgeAttachedInCompactHeight = true // false 기본값
+            sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true // false 기본값
+            sheet.prefersGrabberVisible = true
+        }
         
-        let height = view.frame.height
-        let width = view.frame.width
-        bottomSheetVC.view.frame = CGRect(x: 0, y: self.view.frame.maxY, width: width, height: height)
+        //bottomSheetVC.isModalInPresentation = true
+        
+        // ✅ sheet present.
+        present(bottomSheetVC, animated: true, completion: nil)
     }
 }
+
 extension MyPlaceViewController: MKMapViewDelegate{
     
 }
