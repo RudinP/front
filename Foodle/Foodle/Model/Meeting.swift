@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Meeting{
+struct Meeting:Codable{
+    var mid: Int?
     var joiners: [User]?
     var name: String?
     var date: Date?
@@ -55,11 +56,11 @@ func getUpcoming(meetings: [Meeting]) -> [Meeting] {
     }
 }
 
-let dummyMeetings = [Meeting(joiners: [dummyUser, dummyUser2], name: "확인용 미팅", date: Date(), places: dummyMeetingPlaces),
-                     Meeting(joiners: [dummyUser, dummyUser2], name: "확인용 미팅2", date: Date(), places: dummyMeetingPlaces),
-                     Meeting(joiners: [dummyUser, dummyUser2], name: "확인용 미팅3", date: Date(), places: dummyMeetingPlaces), Meeting(joiners: [dummyUser, dummyUser2], name: "내일 미팅", date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!, places: dummyMeetingPlaces),
-                     Meeting(joiners: [dummyUser, dummyUser2], name: "내일 미팅2", date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!, places: dummyMeetingPlaces),
-                     Meeting(joiners: [dummyUser, dummyUser2], name: "내일 미팅3", date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!, places: dummyMeetingPlaces)]
+let dummyMeetings = [Meeting(mid: 1, joiners: [dummyUser, dummyUser2], name: "확인용 미팅", date: Date(), places: dummyMeetingPlaces),
+                     Meeting(mid: 2,joiners: [dummyUser, dummyUser2], name: "확인용 미팅2", date: Date(), places: dummyMeetingPlaces),
+                     Meeting(mid: 3, joiners: [dummyUser, dummyUser2], name: "확인용 미팅3", date: Date(), places: dummyMeetingPlaces), Meeting(joiners: [dummyUser, dummyUser2], name: "내일 미팅", date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!, places: dummyMeetingPlaces),
+                     Meeting(mid: 4, joiners: [dummyUser, dummyUser2], name: "내일 미팅2", date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!, places: dummyMeetingPlaces),
+                     Meeting(mid: 5, joiners: [dummyUser, dummyUser2], name: "내일 미팅3", date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!, places: dummyMeetingPlaces)]
 let dummyTodayMeetings = getToday(meetings: dummyMeetings)
 let dummyMeetingsUpcoming = getUpcoming(meetings: dummyMeetings)
 let dummyMeeting = Meeting(joiners: [], name: "", date: Date(), places: [])
