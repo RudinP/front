@@ -40,6 +40,7 @@
 		4BC68AB02BA2DAF200FC6546 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC68AAF2BA2DAF200FC6546 /* MainCollectionViewCell.swift */; };
 		4BC68AB22BA2DBD300FC6546 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC68AB12BA2DBD300FC6546 /* MainTableViewCell.swift */; };
 		4BE731832C3E2AA1008733C9 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE731822C3E2AA1008733C9 /* Server.swift */; };
+		4BE731852C3E569E008733C9 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE731842C3E569E008733C9 /* SearchResultViewController.swift */; };
 		4BF819382C2927F4006BE538 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF819372C2927F4006BE538 /* Place.swift */; };
 		4BF8193A2C292B8E006BE538 /* MeetingPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF819392C292B8E006BE538 /* MeetingPlace.swift */; };
 		4BF8193C2C292BAE006BE538 /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF8193B2C292BAE006BE538 /* Meeting.swift */; };
@@ -92,6 +93,7 @@
 		4BC68AAF2BA2DAF200FC6546 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		4BC68AB12BA2DBD300FC6546 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		4BE731822C3E2AA1008733C9 /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
+		4BE731842C3E569E008733C9 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		4BF819372C2927F4006BE538 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		4BF819392C292B8E006BE538 /* MeetingPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingPlace.swift; sourceTree = "<group>"; };
 		4BF8193B2C292BAE006BE538 /* Meeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				4B8D3EF12C22B2BC00A344D1 /* AddPlaceViewController.swift */,
 				4BB965C82C23C33F00F7E429 /* AddListViewController.swift */,
 				92D3DE652C2762E100CC3673 /* DetailMeetingViewController.swift */,
+				4BE731842C3E569E008733C9 /* SearchResultViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				4B73950E2BAC31A4006843DB /* SetMeetingViewController.swift in Sources */,
 				4B772F4C2C34F1DD00975B4C /* UIColorExtension.swift in Sources */,
 				92B688482BB0A20400D7DF2C /* LoginViewCell.swift in Sources */,
+				4BE731852C3E569E008733C9 /* SearchResultViewController.swift in Sources */,
 				4B23DBDF2BFEF09600E5E4FD /* MyPlaceTableViewController.swift in Sources */,
 				4BE731832C3E2AA1008733C9 /* Server.swift in Sources */,
 				923B80FE2C0230C600B771E7 /* ScheduleListViewController.swift in Sources */,
