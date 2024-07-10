@@ -7,127 +7,176 @@
 
 import Foundation
 
-func fetchUser(_ uid: String) -> User?{
-    var result: User?
+func fetchUser(_ uid: String, completion: @escaping (User?) -> Void){
+    
     var url = AppDelegate.url!
     url.append(path: "/api/users/profile")
     url.append(queryItems: [URLQueryItem(name: "uid", value: uid)])
+
     let session = URLSession.shared
     let task = session.dataTask(with: url) { data, response, error in
         if let error{
-            print(error)
+            completion(nil)
             return
         }
         
-        guard let httpResponse = response as? HTTPURLResponse else { return }
+        guard let httpResponse = response as? HTTPURLResponse else 
+        {
+            completion(nil)
+            return
+        }
         
-        guard httpResponse.statusCode == 200 else { return }
+        guard httpResponse.statusCode == 200 else 
+        {
+            completion(nil)
+            return
+        }
         
-        guard let data else { return }
+        guard let data else 
+        {
+            completion(nil)
+            return
+        }
         
         do{
             let decoder = JSONDecoder()
-            result = try decoder.decode(User.self, from: data)
+            let result = try decoder.decode(User.self, from: data)
+            completion(result)
         } catch {
             print(error)
+            completion(nil)
         }
     }
     task.resume()
-    
-    return result
 }
 
-func fetchMeetings(_ uid: String) -> [Meeting]?{
-    var result: [Meeting]?
+func fetchMeeting(_ uid: String, completion: @escaping ([Meeting]?) -> Void){
+    
     var url = AppDelegate.url!
     url.append(path: "/api/meetings/byUid")
     url.append(queryItems: [URLQueryItem(name: "uid", value: uid)])
-    
+
     let session = URLSession.shared
     let task = session.dataTask(with: url) { data, response, error in
         if let error{
-            print(error)
+            completion(nil)
             return
         }
         
-        guard let httpResponse = response as? HTTPURLResponse else { return }
+        guard let httpResponse = response as? HTTPURLResponse else
+        {
+            completion(nil)
+            return
+        }
         
-        guard httpResponse.statusCode == 200 else { return }
+        guard httpResponse.statusCode == 200 else
+        {
+            completion(nil)
+            return
+        }
         
-        guard let data else { return }
+        guard let data else
+        {
+            completion(nil)
+            return
+        }
         
         do{
             let decoder = JSONDecoder()
-            result = try decoder.decode([Meeting].self, from: data)
+            let result = try decoder.decode([Meeting].self, from: data)
+            completion(result)
         } catch {
             print(error)
+            completion(nil)
         }
     }
     task.resume()
-    
-    return result
 }
 
-func fetchFriends(_ uid: String) -> [Friend]?{
-    var result: [Friend]?
+func fetchFriends(_ uid: String, completion: @escaping ([Friend]?) -> Void){
     
     var url = AppDelegate.url!
     url.append(path: "/api/friends/byUid")
     url.append(queryItems: [URLQueryItem(name: "uid", value: uid)])
+
     let session = URLSession.shared
     let task = session.dataTask(with: url) { data, response, error in
         if let error{
-            print(error)
+            completion(nil)
             return
         }
         
-        guard let httpResponse = response as? HTTPURLResponse else { return }
+        guard let httpResponse = response as? HTTPURLResponse else
+        {
+            completion(nil)
+            return
+        }
         
-        guard httpResponse.statusCode == 200 else { return }
+        guard httpResponse.statusCode == 200 else
+        {
+            completion(nil)
+            return
+        }
         
-        guard let data else { return }
+        guard let data else
+        {
+            completion(nil)
+            return
+        }
         
         do{
             let decoder = JSONDecoder()
-            result = try decoder.decode([Friend].self, from: data)
+            let result = try decoder.decode([Friend].self, from: data)
+            completion(result)
         } catch {
             print(error)
+            completion(nil)
         }
     }
     task.resume()
-    
-    return result
 }
 
-func fetchPlaceLists(_ uid: String) -> [PlaceList]?{
-    var result: [PlaceList]?
+func fetchPlaceLists(_ uid: String, completion: @escaping ([PlaceList]?) -> Void){
+    
     var url = AppDelegate.url!
     url.append(path: "/api/placeList/byUid")
     url.append(queryItems: [URLQueryItem(name: "uid", value: uid)])
-    
+
     let session = URLSession.shared
     let task = session.dataTask(with: url) { data, response, error in
         if let error{
-            print(error)
+            completion(nil)
             return
         }
         
-        guard let httpResponse = response as? HTTPURLResponse else { return }
+        guard let httpResponse = response as? HTTPURLResponse else
+        {
+            completion(nil)
+            return
+        }
         
-        guard httpResponse.statusCode == 200 else { return }
+        guard httpResponse.statusCode == 200 else
+        {
+            completion(nil)
+            return
+        }
         
-        guard let data else { return }
+        guard let data else
+        {
+            completion(nil)
+            return
+        }
         
         do{
             let decoder = JSONDecoder()
-            result = try decoder.decode([PlaceList].self, from: data)
+            let result = try decoder.decode([PlaceList].self, from: data)
+            completion(result)
         } catch {
             print(error)
+            completion(nil)
         }
     }
     task.resume()
-    
-    return result
 }
 
 

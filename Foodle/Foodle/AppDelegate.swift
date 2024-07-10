@@ -17,7 +17,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var placeLists: [PlaceList]?
     
     func prepareData(){
-       user = fetchUser("1")
+        fetchUser("1") { result in
+            self.user = result
+            print(self.user)
+        }
+        fetchFriends("1") { result in
+            self.friends = result
+            print(self.friends)
+        }
+        fetchMeeting("1") { result in
+            self.meetings = result
+            print(self.meetings)
+        }
+        fetchPlaceLists("1") { result in
+            self.placeLists = result
+            print(self.placeLists)
+        }
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
