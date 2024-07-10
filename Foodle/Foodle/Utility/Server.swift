@@ -10,7 +10,7 @@ import Foundation
 func fetchUser(_ uid: String) -> User?{
     var result: User?
     var url = AppDelegate.url!
-    url.append(path: "/api/users/byUid")
+    url.append(path: "/api/users/profile")
     url.append(queryItems: [URLQueryItem(name: "uid", value: uid)])
     let session = URLSession.shared
     let task = session.dataTask(with: url) { data, response, error in
