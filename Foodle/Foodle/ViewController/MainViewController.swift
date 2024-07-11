@@ -29,6 +29,7 @@ class MainViewController: UIViewController {
         return view
     }()
     
+    
     @IBAction func unwindToMain(_ unwindSegue: UIStoryboardSegue) {
         let sourceViewController = unwindSegue.source
         // Use data from the view controller which initiated the unwind segue
@@ -52,15 +53,14 @@ class MainViewController: UIViewController {
     
     
     func addSearchBar(){
-        let search = UISearchController(searchResultsController: SearchViewController())
-        search.delegate = self
+        let search = UISearchController()
         search.searchBar.delegate = self
         self.navigationItem.searchController = search
         self.navigationItem.hidesSearchBarWhenScrolling = false
         search.searchBar.placeholder = ""
         search.searchBar.searchTextField.backgroundColor = .white
         search.searchBar.tintColor = .black
-        }
+    }
     
     func addProfileIcon(_ image: UIImage?){
         let profileButton = UIButton(frame: CGRect(x: 0, y: -5, width: 40, height: 40))
@@ -137,15 +137,6 @@ class MainViewController: UIViewController {
     
 }
 
-extension MainViewController: UISearchControllerDelegate, UISearchBarDelegate, UISearchResultsUpdating{
-    func updateSearchResults(for searchController: UISearchController) {
-        guard let text = searchController.searchBar.text else {
-            return
-        }
-        print(text)
-    }
-}
-
 extension MainViewController: UITableViewDelegate, UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -205,5 +196,9 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource{
     }
 }
 
-
+extension MainViewController: UISearchBarDelegate{
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        performSegue(withIdentifier: "showSearch", sender: nil)
+    }
+}
 

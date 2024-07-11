@@ -10,13 +10,20 @@ import MapKit
 
 class SearchViewController: UIViewController {
     
-    let mapView : MKMapView = {
-        let map = MKMapView()
-        return map
-    }()
-    
+    @IBOutlet weak var mapView: MKMapView!
     let manager = CLLocationManager()
     var bottomSheetVC: UIViewController?
+    
+    func addSearchBar(){
+        let search = UISearchController()
+        search.searchBar.delegate = self
+        self.navigationItem.searchController = search
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+        search.searchBar.placeholder = ""
+        search.searchBar.searchTextField.backgroundColor = .white
+        search.searchBar.tintColor = .black
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -26,16 +33,16 @@ class SearchViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        bottomSheetVC?.dismiss(animated: true)
+        bottomSheetVC?.dismiss(animated: false)
         super.viewWillDisappear(animated)
         manager.stopUpdatingLocation()
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        mapView.delegate = self
         manager.delegate = self
         manager.requestWhenInUseAuthorization()
-        setMap()
+        addSearchBar()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -43,25 +50,16 @@ class SearchViewController: UIViewController {
         setResultView()
     }
     
-    private func setMapConstraints(){
-        view.addSubview(mapView)
-        mapView.translatesAutoresizingMaskIntoConstraints = false
-        mapView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-        mapView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-        mapView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        mapView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-    }
-    
-    private func setMap(){
-        setMapConstraints()
-    }
     
     private func setResultView(){
         let bottomSheetVCSB = UIStoryboard(name: "Jinhee", bundle: nil)
         bottomSheetVC = bottomSheetVCSB.instantiateViewController(withIdentifier: "ScrollableBottomSheetViewController")
         if let sheet = bottomSheetVC?.sheetPresentationController {
-            sheet.detents = [.medium(), .large()]
-            sheet.largestUndimmedDetentIdentifier = .medium  // nil 기본값
+            let fraction = UISheetPresentationController.Detent.custom { context in
+                140
+            }
+            sheet.detents = [.medium(), .large(), fraction]
+            sheet.largestUndimmedDetentIdentifier = fraction.identifier  // nil 기본값
             sheet.prefersScrollingExpandsWhenScrolledToEdge = false  // true 기본값
             sheet.prefersEdgeAttachedInCompactHeight = true // false 기본값
             sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true // false 기본값
@@ -132,3 +130,10 @@ extension SearchViewController: CLLocationManagerDelegate{
         }
     }
 }
+
+extension SearchViewController: UISearchBarDelegate{
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        navigationController?.popViewController(animated: false)
+    }
+}
+
