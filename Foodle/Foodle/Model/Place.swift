@@ -12,6 +12,7 @@ struct Place: Codable{
     var latitude: Double?
     var placeName: String?
     var address: String?
+    var tel: String?
     var rate: Double?
     var reviewURL: String?
     var instaURL: String?

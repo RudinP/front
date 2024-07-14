@@ -15,7 +15,7 @@ func fetchUser(_ uid: String, completion: @escaping (User?) -> Void){
 
     let session = URLSession.shared
     let task = session.dataTask(with: url) { data, response, error in
-        if let error{
+        if error != nil{
             completion(nil)
             return
         }
@@ -55,10 +55,10 @@ func fetchMeeting(_ uid: String, completion: @escaping ([Meeting]?) -> Void){
     var url = AppDelegate.url!
     url.append(path: "/api/meetings/byUid")
     url.append(queryItems: [URLQueryItem(name: "uid", value: uid)])
-
+    
     let session = URLSession.shared
     let task = session.dataTask(with: url) { data, response, error in
-        if let error{
+        if error != nil{
             completion(nil)
             return
         }
@@ -82,7 +82,10 @@ func fetchMeeting(_ uid: String, completion: @escaping ([Meeting]?) -> Void){
         }
         
         do{
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
             let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .formatted(formatter)
             let result = try decoder.decode([Meeting].self, from: data)
             completion(result)
         } catch {
@@ -101,7 +104,7 @@ func fetchFriends(_ uid: String, completion: @escaping ([Friend]?) -> Void){
 
     let session = URLSession.shared
     let task = session.dataTask(with: url) { data, response, error in
-        if let error{
+        if error != nil{
             completion(nil)
             return
         }
@@ -144,7 +147,7 @@ func fetchPlaceLists(_ uid: String, completion: @escaping ([PlaceList]?) -> Void
 
     let session = URLSession.shared
     let task = session.dataTask(with: url) { data, response, error in
-        if let error{
+        if error != nil{
             completion(nil)
             return
         }
