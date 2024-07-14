@@ -47,7 +47,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
 
         addSearchBar()
-        addProfileIcon(nil)
+        addProfileIcon(user?.profileImage)
 
     }
     
@@ -62,9 +62,13 @@ class MainViewController: UIViewController {
         search.searchBar.tintColor = .black
     }
     
-    func addProfileIcon(_ image: UIImage?){
+    func addProfileIcon(_ image: String?){
         let profileButton = UIButton(frame: CGRect(x: 0, y: -5, width: 40, height: 40))
-        profileButton.setBackgroundImage(image ?? UIImage(systemName: "pawprint.circle"), for: .normal)
+        let imageView = UIImageView()
+        if let image{
+            imageView.setImageFromStringURL(image)
+        }
+        profileButton.setBackgroundImage(imageView.image ?? UIImage(systemName: "pawprint.circle"), for: .normal)
         profileButton.addTarget(self, action: #selector(toProfile), for: .touchUpInside)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: profileButton)
     }
@@ -144,7 +148,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section{
-        case 0: return dummyTodayMeetings.isEmpty ? 1 : dummyTodayMeetings.count
+        case 0: return meetingsToday.isEmpty ? 1 : meetingsToday.count
         case 1: return 1
         default: return 0
         }
