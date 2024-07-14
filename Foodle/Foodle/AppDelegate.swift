@@ -8,32 +8,10 @@
 import UIKit
 import CoreData
 
+var url = URL(string:"http://ec2-43-203-210-119.ap-northeast-2.compute.amazonaws.com:8080")
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    static var url = URL(string:"http://ec2-43-203-210-119.ap-northeast-2.compute.amazonaws.com:8080")
-    var user: User?
-    var meetings: [Meeting]?
-    var friends: [Friend]?
-    var placeLists: [PlaceList]?
-    
-    func prepareData(){
-        fetchUser("1") { result in
-            self.user = result
-            print(self.user)
-        }
-        fetchFriends("1") { result in
-            self.friends = result
-            print(self.friends)
-        }
-        fetchMeeting("1") { result in
-            self.meetings = result
-            print(self.meetings)
-        }
-        fetchPlaceLists("1") { result in
-            self.placeLists = result
-            print(self.placeLists)
-        }
-    }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -44,8 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         appearance.backgroundColor = UIColor.white
         tabBar.standardAppearance = appearance;
         UITabBar.appearance().scrollEdgeAppearance = appearance
-        
-        prepareData()
         
         return true
     }
@@ -111,3 +87,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 }
 
+extension Notification.Name {
+    static let didLoadData = Notification.Name("didLoadData")
+}

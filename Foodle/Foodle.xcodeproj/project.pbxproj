@@ -41,6 +41,8 @@
 		4BC68AB22BA2DBD300FC6546 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC68AB12BA2DBD300FC6546 /* MainTableViewCell.swift */; };
 		4BE731832C3E2AA1008733C9 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE731822C3E2AA1008733C9 /* Server.swift */; };
 		4BE731852C3E569E008733C9 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE731842C3E569E008733C9 /* SearchResultViewController.swift */; };
+		4BE731982C436A1C008733C9 /* LaunchingSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE731972C436A1C008733C9 /* LaunchingSegue.swift */; };
+		4BE7319A2C436AD7008733C9 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE731992C436AD7008733C9 /* LaunchViewController.swift */; };
 		4BF819382C2927F4006BE538 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF819372C2927F4006BE538 /* Place.swift */; };
 		4BF8193A2C292B8E006BE538 /* MeetingPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF819392C292B8E006BE538 /* MeetingPlace.swift */; };
 		4BF8193C2C292BAE006BE538 /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF8193B2C292BAE006BE538 /* Meeting.swift */; };
@@ -94,6 +96,8 @@
 		4BC68AB12BA2DBD300FC6546 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		4BE731822C3E2AA1008733C9 /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		4BE731842C3E569E008733C9 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		4BE731972C436A1C008733C9 /* LaunchingSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchingSegue.swift; sourceTree = "<group>"; };
+		4BE731992C436AD7008733C9 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		4BF819372C2927F4006BE538 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		4BF819392C292B8E006BE538 /* MeetingPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingPlace.swift; sourceTree = "<group>"; };
 		4BF8193B2C292BAE006BE538 /* Meeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
@@ -178,6 +182,7 @@
 				4BB965C82C23C33F00F7E429 /* AddListViewController.swift */,
 				92D3DE652C2762E100CC3673 /* DetailMeetingViewController.swift */,
 				4BE731842C3E569E008733C9 /* SearchResultViewController.swift */,
+				4BE731992C436AD7008733C9 /* LaunchViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -190,6 +195,7 @@
 				4B772F492C34EDEE00975B4C /* UIImageViewExtension.swift */,
 				4B772F4B2C34F1DD00975B4C /* UIColorExtension.swift */,
 				4BE731822C3E2AA1008733C9 /* Server.swift */,
+				4BE731972C436A1C008733C9 /* LaunchingSegue.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -315,6 +321,7 @@
 				4B5D9B712BBE4CB200F1BD58 /* PlaceImageCollectionViewCell.swift in Sources */,
 				4B1122372BE33BA500A2E577 /* UIViewExtension.swift in Sources */,
 				4BB965C92C23C33F00F7E429 /* AddListViewController.swift in Sources */,
+				4BE7319A2C436AD7008733C9 /* LaunchViewController.swift in Sources */,
 				4BA12D892BA004CE00BC4EB0 /* Foodle.xcdatamodeld in Sources */,
 				4B73950C2BAC3187006843DB /* SelectFriendsViewController.swift in Sources */,
 				4B1122402BE351D200A2E577 /* ResultTableViewcell.swift in Sources */,
@@ -328,6 +335,7 @@
 				92B688482BB0A20400D7DF2C /* LoginViewCell.swift in Sources */,
 				4BE731852C3E569E008733C9 /* SearchResultViewController.swift in Sources */,
 				4B23DBDF2BFEF09600E5E4FD /* MyPlaceTableViewController.swift in Sources */,
+				4BE731982C436A1C008733C9 /* LaunchingSegue.swift in Sources */,
 				4BE731832C3E2AA1008733C9 /* Server.swift in Sources */,
 				923B80FE2C0230C600B771E7 /* ScheduleListViewController.swift in Sources */,
 				92D3DE662C2762E100CC3673 /* DetailMeetingViewController.swift in Sources */,

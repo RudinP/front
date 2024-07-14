@@ -9,7 +9,7 @@ import Foundation
 
 func fetchUser(_ uid: String, completion: @escaping (User?) -> Void){
     
-    var url = AppDelegate.url!
+    var url = url!
     url.append(path: "/api/users/profile")
     url.append(queryItems: [URLQueryItem(name: "uid", value: uid)])
 
@@ -20,19 +20,19 @@ func fetchUser(_ uid: String, completion: @escaping (User?) -> Void){
             return
         }
         
-        guard let httpResponse = response as? HTTPURLResponse else 
+        guard let httpResponse = response as? HTTPURLResponse else
         {
             completion(nil)
             return
         }
         
-        guard httpResponse.statusCode == 200 else 
+        guard httpResponse.statusCode == 200 else
         {
             completion(nil)
             return
         }
         
-        guard let data else 
+        guard let data else
         {
             completion(nil)
             return
@@ -52,7 +52,7 @@ func fetchUser(_ uid: String, completion: @escaping (User?) -> Void){
 
 func fetchMeeting(_ uid: String, completion: @escaping ([Meeting]?) -> Void){
     
-    var url = AppDelegate.url!
+    var url = url!
     url.append(path: "/api/meetings/byUid")
     url.append(queryItems: [URLQueryItem(name: "uid", value: uid)])
     
@@ -98,7 +98,7 @@ func fetchMeeting(_ uid: String, completion: @escaping ([Meeting]?) -> Void){
 
 func fetchFriends(_ uid: String, completion: @escaping ([Friend]?) -> Void){
     
-    var url = AppDelegate.url!
+    var url = url!
     url.append(path: "/api/friends/byUid")
     url.append(queryItems: [URLQueryItem(name: "uid", value: uid)])
 
@@ -141,7 +141,7 @@ func fetchFriends(_ uid: String, completion: @escaping ([Friend]?) -> Void){
 
 func fetchPlaceLists(_ uid: String, completion: @escaping ([PlaceList]?) -> Void){
     
-    var url = AppDelegate.url!
+    var url = url!
     url.append(path: "/api/placeList/byUid")
     url.append(queryItems: [URLQueryItem(name: "uid", value: uid)])
 

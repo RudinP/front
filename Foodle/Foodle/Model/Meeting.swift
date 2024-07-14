@@ -7,6 +7,7 @@
 
 import Foundation
 
+var meetings: [Meeting]?
 struct Meeting:Codable{
     var mid: Int?
     var joiners: [User]?
