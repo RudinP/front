@@ -7,6 +7,7 @@
 
 import Foundation
 
+var user: User?
 struct User: Codable{
     var uid: String?
     var profileImage: String?

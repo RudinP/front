@@ -9,6 +9,7 @@ import Foundation
 import CoreGraphics
 import UIKit
 
+var placeLists: [PlaceList]?
 struct PlaceList: Codable{
     var listID: Int?
     var name: String?

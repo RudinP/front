@@ -7,6 +7,10 @@
 
 import Foundation
 
+var meetings: [Meeting]?
+let meetingsToday = getToday(meetings: meetings)
+let meetingsUpcoming = getUpcoming(meetings: meetings)
+
 struct Meeting:Codable{
     var mid: Int?
     var joiners: [User]?
@@ -34,26 +38,32 @@ extension Meeting{
     }
 }
 
-func getToday(meetings: [Meeting], date: Date = Date()) -> [Meeting] {
-    meetings.filter {
+func getToday(meetings: [Meeting]?, date: Date = Date()) -> [Meeting] {
+    if let meetings{
+        return meetings.filter {
         let today = date
         if let meetingday = $0.date{
             let calendar = Calendar.current
             return calendar.isDate(today, inSameDayAs: meetingday)
         }
         else {return false}
+        }
     }
+    return [Meeting]()
 }
 
-func getUpcoming(meetings: [Meeting]) -> [Meeting] {
-    meetings.filter {
-        let today = Date()
-        if let meetingday = $0.date{
-            let calendar = Calendar.current
-            return !calendar.isDate(today, inSameDayAs: meetingday) && today < meetingday
+func getUpcoming(meetings: [Meeting]?) -> [Meeting] {
+    if let meetings{
+        return meetings.filter {
+            let today = Date()
+            if let meetingday = $0.date{
+                let calendar = Calendar.current
+                return !calendar.isDate(today, inSameDayAs: meetingday) && today < meetingday
+            }
+            else {return false}
         }
-        else {return false}
     }
+    return [Meeting]()
 }
 
 let dummyMeetings = [Meeting(mid: 1, joiners: [dummyUser, dummyUser2], name: "확인용 미팅", date: Date(), places: dummyMeetingPlaces),
@@ -64,3 +74,4 @@ let dummyMeetings = [Meeting(mid: 1, joiners: [dummyUser, dummyUser2], name: "�
 let dummyTodayMeetings = getToday(meetings: dummyMeetings)
 let dummyMeetingsUpcoming = getUpcoming(meetings: dummyMeetings)
 let dummyMeeting = Meeting(joiners: [], name: "", date: Date(), places: [])
+
