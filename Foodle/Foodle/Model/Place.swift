@@ -25,16 +25,18 @@ struct Place: Codable{
 extension Place{
     var workingDay: Dictionary<Day, String> {
         var dict = [Day.월: "", Day.화: "", Day.수: "", Day.목: "", Day.금: "", Day.토: "", Day.일: ""]
-        for i in 0...6{
-            dict.updateValue(working?[i] ?? "", forKey: days[i])
+        guard let working else {return dict}
+        for i in 0 ..< working.count{
+            dict.updateValue(working[i], forKey: days[i])
         }
         
         return dict
     }
     var breakTimeDay: Dictionary<Day, String>{
         var dict = [Day.월: "", Day.화: "", Day.수: "", Day.목: "", Day.금: "", Day.토: "", Day.일: ""]
-        for i in 0...6{
-            dict.updateValue(breakTime?[i] ?? "", forKey: days[i])
+        guard let breakTime else {return dict}
+        for i in 0 ..< breakTime.count{
+            dict.updateValue(breakTime[i], forKey: days[i])
         }
         return dict
     }
@@ -45,6 +47,9 @@ extension Place{
     
     var close: String {
         var result = ""
+        if let working, working.isEmpty {
+            return "정보 없음"
+        }
         for time in workingDay{
             if time.value.isEmpty{
                 result.append("\(time.key.rawValue) ")
@@ -57,6 +62,9 @@ extension Place{
     }
     
     var isWorking: String{
+        if let working, working.isEmpty{
+            return "정보 없음"
+        }
         var result = "영업종료"
         let now = Date()
         let formatter = DateFormatter()
@@ -66,14 +74,17 @@ extension Place{
         formatter.dateFormat = "HH:mm"
         let nowTime = formatter.string(from: now)
         if let today {
+            
             let workingTime = workingDay[today]?.components(separatedBy: ["~", " "])
-            let bTime = breakTimeDay[today]?.components(separatedBy: ["~", " "])
-            if let workingTime{
+            
+            if let workingTime, !workingTime.isEmpty{
                 if workingTime[0] <= nowTime && workingTime[1] >= nowTime {
                     result = "영업중"
                 }
             }
-            if let bTime{
+            
+            let bTime = breakTimeDay[today]?.components(separatedBy: ["~", " "])
+            if let bTime, !bTime.isEmpty{
                 if bTime[0] <= nowTime && bTime[1] >= nowTime{
                     result = "브레이크타임"
                 }
