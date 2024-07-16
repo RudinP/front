@@ -85,6 +85,8 @@ class MainViewController: UIViewController {
         search.searchBar.placeholder = ""
         search.searchBar.searchTextField.backgroundColor = .white
         search.searchBar.tintColor = .black
+        search.searchBar.searchTextField.autocorrectionType = .no
+        search.searchBar.searchTextField.spellCheckingType = .no
     }
     
     func addProfileIcon(_ image: String?){

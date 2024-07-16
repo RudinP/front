@@ -22,6 +22,9 @@ class SearchViewController: UIViewController {
         search.searchBar.placeholder = ""
         search.searchBar.searchTextField.backgroundColor = .white
         search.searchBar.tintColor = .black
+        search.searchBar.text = keyword
+        search.searchBar.searchTextField.autocorrectionType = .no
+        search.searchBar.searchTextField.spellCheckingType = .no
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,6 +57,7 @@ class SearchViewController: UIViewController {
     private func setResultView(){
         let bottomSheetVCSB = UIStoryboard(name: "Jinhee", bundle: nil)
         bottomSheetVC = bottomSheetVCSB.instantiateViewController(withIdentifier: "ScrollableBottomSheetViewController")
+        
         if let sheet = bottomSheetVC?.sheetPresentationController {
             let fraction = UISheetPresentationController.Detent.custom { context in
                 140
