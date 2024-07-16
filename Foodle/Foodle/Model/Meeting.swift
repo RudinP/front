@@ -8,8 +8,8 @@
 import Foundation
 
 var meetings: [Meeting]?
-let meetingsToday = getToday(meetings: meetings)
-let meetingsUpcoming = getUpcoming(meetings: meetings)
+var meetingsToday = getToday(meetings: meetings)
+var meetingsUpcoming = getUpcoming(meetings: meetings)
 
 struct Meeting:Codable{
     var mid: Int?

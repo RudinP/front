@@ -48,7 +48,24 @@ class MainViewController: UIViewController {
 
         addSearchBar()
         addProfileIcon(user?.profileImage)
-
+        updateDaily()
+    }
+    
+    func updateDaily(){
+        let calendar = Calendar.current
+        
+        let now = Date()
+        let date = calendar.date(bySettingHour: 00, minute: 00, second: 0, of: now)!
+        
+        let timer = Timer(fireAt: date, interval: 0, target: self, selector: #selector(reloadData), userInfo: nil, repeats: false)
+        
+        RunLoop.main.add(timer, forMode: RunLoop.Mode.common)
+    }
+    
+    @objc func reloadData(){
+        meetingsToday = getToday(meetings: meetings)
+        meetingsUpcoming = getUpcoming(meetings: meetings)
+        mainTableView.reloadData()
     }
     
     
