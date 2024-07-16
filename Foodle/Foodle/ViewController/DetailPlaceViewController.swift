@@ -11,6 +11,8 @@ class DetailPlaceViewController: UIViewController {
     var place: Place?
     @IBOutlet weak var imageCollectionView: UICollectionView!
     
+    @IBOutlet weak var instaURLButton: UIButton!
+    @IBOutlet weak var instaDescriptionLabel: UILabel!
     @IBOutlet weak var placeNameLabel: UILabel!
     @IBOutlet weak var isWorkingLabel: UILabel!
     @IBOutlet weak var starButton: UIButton!
@@ -31,6 +33,16 @@ class DetailPlaceViewController: UIViewController {
         rateLabel.text = "네이버 평점" + (place?.rate?.formatted() ?? "0")
         
         showTime()
+        
+        guard let insta = place?.instaURL else {
+            instaURLButton.isHidden = true
+            instaDescriptionLabel.isHidden = true
+            return
+        }
+        if insta.isEmpty{
+            instaURLButton.isHidden = true
+            instaDescriptionLabel.isHidden = true
+        }
     }
     
     func showTime(){

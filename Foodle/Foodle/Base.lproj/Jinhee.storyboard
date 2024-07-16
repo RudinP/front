@@ -926,6 +926,8 @@
                         <outlet property="addressLabel" destination="WFs-gw-jpj" id="7sa-ox-Bu9"/>
                         <outlet property="distanceLabel" destination="S0f-xZ-0PP" id="jBT-Hm-lMl"/>
                         <outlet property="imageCollectionView" destination="Svm-xg-FRg" id="L61-AB-sXP"/>
+                        <outlet property="instaDescriptionLabel" destination="KEa-mm-4qc" id="lzA-b9-2QI"/>
+                        <outlet property="instaURLButton" destination="HMx-O9-IZC" id="Yjh-b5-FFY"/>
                         <outlet property="isWorkingLabel" destination="AiY-Cy-fYw" id="v0q-RD-ovL"/>
                         <outlet property="placeNameLabel" destination="BMj-iC-AfV" id="Mnh-Fi-CTh"/>
                         <outlet property="rateLabel" destination="2fQ-9d-Rb3" id="uE7-KA-acl"/>
