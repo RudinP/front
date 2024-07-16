@@ -17,6 +17,7 @@ class MainViewController: UIViewController {
     
     lazy var buttons: [UIButton] = [self.addMeetButton]
     var isFloatShowing = false
+    var profileImg: UIImage?
 
     lazy var floatingDimView: UIView = {
         let view = UIView(frame: self.view.frame)
@@ -47,8 +48,13 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
 
         addSearchBar()
-        addProfileIcon(user?.profileImage)
         updateDaily()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addProfileIcon(user?.profileImage)
     }
     
     func updateDaily(){
@@ -65,7 +71,9 @@ class MainViewController: UIViewController {
     @objc func reloadData(){
         meetingsToday = getToday(meetings: meetings)
         meetingsUpcoming = getUpcoming(meetings: meetings)
-        mainTableView.reloadData()
+        if mainTableView != nil{
+            mainTableView.reloadData()
+        }
     }
     
     
@@ -81,13 +89,23 @@ class MainViewController: UIViewController {
     
     func addProfileIcon(_ image: String?){
         let profileButton = UIButton(frame: CGRect(x: 0, y: -5, width: 40, height: 40))
-        let imageView = UIImageView()
-        if let image{
-            imageView.setImageFromStringURL(image)
+        profileButton.layer.cornerRadius = profileButton.frame.height / 2
+        profileButton.clipsToBounds = true
+        profileButton.contentMode = .scaleAspectFill
+        profileButton.setBackgroundImage(profileImg ?? UIImage(systemName: "pawprint.circle"), for: .normal)
+
+
+        if profileImg == nil, let str = user?.profileImage, let url = URL(string: str){
+            url.asyncImage { image in
+                DispatchQueue.main.async{
+                    profileButton.setBackgroundImage(image, for: .normal)
+                    self.profileImg = image?.resize(newWidth: 40)
+                }
+            }
         }
-        profileButton.setBackgroundImage(imageView.image ?? UIImage(systemName: "pawprint.circle"), for: .normal)
         profileButton.addTarget(self, action: #selector(toProfile), for: .touchUpInside)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: profileButton)
+        
     }
     
     @objc func toProfile(){
