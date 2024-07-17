@@ -182,5 +182,49 @@ func fetchPlaceLists(_ uid: String, completion: @escaping ([PlaceList]?) -> Void
     task.resume()
 }
 
+func searchPlace(_ byName: String?, completion: @escaping ([Place]?) -> Void){
+    guard let byName else { return }
+    
+    var url = url!
+    url.append(path: "/api/place/byPlaceName")
+    url.append(queryItems: [URLQueryItem(name: "name", value: byName)])
+
+    let session = URLSession.shared
+    let task = session.dataTask(with: url) { data, response, error in
+        if error != nil{
+            completion(nil)
+            return
+        }
+        
+        guard let httpResponse = response as? HTTPURLResponse else
+        {
+            completion(nil)
+            return
+        }
+        
+        guard httpResponse.statusCode == 200 else
+        {
+            print(httpResponse.statusCode)
+            completion(nil)
+            return
+        }
+        
+        guard let data else
+        {
+            completion(nil)
+            return
+        }
+        
+        do{
+            let decoder = JSONDecoder()
+            let result = try decoder.decode([Place].self, from: data)
+            completion(result)
+        } catch {
+            print(error)
+            completion(nil)
+        }
+    }
+    task.resume()
+}
 
 

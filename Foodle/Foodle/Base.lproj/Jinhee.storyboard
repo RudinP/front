@@ -731,17 +731,17 @@
             <objects>
                 <viewController id="b3Z-rC-oH0" customClass="DetailPlaceViewController" customModule="Foodle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kUP-ri-HED">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RlX-2u-jFg">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2gZ-95-yab">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="788.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="729.66666666666663"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Svm-xg-FRg">
-                                                <rect key="frame" x="10" y="69" width="373" height="200"/>
+                                                <rect key="frame" x="10" y="10" width="373" height="200"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="G9O-sg-zit"/>
@@ -762,6 +762,7 @@
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WZe-ZV-zSx">
                                                                     <rect key="frame" x="5" y="0.0" width="246" height="193"/>
+                                                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="200" id="CbD-k7-zi2"/>
                                                                         <constraint firstAttribute="width" constant="256" id="DkX-tb-CMB"/>
@@ -786,7 +787,7 @@
                                                 </connections>
                                             </collectionView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hfL-vD-A8D">
-                                                <rect key="frame" x="10" y="279" width="373" height="499.66666666666674"/>
+                                                <rect key="frame" x="10" y="220.00000000000003" width="373" height="499.66666666666674"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="ZMk-jY-hcQ">
                                                         <rect key="frame" x="0.0" y="0.0" width="237.66666666666666" height="80.333333333333329"/>
@@ -869,7 +870,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="NdZ-md-o8o">
-                                                        <rect key="frame" x="0.0" y="283.33333333333337" width="204.33333333333334" height="216.33333333333337"/>
+                                                        <rect key="frame" x="0.0" y="283.33333333333331" width="204.33333333333334" height="216.33333333333331"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="영업 시간" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XuA-L8-bmJ">
                                                                 <rect key="frame" x="0.0" y="0.0" width="103.33333333333333" height="33.666666666666664"/>
@@ -878,7 +879,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zzF-Ac-8fb">
-                                                                <rect key="frame" x="0.0" y="43.666666666666629" width="204.33333333333334" height="40.666666666666657"/>
+                                                                <rect key="frame" x="0.0" y="43.666666666666686" width="204.33333333333334" height="40.666666666666657"/>
                                                                 <string key="text">월 9:00~13:00
 (브레이크 타임 12:00~12:30)</string>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -886,7 +887,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="화 9:00~13:00 수 9:00~13:00 목 9:00~13:00 금 9:00~13:00 토 9:00~13:00 일 9:00~13:00" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nop-50-FGT">
-                                                                <rect key="frame" x="0.0" y="94.333333333333258" width="108" height="122"/>
+                                                                <rect key="frame" x="0.0" y="94.333333333333314" width="108" height="122"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -925,6 +926,8 @@
                         <outlet property="addressLabel" destination="WFs-gw-jpj" id="7sa-ox-Bu9"/>
                         <outlet property="distanceLabel" destination="S0f-xZ-0PP" id="jBT-Hm-lMl"/>
                         <outlet property="imageCollectionView" destination="Svm-xg-FRg" id="L61-AB-sXP"/>
+                        <outlet property="instaDescriptionLabel" destination="KEa-mm-4qc" id="lzA-b9-2QI"/>
+                        <outlet property="instaURLButton" destination="HMx-O9-IZC" id="Yjh-b5-FFY"/>
                         <outlet property="isWorkingLabel" destination="AiY-Cy-fYw" id="v0q-RD-ovL"/>
                         <outlet property="placeNameLabel" destination="BMj-iC-AfV" id="Mnh-Fi-CTh"/>
                         <outlet property="rateLabel" destination="2fQ-9d-Rb3" id="uE7-KA-acl"/>
@@ -966,8 +969,9 @@
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="star" catalog="system"/>
                                                 </button>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dummy" translatesAutoresizingMaskIntoConstraints="NO" id="6Jp-r3-j60">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Jp-r3-j60">
                                                     <rect key="frame" x="313" y="50" width="70" height="70"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="70" id="7cC-Fd-s1v"/>
                                                         <constraint firstAttribute="height" constant="70" id="qRv-D3-7th"/>
@@ -1092,11 +1096,12 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="Pqd-35-N8g" id="teZ-4d-CCr"/>
+                        <segue destination="b3Z-rC-oH0" kind="show" identifier="ToDetail" id="wwL-l4-wnF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eaV-eM-fOU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4429.7709923664124" y="-720.42253521126759"/>
+            <point key="canvasLocation" x="3653" y="855"/>
         </scene>
         <!--LoginView-->
         <scene sceneID="iay-o0-Hqv">
@@ -1451,8 +1456,9 @@
                                                         <action selector="addPlaceToList:" destination="9sO-5h-AcD" eventType="touchUpInside" id="wg6-eI-BSY"/>
                                                     </connections>
                                                 </button>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dummy" translatesAutoresizingMaskIntoConstraints="NO" id="SeQ-Sz-ie9">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SeQ-Sz-ie9">
                                                     <rect key="frame" x="313" y="50" width="70" height="70"/>
+                                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="70" id="caY-pA-t5b"/>
                                                         <constraint firstAttribute="height" constant="70" id="orw-gB-ZOg"/>
@@ -1731,7 +1737,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8JG-Sk-DqP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3469" y="-696"/>
+            <point key="canvasLocation" x="2708" y="855"/>
         </scene>
         <!--홈-->
         <scene sceneID="KjQ-nM-kRY">
@@ -1848,7 +1854,6 @@
         <image name="Splash" width="256" height="256"/>
         <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="circle.fill" catalog="system" width="128" height="123"/>
-        <image name="dummy" width="210" height="150"/>
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="map" catalog="system" width="128" height="112"/>
         <image name="pawprint" catalog="system" width="128" height="114"/>

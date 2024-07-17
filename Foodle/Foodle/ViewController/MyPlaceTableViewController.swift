@@ -19,8 +19,8 @@ class MyPlaceTableViewController: UIViewController {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? DetailPlaceViewController{
-            if let placeIndex{
-                vc.place = dummyPlaceLists[placeListIndex!].places?[placeIndex]
+            if let placeIndex, let placeLists{
+                vc.place = placeLists[placeListIndex!].places?[placeIndex]
             }
         }
     }
@@ -41,7 +41,7 @@ extension MyPlaceTableViewController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let placeListIndex{
-            return dummyPlaceLists[placeListIndex].places?.count ?? 0
+            return placeLists?[placeListIndex].places?.count ?? 0
         }
         return 0
     }
@@ -53,7 +53,7 @@ extension MyPlaceTableViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "resultTableViewCell") as! ResultTableViewcell
         if let placeListIndex{
-            if let target = dummyPlaceLists[placeListIndex].places?[indexPath.row]{
+            if let placeLists, let target = placeLists[placeListIndex].places?[indexPath.row]{
                 print(target)
                 cell.starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
                 cell.addressLabel.text = target.address

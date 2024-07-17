@@ -11,6 +11,7 @@
 		4B1122392BE33EA000A2E577 /* ScrollableBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1122382BE33EA000A2E577 /* ScrollableBottomSheetViewController.swift */; };
 		4B1122402BE351D200A2E577 /* ResultTableViewcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B11223F2BE351D200A2E577 /* ResultTableViewcell.swift */; };
 		4B1261372BA31450002F52BD /* UpcomingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1261362BA31450002F52BD /* UpcomingCollectionViewCell.swift */; };
+		4B1C91B02C4611BC00CCB03E /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1C91AF2C4611BC00CCB03E /* URLExtension.swift */; };
 		4B23DBDF2BFEF09600E5E4FD /* MyPlaceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B23DBDE2BFEF09600E5E4FD /* MyPlaceTableViewController.swift */; };
 		4B5D9B6D2BBE3FFB00F1BD58 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D9B6C2BBE3FFB00F1BD58 /* SearchViewController.swift */; };
 		4B5D9B6F2BBE406400F1BD58 /* DetailPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D9B6E2BBE406400F1BD58 /* DetailPlaceViewController.swift */; };
@@ -64,6 +65,7 @@
 		4B1122382BE33EA000A2E577 /* ScrollableBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableBottomSheetViewController.swift; sourceTree = "<group>"; };
 		4B11223F2BE351D200A2E577 /* ResultTableViewcell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultTableViewcell.swift; sourceTree = "<group>"; };
 		4B1261362BA31450002F52BD /* UpcomingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingCollectionViewCell.swift; sourceTree = "<group>"; };
+		4B1C91AF2C4611BC00CCB03E /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
 		4B23DBDE2BFEF09600E5E4FD /* MyPlaceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlaceTableViewController.swift; sourceTree = "<group>"; };
 		4B5D9B6C2BBE3FFB00F1BD58 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		4B5D9B6E2BBE406400F1BD58 /* DetailPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPlaceViewController.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				4B772F4B2C34F1DD00975B4C /* UIColorExtension.swift */,
 				4BE731822C3E2AA1008733C9 /* Server.swift */,
 				4BE731972C436A1C008733C9 /* LaunchingSegue.swift */,
+				4B1C91AF2C4611BC00CCB03E /* URLExtension.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				4B1122392BE33EA000A2E577 /* ScrollableBottomSheetViewController.swift in Sources */,
 				4B7395102BAC31BB006843DB /* AddMeetingPlaceViewController.swift in Sources */,
 				4B63886C2C2FB5E800ED10F0 /* Day.swift in Sources */,
+				4B1C91B02C4611BC00CCB03E /* URLExtension.swift in Sources */,
 				4B1261372BA31450002F52BD /* UpcomingCollectionViewCell.swift in Sources */,
 				4BF819402C292BE5006BE538 /* User.swift in Sources */,
 				4BF819422C292ED0006BE538 /* PlaceList.swift in Sources */,

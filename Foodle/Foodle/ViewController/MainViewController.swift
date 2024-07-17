@@ -17,6 +17,7 @@ class MainViewController: UIViewController {
     
     lazy var buttons: [UIButton] = [self.addMeetButton]
     var isFloatShowing = false
+    var profileImg: UIImage?
 
     lazy var floatingDimView: UIView = {
         let view = UIView(frame: self.view.frame)
@@ -47,8 +48,32 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
 
         addSearchBar()
+        updateDaily()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         addProfileIcon(user?.profileImage)
-
+    }
+    
+    func updateDaily(){
+        let calendar = Calendar.current
+        
+        let now = Date()
+        let date = calendar.date(bySettingHour: 00, minute: 00, second: 0, of: now)!
+        
+        let timer = Timer(fireAt: date, interval: 0, target: self, selector: #selector(reloadData), userInfo: nil, repeats: false)
+        
+        RunLoop.main.add(timer, forMode: RunLoop.Mode.common)
+    }
+    
+    @objc func reloadData(){
+        meetingsToday = getToday(meetings: meetings)
+        meetingsUpcoming = getUpcoming(meetings: meetings)
+        if mainTableView != nil{
+            mainTableView.reloadData()
+        }
     }
     
     
@@ -60,17 +85,29 @@ class MainViewController: UIViewController {
         search.searchBar.placeholder = ""
         search.searchBar.searchTextField.backgroundColor = .white
         search.searchBar.tintColor = .black
+        search.searchBar.searchTextField.autocorrectionType = .no
+        search.searchBar.searchTextField.spellCheckingType = .no
     }
     
     func addProfileIcon(_ image: String?){
         let profileButton = UIButton(frame: CGRect(x: 0, y: -5, width: 40, height: 40))
-        let imageView = UIImageView()
-        if let image{
-            imageView.setImageFromStringURL(image)
+        profileButton.layer.cornerRadius = profileButton.frame.height / 2
+        profileButton.clipsToBounds = true
+        profileButton.contentMode = .scaleAspectFill
+        profileButton.setBackgroundImage(profileImg ?? UIImage(systemName: "pawprint.circle"), for: .normal)
+
+
+        if profileImg == nil, let str = user?.profileImage, let url = URL(string: str){
+            url.asyncImage { image in
+                DispatchQueue.main.async{
+                    profileButton.setBackgroundImage(image, for: .normal)
+                    self.profileImg = image?.resize(newWidth: 40)
+                }
+            }
         }
-        profileButton.setBackgroundImage(imageView.image ?? UIImage(systemName: "pawprint.circle"), for: .normal)
         profileButton.addTarget(self, action: #selector(toProfile), for: .touchUpInside)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: profileButton)
+        
     }
     
     @objc func toProfile(){

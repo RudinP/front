@@ -11,6 +11,8 @@ class DetailPlaceViewController: UIViewController {
     var place: Place?
     @IBOutlet weak var imageCollectionView: UICollectionView!
     
+    @IBOutlet weak var instaURLButton: UIButton!
+    @IBOutlet weak var instaDescriptionLabel: UILabel!
     @IBOutlet weak var placeNameLabel: UILabel!
     @IBOutlet weak var isWorkingLabel: UILabel!
     @IBOutlet weak var starButton: UIButton!
@@ -30,6 +32,25 @@ class DetailPlaceViewController: UIViewController {
         distanceLabel.text = place?.distance
         rateLabel.text = "네이버 평점" + (place?.rate?.formatted() ?? "0")
         
+        showTime()
+        
+        guard let insta = place?.instaURL else {
+            instaURLButton.isHidden = true
+            instaDescriptionLabel.isHidden = true
+            return
+        }
+        if insta.isEmpty{
+            instaURLButton.isHidden = true
+            instaDescriptionLabel.isHidden = true
+        }
+    }
+    
+    func showTime(){
+        if let t = place?.working, t.isEmpty{
+            workingLabel.text = "정보 없음"
+            todayWorkingLabel.text = ""
+            return
+        }
         let formatter = DateFormatter()
         formatter.dateFormat = "E"
         formatter.locale =  Locale(identifier: "ko_KR")
@@ -50,8 +71,9 @@ class DetailPlaceViewController: UIViewController {
             str.append("\(work.key.rawValue) \(work.value)   브레이크타임 \(val)\n")
         }
         workingLabel.text = str
-        
+
     }
+    
     @IBAction func openReview(_ sender: Any) {
         if let str = place?.reviewURL, let url = URL(string: str) {
                 UIApplication.shared.open(url, options: [:])

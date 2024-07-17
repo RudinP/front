@@ -54,7 +54,7 @@ extension MyPlaceScrollableViewController: UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dummyPlaceLists.count
+        return placeLists?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -63,8 +63,9 @@ extension MyPlaceScrollableViewController: UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyPlaceTableViewCell") as! MyPlaceTableViewCell
-        cell.circleImageView.tintColor = UIColor(hexCode: dummyPlaceLists[indexPath.row].color, alpha: 1.0)
-        cell.listNameLabel.text = dummyPlaceLists[indexPath.row].name
+        guard let placeLists else { return cell }
+        cell.circleImageView.tintColor = UIColor(hexCode: placeLists[indexPath.row].color, alpha: 1.0)
+        cell.listNameLabel.text = placeLists[indexPath.row].name
         return cell
     }
     
