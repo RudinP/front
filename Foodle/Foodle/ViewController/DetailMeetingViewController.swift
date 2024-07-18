@@ -65,7 +65,17 @@ class DetailMeetingViewController: UIViewController, CLLocationManagerDelegate, 
     }
     
     @objc func nextButtonTapped() {
-        performSegue(withIdentifier: "showEdit", sender: self)
+        performSegue(withIdentifier: "EditMeeting", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "EditMeeting" {
+            if let editVC = segue.destination as? EditMeetingViewController {
+                editVC.section = section
+                editVC.index = index
+                editVC.collectionViewItem = collectionViewItem
+            }
+        }
     }
     
     func goLocation(latitudeValue: CLLocationDegrees, longitudeValue : CLLocationDegrees, delta span :Double) {
@@ -110,11 +120,11 @@ class DetailMeetingViewController: UIViewController, CLLocationManagerDelegate, 
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MeetingFriendsNameCell", for: indexPath) as! MeetingFriendsNameCell
             if self.section == 0 {
                 if let index = index, let joiners = todayMeetings[index].joiners {
-                    cell.nameLabel.text = joiners[indexPath.item].name
+                    cell.nameLabel.text = joiners[indexPath.item].nickName
                 }
             } else if self.section == 1 {
                 if let index = index, let joiners = upcomingMeetings[collectionViewItem!].joiners {
-                    cell.nameLabel.text = joiners[indexPath.item].name
+                    cell.nameLabel.text = joiners[indexPath.item].nickName
                 }
             }
             return cell

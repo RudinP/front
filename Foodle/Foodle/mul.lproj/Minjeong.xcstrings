@@ -25,6 +25,18 @@
         }
       }
     },
+    "1za-lp-y50.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"즐겨찾기한 친구\"; ObjectID = \"1za-lp-y50\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "즐겨찾기한 친구"
+          }
+        }
+      }
+    },
     "2B2-zo-9ch.normalTitle" : {
       "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"2B2-zo-9ch\";",
       "extractionState" : "extracted_with_value",
@@ -73,6 +85,18 @@
         }
       }
     },
+    "5Nw-3l-zWT.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"5Nw-3l-zWT\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        }
+      }
+    },
     "5r2-V9-dDe.normalTitle" : {
       "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"5r2-V9-dDe\";",
       "extractionState" : "extracted_with_value",
@@ -93,6 +117,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "친구 목록"
+          }
+        }
+      }
+    },
+    "8GW-ZE-40g.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"8GW-ZE-40g\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
           }
         }
       }
@@ -133,6 +169,18 @@
         }
       }
     },
+    "a5e-l9-uVY.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Label\"; ObjectID = \"a5e-l9-uVY\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Label"
+          }
+        }
+      }
+    },
     "aC4-ti-tqJ.text" : {
       "comment" : "Class = \"UILabel\"; text = \"고등학교 동창회\"; ObjectID = \"aC4-ti-tqJ\";",
       "extractionState" : "extracted_with_value",
@@ -153,6 +201,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "닉네임"
+          }
+        }
+      }
+    },
+    "ag4-sV-W0O.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"친구 목록\"; ObjectID = \"ag4-sV-W0O\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "친구 목록"
           }
         }
       }
@@ -433,6 +493,18 @@
         }
       }
     },
+    "qs4-Pb-Zf5.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Label\"; ObjectID = \"qs4-Pb-Zf5\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Label"
+          }
+        }
+      }
+    },
     "r03-hE-JAM.text" : {
       "comment" : "Class = \"UILabel\"; text = \"이름\"; ObjectID = \"r03-hE-JAM\";",
       "extractionState" : "extracted_with_value",
@@ -489,6 +561,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "일정 목록"
+          }
+        }
+      }
+    },
+    "uzi-fH-5qz.title" : {
+      "comment" : "Class = \"UIViewController\"; title = \"일정 편집\"; ObjectID = \"uzi-fH-5qz\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "일정 편집"
           }
         }
       }
@@ -639,6 +723,30 @@
     },
     "zbj-eH-VVr.normalTitle" : {
       "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"zbj-eH-VVr\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        }
+      }
+    },
+    "ZGW-P9-8He.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Label\"; ObjectID = \"ZGW-P9-8He\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Label"
+          }
+        }
+      }
+    },
+    "ZN2-8U-bsN.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"ZN2-8U-bsN\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {

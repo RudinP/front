@@ -46,6 +46,7 @@
 		4BF819402C292BE5006BE538 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF8193F2C292BE5006BE538 /* User.swift */; };
 		4BF819422C292ED0006BE538 /* PlaceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF819412C292ED0006BE538 /* PlaceList.swift */; };
 		4BFA46132C2BB8DA00240F4E /* RoundedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFA46122C2BB8DA00240F4E /* RoundedCollectionViewCell.swift */; };
+		920E00012C4977EB00BAEA25 /* EditMeetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920E00002C4977EB00BAEA25 /* EditMeetingViewController.swift */; };
 		923B80FE2C0230C600B771E7 /* ScheduleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B80FD2C0230C600B771E7 /* ScheduleListViewController.swift */; };
 		927E19CE2C0239AD004D9F96 /* Minjeong.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 927E19CD2C0239AD004D9F96 /* Minjeong.storyboard */; };
 		92B688482BB0A20400D7DF2C /* LoginViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B688472BB0A20400D7DF2C /* LoginViewCell.swift */; };
@@ -97,6 +98,7 @@
 		4BF8193F2C292BE5006BE538 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4BF819412C292ED0006BE538 /* PlaceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceList.swift; sourceTree = "<group>"; };
 		4BFA46122C2BB8DA00240F4E /* RoundedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCollectionViewCell.swift; sourceTree = "<group>"; };
+		920E00002C4977EB00BAEA25 /* EditMeetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMeetingViewController.swift; sourceTree = "<group>"; };
 		923B80FD2C0230C600B771E7 /* ScheduleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleListViewController.swift; sourceTree = "<group>"; };
 		927E19CC2C0239AD004D9F96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Minjeong.storyboard; sourceTree = "<group>"; };
 		927E19CF2C0239AD004D9F96 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/Minjeong.xcstrings; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				4B8D3EF12C22B2BC00A344D1 /* AddPlaceViewController.swift */,
 				4BB965C82C23C33F00F7E429 /* AddListViewController.swift */,
 				92D3DE652C2762E100CC3673 /* DetailMeetingViewController.swift */,
+				920E00002C4977EB00BAEA25 /* EditMeetingViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 			files = (
 				4BB965CB2C23C44D00F7E429 /* ColorCollectionViewCell.swift in Sources */,
 				4BF8193C2C292BAE006BE538 /* Meeting.swift in Sources */,
+				920E00012C4977EB00BAEA25 /* EditMeetingViewController.swift in Sources */,
 				4B5D9B6D2BBE3FFB00F1BD58 /* SearchViewController.swift in Sources */,
 				4B70D9C32BF5BAF600F3C965 /* MyPlaceTableViewCell.swift in Sources */,
 				92EA73172BF0D1830075472C /* MyPageViewController.swift in Sources */,
