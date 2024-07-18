@@ -44,16 +44,38 @@ class SearchResultViewController: UIViewController{
 }
 extension SearchResultViewController: UISearchControllerDelegate, UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        guard let text = searchBar.text else { return }
+        guard let text = searchBar.text else {
+            resultPlaces.removeAll()
+            tableView.reloadData()
+            return
+        }
+        
         keyword = text + searchText
-        searchPlace(keyword) { result in
-            guard let result else { return }
-            resultPlaces = result
-            DispatchQueue.main.async{
-                self.tableView.reloadData()
+        
+        if keyword.isEmpty{
+            resultPlaces.removeAll()
+            tableView.reloadData()
+        } else {
+            searchPlace(keyword) { result in
+                guard let result else { return }
+                resultPlaces = result
+                DispatchQueue.main.async{
+                    self.tableView.reloadData()
+                }
             }
         }
     }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        resultPlaces.removeAll()
+        tableView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        performSegue(withIdentifier: "toSearchView", sender: nil)
+    }
+    
+    
 }
 
 extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource{
@@ -69,7 +91,8 @@ extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        resultPlaces.swapAt(0, indexPath.row)
+        let selected = resultPlaces.remove(at: indexPath.row)
+        resultPlaces.insert(selected, at: 0)
         performSegue(withIdentifier: "toSearchView", sender: nil)
     }
     

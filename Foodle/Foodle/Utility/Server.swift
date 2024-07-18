@@ -187,7 +187,7 @@ func searchPlace(_ byName: String?, completion: @escaping ([Place]?) -> Void){
     
     var url = url!
     url.append(path: "/api/place/byPlaceName")
-    url.append(queryItems: [URLQueryItem(name: "name", value: byName)])
+    url.append(queryItems: [URLQueryItem(name: "placeName", value: byName)])
 
     let session = URLSession.shared
     let task = session.dataTask(with: url) { data, response, error in
