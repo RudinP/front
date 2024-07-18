@@ -17,6 +17,7 @@ class DetailPlaceViewController: UIViewController {
     @IBOutlet weak var isWorkingLabel: UILabel!
     @IBOutlet weak var starButton: UIButton!
     @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var telLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var rateLabel: UILabel!
     @IBOutlet weak var todayWorkingLabel: UILabel!
@@ -30,7 +31,8 @@ class DetailPlaceViewController: UIViewController {
         starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
         addressLabel.text = place?.address
         distanceLabel.text = place?.distance
-        rateLabel.text = "네이버 평점" + (place?.rate?.formatted() ?? "0")
+        telLabel.text = place?.tel
+        rateLabel.text = "네이버 평점" + (place?.rating?.formatted() ?? "0.0")
         
         showTime()
         

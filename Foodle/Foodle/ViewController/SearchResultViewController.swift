@@ -45,16 +45,20 @@ class SearchResultViewController: UIViewController{
 extension SearchResultViewController: UISearchControllerDelegate, UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard let text = searchBar.text else {
-            resultPlaces.removeAll()
-            tableView.reloadData()
+            DispatchQueue.main.async{
+                resultPlaces.removeAll()
+                self.tableView.reloadData()
+            }
             return
         }
         
         keyword = text + searchText
         
         if keyword.isEmpty{
-            resultPlaces.removeAll()
-            tableView.reloadData()
+            DispatchQueue.main.async{
+                resultPlaces.removeAll()
+                self.tableView.reloadData()
+            }
         } else {
             searchPlace(keyword) { result in
                 guard let result else { return }

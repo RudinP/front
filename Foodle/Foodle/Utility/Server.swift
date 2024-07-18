@@ -240,12 +240,10 @@ func createPlaceList(_ list: PlaceList, completion: @escaping () -> Void){
     
     let task = URLSession.shared.uploadTask(with: request, from: uploadData) { (data, response, error) in
         
-        
         if let e = error {
             NSLog("An error has occured: \(e.localizedDescription)")
             return
         }
-        print("placeList added successfully")
         completion()
     }
     
@@ -259,17 +257,19 @@ func deletePlaceList(_ list: PlaceList, completion: @escaping () -> Void){
     guard let deleteData = try? JSONEncoder().encode(list) else { return }
     
     var request = URLRequest(url: url)
-    request.httpMethod = "DELETE"
-    
+    request.httpMethod = "POST"
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     
     let task = URLSession.shared.uploadTask(with: request, from: deleteData) { (data, response, error) in
-        
-        if let e = error {
-            NSLog("An error has occured: \(e.localizedDescription)")
+        if let error = error {
+            NSLog("An error has occurred: \(error.localizedDescription)")
             return
         }
-        print("placeList deleted successfully ")
+        
+        if let httpResponse = response as? HTTPURLResponse, !(200...299).contains(httpResponse.statusCode) {
+            NSLog("Server error: \(httpResponse.statusCode)")
+            return
+        }
         completion()
     }
     

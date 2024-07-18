@@ -11,7 +11,7 @@ import UIKit
 
 var placeLists: [PlaceList]?
 struct PlaceList: Codable{
-    var listID: Int?
+    var lid: Int?
     var uid: String?
     var name: String?
     var color: String?
@@ -37,5 +37,5 @@ extension PlaceList{
         }
     }
 }
-var dummyPlaceLists = [PlaceList(listID: 0, name: "리스트 이름", color: "", places: dummyPlaces),
-                       PlaceList(listID: 1, name: "리스트 이름2", color: "", places: [Place]())]
+var dummyPlaceLists = [PlaceList(lid: 0, name: "리스트 이름", color: "", places: dummyPlaces),
+                       PlaceList(lid: 1, name: "리스트 이름2", color: "", places: [Place]())]

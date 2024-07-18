@@ -45,6 +45,7 @@ class LaunchViewController: UIViewController {
             dispatchGroup.enter()
             fetchPlaceLists(uid) { result in
                 placeLists = result
+                print(placeLists)
                 dispatchGroup.leave()
             }
             
