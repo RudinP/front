@@ -79,6 +79,18 @@ extension MyPlaceScrollableViewController: UITableViewDelegate, UITableViewDataS
         selectedIndex = indexPath.row
         setSheetView()
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            guard let placeLists else {return}
+            deletePlaceList(placeLists[indexPath.row]) {
+                DispatchQueue.main.async{
+                    tableView.deleteRows(at: [indexPath], with: .fade)
+                }
+                NotificationCenter.default.post(name: .addedList, object: nil, userInfo: nil)
+            }
+        }
+    }
         
 }
 
