@@ -32,12 +32,12 @@ class AddListViewController: UIViewController {
     }
     
     @IBAction func addList(_ sender: Any) {
+        guard let uid = user?.uid else {return}
         if let listName, let selectedColor{
-            dummyPlaceLists.append(PlaceList(listID: dummyPlaceLists.last?.listID ?? 0 + 1, name: listName, color: selectedColor.toHexString(), places: [Place]()))
-            
-            NotificationCenter.default.post(name: .addedList, object: nil)
-            
-            dismiss(animated: false)
+            createPlaceList(PlaceList(uid: uid,name: listName, color: selectedColor.toHexString(), places: [Place]())){
+                NotificationCenter.default.post(name: .addedList, object: nil)
+            }
+            self.dismiss(animated: false)
         } else {
             alertPop()
         }

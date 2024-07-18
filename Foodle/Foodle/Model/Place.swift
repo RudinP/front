@@ -95,7 +95,8 @@ extension Place{
     
     func getIsStarred() -> Bool{
         var result = false
-        for placeList in dummyPlaceLists{
+        guard let placeLists else {return false}
+        for placeList in placeLists{
             if let place = placeList.places{
                 result = place.contains(where: {
                     $0.isEqual(self)

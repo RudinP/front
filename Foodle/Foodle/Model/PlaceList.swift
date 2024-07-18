@@ -12,6 +12,7 @@ import UIKit
 var placeLists: [PlaceList]?
 struct PlaceList: Codable{
     var listID: Int?
+    var uid: String?
     var name: String?
     var color: String?
     var places: [Place]?

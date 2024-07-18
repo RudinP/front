@@ -20,7 +20,13 @@ class MyPlaceScrollableViewController: UIViewController {
         tableView.dataSource = self
         
         NotificationCenter.default.addObserver(forName: .addedList, object: nil, queue: .main) { _ in
-            self.tableView.reloadData()
+            guard let uid = user?.uid else {return}
+            fetchPlaceLists(uid) { result in
+                placeLists = result
+                DispatchQueue.main.async{
+                    self.tableView.reloadData()
+                }
+            }
         }
     }
     
