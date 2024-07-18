@@ -68,11 +68,14 @@ extension SearchResultViewController: UISearchControllerDelegate, UISearchBarDel
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         resultPlaces.removeAll()
+        keyword.removeAll()
         tableView.reloadData()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        performSegue(withIdentifier: "toSearchView", sender: nil)
+        if !keyword.isEmpty && !resultPlaces.isEmpty{
+            performSegue(withIdentifier: "toSearchView", sender: nil)
+        }
     }
     
     
