@@ -1065,6 +1065,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="addressLabel" destination="Eso-W2-hee" id="fUy-FH-NqK"/>
                                             <outlet property="breakLabel" destination="aa2-DF-clo" id="JdB-8d-1so"/>
                                             <outlet property="distanceLabel" destination="mE6-Ce-aHk" id="WuW-Zv-cxK"/>
                                             <outlet property="isOpenLabel" destination="9eu-F4-Xe0" id="2Ov-vN-mTx"/>
@@ -1072,7 +1073,6 @@
                                             <outlet property="placeImageView" destination="6Jp-r3-j60" id="Pef-Ll-sNr"/>
                                             <outlet property="placeNameLabel" destination="95n-yz-Cw1" id="U5v-KJ-quG"/>
                                             <outlet property="starButton" destination="opv-7l-Su0" id="47I-5M-WCn"/>
-                                            <outlet property="telLabel" destination="Eso-W2-hee" id="0Sw-kO-kBc"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1552,6 +1552,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="addressLabel" destination="r3s-dA-fXI" id="TuL-gg-k3M"/>
                                             <outlet property="breakLabel" destination="zaw-9l-28n" id="WoD-09-Fgp"/>
                                             <outlet property="distanceLabel" destination="LFt-ed-ll7" id="k7B-VS-HIA"/>
                                             <outlet property="isOpenLabel" destination="TAA-8f-fo9" id="uIe-GT-JJR"/>
@@ -1559,7 +1560,6 @@
                                             <outlet property="placeImageView" destination="SeQ-Sz-ie9" id="zpR-MJ-exo"/>
                                             <outlet property="placeNameLabel" destination="pdU-NB-Gcf" id="27m-m2-y6e"/>
                                             <outlet property="starButton" destination="bqT-q2-Dk9" id="nCm-PH-KCy"/>
-                                            <outlet property="telLabel" destination="r3s-dA-fXI" id="TDQ-vI-Gdn"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1859,7 +1859,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="5FZ-ju-y38"/>
-        <segue reference="sxV-Db-QL7"/>
+        <segue reference="wwL-l4-wnF"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Splash" width="256" height="256"/>
