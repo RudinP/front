@@ -56,10 +56,11 @@ func getUpcoming(meetings: [Meeting]) -> [Meeting] {
 }
 
 let dummyMeetings = [Meeting(joiners: [dummyUser, dummyUser2], name: "확인용 미팅", date: Date(), places: dummyMeetingPlaces),
-                     Meeting(joiners: [dummyUser, dummyUser2], name: "확인용 미팅2", date: Date(), places: dummyMeetingPlaces),
-                     Meeting(joiners: [dummyUser, dummyUser2], name: "확인용 미팅3", date: Date(), places: dummyMeetingPlaces), Meeting(joiners: [dummyUser, dummyUser2], name: "내일 미팅", date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!, places: dummyMeetingPlaces),
+                     Meeting(joiners: [dummyUser4, dummyUser6], name: "확인용 미팅2", date: Date(), places: dummyMeetingPlaces),
+                     Meeting(joiners: [dummyUser2, dummyUser3], name: "확인용 미팅3", date: Date(), places: dummyMeetingPlaces2), 
+                     Meeting(joiners: [dummyUser, dummyUser2], name: "내일 미팅", date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!, places: dummyMeetingPlaces2),
                      Meeting(joiners: [dummyUser, dummyUser2], name: "내일 미팅2", date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!, places: dummyMeetingPlaces),
-                     Meeting(joiners: [dummyUser, dummyUser2], name: "내일 미팅3", date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!, places: dummyMeetingPlaces)]
+                     Meeting(joiners: [dummyUser3, dummyUser4], name: "내일 미팅3", date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!, places: dummyMeetingPlaces)]
 let dummyTodayMeetings = getToday(meetings: dummyMeetings)
 let dummyMeetingsUpcoming = getUpcoming(meetings: dummyMeetings)
 let dummyMeeting = Meeting(joiners: [], name: "", date: Date(), places: [])

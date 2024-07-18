@@ -7,13 +7,17 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, MainTableViewCellDelegate {
     
     @IBOutlet weak var floatingButton: UIButton!
     @IBOutlet weak var addMeetButton: UIButton!
     @IBOutlet weak var floatingStackView: UIStackView!
     
     @IBOutlet weak var mainTableView: UITableView!
+    
+    var selectedSection: Int?
+    var selectedIndex: Int?
+    var selectedItemIndex: Int?
     
     lazy var buttons: [UIButton] = [self.addMeetButton]
     var isFloatShowing = false
@@ -135,6 +139,27 @@ class MainViewController: UIViewController {
         }
     }
     
+    func didSelectItem(section: Int, index: Int, itemIndex: Int) {
+        guard selectedSection != section || selectedIndex != index || selectedItemIndex != itemIndex else {
+            return
+        }
+        
+        selectedSection = section
+        selectedIndex = index
+        selectedItemIndex = itemIndex
+        
+        performSegue(withIdentifier: "detailMeeting", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailMeeting" {
+            guard let detailVC = segue.destination as? DetailMeetingViewController else { return }
+            
+            detailVC.section = selectedSection
+            detailVC.index = selectedIndex
+            detailVC.collectionViewItem = selectedItemIndex
+        }
+    }
 }
 
 extension MainViewController: UISearchControllerDelegate, UISearchBarDelegate, UISearchResultsUpdating{
@@ -161,11 +186,16 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "mainTableViewCell", for: indexPath) as! MainTableViewCell
-        if indexPath.row != 0{
-            cell.prepare(bgColor: .systemGray6, textColor: .gray)
-        }
+        
         cell.section = indexPath.section
         cell.index = indexPath.row
+        
+        if indexPath.row != 0 {
+            cell.prepare(bgColor: .systemGray6, textColor: .gray)
+        }
+        
+        cell.delegate = self
+        
         return cell
     }
     
@@ -200,10 +230,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource{
             config.text = "다가오는 약속"
             
             header.contentConfiguration = config
-
+            
         }
     }
 }
-
-
-

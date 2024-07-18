@@ -14,6 +14,7 @@ class MainTableViewCell: UITableViewCell {
     var textColor: UIColor?
     var section: Int?
     var index: Int?
+    weak var delegate: MainTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,7 +35,12 @@ class MainTableViewCell: UITableViewCell {
         self.mainCollectionView.reloadData()
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let section = section, let index = index else {
+            return
+        }
+        delegate?.didSelectItem(section: section, index: index, itemIndex: indexPath.item)
+    }
 }
 
 extension MainTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource{
@@ -82,6 +88,8 @@ extension MainTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
         default: return UICollectionViewCell()
         }
     }
-    
-    
+}
+
+protocol MainTableViewCellDelegate: AnyObject {
+    func didSelectItem(section: Int, index: Int, itemIndex: Int)
 }

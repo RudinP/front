@@ -15,14 +15,13 @@ class DetailMeetingViewController: UIViewController, CLLocationManagerDelegate, 
     @IBOutlet weak var fName: UICollectionView!
     @IBOutlet weak var meeting: UICollectionView!
     
-    let locationManager = CLLocationManager()
+    var section: Int?
+    var index: Int?
+    var collectionViewItem: Int?
     
-    let friendsNames = ["김지현", "박진희", "정민정", "김지현", "박진희", "정민정"]
-    let meetingDetails = [
-        (number: "1", place: "스타벅스", time: "10:00 AM"),
-        (number: "2", place: "도서관", time: "11:00 AM"),
-        (number: "3", place: "학생회관", time: "2:00 PM")
-    ]
+    let locationManager = CLLocationManager()
+    let todayMeetings: [Meeting] = dummyTodayMeetings
+    let upcomingMeetings: [Meeting] = dummyMeetingsUpcoming
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +31,6 @@ class DetailMeetingViewController: UIViewController, CLLocationManagerDelegate, 
         
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        // locationManager.requestWhenInUseAuthorization() // 위치 승인 요청
         locationManager.startUpdatingLocation()
         map.showsUserLocation = true
         
@@ -40,6 +38,30 @@ class DetailMeetingViewController: UIViewController, CLLocationManagerDelegate, 
         fName.delegate = self
         meeting.dataSource = self
         meeting.delegate = self
+        
+        if let index = index {
+            if section == 0 {
+                meetingName.text = todayMeetings[index].name
+            } else if section == 1{
+                meetingName.text = upcomingMeetings[collectionViewItem!].name
+            }
+            
+            if section == 0 {
+                if let date = todayMeetings[index].date {
+                    meetingDate.text = formatDateToString(date: date)
+                }
+            } else if section == 1{
+                if let date = upcomingMeetings[collectionViewItem!].date {
+                    meetingDate.text = formatDateToString(date: date)
+                }
+            }
+        }
+    }
+    
+    func formatDateToString(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy.MM.dd"
+        return dateFormatter.string(from: date)
     }
     
     @objc func nextButtonTapped() {
@@ -64,9 +86,21 @@ class DetailMeetingViewController: UIViewController, CLLocationManagerDelegate, 
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == fName {
-            return friendsNames.count
+            if let index = index {
+                if self.section == 0 {
+                    return todayMeetings[index].joiners?.count ?? 0
+                } else if self.section == 1 {
+                    return upcomingMeetings[collectionViewItem!].joiners?.count ?? 0
+                }
+            }
         } else if collectionView == meeting {
-            return meetingDetails.count
+            if let index = index {
+                if self.section == 0 {
+                    return todayMeetings[index].places?.count ?? 0
+                } else if self.section == 1 {
+                    return upcomingMeetings[collectionViewItem!].places?.count ?? 0
+                }
+            }
         }
         return 0
     }
@@ -74,14 +108,35 @@ class DetailMeetingViewController: UIViewController, CLLocationManagerDelegate, 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == fName {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MeetingFriendsNameCell", for: indexPath) as! MeetingFriendsNameCell
-            cell.nameLabel.text = friendsNames[indexPath.item]
+            if self.section == 0 {
+                if let index = index, let joiners = todayMeetings[index].joiners {
+                    cell.nameLabel.text = joiners[indexPath.item].name
+                }
+            } else if self.section == 1 {
+                if let index = index, let joiners = upcomingMeetings[collectionViewItem!].joiners {
+                    cell.nameLabel.text = joiners[indexPath.item].name
+                }
+            }
             return cell
         } else if collectionView == meeting {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MeetingDetailCell", for: indexPath) as! MeetingDetailCell
-            let detail = meetingDetails[indexPath.item]
-            cell.numberLabel.text = detail.number
-            cell.placeLabel.text = detail.place
-            cell.timeLabel.text = detail.time
+            if self.section == 0 {
+                if let index = index, let places = todayMeetings[index].places {
+                    let detail = places[indexPath.item]
+                    cell.numberLabel.text = "\(indexPath.item + 1)"
+                    cell.placeLabel.text = detail.place?.placeName
+                    cell.timeLabel.text = detail.timeString
+                    cell.addressLabel.text = detail.place?.address
+                }
+            } else if self.section == 1 {
+                if let index = index, let places = upcomingMeetings[collectionViewItem!].places {
+                    let detail = places[indexPath.item]
+                    cell.numberLabel.text = "\(indexPath.item + 1)"
+                    cell.placeLabel.text = detail.place?.placeName
+                    cell.timeLabel.text = detail.timeString
+                    cell.addressLabel.text = detail.place?.address
+                }
+            }
             return cell
         }
         return UICollectionViewCell()
@@ -91,7 +146,6 @@ class DetailMeetingViewController: UIViewController, CLLocationManagerDelegate, 
 class MeetingFriendsNameCell: UICollectionViewCell {
     @IBOutlet weak var nameLabel: UILabel!
 }
-
 
 class MeetingDetailCell: UICollectionViewCell {
     @IBOutlet weak var numberLabel: UILabel!

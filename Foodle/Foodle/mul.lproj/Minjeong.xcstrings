@@ -386,13 +386,13 @@
       }
     },
     "nVE-u2-RRD.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"이름\"; ObjectID = \"nVE-u2-RRD\";",
+      "comment" : "Class = \"UILabel\"; text = \"닉네임\"; ObjectID = \"nVE-u2-RRD\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "이름"
+            "value" : "닉네임"
           }
         }
       }
