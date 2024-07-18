@@ -11,6 +11,7 @@
 		4B1122392BE33EA000A2E577 /* ScrollableBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1122382BE33EA000A2E577 /* ScrollableBottomSheetViewController.swift */; };
 		4B1122402BE351D200A2E577 /* ResultTableViewcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B11223F2BE351D200A2E577 /* ResultTableViewcell.swift */; };
 		4B1261372BA31450002F52BD /* UpcomingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1261362BA31450002F52BD /* UpcomingCollectionViewCell.swift */; };
+		4B1C91B02C4611BC00CCB03E /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1C91AF2C4611BC00CCB03E /* URLExtension.swift */; };
 		4B23DBDF2BFEF09600E5E4FD /* MyPlaceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B23DBDE2BFEF09600E5E4FD /* MyPlaceTableViewController.swift */; };
 		4B5D9B6D2BBE3FFB00F1BD58 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D9B6C2BBE3FFB00F1BD58 /* SearchViewController.swift */; };
 		4B5D9B6F2BBE406400F1BD58 /* DetailPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D9B6E2BBE406400F1BD58 /* DetailPlaceViewController.swift */; };
@@ -39,6 +40,10 @@
 		4BC68AAD2BA2B67300FC6546 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC68AAC2BA2B67300FC6546 /* MainViewController.swift */; };
 		4BC68AB02BA2DAF200FC6546 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC68AAF2BA2DAF200FC6546 /* MainCollectionViewCell.swift */; };
 		4BC68AB22BA2DBD300FC6546 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC68AB12BA2DBD300FC6546 /* MainTableViewCell.swift */; };
+		4BE731832C3E2AA1008733C9 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE731822C3E2AA1008733C9 /* Server.swift */; };
+		4BE731852C3E569E008733C9 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE731842C3E569E008733C9 /* SearchResultViewController.swift */; };
+		4BE731982C436A1C008733C9 /* LaunchingSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE731972C436A1C008733C9 /* LaunchingSegue.swift */; };
+		4BE7319A2C436AD7008733C9 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE731992C436AD7008733C9 /* LaunchViewController.swift */; };
 		4BF819382C2927F4006BE538 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF819372C2927F4006BE538 /* Place.swift */; };
 		4BF8193A2C292B8E006BE538 /* MeetingPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF819392C292B8E006BE538 /* MeetingPlace.swift */; };
 		4BF8193C2C292BAE006BE538 /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF8193B2C292BAE006BE538 /* Meeting.swift */; };
@@ -61,6 +66,7 @@
 		4B1122382BE33EA000A2E577 /* ScrollableBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableBottomSheetViewController.swift; sourceTree = "<group>"; };
 		4B11223F2BE351D200A2E577 /* ResultTableViewcell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultTableViewcell.swift; sourceTree = "<group>"; };
 		4B1261362BA31450002F52BD /* UpcomingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingCollectionViewCell.swift; sourceTree = "<group>"; };
+		4B1C91AF2C4611BC00CCB03E /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
 		4B23DBDE2BFEF09600E5E4FD /* MyPlaceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlaceTableViewController.swift; sourceTree = "<group>"; };
 		4B5D9B6C2BBE3FFB00F1BD58 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		4B5D9B6E2BBE406400F1BD58 /* DetailPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPlaceViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +97,10 @@
 		4BC68AAC2BA2B67300FC6546 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4BC68AAF2BA2DAF200FC6546 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		4BC68AB12BA2DBD300FC6546 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		4BE731822C3E2AA1008733C9 /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
+		4BE731842C3E569E008733C9 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		4BE731972C436A1C008733C9 /* LaunchingSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchingSegue.swift; sourceTree = "<group>"; };
+		4BE731992C436AD7008733C9 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		4BF819372C2927F4006BE538 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		4BF819392C292B8E006BE538 /* MeetingPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingPlace.swift; sourceTree = "<group>"; };
 		4BF8193B2C292BAE006BE538 /* Meeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
@@ -176,6 +186,8 @@
 				4BB965C82C23C33F00F7E429 /* AddListViewController.swift */,
 				92D3DE652C2762E100CC3673 /* DetailMeetingViewController.swift */,
 				920E00002C4977EB00BAEA25 /* EditMeetingViewController.swift */,
+				4BE731842C3E569E008733C9 /* SearchResultViewController.swift */,
+				4BE731992C436AD7008733C9 /* LaunchViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -187,6 +199,9 @@
 				4B1122362BE33BA500A2E577 /* UIViewExtension.swift */,
 				4B772F492C34EDEE00975B4C /* UIImageViewExtension.swift */,
 				4B772F4B2C34F1DD00975B4C /* UIColorExtension.swift */,
+				4BE731822C3E2AA1008733C9 /* Server.swift */,
+				4BE731972C436A1C008733C9 /* LaunchingSegue.swift */,
+				4B1C91AF2C4611BC00CCB03E /* URLExtension.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -313,6 +328,7 @@
 				4B5D9B712BBE4CB200F1BD58 /* PlaceImageCollectionViewCell.swift in Sources */,
 				4B1122372BE33BA500A2E577 /* UIViewExtension.swift in Sources */,
 				4BB965C92C23C33F00F7E429 /* AddListViewController.swift in Sources */,
+				4BE7319A2C436AD7008733C9 /* LaunchViewController.swift in Sources */,
 				4BA12D892BA004CE00BC4EB0 /* Foodle.xcdatamodeld in Sources */,
 				4B73950C2BAC3187006843DB /* SelectFriendsViewController.swift in Sources */,
 				4B1122402BE351D200A2E577 /* ResultTableViewcell.swift in Sources */,
@@ -324,7 +340,10 @@
 				4B73950E2BAC31A4006843DB /* SetMeetingViewController.swift in Sources */,
 				4B772F4C2C34F1DD00975B4C /* UIColorExtension.swift in Sources */,
 				92B688482BB0A20400D7DF2C /* LoginViewCell.swift in Sources */,
+				4BE731852C3E569E008733C9 /* SearchResultViewController.swift in Sources */,
 				4B23DBDF2BFEF09600E5E4FD /* MyPlaceTableViewController.swift in Sources */,
+				4BE731982C436A1C008733C9 /* LaunchingSegue.swift in Sources */,
+				4BE731832C3E2AA1008733C9 /* Server.swift in Sources */,
 				923B80FE2C0230C600B771E7 /* ScheduleListViewController.swift in Sources */,
 				92D3DE662C2762E100CC3673 /* DetailMeetingViewController.swift in Sources */,
 				4BA12D812BA004CE00BC4EB0 /* SceneDelegate.swift in Sources */,
@@ -332,6 +351,7 @@
 				4B1122392BE33EA000A2E577 /* ScrollableBottomSheetViewController.swift in Sources */,
 				4B7395102BAC31BB006843DB /* AddMeetingPlaceViewController.swift in Sources */,
 				4B63886C2C2FB5E800ED10F0 /* Day.swift in Sources */,
+				4B1C91B02C4611BC00CCB03E /* URLExtension.swift in Sources */,
 				4B1261372BA31450002F52BD /* UpcomingCollectionViewCell.swift in Sources */,
 				4BF819402C292BE5006BE538 /* User.swift in Sources */,
 				4BF819422C292ED0006BE538 /* PlaceList.swift in Sources */,
@@ -508,7 +528,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Jinhee;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -539,7 +559,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Jinhee;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

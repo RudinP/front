@@ -7,7 +7,12 @@
 
 import Foundation
 
-struct Meeting{
+var meetings: [Meeting]?
+var meetingsToday = getToday(meetings: meetings)
+var meetingsUpcoming = getUpcoming(meetings: meetings)
+
+struct Meeting:Codable{
+    var mid: Int?
     var joiners: [User]?
     var name: String?
     var date: Date?
@@ -33,34 +38,42 @@ extension Meeting{
     }
 }
 
-func getToday(meetings: [Meeting], date: Date = Date()) -> [Meeting] {
-    meetings.filter {
+func getToday(meetings: [Meeting]?, date: Date = Date()) -> [Meeting] {
+    if let meetings{
+        return meetings.filter {
         let today = date
         if let meetingday = $0.date{
             let calendar = Calendar.current
             return calendar.isDate(today, inSameDayAs: meetingday)
         }
         else {return false}
-    }
-}
-
-func getUpcoming(meetings: [Meeting]) -> [Meeting] {
-    meetings.filter {
-        let today = Date()
-        if let meetingday = $0.date{
-            let calendar = Calendar.current
-            return !calendar.isDate(today, inSameDayAs: meetingday) && today < meetingday
         }
-        else {return false}
     }
+    return [Meeting]()
 }
 
-let dummyMeetings = [Meeting(joiners: [dummyUser, dummyUser2], name: "확인용 미팅", date: Date(), places: dummyMeetingPlaces),
-                     Meeting(joiners: [dummyUser4, dummyUser6], name: "확인용 미팅2", date: Date(), places: dummyMeetingPlaces),
-                     Meeting(joiners: [dummyUser2, dummyUser3], name: "확인용 미팅3", date: Date(), places: dummyMeetingPlaces2), 
-                     Meeting(joiners: [dummyUser, dummyUser2], name: "내일 미팅", date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!, places: dummyMeetingPlaces2),
-                     Meeting(joiners: [dummyUser, dummyUser2], name: "내일 미팅2", date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!, places: dummyMeetingPlaces),
-                     Meeting(joiners: [dummyUser3, dummyUser4], name: "내일 미팅3", date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!, places: dummyMeetingPlaces)]
+func getUpcoming(meetings: [Meeting]?) -> [Meeting] {
+    if let meetings{
+        return meetings.filter {
+            let today = Date()
+            if let meetingday = $0.date{
+                let calendar = Calendar.current
+                return !calendar.isDate(today, inSameDayAs: meetingday) && today < meetingday
+            }
+            else {return false}
+        }
+    }
+    return [Meeting]()
+}
+
+let dummyMeetings = [Meeting(mid: 1, joiners: [dummyUser, dummyUser2], name: "확인용 미팅", date: Date(), places: dummyMeetingPlaces),
+                     Meeting(mid: 2,joiners: [dummyUser, dummyUser2], name: "확인용 미팅2", date: Date(), places: dummyMeetingPlaces),
+                     Meeting(mid: 3, joiners: [dummyUser, dummyUser2], name: "확인용 미팅3", date: Date(), places: dummyMeetingPlaces), 
+                     Meeting(mid: 4, joiners: [dummyUser, dummyUser2], name: "내일 미팅", date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!, places: dummyMeetingPlaces),
+                     Meeting(mid: 5, joiners: [dummyUser, dummyUser2], name: "내일 미팅2", date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!, places: dummyMeetingPlaces),
+                     Meeting(mid: 6, joiners: [dummyUser, dummyUser2], name: "내일 미팅3", date: Calendar.current.date(byAdding: .day, value: 1, to: Date())!, places: dummyMeetingPlaces)]
+
 let dummyTodayMeetings = getToday(meetings: dummyMeetings)
 let dummyMeetingsUpcoming = getUpcoming(meetings: dummyMeetings)
 let dummyMeeting = Meeting(joiners: [], name: "", date: Date(), places: [])
+

@@ -3,7 +3,6 @@ import UIKit
 
 class ScrollableBottomSheetViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    
     var targetIndex: Int?
     
     @IBAction func addPlaceToList(_ sender: UIButton) {
@@ -14,7 +13,7 @@ class ScrollableBottomSheetViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? AddPlaceViewController{
             if let targetIndex{
-                vc.place = dummyPlaces[targetIndex]
+                vc.place = resultPlaces[targetIndex]
             }
         }
     }
@@ -39,7 +38,7 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dummyPlaces.count
+        return resultPlaces.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -48,7 +47,7 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "resultTableViewCell") as! ResultTableViewcell
-        let target = dummyPlaces[indexPath.row]
+        let target = resultPlaces[indexPath.row]
         if target.getIsStarred(){
             cell.starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
         } else {

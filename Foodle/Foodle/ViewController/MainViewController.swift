@@ -21,6 +21,7 @@ class MainViewController: UIViewController, MainTableViewCellDelegate {
     
     lazy var buttons: [UIButton] = [self.addMeetButton]
     var isFloatShowing = false
+    var profileImg: UIImage?
 
     lazy var floatingDimView: UIView = {
         let view = UIView(frame: self.view.frame)
@@ -32,6 +33,7 @@ class MainViewController: UIViewController, MainTableViewCellDelegate {
 
         return view
     }()
+    
     
     @IBAction func unwindToMain(_ unwindSegue: UIStoryboardSegue) {
         let sourceViewController = unwindSegue.source
@@ -50,27 +52,66 @@ class MainViewController: UIViewController, MainTableViewCellDelegate {
         super.viewDidLoad()
 
         addSearchBar()
-        addProfileIcon(nil)
-
+        updateDaily()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addProfileIcon(user?.profileImage)
+    }
+    
+    func updateDaily(){
+        let calendar = Calendar.current
+        
+        let now = Date()
+        let date = calendar.date(bySettingHour: 00, minute: 00, second: 0, of: now)!
+        
+        let timer = Timer(fireAt: date, interval: 0, target: self, selector: #selector(reloadData), userInfo: nil, repeats: false)
+        
+        RunLoop.main.add(timer, forMode: RunLoop.Mode.common)
+    }
+    
+    @objc func reloadData(){
+        meetingsToday = getToday(meetings: meetings)
+        meetingsUpcoming = getUpcoming(meetings: meetings)
+        if mainTableView != nil{
+            mainTableView.reloadData()
+        }
     }
     
     
     func addSearchBar(){
-        let search = UISearchController(searchResultsController: SearchViewController())
-        search.delegate = self
+        let search = UISearchController()
         search.searchBar.delegate = self
         self.navigationItem.searchController = search
         self.navigationItem.hidesSearchBarWhenScrolling = false
         search.searchBar.placeholder = ""
         search.searchBar.searchTextField.backgroundColor = .white
         search.searchBar.tintColor = .black
-        }
+        search.searchBar.searchTextField.autocorrectionType = .no
+        search.searchBar.searchTextField.spellCheckingType = .no
+    }
     
-    func addProfileIcon(_ image: UIImage?){
+    func addProfileIcon(_ image: String?){
         let profileButton = UIButton(frame: CGRect(x: 0, y: -5, width: 40, height: 40))
-        profileButton.setBackgroundImage(image ?? UIImage(systemName: "pawprint.circle"), for: .normal)
+        profileButton.layer.cornerRadius = profileButton.frame.height / 2
+        profileButton.clipsToBounds = true
+        profileButton.contentMode = .scaleAspectFill
+        profileButton.setBackgroundImage(profileImg ?? UIImage(systemName: "pawprint.circle"), for: .normal)
+
+
+        if profileImg == nil, let str = user?.profileImage, let url = URL(string: str){
+            url.asyncImage { image in
+                DispatchQueue.main.async{
+                    profileButton.setBackgroundImage(image, for: .normal)
+                    self.profileImg = image?.resize(newWidth: 40)
+                }
+            }
+        }
         profileButton.addTarget(self, action: #selector(toProfile), for: .touchUpInside)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: profileButton)
+        
     }
     
     @objc func toProfile(){
@@ -162,15 +203,6 @@ class MainViewController: UIViewController, MainTableViewCellDelegate {
     }
 }
 
-extension MainViewController: UISearchControllerDelegate, UISearchBarDelegate, UISearchResultsUpdating{
-    func updateSearchResults(for searchController: UISearchController) {
-        guard let text = searchController.searchBar.text else {
-            return
-        }
-        print(text)
-    }
-}
-
 extension MainViewController: UITableViewDelegate, UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -178,7 +210,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section{
-        case 0: return dummyTodayMeetings.isEmpty ? 1 : dummyTodayMeetings.count
+        case 0: return meetingsToday.isEmpty ? 1 : meetingsToday.count
         case 1: return 1
         default: return 0
         }
@@ -232,5 +264,11 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource{
             header.contentConfiguration = config
             
         }
+    }
+}
+
+extension MainViewController: UISearchBarDelegate{
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        performSegue(withIdentifier: "showSearch", sender: nil)
     }
 }

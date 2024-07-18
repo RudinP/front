@@ -44,12 +44,14 @@ class MainTableViewCell: UITableViewCell {
 }
 
 extension MainTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource{
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         switch self.section {
         case 0:
-            return dummyTodayMeetings.isEmpty ? 1 : dummyTodayMeetings[index!].places?.count ?? 1
+            return meetingsToday.isEmpty ? 1 : meetingsToday[index!].places?.count ?? 1
         case 1:
-            return dummyMeetingsUpcoming.isEmpty ? 1 : dummyMeetingsUpcoming.count
+            return meetingsUpcoming.isEmpty ? 1 : meetingsUpcoming.count
         default:
             return 0
         }
@@ -58,12 +60,12 @@ extension MainTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch self.section{
         case 0:
-            if dummyTodayMeetings.isEmpty{
+            if meetingsToday.isEmpty{
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EmptyMeetingCell", for: indexPath) as! RoundedCollectionViewCell
                 return cell
             }else{
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mainCollectionViewCell", for: indexPath) as! MainCollectionViewCell
-                let target = dummyTodayMeetings[index!]
+                let target = meetingsToday[index!]
                     cell.date.text = target.dateString
                     cell.meetingName.text = target.name
                     cell.order.text = "\(indexPath.item + 1)"
@@ -74,12 +76,12 @@ extension MainTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
                 return cell
             }
         case 1:
-            if dummyMeetingsUpcoming.isEmpty{
+            if meetingsUpcoming.isEmpty{
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EmptyMeetingCell", for: indexPath) as! RoundedCollectionViewCell
                 return cell
             } else {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "upcomingCell", for: indexPath) as! UpcomingCollectionViewCell
-                let target = dummyMeetingsUpcoming[indexPath.row]
+                let target = meetingsUpcoming[indexPath.row]
                     cell.dDay.text = target.dDay
                     cell.date.text = target.dateString
                     cell.meetName.text = target.name

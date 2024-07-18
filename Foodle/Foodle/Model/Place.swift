@@ -8,9 +8,11 @@
 import Foundation
 
 struct Place: Codable{
-    var location: [String]?
+    var longtitude: Double?
+    var latitude: Double?
     var placeName: String?
     var address: String?
+    var tel: String?
     var rate: Double?
     var reviewURL: String?
     var instaURL: String?
@@ -23,16 +25,18 @@ struct Place: Codable{
 extension Place{
     var workingDay: Dictionary<Day, String> {
         var dict = [Day.월: "", Day.화: "", Day.수: "", Day.목: "", Day.금: "", Day.토: "", Day.일: ""]
-        for i in 0...6{
-            dict.updateValue(working?[i] ?? "", forKey: days[i])
+        guard let working else {return dict}
+        for i in 0 ..< working.count{
+            dict.updateValue(working[i], forKey: days[i])
         }
         
         return dict
     }
     var breakTimeDay: Dictionary<Day, String>{
         var dict = [Day.월: "", Day.화: "", Day.수: "", Day.목: "", Day.금: "", Day.토: "", Day.일: ""]
-        for i in 0...6{
-            dict.updateValue(breakTime?[i] ?? "", forKey: days[i])
+        guard let breakTime else {return dict}
+        for i in 0 ..< breakTime.count{
+            dict.updateValue(breakTime[i], forKey: days[i])
         }
         return dict
     }
@@ -43,6 +47,9 @@ extension Place{
     
     var close: String {
         var result = ""
+        if let working, working.isEmpty {
+            return "정보 없음"
+        }
         for time in workingDay{
             if time.value.isEmpty{
                 result.append("\(time.key.rawValue) ")
@@ -55,6 +62,9 @@ extension Place{
     }
     
     var isWorking: String{
+        if let working, working.isEmpty{
+            return "정보 없음"
+        }
         var result = "영업종료"
         let now = Date()
         let formatter = DateFormatter()
@@ -64,14 +74,17 @@ extension Place{
         formatter.dateFormat = "HH:mm"
         let nowTime = formatter.string(from: now)
         if let today {
+            
             let workingTime = workingDay[today]?.components(separatedBy: ["~", " "])
-            let bTime = breakTimeDay[today]?.components(separatedBy: ["~", " "])
-            if let workingTime{
+            
+            if let workingTime, !workingTime.isEmpty{
                 if workingTime[0] <= nowTime && workingTime[1] >= nowTime {
                     result = "영업중"
                 }
             }
-            if let bTime{
+            
+            let bTime = breakTimeDay[today]?.components(separatedBy: ["~", " "])
+            if let bTime, !bTime.isEmpty{
                 if bTime[0] <= nowTime && bTime[1] >= nowTime{
                     result = "브레이크타임"
                 }
@@ -94,13 +107,12 @@ extension Place{
     }
     
     func isEqual(_ place: Place) -> Bool{
-        return self.placeName == place.placeName && self.location == place.location
+        return self.placeName == place.placeName && self.longtitude == place.longtitude && self.latitude == place.latitude
     }
 }
 
 let dummyPlaces: [Place] = [
-    Place(location: ["23.2834","23.2342"], placeName: "장소1", address: "경기도 수원시 영통구 어쩌구", rate: 4.5, reviewURL: "https://www.naver.com", instaURL: "https://www.naver.com", working: ["10:00~23:00","10:00~23:00","10:00~23:00","10:00~23:00","10:00~23:00","10:00~23:00","10:00~23:00"], breakTime: ["16:00~17:00","16:00~17:00","16:00~17:00","16:00~17:00","16:00~17:00","16:00~17:00","16:00~17:00"], images: ["https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190829_73%2F1567055108272gpOOC_JPEG%2FU4WOfRsgMaItW5HIhgOA5tJI.jpg","https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190829_73%2F1567055108272gpOOC_JPEG%2FU4WOfRsgMaItW5HIhgOA5tJI.jpg"], category: "음식점"),
-    Place(location: ["23.2834","23.2342"], placeName: "장소2", address: "경기도 수원시 영통구 어쩌구", rate: 4.5, reviewURL: "https://www.naver.com", instaURL: "https://www.naver.com", working: ["10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00"], breakTime: ["10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00"], images: ["https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190829_73%2F1567055108272gpOOC_JPEG%2FU4WOfRsgMaItW5HIhgOA5tJI.jpg","https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190829_73%2F1567055108272gpOOC_JPEG%2FU4WOfRsgMaItW5HIhgOA5tJI.jpg"], category: "음식점"),
-    Place(location: ["23.2834","23.2342"], placeName: "장소3", address: "경기도 수원시 영통구 어쩌구", rate: 4.5, reviewURL: "https://www.naver.com", instaURL: "https://www.naver.com", working: ["10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00"], breakTime: ["10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00"], images: ["https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190829_73%2F1567055108272gpOOC_JPEG%2FU4WOfRsgMaItW5HIhgOA5tJI.jpg","https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190829_73%2F1567055108272gpOOC_JPEG%2FU4WOfRsgMaItW5HIhgOA5tJI.jpg"], category: "음식점")
+    Place(longtitude: 23.2323,latitude: 23.2323, placeName: "장소1", address: "경기도 수원시 영통구 어쩌구", rate: 4.5, reviewURL: "https://www.naver.com", instaURL: "https://www.naver.com", working: ["10:00~23:00","10:00~23:00","10:00~23:00","10:00~23:00","10:00~23:00","10:00~23:00","10:00~23:00"], breakTime: ["16:00~17:00","16:00~17:00","16:00~17:00","16:00~17:00","16:00~17:00","16:00~17:00","16:00~17:00"], images: ["https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190829_73%2F1567055108272gpOOC_JPEG%2FU4WOfRsgMaItW5HIhgOA5tJI.jpg","https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190829_73%2F1567055108272gpOOC_JPEG%2FU4WOfRsgMaItW5HIhgOA5tJI.jpg"], category: "음식점"),
+    Place(longtitude: 23.2323,latitude: 23.2323, placeName: "장소2", address: "경기도 수원시 영통구 어쩌구", rate: 4.5, reviewURL: "https://www.naver.com", instaURL: "https://www.naver.com", working: ["10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00"], breakTime: ["10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00"], images: ["https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190829_73%2F1567055108272gpOOC_JPEG%2FU4WOfRsgMaItW5HIhgOA5tJI.jpg","https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190829_73%2F1567055108272gpOOC_JPEG%2FU4WOfRsgMaItW5HIhgOA5tJI.jpg"], category: "음식점")
 ]
 
