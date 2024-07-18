@@ -13,10 +13,6 @@ class MyPlaceTableViewController: UIViewController {
     var placeIndex: Int?
     @IBOutlet weak var tableView: UITableView!
     
-    
-    @IBAction func close(_ sender: Any) {
-        dismiss(animated: false)
-    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? DetailPlaceViewController{
             if let placeIndex, let placeLists{

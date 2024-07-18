@@ -30,13 +30,22 @@ class MyPlaceScrollableViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? MyPlaceTableViewController{
+            vc.placeListIndex = selectedIndex
+        }
+    }
+    
     private func setSheetView(){
         
         let bottomSheetVCSB = UIStoryboard(name: "Jinhee", bundle: nil)
         if let bottomSheetVC = bottomSheetVCSB.instantiateViewController(withIdentifier: "MyPlaceTableViewController") as? MyPlaceTableViewController{
             bottomSheetVC.placeListIndex = selectedIndex
             if let sheet = bottomSheetVC.sheetPresentationController {
-                sheet.detents = [.medium(), .large()]
+                let fraction = UISheetPresentationController.Detent.custom { context in
+                    140
+                }
+                sheet.detents = [.medium(), .large(), fraction]
                 sheet.largestUndimmedDetentIdentifier = .medium  // nil 기본값
                 sheet.prefersScrollingExpandsWhenScrolledToEdge = false  // true 기본값
                 sheet.prefersEdgeAttachedInCompactHeight = true // false 기본값
@@ -46,7 +55,7 @@ class MyPlaceScrollableViewController: UIViewController {
             
             bottomSheetVC.isModalInPresentation = true
             
-            present(bottomSheetVC, animated: false, completion: nil)
+            present(bottomSheetVC, animated: true, completion: nil)
         }
     }
 
@@ -77,7 +86,7 @@ extension MyPlaceScrollableViewController: UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndex = indexPath.row
-        setSheetView()
+        performSegue(withIdentifier: "toPlaceTable", sender: nil)
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
