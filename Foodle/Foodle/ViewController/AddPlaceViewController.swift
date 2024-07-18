@@ -52,7 +52,6 @@ class AddPlaceViewController: UIViewController {
             fetchPlaceLists(uid) { result in
                 placeLists = result
                 DispatchQueue.main.async{
-                    print(placeLists)
                     self.listTableView.reloadData()
                 }
             }

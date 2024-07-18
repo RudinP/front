@@ -11,9 +11,9 @@ var resultPlaces = [Place]()
 var keyword = String()
 
 class SearchResultViewController: UIViewController{
-
+    
     @IBOutlet weak var tableView: UITableView!
-
+    
     
     func addSearchBar(){
         let search = UISearchController()
@@ -30,7 +30,7 @@ class SearchResultViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -44,26 +44,18 @@ class SearchResultViewController: UIViewController{
 }
 extension SearchResultViewController: UISearchControllerDelegate, UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        guard let text = searchBar.text else {
-            DispatchQueue.main.async{
-                resultPlaces.removeAll()
-                self.tableView.reloadData()
-            }
-            return
-        }
+        let keyword = (searchBar.text ?? "") + searchText
         
-        keyword = text + searchText
-        
-        if keyword.isEmpty{
-            DispatchQueue.main.async{
-                resultPlaces.removeAll()
+        if keyword.isEmpty {
+            resultPlaces.removeAll()
+            DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         } else {
             searchPlace(keyword) { result in
-                guard let result else { return }
+                guard let result = result else { return }
                 resultPlaces = result
-                DispatchQueue.main.async{
+                DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
             }

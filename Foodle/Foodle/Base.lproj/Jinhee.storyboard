@@ -218,17 +218,17 @@
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" contentMode="center" reuseIdentifier="EmptyMeetingCell" id="Nwn-vF-3HQ" customClass="RoundedCollectionViewCell" customModule="Foodle" customModuleProvider="target">
                                                             <rect key="frame" x="550" y="0.0" width="350" height="150"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="akS-su-Gk8">
+                                                            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="akS-su-Gk8">
                                                                 <rect key="frame" x="0.0" y="0.0" width="350" height="150"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9dW-G7-KPC">
                                                                         <rect key="frame" x="0.0" y="0.0" width="350" height="150"/>
                                                                         <subviews>
-                                                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dEc-YN-FW5">
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dEc-YN-FW5">
                                                                                 <rect key="frame" x="100.66666666666669" y="43.666666666666657" width="149" height="63"/>
                                                                                 <subviews>
-                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="xmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Y6P-sc-0ZB">
+                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Y6P-sc-0ZB">
                                                                                         <rect key="frame" x="0.0" y="19" width="30" height="25"/>
                                                                                         <color key="tintColor" systemColor="systemRedColor"/>
                                                                                         <constraints>
@@ -236,8 +236,8 @@
                                                                                             <constraint firstAttribute="height" constant="30" id="zBB-HV-afq"/>
                                                                                         </constraints>
                                                                                     </imageView>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="일정이 없어요" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45r-7T-NuJ">
-                                                                                        <rect key="frame" x="30" y="0.0" width="119" height="63"/>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="일정이 없어요" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45r-7T-NuJ">
+                                                                                        <rect key="frame" x="29.999999999999986" y="0.0" width="119.00000000000001" height="63"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="height" constant="63" id="LZx-a3-u88"/>
                                                                                         </constraints>
@@ -255,9 +255,11 @@
                                                                             <constraint firstItem="dEc-YN-FW5" firstAttribute="centerY" secondItem="9dW-G7-KPC" secondAttribute="centerY" id="AYj-W0-N7Y"/>
                                                                             <constraint firstItem="dEc-YN-FW5" firstAttribute="centerY" secondItem="9dW-G7-KPC" secondAttribute="centerY" id="a2X-p8-vtV"/>
                                                                             <constraint firstAttribute="width" constant="350" id="byl-UW-RMp"/>
+                                                                            <constraint firstItem="dEc-YN-FW5" firstAttribute="centerY" secondItem="9dW-G7-KPC" secondAttribute="centerY" id="cfz-44-MQD"/>
                                                                             <constraint firstItem="dEc-YN-FW5" firstAttribute="centerX" secondItem="9dW-G7-KPC" secondAttribute="centerX" id="gk5-3I-pbR"/>
                                                                             <constraint firstAttribute="height" constant="150" id="iiC-bf-6i3"/>
                                                                             <constraint firstItem="dEc-YN-FW5" firstAttribute="centerX" secondItem="9dW-G7-KPC" secondAttribute="centerX" id="obS-Me-KUz"/>
+                                                                            <constraint firstItem="dEc-YN-FW5" firstAttribute="centerX" secondItem="9dW-G7-KPC" secondAttribute="centerX" id="yuD-US-JK2"/>
                                                                         </constraints>
                                                                     </view>
                                                                 </subviews>
