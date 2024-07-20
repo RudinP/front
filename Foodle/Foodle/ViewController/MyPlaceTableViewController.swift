@@ -24,7 +24,14 @@ class MyPlaceTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(forName: .placeAdded, object: nil, queue: .main) {_ in
-            self.tableView.reloadData()
+            if let uid = user?.uid{
+                fetchPlaceLists(uid) { result in
+                    placeLists = result
+                    DispatchQueue.main.async{
+                        self.tableView.reloadData()
+                    }
+                }
+            }
         }
     }
     
