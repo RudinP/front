@@ -50,7 +50,6 @@ extension MyPlaceTableViewController: UITableViewDataSource, UITableViewDelegate
         let cell = tableView.dequeueReusableCell(withIdentifier: "resultTableViewCell") as! ResultTableViewcell
         if let placeListIndex{
             if let placeLists, let target = placeLists[placeListIndex].places?[indexPath.row]{
-                print(target)
                 cell.starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
                 cell.addressLabel.text = target.address
                 cell.breakLabel.text = "휴일 " + target.close
