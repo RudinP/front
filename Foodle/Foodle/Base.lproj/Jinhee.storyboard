@@ -106,7 +106,6 @@
                                                                 <outlet property="dDay" destination="y1E-pK-kj1" id="jOU-Rc-gir"/>
                                                                 <outlet property="date" destination="8ed-eP-dQd" id="6cr-De-ghH"/>
                                                                 <outlet property="meetName" destination="qSd-Ll-BS0" id="KSF-I7-w6y"/>
-                                                                <segue destination="fJx-ZF-KQ8" kind="show" id="iVT-J0-WKV"/>
                                                             </connections>
                                                         </collectionViewCell>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" contentMode="center" reuseIdentifier="mainCollectionViewCell" id="bSU-Ki-6cj" customClass="MainCollectionViewCell" customModule="Foodle" customModuleProvider="target">
@@ -212,7 +211,6 @@
                                                                 <outlet property="order" destination="BIO-1y-Z8n" id="Qrh-4J-uC7"/>
                                                                 <outlet property="placeName" destination="fLx-cM-5NA" id="MQR-ge-OMc"/>
                                                                 <outlet property="placeTime" destination="60G-Kw-y48" id="5lN-e9-9tg"/>
-                                                                <segue destination="fJx-ZF-KQ8" kind="show" id="5FZ-ju-y38"/>
                                                             </connections>
                                                         </collectionViewCell>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" contentMode="center" reuseIdentifier="EmptyMeetingCell" id="Nwn-vF-3HQ" customClass="RoundedCollectionViewCell" customModule="Foodle" customModuleProvider="target">
@@ -267,8 +265,14 @@
                                                                 </constraints>
                                                             </collectionViewCellContentView>
                                                             <size key="customSize" width="350" height="150"/>
+                                                            <connections>
+                                                                <segue destination="fJx-ZF-KQ8" kind="show" identifier="detailMeeting" id="85M-eb-Y4I"/>
+                                                            </connections>
                                                         </collectionViewCell>
                                                     </cells>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="BYZ-38-t0r" id="b3x-zs-RVR"/>
+                                                    </connections>
                                                 </collectionView>
                                             </subviews>
                                             <constraints>
@@ -1846,10 +1850,6 @@
             <point key="canvasLocation" x="4672" y="-2"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="5FZ-ju-y38"/>
-        <segue reference="wwL-l4-wnF"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="Splash" width="256" height="256"/>
         <image name="checkmark" catalog="system" width="128" height="114"/>
