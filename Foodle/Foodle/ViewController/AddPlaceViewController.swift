@@ -68,15 +68,13 @@ class AddPlaceViewController: UIViewController {
     
     @IBAction func addPlace(_ sender: Any) {
         let indexes = selectedIndexPath.map { $0.row }
-        DispatchQueue.global().sync {
-            for i in 0..<(placeLists?.count ?? 0){
-                if indexes.contains(i){
-                    placeLists?[i].addPlace(place)
-                } else {
-                    placeLists?[i].removePlace(place)
-                }
-                updatePlaceList(placeLists?[i]) {}
+        for i in 0..<(placeLists?.count ?? 0){
+            if indexes.contains(i){
+                placeLists?[i].addPlace(place)
+            } else {
+                placeLists?[i].removePlace(place)
             }
+            updatePlaceList(placeLists?[i]) {}
         }
 
         dismiss(animated: true) {
