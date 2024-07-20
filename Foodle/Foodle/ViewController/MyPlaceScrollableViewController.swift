@@ -91,11 +91,22 @@ extension MyPlaceScrollableViewController: UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
-            guard let placeLists else {return}
-
-            deletePlaceList(placeLists[indexPath.row]) {
-                NotificationCenter.default.post(name: .addedList, object: nil, userInfo: nil)
+            let alert = UIAlertController(title: "알림", message: "리스트를 삭제하시겠습니까?", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "네", style: .default) { _ in
+                let target = placeLists?.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                
+                if let target{
+                    deletePlaceList(target) {
+                        NotificationCenter.default.post(name: .addedList, object: nil, userInfo: nil)
+                    }
+                }
             }
+            let no = UIAlertAction(title: "아니오", style: .cancel)
+            alert.addAction(no)
+            alert.addAction(ok)
+            
+            present(alert,animated: true)
         }
     }
         
