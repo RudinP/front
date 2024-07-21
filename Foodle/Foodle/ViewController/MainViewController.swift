@@ -104,7 +104,7 @@ class MainViewController: UIViewController, MainTableViewCellDelegate {
         if profileImg == nil, let str = user?.profileImage, let url = URL(string: str){
             url.asyncImage { image in
                 DispatchQueue.main.async{
-                    profileButton.setBackgroundImage(image, for: .normal)
+                    profileButton.setBackgroundImage(image ?? UIImage(systemName: "pawprint.circle"), for: .normal)
                     self.profileImg = image?.resize(newWidth: 40)
                 }
             }

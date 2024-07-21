@@ -22,8 +22,6 @@ class MyPlaceViewController: UIViewController {
         if manager.authorizationStatus == .authorizedWhenInUse || manager.authorizationStatus == .authorizedAlways{
             manager.startUpdatingLocation()
         }
-        
-        setSheetView()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -37,6 +35,7 @@ class MyPlaceViewController: UIViewController {
         manager.delegate = self
         manager.requestWhenInUseAuthorization()
         setMap()
+        setSheetView()
     }
     
     private func setMapConstraints(){
@@ -56,9 +55,19 @@ class MyPlaceViewController: UIViewController {
         
         let bottomSheetVCSB = UIStoryboard(name: "Jinhee", bundle: nil)
         let bottomSheetVC = bottomSheetVCSB.instantiateViewController(withIdentifier: "MyPlaceScrollableViewController")
-        if let sheet = bottomSheetVC.sheetPresentationController {
-            // ✅ 다음 프로퍼티들은 찬찬히 알아가봅시다.
-            sheet.detents = [.medium(), .large()]
+        let nav = UINavigationController(rootViewController: bottomSheetVC)
+        let tab = UITabBarController()
+        tab.delegate = self
+        tab.viewControllers = self.navigationController?.tabBarController?.viewControllers
+        tab.viewControllers?[2] = nav
+        nav.tabBarItem.title = "플레이스"
+        nav.tabBarItem.image = UIImage(systemName: "star")
+        tab.selectedIndex = 2
+        if let sheet = tab.sheetPresentationController {
+            let fraction = UISheetPresentationController.Detent.custom { context in
+                140
+            }
+            sheet.detents = [.medium(), .large(), fraction]
             sheet.largestUndimmedDetentIdentifier = .medium  // nil 기본값
             sheet.prefersScrollingExpandsWhenScrolledToEdge = false  // true 기본값
             sheet.prefersEdgeAttachedInCompactHeight = true // false 기본값
@@ -66,13 +75,30 @@ class MyPlaceViewController: UIViewController {
             sheet.prefersGrabberVisible = true
         }
         
-        //bottomSheetVC.isModalInPresentation = true
+        tab.isModalInPresentation = true
+
+        present(tab, animated: true, completion: nil)
         
-        // ✅ sheet present.
-        present(bottomSheetVC, animated: true, completion: nil)
     }
+    
 }
 
+extension MyPlaceViewController: UITabBarControllerDelegate{
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if tabBarController.selectedIndex != 2 {
+            dismiss(animated: true)
+            
+            if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
+                let storyboard = UIStoryboard(name: "Jinhee", bundle: nil)
+                if let tab = storyboard.instantiateViewController(identifier: "InitialTabBar") as? UITabBarController{
+                    sceneDelegate.window?.rootViewController = tab
+                    tab.selectedIndex = tabBarController.selectedIndex
+                }
+            }
+        }
+        
+    }
+}
 extension MyPlaceViewController: MKMapViewDelegate{
     
 }

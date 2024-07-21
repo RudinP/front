@@ -12,7 +12,7 @@ func fetchUser(_ uid: String, completion: @escaping (User?) -> Void){
     var url = url!
     url.append(path: "/api/users/profile")
     url.append(queryItems: [URLQueryItem(name: "uid", value: uid)])
-
+    
     let session = URLSession.shared
     let task = session.dataTask(with: url) { data, response, error in
         if error != nil{
@@ -101,7 +101,7 @@ func fetchFriends(_ uid: String, completion: @escaping ([Friend]?) -> Void){
     var url = url!
     url.append(path: "/api/friends/byUid")
     url.append(queryItems: [URLQueryItem(name: "uid", value: uid)])
-
+    
     let session = URLSession.shared
     let task = session.dataTask(with: url) { data, response, error in
         if error != nil{
@@ -144,7 +144,7 @@ func fetchPlaceLists(_ uid: String, completion: @escaping ([PlaceList]?) -> Void
     var url = url!
     url.append(path: "/api/placeList/byUid")
     url.append(queryItems: [URLQueryItem(name: "uid", value: uid)])
-
+    
     let session = URLSession.shared
     let task = session.dataTask(with: url) { data, response, error in
         if error != nil{
@@ -188,7 +188,7 @@ func searchPlace(_ byName: String?, completion: @escaping ([Place]?) -> Void){
     var url = url!
     url.append(path: "/api/place/byPlaceName")
     url.append(queryItems: [URLQueryItem(name: "placeName", value: byName)])
-
+    
     let session = URLSession.shared
     let task = session.dataTask(with: url) { data, response, error in
         if error != nil{
@@ -224,6 +224,83 @@ func searchPlace(_ byName: String?, completion: @escaping ([Place]?) -> Void){
             completion(nil)
         }
     }
+    task.resume()
+}
+
+func createPlaceList(_ list: PlaceList, completion: @escaping () -> Void){
+    var url = url!
+    url.append(path: "/api/placeList/create")
+    
+    guard let uploadData = try? JSONEncoder().encode(list) else { return }
+    
+    var request = URLRequest(url: url)
+    request.httpMethod = "POST"
+    
+    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    
+    let task = URLSession.shared.uploadTask(with: request, from: uploadData) { (data, response, error) in
+        
+        if let e = error {
+            NSLog("An error has occured: \(e.localizedDescription)")
+            return
+        }
+        completion()
+    }
+    
+    task.resume()
+}
+
+func deletePlaceList(_ list: PlaceList, completion: @escaping () -> Void){
+    var url = url!
+    url.append(path: "/api/placeList/delete")
+    
+    guard let deleteData = try? JSONEncoder().encode(list) else { return }
+    
+    var request = URLRequest(url: url)
+    request.httpMethod = "POST"
+    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    
+    let task = URLSession.shared.uploadTask(with: request, from: deleteData) { (data, response, error) in
+        if let error = error {
+            NSLog("An error has occurred: \(error.localizedDescription)")
+            return
+        }
+        
+        if let httpResponse = response as? HTTPURLResponse, !(200...299).contains(httpResponse.statusCode) {
+            NSLog("Server error: \(httpResponse.statusCode)")
+            return
+        }
+        completion()
+    }
+    
+    task.resume()
+}
+
+
+func updatePlaceList(_ list: PlaceList?, completion: @escaping () -> Void){
+    var url = url!
+    url.append(path: "/api/placeList/update")
+
+    let target = PlaceList(lid: list?.lid, places: list?.places)
+    guard let data = try? JSONEncoder().encode(target) else { return }
+    
+    var request = URLRequest(url: url)
+    request.httpMethod = "POST"
+    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    
+    let task = URLSession.shared.uploadTask(with: request, from: data) { (data, response, error) in
+        if let error = error {
+            NSLog("An error has occurred: \(error.localizedDescription)")
+            return
+        }
+        
+        if let httpResponse = response as? HTTPURLResponse, !(200...299).contains(httpResponse.statusCode) {
+            NSLog("Server error: \(httpResponse.statusCode)")
+            return
+        }
+        completion()
+    }
+    
     task.resume()
 }
 

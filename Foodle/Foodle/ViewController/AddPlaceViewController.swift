@@ -29,13 +29,13 @@ class AddPlaceViewController: UIViewController {
         config?.titleLineBreakMode = .byTruncatingTail
         dropdownBtn.configuration = config
                 
-        if let place{
-            for i in 0 ..< dummyPlaceLists.count{
-                if let places = dummyPlaceLists[i].places, places.contains(where: {
+        if let place, let placeLists{
+            for i in 0 ..< placeLists.count{
+                if let places = placeLists[i].places, places.contains(where: {
                     $0.isEqual(place)
                 }){
                     selectedIndexPath.append(IndexPath(row: i, section: 0))
-                    if let name = dummyPlaceLists[i].name{
+                    if let name = placeLists[i].name{
                         str.append(name)
                     }
                 }
@@ -48,7 +48,13 @@ class AddPlaceViewController: UIViewController {
         }
         
         NotificationCenter.default.addObserver(forName: .addedList, object: nil, queue: .main) { _ in
-            self.listTableView.reloadData()
+            guard let uid = user?.uid else {return}
+            fetchPlaceLists(uid) { result in
+                placeLists = result
+                DispatchQueue.main.async{
+                    self.listTableView.reloadData()
+                }
+            }
         }
     }
     
@@ -62,41 +68,44 @@ class AddPlaceViewController: UIViewController {
     
     @IBAction func addPlace(_ sender: Any) {
         let indexes = selectedIndexPath.map { $0.row }
-        for i in 0..<dummyPlaceLists.count{
+        for i in 0..<(placeLists?.count ?? 0){
             if indexes.contains(i){
-                dummyPlaceLists[i].addPlace(place)
+                placeLists?[i].addPlace(place)
             } else {
-                dummyPlaceLists[i].removePlace(place)
+                placeLists?[i].removePlace(place)
             }
+            updatePlaceList(placeLists?[i]) {}
         }
-        
-        NotificationCenter.default.post(name: .placeAdded, object: nil)
-        
-        dismiss(animated: true)
+
+        dismiss(animated: true) {
+            NotificationCenter.default.post(name: .placeAdded, object: nil)
+        }
     }
     
 }
 
 extension AddPlaceViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dummyPlaceLists.count + 1
+        return (placeLists?.count ?? 0) + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "listTableViewCell", for: indexPath)
         
+        
         //리스트 추가 셀 생성
-        if indexPath.row == dummyPlaceLists.count{
+        if indexPath.row == placeLists?.count{
             cell.imageView?.image = UIImage(systemName: "plus.circle")
             cell.textLabel?.text = "리스트 추가하기"
             cell.textLabel?.textAlignment = .center
             cell.textLabel?.textColor = UIColor.accent
             cell.accessoryType = .none
         } else {
+            guard let placeLists else {return cell}
             cell.imageView?.image = UIImage(systemName: "circle.fill")
             cell.accessoryType = selectedIndexPath.contains(indexPath) ? .checkmark : .none
-            cell.imageView?.tintColor = UIColor(hexCode: dummyPlaceLists[indexPath.row].color)
-            cell.textLabel?.text = dummyPlaceLists[indexPath.row].name
+            cell.imageView?.tintColor = UIColor(hexCode: placeLists[indexPath.row].color)
+            cell.textLabel?.text = placeLists[indexPath.row].name
             cell.textLabel?.textColor = UIColor.black
             cell.textLabel?.textAlignment = .left
         }
@@ -107,9 +116,10 @@ extension AddPlaceViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.listTableView.isHidden = true
         
+        guard let placeLists else {return}
         if selectedIndexPath.contains(indexPath){
             str.removeAll {
-                $0 == dummyPlaceLists[indexPath.row].name
+                $0 == placeLists[indexPath.row].name
             }
             
             self.selectedIndexPath.removeAll(where: {
@@ -120,8 +130,8 @@ extension AddPlaceViewController: UITableViewDataSource, UITableViewDelegate{
                 currentCell.accessoryType = .none
             }
             
-        } else if indexPath.row < dummyPlaceLists.count{
-            if let name = dummyPlaceLists[indexPath.row].name{
+        } else if indexPath.row < placeLists.count{
+            if let name = placeLists[indexPath.row].name{
                 str.append(name)
             }
             self.selectedIndexPath.append(indexPath)
@@ -130,7 +140,7 @@ extension AddPlaceViewController: UITableViewDataSource, UITableViewDelegate{
             }
         }
         
-        if indexPath.row != dummyPlaceLists.count{
+        if indexPath.row != placeLists.count{
             if selectedIndexPath.isEmpty{
                 dropdownBtn.setTitle("리스트 선택하기", for: .normal)
                 dropdownBtn.setTitle("리스트 선택하기", for: .selected)

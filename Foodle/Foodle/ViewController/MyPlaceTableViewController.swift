@@ -13,10 +13,6 @@ class MyPlaceTableViewController: UIViewController {
     var placeIndex: Int?
     @IBOutlet weak var tableView: UITableView!
     
-    
-    @IBAction func close(_ sender: Any) {
-        dismiss(animated: false)
-    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? DetailPlaceViewController{
             if let placeIndex, let placeLists{
@@ -28,7 +24,14 @@ class MyPlaceTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(forName: .placeAdded, object: nil, queue: .main) {_ in
-            self.tableView.reloadData()
+            if let uid = user?.uid{
+                fetchPlaceLists(uid) { result in
+                    placeLists = result
+                    DispatchQueue.main.async{
+                        self.tableView.reloadData()
+                    }
+                }
+            }
         }
     }
     
@@ -54,7 +57,6 @@ extension MyPlaceTableViewController: UITableViewDataSource, UITableViewDelegate
         let cell = tableView.dequeueReusableCell(withIdentifier: "resultTableViewCell") as! ResultTableViewcell
         if let placeListIndex{
             if let placeLists, let target = placeLists[placeListIndex].places?[indexPath.row]{
-                print(target)
                 cell.starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
                 cell.addressLabel.text = target.address
                 cell.breakLabel.text = "휴일 " + target.close

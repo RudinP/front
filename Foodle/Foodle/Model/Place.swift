@@ -8,18 +8,20 @@
 import Foundation
 
 struct Place: Codable{
-    var longtitude: Double?
-    var latitude: Double?
     var placeName: String?
-    var address: String?
     var tel: String?
-    var rate: Double?
-    var reviewURL: String?
+    var images: [String]?
     var instaURL: String?
+    var rating: Double?
+    var reviewURL: String?
+    var category: String?
+    var latitude: Double?
+    var longtitude: Double?
+    var address: String?
     var working: [String]?
     var breakTime: [String]?
-    var images: [String]?
-    var category: String?
+    
+    
 }
 
 extension Place{
@@ -95,7 +97,8 @@ extension Place{
     
     func getIsStarred() -> Bool{
         var result = false
-        for placeList in dummyPlaceLists{
+        guard let placeLists else {return false}
+        for placeList in placeLists{
             if let place = placeList.places{
                 result = place.contains(where: {
                     $0.isEqual(self)
@@ -112,7 +115,7 @@ extension Place{
 }
 
 let dummyPlaces: [Place] = [
-    Place(longtitude: 23.2323,latitude: 23.2323, placeName: "장소1", address: "경기도 수원시 영통구 어쩌구", rate: 4.5, reviewURL: "https://www.naver.com", instaURL: "https://www.naver.com", working: ["10:00~23:00","10:00~23:00","10:00~23:00","10:00~23:00","10:00~23:00","10:00~23:00","10:00~23:00"], breakTime: ["16:00~17:00","16:00~17:00","16:00~17:00","16:00~17:00","16:00~17:00","16:00~17:00","16:00~17:00"], images: ["https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190829_73%2F1567055108272gpOOC_JPEG%2FU4WOfRsgMaItW5HIhgOA5tJI.jpg","https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190829_73%2F1567055108272gpOOC_JPEG%2FU4WOfRsgMaItW5HIhgOA5tJI.jpg"], category: "음식점"),
-    Place(longtitude: 23.2323,latitude: 23.2323, placeName: "장소2", address: "경기도 수원시 영통구 어쩌구", rate: 4.5, reviewURL: "https://www.naver.com", instaURL: "https://www.naver.com", working: ["10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00"], breakTime: ["10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00"], images: ["https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190829_73%2F1567055108272gpOOC_JPEG%2FU4WOfRsgMaItW5HIhgOA5tJI.jpg","https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190829_73%2F1567055108272gpOOC_JPEG%2FU4WOfRsgMaItW5HIhgOA5tJI.jpg"], category: "음식점")
+    Place(placeName: "장소1", images: ["https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190829_73%2F1567055108272gpOOC_JPEG%2FU4WOfRsgMaItW5HIhgOA5tJI.jpg","https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190829_73%2F1567055108272gpOOC_JPEG%2FU4WOfRsgMaItW5HIhgOA5tJI.jpg"], instaURL: "https://www.naver.com", rating: 4.5, reviewURL: "https://www.naver.com", category: "음식점", latitude: 23.2323, longtitude: 23.2323, address: "경기도 수원시 영통구 어쩌구", working: ["10:00~23:00","10:00~23:00","10:00~23:00","10:00~23:00","10:00~23:00","10:00~23:00","10:00~23:00"], breakTime: ["16:00~17:00","16:00~17:00","16:00~17:00","16:00~17:00","16:00~17:00","16:00~17:00","16:00~17:00"]),
+    Place(placeName: "장소2", images: ["https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190829_73%2F1567055108272gpOOC_JPEG%2FU4WOfRsgMaItW5HIhgOA5tJI.jpg","https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190829_73%2F1567055108272gpOOC_JPEG%2FU4WOfRsgMaItW5HIhgOA5tJI.jpg"], instaURL: "https://www.naver.com", rating: 4.5, reviewURL: "https://www.naver.com", category: "음식점", latitude: 23.2323, longtitude: 23.2323, address: "경기도 수원시 영통구 어쩌구", working: ["10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00"], breakTime: ["10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00"])
 ]
 

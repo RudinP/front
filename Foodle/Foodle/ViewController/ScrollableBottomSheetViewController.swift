@@ -11,9 +11,17 @@ class ScrollableBottomSheetViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? AddPlaceViewController{
-            if let targetIndex{
-                vc.place = resultPlaces[targetIndex]
+        if segue.identifier == "addPlaceToList"{
+            if let vc = segue.destination as? AddPlaceViewController{
+                if let targetIndex{
+                    vc.place = resultPlaces[targetIndex]
+                }
+            }
+        } else if segue.identifier == "showDetail"{
+            if let vc = segue.destination as? DetailPlaceViewController{
+                if let targetIndex{
+                    vc.place = resultPlaces[targetIndex]
+                }
             }
         }
     }
@@ -69,5 +77,9 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewD
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        targetIndex = indexPath.row
+        performSegue(withIdentifier: "showDetail", sender: nil)
+    }
     
 }

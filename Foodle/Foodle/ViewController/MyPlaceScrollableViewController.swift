@@ -20,7 +20,19 @@ class MyPlaceScrollableViewController: UIViewController {
         tableView.dataSource = self
         
         NotificationCenter.default.addObserver(forName: .addedList, object: nil, queue: .main) { _ in
-            self.tableView.reloadData()
+            guard let uid = user?.uid else {return}
+            fetchPlaceLists(uid) { result in
+                placeLists = result
+                DispatchQueue.main.async{
+                    self.tableView.reloadData()
+                }
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? MyPlaceTableViewController{
+            vc.placeListIndex = selectedIndex
         }
     }
     
@@ -30,7 +42,10 @@ class MyPlaceScrollableViewController: UIViewController {
         if let bottomSheetVC = bottomSheetVCSB.instantiateViewController(withIdentifier: "MyPlaceTableViewController") as? MyPlaceTableViewController{
             bottomSheetVC.placeListIndex = selectedIndex
             if let sheet = bottomSheetVC.sheetPresentationController {
-                sheet.detents = [.medium(), .large()]
+                let fraction = UISheetPresentationController.Detent.custom { context in
+                    140
+                }
+                sheet.detents = [.medium(), .large(), fraction]
                 sheet.largestUndimmedDetentIdentifier = .medium  // nil 기본값
                 sheet.prefersScrollingExpandsWhenScrolledToEdge = false  // true 기본값
                 sheet.prefersEdgeAttachedInCompactHeight = true // false 기본값
@@ -40,7 +55,7 @@ class MyPlaceScrollableViewController: UIViewController {
             
             bottomSheetVC.isModalInPresentation = true
             
-            present(bottomSheetVC, animated: false, completion: nil)
+            present(bottomSheetVC, animated: true, completion: nil)
         }
     }
 
@@ -71,7 +86,28 @@ extension MyPlaceScrollableViewController: UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndex = indexPath.row
-        setSheetView()
+        performSegue(withIdentifier: "toPlaceTable", sender: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            let alert = UIAlertController(title: "알림", message: "리스트를 삭제하시겠습니까?", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "네", style: .default) { _ in
+                let target = placeLists?.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                
+                if let target{
+                    deletePlaceList(target) {
+                        NotificationCenter.default.post(name: .addedList, object: nil, userInfo: nil)
+                    }
+                }
+            }
+            let no = UIAlertAction(title: "아니오", style: .cancel)
+            alert.addAction(no)
+            alert.addAction(ok)
+            
+            present(alert,animated: true)
+        }
     }
         
 }

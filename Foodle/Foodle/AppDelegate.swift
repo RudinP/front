@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-var url = URL(string:"http://ec2-3-36-63-158.ap-northeast-2.compute.amazonaws.com:8080")
+var url = URL(string:"http://ec2-3-39-156-254.ap-northeast-2.compute.amazonaws.com:8080")
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {

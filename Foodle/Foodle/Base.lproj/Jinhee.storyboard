@@ -250,10 +250,10 @@
                                                                         <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
-                                                                            <constraint firstItem="dEc-YN-FW5" firstAttribute="centerY" secondItem="9dW-G7-KPC" secondAttribute="centerY" id="a2X-p8-vtV"/>
                                                                             <constraint firstAttribute="width" constant="350" id="byl-UW-RMp"/>
-                                                                            <constraint firstItem="dEc-YN-FW5" firstAttribute="centerX" secondItem="9dW-G7-KPC" secondAttribute="centerX" id="gk5-3I-pbR"/>
+                                                                            <constraint firstItem="dEc-YN-FW5" firstAttribute="centerY" secondItem="9dW-G7-KPC" secondAttribute="centerY" id="cfz-44-MQD"/>
                                                                             <constraint firstAttribute="height" constant="150" id="iiC-bf-6i3"/>
+                                                                            <constraint firstItem="dEc-YN-FW5" firstAttribute="centerX" secondItem="9dW-G7-KPC" secondAttribute="centerX" id="yuD-US-JK2"/>
                                                                         </constraints>
                                                                     </view>
                                                                 </subviews>
@@ -742,7 +742,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2gZ-95-yab">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="729.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="750"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Svm-xg-FRg">
                                                 <rect key="frame" x="10" y="10" width="373" height="200"/>
@@ -791,10 +791,10 @@
                                                 </connections>
                                             </collectionView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hfL-vD-A8D">
-                                                <rect key="frame" x="10" y="220.00000000000003" width="373" height="499.66666666666674"/>
+                                                <rect key="frame" x="10" y="220" width="373" height="520"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="ZMk-jY-hcQ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="237.66666666666666" height="80.333333333333329"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="237.66666666666666" height="100.66666666666667"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="v65-89-MQ3">
                                                                 <rect key="frame" x="0.0" y="0.0" width="237.66666666666666" height="42"/>
@@ -831,10 +831,16 @@
                                                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="010-0000-0000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ygc-hX-faF">
+                                                                <rect key="frame" x="0.0" y="80.333333333333314" width="125.66666666666667" height="20.333333333333329"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="quS-DR-Gtb">
-                                                        <rect key="frame" x="0.0" y="100.33333333333331" width="174.33333333333334" height="68"/>
+                                                        <rect key="frame" x="0.0" y="120.66666666666669" width="174.33333333333334" height="68"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="네이버 평점 4.5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fQ-9d-Rb3">
                                                                 <rect key="frame" x="0.0" y="0.0" width="174.33333333333334" height="33.666666666666664"/>
@@ -843,7 +849,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WlQ-wB-Uqo">
-                                                                <rect key="frame" x="0.0" y="33.666666666666686" width="131.33333333333334" height="34.333333333333343"/>
+                                                                <rect key="frame" x="0.0" y="33.666666666666629" width="131.33333333333334" height="34.333333333333343"/>
                                                                 <color key="tintColor" name="AccentColor"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" title="리뷰 보러 가기&gt;" titleAlignment="automatic"/>
@@ -854,7 +860,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="ljC-7V-h6X">
-                                                        <rect key="frame" x="0.0" y="188.33333333333331" width="373" height="75"/>
+                                                        <rect key="frame" x="0.0" y="208.66666666666669" width="373" height="75"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인스타그램에 임시 휴무 공지가 있을 수 있으니 확인해보세요!" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEa-mm-4qc">
                                                                 <rect key="frame" x="0.0" y="0.0" width="373" height="40.666666666666664"/>
@@ -863,7 +869,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HMx-O9-IZC">
-                                                                <rect key="frame" x="0.0" y="40.666666666666686" width="171" height="34.333333333333343"/>
+                                                                <rect key="frame" x="0.0" y="40.666666666666629" width="171" height="34.333333333333343"/>
                                                                 <color key="tintColor" name="AccentColor"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="plain" title="인스타그램 바로가기&gt;" titleAlignment="automatic"/>
@@ -874,7 +880,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="NdZ-md-o8o">
-                                                        <rect key="frame" x="0.0" y="283.33333333333331" width="204.33333333333334" height="216.33333333333331"/>
+                                                        <rect key="frame" x="0.0" y="303.66666666666663" width="204.33333333333334" height="216.33333333333337"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="영업 시간" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XuA-L8-bmJ">
                                                                 <rect key="frame" x="0.0" y="0.0" width="103.33333333333333" height="33.666666666666664"/>
@@ -883,7 +889,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zzF-Ac-8fb">
-                                                                <rect key="frame" x="0.0" y="43.666666666666686" width="204.33333333333334" height="40.666666666666657"/>
+                                                                <rect key="frame" x="0.0" y="43.666666666666742" width="204.33333333333334" height="40.666666666666657"/>
                                                                 <string key="text">월 9:00~13:00
 (브레이크 타임 12:00~12:30)</string>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -891,7 +897,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="화 9:00~13:00 수 9:00~13:00 목 9:00~13:00 금 9:00~13:00 토 9:00~13:00 일 9:00~13:00" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nop-50-FGT">
-                                                                <rect key="frame" x="0.0" y="94.333333333333314" width="108" height="122"/>
+                                                                <rect key="frame" x="0.0" y="94.333333333333371" width="108" height="122"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -927,7 +933,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="whc-7F-n7p"/>
                     <connections>
-                        <outlet property="addressLabel" destination="WFs-gw-jpj" id="7sa-ox-Bu9"/>
+                        <outlet property="addressLabel" destination="WFs-gw-jpj" id="76Y-5j-h7Z"/>
                         <outlet property="distanceLabel" destination="S0f-xZ-0PP" id="jBT-Hm-lMl"/>
                         <outlet property="imageCollectionView" destination="Svm-xg-FRg" id="L61-AB-sXP"/>
                         <outlet property="instaDescriptionLabel" destination="KEa-mm-4qc" id="lzA-b9-2QI"/>
@@ -936,6 +942,7 @@
                         <outlet property="placeNameLabel" destination="BMj-iC-AfV" id="Mnh-Fi-CTh"/>
                         <outlet property="rateLabel" destination="2fQ-9d-Rb3" id="uE7-KA-acl"/>
                         <outlet property="starButton" destination="fUk-3i-WfN" id="J4y-44-qx3"/>
+                        <outlet property="telLabel" destination="Ygc-hX-faF" id="dV5-mn-dvN"/>
                         <outlet property="todayWorkingLabel" destination="zzF-Ac-8fb" id="0fh-QU-VqR"/>
                         <outlet property="workingLabel" destination="Nop-50-FGT" id="aRr-rH-3Sq"/>
                     </connections>
@@ -949,11 +956,11 @@
             <objects>
                 <viewController storyboardIdentifier="MyPlaceTableViewController" id="53P-r2-4R4" customClass="MyPlaceTableViewController" customModule="Foodle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oOS-32-4wq">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Pqd-35-N8g">
-                                <rect key="frame" x="0.0" y="50" width="393" height="802"/>
+                                <rect key="frame" x="0.0" y="50" width="393" height="792"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="resultTableViewCell" rowHeight="170" id="C8N-C6-N1I" customClass="ResultTableViewcell" customModule="Foodle" customModuleProvider="target">
@@ -1060,7 +1067,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="addressLabel" destination="Eso-W2-hee" id="0Sw-kO-kBc"/>
+                                            <outlet property="addressLabel" destination="Eso-W2-hee" id="fUy-FH-NqK"/>
                                             <outlet property="breakLabel" destination="aa2-DF-clo" id="JdB-8d-1so"/>
                                             <outlet property="distanceLabel" destination="mE6-Ce-aHk" id="WuW-Zv-cxK"/>
                                             <outlet property="isOpenLabel" destination="9eu-F4-Xe0" id="2Ov-vN-mTx"/>
@@ -1076,28 +1083,17 @@
                                     <outlet property="delegate" destination="53P-r2-4R4" id="Prl-Z6-GQ4"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gm1-AH-gzy">
-                                <rect key="frame" x="5" y="5" width="49.666666666666664" height="35"/>
-                                <color key="tintColor" name="AccentColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="xmark.circle.fill" catalog="system"/>
-                                <connections>
-                                    <action selector="close:" destination="53P-r2-4R4" eventType="touchUpInside" id="xeF-GG-dLU"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="46N-7G-RH4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Pqd-35-N8g" firstAttribute="top" secondItem="oOS-32-4wq" secondAttribute="top" constant="50" id="8OH-BG-OOM"/>
-                            <constraint firstItem="gm1-AH-gzy" firstAttribute="leading" secondItem="oOS-32-4wq" secondAttribute="leading" constant="5" id="9um-h7-mls"/>
                             <constraint firstItem="Pqd-35-N8g" firstAttribute="trailing" secondItem="46N-7G-RH4" secondAttribute="trailing" id="Gsa-bt-U2P"/>
                             <constraint firstItem="Pqd-35-N8g" firstAttribute="leading" secondItem="46N-7G-RH4" secondAttribute="leading" id="O1o-NX-QQY"/>
                             <constraint firstAttribute="bottom" secondItem="Pqd-35-N8g" secondAttribute="bottom" id="PHd-v1-zOz"/>
-                            <constraint firstItem="Pqd-35-N8g" firstAttribute="top" secondItem="gm1-AH-gzy" secondAttribute="bottom" constant="10" id="iur-vt-awx"/>
-                            <constraint firstItem="gm1-AH-gzy" firstAttribute="top" secondItem="oOS-32-4wq" secondAttribute="top" constant="5" id="lzi-ga-V3L"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="bnw-Ej-k1a"/>
                     <connections>
                         <outlet property="tableView" destination="Pqd-35-N8g" id="teZ-4d-CCr"/>
                         <segue destination="b3Z-rC-oH0" kind="show" identifier="ToDetail" id="wwL-l4-wnF"/>
@@ -1105,7 +1101,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eaV-eM-fOU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3653" y="855"/>
+            <point key="canvasLocation" x="6399.2366412213742" y="1111.9718309859156"/>
         </scene>
         <!--LoginView-->
         <scene sceneID="iay-o0-Hqv">
@@ -1155,7 +1151,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="lRO-36-n6c">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="F9u-qe-fIA" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="InitialTabBar" automaticallyAdjustsScrollViewInsets="NO" id="F9u-qe-fIA" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6yI-pL-KKp">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -1440,7 +1436,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="resultTableViewCell" rowHeight="170" id="2wc-2Z-Nef" customClass="ResultTableViewcell" customModule="Foodle" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="resultTableViewCell" rowHeight="170" id="2wc-2Z-Nef" customClass="ResultTableViewcell" customModule="Foodle" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="170"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2wc-2Z-Nef" id="I4t-TQ-WHg">
@@ -1547,7 +1543,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="addressLabel" destination="r3s-dA-fXI" id="TDQ-vI-Gdn"/>
+                                            <outlet property="addressLabel" destination="r3s-dA-fXI" id="TuL-gg-k3M"/>
                                             <outlet property="breakLabel" destination="zaw-9l-28n" id="WoD-09-Fgp"/>
                                             <outlet property="distanceLabel" destination="LFt-ed-ll7" id="k7B-VS-HIA"/>
                                             <outlet property="isOpenLabel" destination="TAA-8f-fo9" id="uIe-GT-JJR"/>
@@ -1577,6 +1573,7 @@
                     <connections>
                         <outlet property="tableView" destination="N8X-HC-tqT" id="eO9-rG-j7A"/>
                         <segue destination="hhY-Dh-mey" kind="show" identifier="addPlaceToList" id="2QR-QM-TES"/>
+                        <segue destination="b3Z-rC-oH0" kind="show" identifier="showDetail" id="sxV-Db-QL7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6iq-Nd-cfR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1639,7 +1636,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PLB-bt-6fT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6399.2366412213742" y="-1401.4084507042255"/>
+            <point key="canvasLocation" x="2189" y="1618"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="BTn-cj-sbV">
@@ -1670,7 +1667,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uq8-d5-GCv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7531" y="-1401"/>
+            <point key="canvasLocation" x="2947" y="1618"/>
         </scene>
         <!--My Place Scrollable View Controller-->
         <scene sceneID="APV-IU-v5x">
@@ -1735,13 +1732,15 @@
                             <constraint firstItem="rPc-OL-Oel" firstAttribute="leading" secondItem="cTa-Kf-ft8" secondAttribute="leading" id="i70-yE-qpz"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="nMJ-c3-P81"/>
                     <connections>
                         <outlet property="tableView" destination="rPc-OL-Oel" id="LNc-dC-cyf"/>
+                        <segue destination="53P-r2-4R4" kind="show" identifier="toPlaceTable" id="JQb-FH-QKb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8JG-Sk-DqP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2708" y="855"/>
+            <point key="canvasLocation" x="5605.3435114503818" y="1111.9718309859156"/>
         </scene>
         <!--홈-->
         <scene sceneID="KjQ-nM-kRY">
@@ -1789,7 +1788,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z7R-TE-K1e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1834.3511450381679" y="807.74647887323943"/>
+            <point key="canvasLocation" x="1810" y="808"/>
         </scene>
         <!--ScheduleListView-->
         <scene sceneID="aLX-Y1-xYe">
@@ -1861,7 +1860,6 @@
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
-        <image name="xmark.circle.fill" catalog="system" width="128" height="123"/>
         <namedColor name="AccentColor">
             <color red="0.67799997329711914" green="0.57599997520446777" blue="0.9100000262260437" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
