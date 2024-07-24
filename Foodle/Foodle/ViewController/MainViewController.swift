@@ -54,6 +54,9 @@ class MainViewController: UIViewController, MainTableViewCellDelegate {
         addSearchBar()
         updateDaily()
         
+        NotificationCenter.default.addObserver(forName: .meetingAdded, object: nil, queue: .main){_ in 
+            self.mainTableView.reloadData()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

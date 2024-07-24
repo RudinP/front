@@ -8,59 +8,56 @@
 import UIKit
 
 class AddMeetingPlaceViewController: UIViewController{
+    var newMeeting: Meeting?
     
     @IBOutlet weak var addMeetingPlaceTableView: UITableView!
     
+    @IBAction func toSearch(_ sender: Any) {
+        performSegue(withIdentifier: "toSearch", sender: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        addSearchBar()
-        // Do any additional setup after loading the view.
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier != "toSearch"{
+            addMeeting(newMeeting){
+                NotificationCenter.default.post(name: .meetingAdded, object: nil, userInfo: nil)
+            }
+        }
         return true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if segue.identifier == "toSearch"{
+            guard let newMeeting else {return}
+            NotificationCenter.default.post(name: .searchPlaceToMeet, object: nil, userInfo: ["newMeeting":newMeeting])
+        } else {
+            
+        }
     }
-    
-    func addSearchBar(){
-        let search = UISearchController(searchResultsController: nil)
-        search.delegate = self
-        search.searchBar.delegate = self
-        self.navigationItem.searchController = search
-        search.searchBar.placeholder = ""
-        search.searchBar.searchTextField.backgroundColor = .white
-        search.searchBar.tintColor = .black
-    }
-}
-
-extension AddMeetingPlaceViewController: UISearchControllerDelegate, UISearchBarDelegate{
-    
 }
 
 extension AddMeetingPlaceViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+            return newMeeting?.places?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //나중에 마지막 인덱스로 변경
-        guard indexPath.row != 1 else {
-            let cell = addMeetingPlaceTableView.dequeueReusableCell(withIdentifier: "AddPlaceCell", for: indexPath)
-            return cell
-        }
         guard let cell = addMeetingPlaceTableView.dequeueReusableCell(withIdentifier: "AddMeetingPlaceTableViewCell", for: indexPath) as? AddMeetingPlaceTableViewCell else {return UITableViewCell()}
         
-        cell.placeLabel.text = "가나다라마바사아자차카타파하"
-        cell.timeLabel.text = "11:00am"
+        let target = newMeeting?.places?[indexPath.row]
+        cell.placeLabel.text = target?.place?.placeName
+        cell.timeLabel.text = target?.timeString
         cell.orderLabel.text = "\(indexPath.row + 1)"
-        
-        
         
         return cell
     }
     
-    
+}
+
+extension Notification.Name{
+    static let meetingAdded = Notification.Name(rawValue: "meetingAdded")
+    static let searchPlaceToMeet = Notification.Name(rawValue: "searchPlaceToMeet")
 }
