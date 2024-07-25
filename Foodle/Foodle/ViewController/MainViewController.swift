@@ -230,6 +230,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource{
         }
         
         cell.delegate = self
+        cell.configure()
         
         return cell
     }

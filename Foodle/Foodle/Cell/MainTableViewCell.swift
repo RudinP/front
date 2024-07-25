@@ -35,6 +35,10 @@ class MainTableViewCell: UITableViewCell {
         self.mainCollectionView.reloadData()
     }
     
+    func configure(){
+        mainCollectionView.reloadData()
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let section = section, let index = index else {
             return
