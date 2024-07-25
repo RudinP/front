@@ -307,8 +307,15 @@ func updatePlaceList(_ list: PlaceList?, completion: @escaping () -> Void){
 func addMeeting(_ meeting: Meeting?, completion: @escaping () -> Void){
     var url = url!
     url.append(path: "/api/meetings/create")
-
-    guard let data = try? JSONEncoder().encode(meeting) else { return }
+    
+    let encoder = JSONEncoder()
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
+    encoder.dateEncodingStrategy = .formatted(dateFormatter)
+    
+    guard let data = try? encoder.encode(meeting) else { return }
+    
+    print("JSON Data: \(String(data: data, encoding: .utf8) ?? "nil")")
     
     var request = URLRequest(url: url)
     request.httpMethod = "POST"

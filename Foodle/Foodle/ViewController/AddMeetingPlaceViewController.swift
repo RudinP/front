@@ -18,6 +18,10 @@ class AddMeetingPlaceViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if newMeeting?.places == nil{
+            newMeeting?.places = [MeetingPlace]()
+        }
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
