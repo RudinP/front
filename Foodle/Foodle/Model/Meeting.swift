@@ -27,6 +27,13 @@ extension Meeting{
         formatter.dateFormat = "YYYY/MM/dd (E)"
         return formatter.string(from: date)
     }
+    var timeString: String?{
+        guard let date = date else {return nil}
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko_KR")
+        formatter.dateFormat = "a h:mm"
+        return formatter.string(from: date)
+    }
     var dDay: String?{
         guard let date = date else {return nil}
         let calendar = Calendar.current

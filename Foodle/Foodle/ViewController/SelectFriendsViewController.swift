@@ -17,6 +17,7 @@ class SelectFriendsViewController: UIViewController, UICollectionViewDataSource,
     @IBOutlet var addFriends: UIButton!
     
     var friends: [Friend] = dummyFriends
+    var newMeeting: Meeting = Meeting() //추가할 미팅
     
     // 모든 친구 데이터 (즐겨찾기 포함)
     var allFriends: [Friend] {
@@ -32,6 +33,13 @@ class SelectFriendsViewController: UIViewController, UICollectionViewDataSource,
     
     var meeting = dummyMeeting
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showSetMeeting"{
+            if let vc = segue.destination as? SetMeetingViewController{
+                vc.newMeeting = newMeeting
+            }
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,6 +59,10 @@ class SelectFriendsViewController: UIViewController, UICollectionViewDataSource,
         // favTable과 allTable의 스크롤 비활성화
         self.favTable.isScrollEnabled = false
         self.allTable.isScrollEnabled = false
+        
+        guard let user else {return}
+        newMeeting.joiners = [User]()
+        newMeeting.joiners?.append(user)//본인은 필수 참여
     }
     
     @objc func nextButtonTapped() {
