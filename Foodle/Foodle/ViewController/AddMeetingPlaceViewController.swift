@@ -104,6 +104,7 @@ extension AddMeetingPlaceViewController: UITableViewDelegate, UITableViewDataSou
             let ok = UIAlertAction(title: "네", style: .default) { _ in
                 let target = self.newMeeting?.places?.remove(at: indexPath.row)
                 tableView.deleteRows(at: [indexPath], with: .fade)
+                tableView.reloadData()
             }
             let no = UIAlertAction(title: "아니오", style: .cancel)
             alert.addAction(no)
