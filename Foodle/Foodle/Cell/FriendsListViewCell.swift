@@ -15,16 +15,16 @@ class FriendsListViewCell: UIViewController {
     @IBOutlet var allTable: UITableView!
     @IBOutlet var addFriends: UIButton!
     
-    var friends: [Friend] = dummyFriends
+    var Friends: [Friend] = friends!
     
     // 모든 친구 데이터 (즐겨찾기 포함)
     var allFriends: [Friend] {
-        return friends
+        return Friends
     }
     
     // 즐겨찾기한 친구 데이터
     var favFriends: [Friend] {
-        return friends.filter { $0.like }
+        return Friends.filter { $0.like }
     }
     
     var scrollView: UIScrollView!
@@ -141,8 +141,8 @@ extension FriendsListViewCell: FavCellDelegate {
     func didTapFavoriteButton(on cell: FavCell) {
         if let indexPath = favTable.indexPath(for: cell) {
             let friend = favFriends[indexPath.row]
-            if let index = friends.firstIndex(where: { $0.user.uid == friend.user.uid }) {
-                friends[index].like.toggle()
+            if let index = Friends.firstIndex(where: { $0.user.uid == friend.user.uid }) {
+                Friends[index].like.toggle()
                 reloadTables()
             }
         }
@@ -153,8 +153,8 @@ extension FriendsListViewCell: AllCellDelegate {
     func didTapFavoriteButton(on cell: AllCell) {
         if let indexPath = allTable.indexPath(for: cell) {
             let friend = allFriends[indexPath.row]
-            if let index = friends.firstIndex(where: { $0.user.uid == friend.user.uid }) {
-                friends[index].like.toggle()
+            if let index = Friends.firstIndex(where: { $0.user.uid == friend.user.uid }) {
+                Friends[index].like.toggle()
                 reloadTables()
             }
         }
