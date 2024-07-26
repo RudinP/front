@@ -98,6 +98,21 @@ extension AddMeetingPlaceViewController: UITableViewDelegate, UITableViewDataSou
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            let alert = UIAlertController(title: "알림", message: "약속에서 해당 장소를 삭제할까요?", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "네", style: .default) { _ in
+                let target = self.newMeeting?.places?.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+            let no = UIAlertAction(title: "아니오", style: .cancel)
+            alert.addAction(no)
+            alert.addAction(ok)
+            
+            present(alert,animated: true)
+        }
+    }
+    
 }
 
 extension Notification.Name{
