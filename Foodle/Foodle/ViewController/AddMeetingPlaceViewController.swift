@@ -7,6 +7,8 @@
 
 import UIKit
 
+var addMeetingPlaceVC: UIViewController?
+
 class AddMeetingPlaceViewController: UIViewController{
     var newMeeting: Meeting?
     
@@ -16,11 +18,34 @@ class AddMeetingPlaceViewController: UIViewController{
         performSegue(withIdentifier: "toSearch", sender: nil)
     }
     
+    @IBAction func setTime(_ sender: UIDatePicker) {
+        newMeeting?.places?[sender.tag].time = sender.date
+        newMeeting?.places?.sort(by: { (lhs, rhs)in
+            guard let one = lhs.time, let two = rhs.time else {return true}
+            return one < two
+        })
+        addMeetingPlaceTableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        addMeetingPlaceVC = self
+        
         if newMeeting?.places == nil{
             newMeeting?.places = [MeetingPlace]()
+        }
+        
+        NotificationCenter.default.addObserver(forName: .meetingPlaceAdded, object: nil, queue: .main) { noti in
+            if let place = noti.userInfo?["placeToMeet"] as? Place{
+                let meetingPlace = MeetingPlace(place: place, time: self.newMeeting?.places?.last?.time?.addingTimeInterval(3600) ?? self.newMeeting?.date)
+                self.newMeeting?.places?.append(meetingPlace)
+                DispatchQueue.main.async{
+                    self.addMeetingPlaceTableView.reloadData()
+                }
+            }
+            
+            
         }
     }
     
@@ -30,13 +55,23 @@ class AddMeetingPlaceViewController: UIViewController{
                 NotificationCenter.default.post(name: .meetingAdded, object: nil, userInfo: nil)
             }
         }
+        if let places = newMeeting?.places, places.isEmpty {
+            let alert = UIAlertController(title: "알림", message: "만날 장소를 정해주세요.", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "확인", style: .default)
+            alert.addAction(ok)
+            
+            present(alert, animated: true)
+            return false
+        }
         return true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toSearch"{
             guard let newMeeting else {return}
-            NotificationCenter.default.post(name: .searchPlaceToMeet, object: nil, userInfo: ["newMeeting":newMeeting])
+            if let vc = segue.destination as? SearchResultViewController{
+                vc.newMeeting = newMeeting
+            }
         } else {
             
         }
@@ -53,8 +88,12 @@ extension AddMeetingPlaceViewController: UITableViewDelegate, UITableViewDataSou
         
         let target = newMeeting?.places?[indexPath.row]
         cell.placeLabel.text = target?.place?.placeName
-        cell.timeLabel.text = target?.timeString
+        if let time = target?.time{
+            cell.timePicker.date = time
+        }
         cell.orderLabel.text = "\(indexPath.row + 1)"
+        
+        cell.timePicker.tag = indexPath.row
         
         return cell
     }
@@ -63,5 +102,4 @@ extension AddMeetingPlaceViewController: UITableViewDelegate, UITableViewDataSou
 
 extension Notification.Name{
     static let meetingAdded = Notification.Name(rawValue: "meetingAdded")
-    static let searchPlaceToMeet = Notification.Name(rawValue: "searchPlaceToMeet")
 }

@@ -4,10 +4,15 @@ import UIKit
 class ScrollableBottomSheetViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var targetIndex: Int?
+    var newMeeting: Meeting?
     
     @IBAction func addPlaceToList(_ sender: UIButton) {
         targetIndex = sender.tag
         performSegue(withIdentifier: "addPlaceToList", sender: nil)
+    }
+    
+    @IBAction func addMeetingPlace(_ sender: UIButton) {
+        NotificationCenter.default.post(name: .meetingPlaceAdded, object: nil, userInfo: ["placeToMeet":resultPlaces[sender.tag]])
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -49,10 +54,6 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewD
         return resultPlaces.count
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 170
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "resultTableViewCell") as! ResultTableViewcell
         let target = resultPlaces[indexPath.row]
@@ -60,6 +61,11 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewD
             cell.starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
         } else {
             cell.starButton.setImage(UIImage(systemName: "star"), for: .normal)
+        }
+        if newMeeting != nil{
+            cell.addMeetingPlaceButton.isHidden = false
+        } else {
+            cell.addMeetingPlaceButton.isHidden = true
         }
         cell.addressLabel.text = target.address
         cell.breakLabel.text = "휴일 " + target.close
@@ -73,6 +79,7 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewD
         }
         
         cell.starButton.tag = indexPath.row
+        cell.addMeetingPlaceButton.tag = indexPath.row
         
         return cell
     }
@@ -82,4 +89,8 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewD
         performSegue(withIdentifier: "showDetail", sender: nil)
     }
     
+}
+
+extension Notification.Name{
+    static let meetingPlaceAdded = Notification.Name("meetingPlaceAdded")
 }
