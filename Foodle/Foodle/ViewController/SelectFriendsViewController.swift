@@ -16,17 +16,19 @@ class SelectFriendsViewController: UIViewController, UICollectionViewDataSource,
     @IBOutlet var allTable: UITableView!
     @IBOutlet var addFriends: UIButton!
     
-    var friends: [Friend] = dummyFriends
+
     var newMeeting: Meeting?//추가할 미팅
+    var Friends: [Friend] = friends!
+
     
     // 모든 친구 데이터 (즐겨찾기 포함)
     var allFriends: [Friend] {
-        return friends
+        return Friends
     }
     
     // 즐겨찾기한 친구 데이터
     var favFriends: [Friend] {
-        return friends.filter { $0.like }
+        return Friends.filter { $0.like }
     }
     
     var scrollView: UIScrollView!
@@ -146,7 +148,7 @@ class SelectFriendsViewController: UIViewController, UICollectionViewDataSource,
     }
 
     func removeFriendByUID(_ uid: String) {
-        if let friend = friends.first(where: { $0.user.uid == uid }) {
+        if let friend = Friends.first(where: { $0.user.uid == uid }) {
             removeFriend(friend)
         }
         selectedName.reloadData()

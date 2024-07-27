@@ -170,13 +170,13 @@
       }
     },
     "a5e-l9-uVY.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Label\"; ObjectID = \"a5e-l9-uVY\";",
+      "comment" : "Class = \"UILabel\"; text = \"닉네임\"; ObjectID = \"a5e-l9-uVY\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Label"
+            "value" : "닉네임"
           }
         }
       }
