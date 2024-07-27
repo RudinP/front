@@ -24,6 +24,7 @@ class AddMeetingPlaceViewController: UIViewController{
             guard let one = lhs.time, let two = rhs.time else {return true}
             return one < two
         })
+        presentedViewController?.dismiss(animated: true)
         addMeetingPlaceTableView.reloadData()
     }
     
@@ -73,7 +74,9 @@ class AddMeetingPlaceViewController: UIViewController{
                 vc.newMeeting = newMeeting
             }
         } else {
-            
+            if let vc = segue.destination as? SetMeetingViewController{
+                vc.newMeeting = newMeeting
+            }
         }
     }
 }
@@ -90,6 +93,11 @@ extension AddMeetingPlaceViewController: UITableViewDelegate, UITableViewDataSou
         cell.placeLabel.text = target?.place?.placeName
         if let time = target?.time{
             cell.timePicker.date = time
+            cell.timePicker.minimumDate = newMeeting?.date
+            if indexPath.row == 0{
+                cell.timePicker.maximumDate = newMeeting?.date
+                newMeeting?.places?[0].time = newMeeting?.date
+            }
         }
         cell.orderLabel.text = "\(indexPath.row + 1)"
         

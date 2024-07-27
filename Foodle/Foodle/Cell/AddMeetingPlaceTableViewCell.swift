@@ -15,7 +15,7 @@ class AddMeetingPlaceTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
         prepare()
     }
 

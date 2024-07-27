@@ -70,6 +70,9 @@ class SetMeetingViewController: UIViewController {
                 vc.newMeeting = newMeeting
             }
         }
+        if let vc = segue.destination as? SelectFriendsViewController{
+            vc.newMeeting = newMeeting
+        }
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
