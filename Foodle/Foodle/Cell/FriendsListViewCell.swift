@@ -15,7 +15,7 @@ class FriendsListViewCell: UIViewController {
     @IBOutlet var allTable: UITableView!
     @IBOutlet var addFriends: UIButton!
     
-    var Friends: [Friend] = friends!
+    var Friends: [Friend] = friends! //옵셔널 사용해주세요
     
     // 모든 친구 데이터 (즐겨찾기 포함)
     var allFriends: [Friend] {
