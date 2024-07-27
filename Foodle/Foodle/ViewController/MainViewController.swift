@@ -184,17 +184,25 @@ class MainViewController: UIViewController, MainTableViewCellDelegate {
     }
     
     func didSelectItem(section: Int, index: Int, itemIndex: Int) {
-        guard selectedSection != section || selectedIndex != index || selectedItemIndex != itemIndex else {
-            return
-        }
-        
         selectedSection = section
         selectedIndex = index
         selectedItemIndex = itemIndex
         
         performSegue(withIdentifier: "detailMeeting", sender: self)
     }
-    
+
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        // 오늘의 약속 없는 경우
+        if identifier == "detailMeeting" && meetingsToday.isEmpty {
+            let alert = UIAlertController(title: "알림", message: "오늘의 약속이 없습니다.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+            return false  // segue 실행하지 않음
+        }
+        
+        return true // segue 실행
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detailMeeting" {
             guard let detailVC = segue.destination as? DetailMeetingViewController else { return }

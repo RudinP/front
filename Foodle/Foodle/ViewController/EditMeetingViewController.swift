@@ -18,18 +18,18 @@ class EditMeetingViewController: UIViewController, UICollectionViewDataSource, U
     var index: Int?
     var collectionViewItem: Int?
     
-    var friends: [Friend] = dummyFriends
+    var Friends: [Friend] = friends!
     var todayMeetings: [Meeting] = dummyTodayMeetings
     var upcomingMeetings: [Meeting] = dummyMeetingsUpcoming
     
     // 모든 친구 데이터 (즐겨찾기 포함)
     var allFriends: [Friend] {
-        return friends
+        return Friends
     }
     
     // 즐겨찾기한 친구 데이터
     var favFriends: [Friend] {
-        return friends.filter { $0.like }
+        return Friends.filter { $0.like }
     }
     
     var scrollView: UIScrollView!
@@ -164,7 +164,7 @@ class EditMeetingViewController: UIViewController, UICollectionViewDataSource, U
             
             let user = joiners[indexPath.item]
             
-            if let friend = friends.first(where: { $0.user.uid == user.uid }) {
+            if let friend = Friends.first(where: { $0.user.uid == user.uid }) {
                 cell.selectedName.text = friend.user.nickName
                 cell.onDeleteButtonTapped = { [weak self] in
                     self?.removeFriend(friend)
@@ -180,7 +180,7 @@ class EditMeetingViewController: UIViewController, UICollectionViewDataSource, U
     }
 
     func removeFriendByUID(_ uid: String) {
-        if let friend = friends.first(where: { $0.user.uid == uid }) {
+        if let friend = Friends.first(where: { $0.user.uid == uid }) {
             removeFriend(friend)
         }
         selectedName.reloadData()

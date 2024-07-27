@@ -20,8 +20,8 @@ class DetailMeetingViewController: UIViewController, CLLocationManagerDelegate, 
     var collectionViewItem: Int?
     
     let locationManager = CLLocationManager()
-    let todayMeetings: [Meeting] = dummyTodayMeetings
-    let upcomingMeetings: [Meeting] = dummyMeetingsUpcoming
+    let todayMeetings: [Meeting] = meetingsToday
+    let upcomingMeetings: [Meeting] = meetingsUpcoming
     
     override func viewDidLoad() {
         super.viewDidLoad()
