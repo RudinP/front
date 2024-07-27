@@ -55,7 +55,14 @@ class MainViewController: UIViewController, MainTableViewCellDelegate {
         updateDaily()
         
         NotificationCenter.default.addObserver(forName: .meetingAdded, object: nil, queue: .main){_ in 
-            self.mainTableView.reloadData()
+            if let uid = user?.uid{
+                fetchMeeting(uid) { result in
+                    meetings = result
+                    DispatchQueue.main.async{
+                        self.reloadData()
+                    }
+                }
+            }
         }
     }
     
@@ -235,9 +242,12 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource{
         
         if indexPath.row != 0 {
             cell.prepare(bgColor: .systemGray6, textColor: .gray)
+        } else {
+            cell.prepare(bgColor: .secondAccent, textColor: .black)
         }
         
         cell.delegate = self
+        cell.configure()
         
         return cell
     }

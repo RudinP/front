@@ -16,8 +16,10 @@ class SelectFriendsViewController: UIViewController, UICollectionViewDataSource,
     @IBOutlet var allTable: UITableView!
     @IBOutlet var addFriends: UIButton!
     
+
+    var newMeeting: Meeting?//추가할 미팅
     var Friends: [Friend] = friends!
-    var newMeeting: Meeting = Meeting() //추가할 미팅
+
     
     // 모든 친구 데이터 (즐겨찾기 포함)
     var allFriends: [Friend] {
@@ -61,8 +63,9 @@ class SelectFriendsViewController: UIViewController, UICollectionViewDataSource,
         self.allTable.isScrollEnabled = false
         
         guard let user else {return}
-        newMeeting.joiners = [User]()
-        newMeeting.joiners?.append(user)//본인은 필수 참여
+        newMeeting = Meeting()
+        newMeeting?.joiners = [User]()
+        newMeeting?.joiners?.append(user)//본인은 필수 참여
     }
     
     @objc func nextButtonTapped() {

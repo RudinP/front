@@ -79,14 +79,14 @@ extension Place{
             
             let workingTime = workingDay[today]?.components(separatedBy: ["~", " "])
             
-            if let workingTime, !workingTime.isEmpty{
+            if let workingTime, workingTime.count > 1{
                 if workingTime[0] <= nowTime && workingTime[1] >= nowTime {
                     result = "영업중"
                 }
             }
             
             let bTime = breakTimeDay[today]?.components(separatedBy: ["~", " "])
-            if let bTime, !bTime.isEmpty{
+            if let bTime, bTime.count > 1{
                 if bTime[0] <= nowTime && bTime[1] >= nowTime{
                     result = "브레이크타임"
                 }

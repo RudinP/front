@@ -13,6 +13,7 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     let manager = CLLocationManager()
     var bottomSheetVC: UIViewController?
+    var newMeeting: Meeting?
     
     func addSearchBar(){
         let search = UISearchController()
@@ -46,6 +47,14 @@ class SearchViewController: UIViewController {
         manager.delegate = self
         manager.requestWhenInUseAuthorization()
         addSearchBar()
+        
+        NotificationCenter.default.addObserver(forName: .meetingPlaceAdded, object: nil, queue: .main) { _ in
+            print(addMeetingPlaceVC)
+            guard let vc = addMeetingPlaceVC else {return}
+            self.bottomSheetVC?.dismiss(animated: true, completion: {
+                self.navigationController?.popToViewController(vc, animated: true)
+            })
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -70,6 +79,9 @@ class SearchViewController: UIViewController {
             sheet.prefersGrabberVisible = true
         }
         
+        if let vc = bottomSheetVC as? ScrollableBottomSheetViewController{
+            vc.newMeeting = newMeeting
+        }
         
         if let bottomSheetVC{
             bottomSheetVC.isModalInPresentation = true

@@ -70,6 +70,9 @@ class SetMeetingViewController: UIViewController {
                 vc.newMeeting = newMeeting
             }
         }
+        if let vc = segue.destination as? SelectFriendsViewController{
+            vc.newMeeting = newMeeting
+        }
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
@@ -132,5 +135,8 @@ extension SetMeetingViewController: UITextFieldDelegate{
             return isValid
         }
         return true
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
     }
 }

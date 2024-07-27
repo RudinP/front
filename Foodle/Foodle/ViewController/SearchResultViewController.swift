@@ -13,7 +13,7 @@ var keyword = String()
 class SearchResultViewController: UIViewController{
     
     @IBOutlet weak var tableView: UITableView!
-    
+    var newMeeting: Meeting?
     
     func addSearchBar(){
         let search = UISearchController()
@@ -39,6 +39,9 @@ class SearchResultViewController: UIViewController{
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         segue.destination.modalPresentationStyle = .fullScreen
+        if let vc = segue.destination as? SearchViewController{
+            vc.newMeeting = newMeeting
+        }
     }
     
 }
@@ -72,7 +75,9 @@ extension SearchResultViewController: UISearchControllerDelegate, UISearchBarDel
         if !keyword.isEmpty && !resultPlaces.isEmpty{
             performSegue(withIdentifier: "toSearchView", sender: nil)
         }
+        searchBar.resignFirstResponder()
     }
+    
     
     
 }

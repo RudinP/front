@@ -9,13 +9,13 @@ import UIKit
 
 class AddMeetingPlaceTableViewCell: UITableViewCell {
     @IBOutlet weak var placeLabel: UILabel!
-    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var orderLabel: UILabel!
     @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var timePicker: UIDatePicker!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
         prepare()
     }
 

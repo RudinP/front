@@ -26,17 +26,24 @@ class DetailPlaceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        placeNameLabel.text = place?.placeName
-        isWorkingLabel.text = place?.isWorking
-        starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
-        addressLabel.text = place?.address
-        distanceLabel.text = place?.distance
-        telLabel.text = place?.tel
-        rateLabel.text = "네이버 평점" + (place?.rating?.formatted() ?? "0.0")
+        guard let place else { return }
+        
+        placeNameLabel.text = place.placeName
+        isWorkingLabel.text = place.isWorking
+        
+        if place.getIsStarred(){
+            starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+        } else {
+            starButton.setImage(UIImage(systemName: "star"), for: .normal)
+        }
+        addressLabel.text = place.address
+        distanceLabel.text = place.distance
+        telLabel.text = place.tel
+        rateLabel.text = "네이버 평점" + (place.rating?.formatted() ?? "0.0")
         
         showTime()
         
-        guard let insta = place?.instaURL else {
+        guard let insta = place.instaURL else {
             instaURLButton.isHidden = true
             instaDescriptionLabel.isHidden = true
             return
