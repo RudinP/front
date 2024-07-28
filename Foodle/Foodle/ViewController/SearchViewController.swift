@@ -49,7 +49,6 @@ class SearchViewController: UIViewController {
         addSearchBar()
         
         NotificationCenter.default.addObserver(forName: .meetingPlaceAdded, object: nil, queue: .main) { _ in
-            print(addMeetingPlaceVC)
             guard let vc = addMeetingPlaceVC else {return}
             self.bottomSheetVC?.dismiss(animated: true, completion: {
                 self.navigationController?.popToViewController(vc, animated: true)
@@ -69,7 +68,11 @@ class SearchViewController: UIViewController {
         
         if let sheet = bottomSheetVC?.sheetPresentationController {
             let fraction = UISheetPresentationController.Detent.custom { context in
-                140
+                if self.newMeeting != nil {
+                    return 200
+                } else {
+                    return 140
+                }
             }
             sheet.detents = [.medium(), .large(), fraction]
             sheet.largestUndimmedDetentIdentifier = fraction.identifier  // nil 기본값
