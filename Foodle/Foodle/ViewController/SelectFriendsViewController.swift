@@ -32,8 +32,6 @@ class SelectFriendsViewController: UIViewController, UICollectionViewDataSource,
     }
     
     var scrollView: UIScrollView!
-    
-    var meeting = dummyMeeting
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showSetMeeting"{
@@ -117,19 +115,19 @@ class SelectFriendsViewController: UIViewController, UICollectionViewDataSource,
     }
     
     func addFriend(_ friend: Friend) {
-        meeting.joiners?.append(friend.user)
+        newMeeting?.joiners?.append(friend.user)
     }
 
     func removeFriend(_ friend: Friend) {
-        meeting.joiners?.removeAll { $0.uid == friend.user.uid }
+        newMeeting?.joiners?.removeAll { $0.uid == friend.user.uid }
     }
     
     func isSelected(_ friend: Friend) -> Bool {
-        return meeting.joiners?.contains(where: { $0.uid == friend.user.uid }) ?? false
+        return newMeeting?.joiners?.contains(where: { $0.uid == friend.user.uid }) ?? false
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return meeting.joiners?.count ?? 0
+        return newMeeting?.joiners?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -137,7 +135,7 @@ class SelectFriendsViewController: UIViewController, UICollectionViewDataSource,
             fatalError("Unable to dequeue SelectFriendsNameCollectionViewCell")
         }
         
-        let selectedFriend = meeting.joiners?[indexPath.item]
+        let selectedFriend = newMeeting?.joiners?[indexPath.item]
         cell.selectedName.text = selectedFriend?.nickName
         
         cell.onDeleteButtonTapped = { [weak self] in
