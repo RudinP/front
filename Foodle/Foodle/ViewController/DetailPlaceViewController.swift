@@ -68,12 +68,6 @@ class DetailPlaceViewController: UIViewController {
         var working = place?.workingDay.first(where: { (key: Day, value: String) in
             return key == Day(rawValue: today)
         })?.value ?? ""
-
-        print(working)
-        
-        if working == "24:00" {
-            working = "00:00"
-        }
         
         todayWorkingLabel.text = today + " " + working
         
@@ -90,7 +84,7 @@ class DetailPlaceViewController: UIViewController {
             if work.key.rawValue == today{
                 continue
             }
-            working = work.value == "24:00" ? "00:00" : work.value
+            working = work.value
             let val = place?.breakTimeDay[work.key] ?? ""
             str.append("\(work.key.rawValue) \(working)")
             if !val.isEmpty{
