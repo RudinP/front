@@ -64,11 +64,25 @@ class DetailPlaceViewController: UIViewController {
         formatter.dateFormat = "E"
         formatter.locale =  Locale(identifier: "ko_KR")
         let today = formatter.string(from: Date())
-        todayWorkingLabel.text = today + (place?.workingDay.first(where: { (key: Day, value: String) in
+        
+        var working = place?.workingDay.first(where: { (key: Day, value: String) in
             return key == Day(rawValue: today)
-        })?.value ?? "") + "   브레이크타임 " + (place?.breakTimeDay.first(where: { (key: Day, value: String) in
+        })?.value ?? ""
+
+        print(working)
+        
+        if working == "24:00" {
+            working = "00:00"
+        }
+        
+        todayWorkingLabel.text = today + " " + working
+        
+        let breakTime = place?.breakTimeDay.first(where: { (key: Day, value: String) in
             return key == Day(rawValue: today)
-        })?.value ?? "")
+        })?.value ?? ""
+        if !breakTime.isEmpty{
+            todayWorkingLabel.text?.append("   브레이크타임 \(breakTime)")
+        }
 
         
         var str = ""
@@ -76,8 +90,13 @@ class DetailPlaceViewController: UIViewController {
             if work.key.rawValue == today{
                 continue
             }
+            working = work.value == "24:00" ? "00:00" : work.value
             let val = place?.breakTimeDay[work.key] ?? ""
-            str.append("\(work.key.rawValue) \(work.value)   브레이크타임 \(val)\n")
+            str.append("\(work.key.rawValue) \(working)")
+            if !val.isEmpty{
+                str.append("  브레이크타임 \(val)")
+            }
+            str.append("\n")
         }
         workingLabel.text = str
 
