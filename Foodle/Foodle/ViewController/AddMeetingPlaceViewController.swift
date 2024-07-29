@@ -45,10 +45,20 @@ class AddMeetingPlaceViewController: UIViewController{
                     self.addMeetingPlaceTableView.reloadData()
                 }
             }
-            
-            
         }
     }
+    
+    override func viewWillDisappear(_ animated: Bool)
+     {
+         super.viewWillDisappear(animated)
+         self.resignFirstResponder()
+         
+         if self.isMovingFromParent == true
+         {
+             guard let newMeeting else {return}
+             NotificationCenter.default.post(name: .poppedWhenMeetingAdding, object: nil, userInfo: ["newMeeting": newMeeting])
+         }
+     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier != "toSearch"{
@@ -73,10 +83,6 @@ class AddMeetingPlaceViewController: UIViewController{
             if let vc = segue.destination as? SearchResultViewController{
                 vc.newMeeting = newMeeting
             }
-        } else {
-            if let vc = segue.destination as? SetMeetingViewController{
-                vc.newMeeting = newMeeting
-            }
         }
     }
 }
@@ -96,7 +102,6 @@ extension AddMeetingPlaceViewController: UITableViewDelegate, UITableViewDataSou
             cell.timePicker.minimumDate = newMeeting?.date
             if indexPath.row == 0{
                 cell.timePicker.maximumDate = newMeeting?.date
-                newMeeting?.places?[0].time = newMeeting?.date
             }
         }
         cell.orderLabel.text = "\(indexPath.row + 1)"
@@ -126,4 +131,5 @@ extension AddMeetingPlaceViewController: UITableViewDelegate, UITableViewDataSou
 
 extension Notification.Name{
     static let meetingAdded = Notification.Name(rawValue: "meetingAdded")
+    static let poppedWhenMeetingAdding = Notification.Name(rawValue: "poppedWhenMeetingAdding")
 }

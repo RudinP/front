@@ -58,11 +58,33 @@ class SetMeetingViewController: UIViewController {
         tableView.delegate = self
         meetingNameTextField.delegate = self
         
-        
-        
         loadDataIfNeeded()
         setDate(datePicker)
+        datePicker.minimumDate = Date.now
+        
+        NotificationCenter.default.addObserver(forName: .poppedWhenMeetingAdding, object: nil, queue: .main) { noti in
+            if let data = noti.userInfo?["newMeeting"] as? Meeting{
+                self.newMeeting = data
+            }
+        }
     }
+    
+    override func viewWillDisappear(_ animated: Bool)
+     {
+         super.viewWillDisappear(animated)
+         self.resignFirstResponder()
+         
+         if self.isMovingFromParent == true
+         {
+             if let name = meetingNameTextField.text{
+                 newMeeting?.name = name
+             }
+             newMeeting?.date = datePicker.date
+             guard let newMeeting else {return}
+             NotificationCenter.default.post(name: .poppedWhenMeetingAdding, object: nil, userInfo: ["newMeeting": newMeeting])
+         }
+     }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toAddMeetingPlace"{
