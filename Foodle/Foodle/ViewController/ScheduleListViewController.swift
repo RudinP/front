@@ -8,7 +8,6 @@
 import UIKit
 
 class ScheduleListViewController: UIViewController{
-    
     @IBOutlet weak var scheListLabel: UILabel!
     @IBOutlet weak var calendar: UIDatePicker!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -20,19 +19,17 @@ class ScheduleListViewController: UIViewController{
         collectionView.reloadData()
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
         calendar.date = date
     }
-    
 }
 
 extension ScheduleListViewController: UICollectionViewDataSource, UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return getToday(meetings: dummyMeetings, date: date).count
+        return getToday(meetings: meetings, date: date).count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -40,7 +37,7 @@ extension ScheduleListViewController: UICollectionViewDataSource, UICollectionVi
             fatalError("Unable to dequeue ScheduleCollectionViewCell")
             }
         
-        let schedule = getToday(meetings: dummyMeetings, date: date)[indexPath.item]
+        let schedule = getToday(meetings: meetings, date: date)[indexPath.item]
         cell.scheNameLabel.text = schedule.name
         
         cell.scheDateLabel.text = schedule.dateString
