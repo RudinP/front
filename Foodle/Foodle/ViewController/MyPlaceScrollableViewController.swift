@@ -8,9 +8,10 @@
 import UIKit
 
 class MyPlaceScrollableViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     var selectedIndex: Int?
+    var place : Place?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,38 +29,29 @@ class MyPlaceScrollableViewController: UIViewController {
                 }
             }
         }
+        
+        NotificationCenter.default.addObserver(forName: .placeListAnnotationSelected, object: nil, queue: .main) { noti in
+            guard let place = noti.userInfo?["place"] as? Place else {return}
+            self.place = place
+            self.performSegue(withIdentifier: "toPlaceTable", sender: nil)
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        NotificationCenter.default.post(name: .listDeselected, object: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? MyPlaceTableViewController{
             vc.placeListIndex = selectedIndex
+            if let place{
+                vc.place = self.place
+            }
         }
     }
     
-    private func setSheetView(){
-        
-        let bottomSheetVCSB = UIStoryboard(name: "Jinhee", bundle: nil)
-        if let bottomSheetVC = bottomSheetVCSB.instantiateViewController(withIdentifier: "MyPlaceTableViewController") as? MyPlaceTableViewController{
-            bottomSheetVC.placeListIndex = selectedIndex
-            if let sheet = bottomSheetVC.sheetPresentationController {
-                let fraction = UISheetPresentationController.Detent.custom { context in
-                    140
-                }
-                sheet.detents = [.medium(), .large(), fraction]
-                sheet.largestUndimmedDetentIdentifier = .medium  // nil 기본값
-                sheet.prefersScrollingExpandsWhenScrolledToEdge = false  // true 기본값
-                sheet.prefersEdgeAttachedInCompactHeight = true // false 기본값
-                sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true // false 기본값
-                sheet.prefersGrabberVisible = true
-            }
-            
-            bottomSheetVC.isModalInPresentation = true
-            
-            present(bottomSheetVC, animated: true, completion: nil)
-        }
-    }
-
-
 }
 
 extension MyPlaceScrollableViewController: UITableViewDelegate, UITableViewDataSource {
@@ -86,6 +78,10 @@ extension MyPlaceScrollableViewController: UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndex = indexPath.row
+        tableView.scrollToNearestSelectedRow(at: .top, animated: true)
+        if let index = selectedIndex{
+            NotificationCenter.default.post(name: .listSelected, object: nil, userInfo: ["selectedIndex": index])
+        }
         performSegue(withIdentifier: "toPlaceTable", sender: nil)
     }
     
@@ -109,6 +105,11 @@ extension MyPlaceScrollableViewController: UITableViewDelegate, UITableViewDataS
             present(alert,animated: true)
         }
     }
-        
+    
+}
+
+extension Notification.Name{
+    static let listSelected = Notification.Name("listSelected")
+    static let listDeselected = Notification.Name("listDeselected")
 }
 

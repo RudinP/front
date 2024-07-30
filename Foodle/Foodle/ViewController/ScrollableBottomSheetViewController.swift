@@ -40,6 +40,14 @@ class ScrollableBottomSheetViewController: UIViewController {
             self.tableView.reloadData()
         }
         
+        NotificationCenter.default.addObserver(forName: .annotationSelected, object: nil, queue: .main) { noti in
+            guard let place = noti.userInfo?["place"] as? Place else {return}
+            let row = resultPlaces.firstIndex { resultPlace in
+                place.isEqual(resultPlace)
+            }
+            let indexPath = IndexPath(row: row ?? 0, section: 0)
+            self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+        }
     }
     
 }
@@ -86,6 +94,11 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         targetIndex = indexPath.row
+        tableView.scrollToNearestSelectedRow(at: .top, animated: true)
+        if let index = targetIndex{
+            let place = resultPlaces[index]
+            NotificationCenter.default.post(name: .placeSelected, object: nil, userInfo: ["place": place])
+        }
         performSegue(withIdentifier: "showDetail", sender: nil)
     }
     
@@ -93,4 +106,5 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewD
 
 extension Notification.Name{
     static let meetingPlaceAdded = Notification.Name("meetingPlaceAdded")
+    static let placeSelected = Notification.Name("placeSelected")
 }
