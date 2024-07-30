@@ -47,6 +47,10 @@ class SearchViewController: UIViewController {
         manager.delegate = self
         manager.requestWhenInUseAuthorization()
         addSearchBar()
+        mapView.showsUserLocation = true
+        mapView.showsUserTrackingButton = true
+        let region = MKCoordinateRegion(center: mapView.userLocation.coordinate, latitudinalMeters: 50000, longitudinalMeters: 50000)
+        mapView.setRegion(region, animated: true)
         
         NotificationCenter.default.addObserver(forName: .meetingPlaceAdded, object: nil, queue: .main) { _ in
             guard let vc = addMeetingPlaceVC else {return}
@@ -61,6 +65,15 @@ class SearchViewController: UIViewController {
         setResultView()
     }
     
+    func setAnnotation(result: [Place]){
+            for item in result{
+                if let la = item.latitude, let lo = item.longtitude{
+                    let annotation = PlaceListAnnotation(coordinate: CLLocationCoordinate2D(latitude: la, longitude: lo), place: item, color: .accent)
+                    
+                    mapView.addAnnotation(annotation)
+                }
+            }
+    }
     
     private func setResultView(){
         let bottomSheetVCSB = UIStoryboard(name: "Jinhee", bundle: nil)
@@ -84,6 +97,7 @@ class SearchViewController: UIViewController {
         
         if let vc = bottomSheetVC as? ScrollableBottomSheetViewController{
             vc.newMeeting = newMeeting
+            setAnnotation(result: resultPlaces)
         }
         
         if let bottomSheetVC{
@@ -91,17 +105,28 @@ class SearchViewController: UIViewController {
             present(bottomSheetVC, animated: true)
         }
     }
-    
 }
 
 extension SearchViewController: MKMapViewDelegate{
-    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+            //사용자의 현재 위치를 표시하는 경우 기본뷰를 표시하도록 nil 리턴
+            guard !(annotation is MKUserLocation) else {return nil}
+            //어노테이션이 포인트 어노테이션이면 마커 뷰를 표시
+            if let placeListAnnotation = annotation as? PlaceListAnnotation {
+                let marker = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier, for: annotation) as! MKMarkerAnnotationView
+                marker.markerTintColor = .accent
+                return marker
+            }
+            return nil
+        }
+
 }
 
 extension SearchViewController: CLLocationManagerDelegate{
     
     func move(to location: CLLocation){
-        let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 100, longitudinalMeters: 100)
+        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude - 0.001, longitude: location.coordinate.longitude)
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: 1000, longitudinalMeters: 1000)
         mapView.setRegion(region, animated: true)
     }
     

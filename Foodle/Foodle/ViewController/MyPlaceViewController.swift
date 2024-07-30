@@ -22,6 +22,8 @@ class MyPlaceViewController: UIViewController {
         if manager.authorizationStatus == .authorizedWhenInUse || manager.authorizationStatus == .authorizedAlways{
             manager.startUpdatingLocation()
         }
+        guard let placeLists else {return}
+        setAnnotation(lists: placeLists)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -29,6 +31,7 @@ class MyPlaceViewController: UIViewController {
         
         manager.stopUpdatingLocation()
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
@@ -49,6 +52,21 @@ class MyPlaceViewController: UIViewController {
     
     private func setMap(){
         setMapConstraints()
+        mapView.showsUserLocation = true
+        mapView.showsUserTrackingButton = true
+    }
+    
+    func setAnnotation(lists: [PlaceList]){
+        for list in lists{
+            guard let places = list.places else { return }
+            for item in places{
+                if let la = item.latitude, let lo = item.longtitude{
+                    let annotation = PlaceListAnnotation(coordinate: CLLocationCoordinate2D(latitude: la, longitude: lo), place: item, color: UIColor(hexCode: list.color))
+                    
+                    mapView.addAnnotation(annotation)
+                }
+            }
+        }
     }
     
     private func setSheetView(){
@@ -78,9 +96,7 @@ class MyPlaceViewController: UIViewController {
         tab.isModalInPresentation = true
 
         present(tab, animated: true, completion: nil)
-        
     }
-    
 }
 
 extension MyPlaceViewController: UITabBarControllerDelegate{
@@ -100,13 +116,29 @@ extension MyPlaceViewController: UITabBarControllerDelegate{
     }
 }
 extension MyPlaceViewController: MKMapViewDelegate{
-    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+            //사용자의 현재 위치를 표시하는 경우 기본뷰를 표시하도록 nil 리턴
+            guard !(annotation is MKUserLocation) else {return nil}
+            //어노테이션이 포인트 어노테이션이면 마커 뷰를 표시
+            if let placeListAnnotation = annotation as? PlaceListAnnotation {
+                let marker = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier, for: annotation) as! MKMarkerAnnotationView
+                //마커의 그리프이미지 변경
+                marker.glyphImage = UIImage(systemName: "pawprint.circle")
+                //pointannotation에는 title, subtitle, 좌표 세 가지가 저장된다.
+                //따라서 우리가 설정한 카테고리에 접근하려면 커스텀 어노테이션을 만들고 어노테이션에 프로퍼티를 함께 저장해야 함.
+                marker.markerTintColor = placeListAnnotation.color
+                return marker
+            }
+            
+            return nil
+        }
 }
 
 extension MyPlaceViewController: CLLocationManagerDelegate{
     
     func move(to location: CLLocation){
-        let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 100, longitudinalMeters: 100)
+        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude - 0.001, longitude: location.coordinate.longitude)
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: 1000, longitudinalMeters: 1000)
         mapView.setRegion(region, animated: true)
     }
     
