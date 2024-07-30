@@ -337,4 +337,38 @@ func addMeeting(_ meeting: Meeting?, completion: @escaping () -> Void){
     task.resume()
 }
 
-
+func updateFriendFavorite(_ friend: Friend?, completion: @escaping () -> Void){
+    var url = url!
+    url.append(path: "/api/friends/Update")
+    
+    guard let friend = friend, let uid = user?.uid else {
+            return
+        }
+    
+    url.append(queryItems: [URLQueryItem(name: "uid", value: uid)])
+    url.append(queryItems: [URLQueryItem(name: "fid", value: friend.user.uid)])
+    
+    let target = Friend(user: friend.user, like: friend.like)
+    guard let data = try? JSONEncoder().encode(target) else { return }
+    
+    var request = URLRequest(url: url)
+    request.httpMethod = "POST"
+    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    
+    print("JSON Data: \(String(data: data, encoding: .utf8) ?? "nil")")
+    
+    let task = URLSession.shared.uploadTask(with: request, from: data) { (data, response, error) in
+        if let error = error {
+            NSLog("An error has occurred: \(error.localizedDescription)")
+            return
+        }
+        
+        if let httpResponse = response as? HTTPURLResponse, !(200...299).contains(httpResponse.statusCode) {
+            NSLog("Server error: \(httpResponse.statusCode)")
+            return
+        }
+        completion()
+    }
+    
+    task.resume()
+}

@@ -493,6 +493,18 @@
         }
       }
     },
+    "pKz-DV-b4O.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"pKz-DV-b4O\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        }
+      }
+    },
     "qs4-Pb-Zf5.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Label\"; ObjectID = \"qs4-Pb-Zf5\";",
       "extractionState" : "extracted_with_value",

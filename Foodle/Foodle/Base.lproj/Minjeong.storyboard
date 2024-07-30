@@ -58,13 +58,13 @@
                                     <segue destination="VjF-NV-nZS" kind="show" id="SUG-wf-gkr"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pKz-DV-b4O">
+                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pKz-DV-b4O">
                                 <rect key="frame" x="277" y="388" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" button="YES" image="YES"/>
                                 </accessibility>
-                                <state key="normal" image="icon_apple_2.jpg"/>
+                                <state key="normal" title="Button" image="icon_apple_2.jpg"/>
                                 <connections>
                                     <segue destination="VjF-NV-nZS" kind="show" id="PF0-uy-KCr"/>
                                 </connections>
@@ -1230,7 +1230,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ppV-Bb-Hpv"/>
+        <segue reference="SUG-wf-gkr"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="calendar" catalog="system" width="128" height="107"/>
