@@ -15,22 +15,24 @@ class FriendsListViewCell: UIViewController {
     @IBOutlet var allTable: UITableView!
     @IBOutlet var addFriends: UIButton!
     
-    var Friends: [Friend] = friends! // 옵셔널 사용
+    var Friends: [Friend]?
     
     // 모든 친구 데이터 (즐겨찾기 포함)
     var allFriends: [Friend] {
-        return Friends
+        return Friends ?? []
     }
     
     // 즐겨찾기한 친구 데이터
     var favFriends: [Friend] {
-        return Friends.filter { $0.like }
+        return Friends?.filter { $0.like } ?? []
     }
     
     var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        Friends = friends
         
         setupScrollView()
         
@@ -147,14 +149,18 @@ extension FriendsListViewCell: UITableViewDelegate, UITableViewDataSource {
 
 extension FriendsListViewCell: FavCellDelegate {
     func didTapFavoriteButton(on cell: FavCell) {
-        if let indexPath = favTable.indexPath(for: cell) {
-            let friend = favFriends[indexPath.row]
-            if let index = Friends.firstIndex(where: { $0.user.uid == friend.user.uid }) {
-                Friends[index].like.toggle()
-                updateFriendFavorite(Friends[index]) {
-                    DispatchQueue.main.async {
-                        self.reloadTables()
-                    }
+        guard let indexPath = favTable.indexPath(for: cell),
+              var friends = Friends else {
+            return
+        }
+        
+        let friend = favFriends[indexPath.row]
+        if let index = friends.firstIndex(where: { $0.user.uid == friend.user.uid }) {
+            friends[index].like.toggle()
+            updateFriendFavorite(friends[index]) {
+                self.Friends = friends
+                DispatchQueue.main.async {
+                    self.reloadTables()
                 }
             }
         }
@@ -163,14 +169,18 @@ extension FriendsListViewCell: FavCellDelegate {
 
 extension FriendsListViewCell: AllCellDelegate {
     func didTapFavoriteButton(on cell: AllCell) {
-        if let indexPath = allTable.indexPath(for: cell) {
-            let friend = allFriends[indexPath.row]
-            if let index = Friends.firstIndex(where: { $0.user.uid == friend.user.uid }) {
-                Friends[index].like.toggle()
-                updateFriendFavorite(Friends[index]) {
-                    DispatchQueue.main.async {
-                        self.reloadTables()
-                    }
+        guard let indexPath = allTable.indexPath(for: cell),
+              var friends = Friends else {
+            return
+        }
+        
+        let friend = allFriends[indexPath.row]
+        if let index = friends.firstIndex(where: { $0.user.uid == friend.user.uid }) {
+            friends[index].like.toggle()
+            updateFriendFavorite(friends[index]) {
+                self.Friends = friends
+                DispatchQueue.main.async {
+                    self.reloadTables()
                 }
             }
         }
