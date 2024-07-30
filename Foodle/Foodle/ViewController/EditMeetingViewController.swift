@@ -19,8 +19,8 @@ class EditMeetingViewController: UIViewController, UICollectionViewDataSource, U
     var collectionViewItem: Int?
     
     var Friends: [Friend] = friends!
-    var todayMeetings: [Meeting] = dummyTodayMeetings
-    var upcomingMeetings: [Meeting] = dummyMeetingsUpcoming
+    var todayMeetings: [Meeting] = meetingsToday
+    var upcomingMeetings: [Meeting] = meetingsUpcoming
     
     // 모든 친구 데이터 (즐겨찾기 포함)
     var allFriends: [Friend] {

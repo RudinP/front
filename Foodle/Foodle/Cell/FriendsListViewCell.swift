@@ -15,7 +15,7 @@ class FriendsListViewCell: UIViewController {
     @IBOutlet var allTable: UITableView!
     @IBOutlet var addFriends: UIButton!
     
-    var Friends: [Friend] = friends! //옵셔널 사용해주세요
+    var Friends: [Friend] = friends! // 옵셔널 사용
     
     // 모든 친구 데이터 (즐겨찾기 포함)
     var allFriends: [Friend] {
@@ -112,6 +112,14 @@ extension FriendsListViewCell: UITableViewDelegate, UITableViewDataSource {
         favTable.reloadData()
         allTable.reloadData()
         viewDidLayoutSubviews()
+        
+        fetchFriends(user!.uid!) { friend in
+            friends = friend
+            DispatchQueue.main.async{
+                self.favTable.reloadData()
+                self.allTable.reloadData()
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -143,7 +151,11 @@ extension FriendsListViewCell: FavCellDelegate {
             let friend = favFriends[indexPath.row]
             if let index = Friends.firstIndex(where: { $0.user.uid == friend.user.uid }) {
                 Friends[index].like.toggle()
-                reloadTables()
+                updateFriendFavorite(Friends[index]) {
+                    DispatchQueue.main.async {
+                        self.reloadTables()
+                    }
+                }
             }
         }
     }
@@ -155,7 +167,11 @@ extension FriendsListViewCell: AllCellDelegate {
             let friend = allFriends[indexPath.row]
             if let index = Friends.firstIndex(where: { $0.user.uid == friend.user.uid }) {
                 Friends[index].like.toggle()
-                reloadTables()
+                updateFriendFavorite(Friends[index]) {
+                    DispatchQueue.main.async {
+                        self.reloadTables()
+                    }
+                }
             }
         }
     }
