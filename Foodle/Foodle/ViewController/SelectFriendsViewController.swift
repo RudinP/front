@@ -40,6 +40,8 @@ class SelectFriendsViewController: UIViewController, UICollectionViewDataSource,
             }
         }
     }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -66,6 +68,12 @@ class SelectFriendsViewController: UIViewController, UICollectionViewDataSource,
         newMeeting = Meeting()
         newMeeting?.joiners = [User]()
         newMeeting?.joiners?.append(user)//본인은 필수 참여
+        
+        NotificationCenter.default.addObserver(forName: .poppedWhenMeetingAdding, object: nil, queue: .main) { noti in
+            if let data = noti.userInfo?["newMeeting"] as? Meeting{
+                self.newMeeting = data
+            }
+        }
     }
     
     @objc func nextButtonTapped() {
