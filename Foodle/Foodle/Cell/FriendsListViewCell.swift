@@ -142,6 +142,7 @@ extension FriendsListViewCell: UITableViewDelegate, UITableViewDataSource {
                let selectedFriend = sender as? Friend {
                 destinationVC.friendsNameText = selectedFriend.user.nickName
                 destinationVC.profileImgUrl = selectedFriend.user.profileImage
+                destinationVC.friendUid = selectedFriend.user.uid
             }
         }
     }
