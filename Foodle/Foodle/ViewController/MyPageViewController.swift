@@ -17,22 +17,38 @@ class MyPageViewController: UIViewController {
     @IBOutlet var logoutButton: UIButton!
     @IBOutlet var withdrawalButton: UIButton!
     
-    var user: User?
+    var myPageUser: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        user = dummyUser2
+        myPageUser = user
         
-        if let user = user {
+        if let user = myPageUser {
             if let profileImageURL = user.profileImage {
-                if let url = URL(string: profileImageURL), let data = try? Data(contentsOf: url) {
-                    profileImg_1.image = UIImage(data: data)
-                    profileImg_2.image = UIImage(data: data)
+                if let url = URL(string: profileImageURL) {
+                    loadImageAsync(from: url) { [weak self] image in
+                        DispatchQueue.main.async {
+                            self?.profileImg_1.image = image
+                            self?.profileImg_2.image = image
+                        }
+                    }
                 }
             }
             nameLabel.text = user.name
             nicknameLabel.text = user.nickName
         }
+    }
+    
+    func loadImageAsync(from url: URL, completion: @escaping (UIImage?) -> Void) {
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, error == nil else {
+                print("Failed to load image from URL")
+                completion(nil)
+                return
+            }
+            completion(UIImage(data: data))
+        }
+        task.resume()
     }
 }
