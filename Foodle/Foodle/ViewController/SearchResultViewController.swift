@@ -47,22 +47,22 @@ class SearchResultViewController: UIViewController{
 }
 extension SearchResultViewController: UISearchControllerDelegate, UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        let keyword = (searchBar.text ?? "") + searchText
-        
-        if keyword.isEmpty {
-            resultPlaces.removeAll()
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        } else {
-            searchPlace(keyword) { result in
-                guard let result = result else { return }
-                resultPlaces = result
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            }
-        }
+//        let keyword = (searchBar.text ?? "") + searchText
+//        
+//        if keyword.isEmpty {
+//            resultPlaces.removeAll()
+//            DispatchQueue.main.async {
+//                self.tableView.reloadData()
+//            }
+//        } else {
+//            searchPlace(keyword) { result in
+//                guard let result = result else { return }
+//                resultPlaces = result
+//                DispatchQueue.main.async {
+//                    self.tableView.reloadData()
+//                }
+//            }
+//        }
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -72,6 +72,23 @@ extension SearchResultViewController: UISearchControllerDelegate, UISearchBarDel
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let keyword = (searchBar.text ?? "")
+        
+        if keyword.isEmpty {
+            resultPlaces.removeAll()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        } else {
+            
+            searchPlace(keyword) { result in
+                guard let result = result else { return }
+                resultPlaces = result
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
         if !keyword.isEmpty && !resultPlaces.isEmpty{
             performSegue(withIdentifier: "toSearchView", sender: nil)
         }

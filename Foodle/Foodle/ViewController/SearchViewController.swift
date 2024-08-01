@@ -47,6 +47,9 @@ class SearchViewController: UIViewController {
         manager.delegate = self
         manager.requestWhenInUseAuthorization()
         addSearchBar()
+        mapView.showsUserLocation = true
+        mapView.showsUserTrackingButton = true
+        mapView.delegate = self
         
         NotificationCenter.default.addObserver(forName: .meetingPlaceAdded, object: nil, queue: .main) { _ in
             guard let vc = addMeetingPlaceVC else {return}
@@ -54,6 +57,20 @@ class SearchViewController: UIViewController {
                 self.navigationController?.popToViewController(vc, animated: true)
             })
         }
+        
+        NotificationCenter.default.addObserver(forName: .placeSelected, object: nil, queue: .main) { noti in
+            guard let place = noti.userInfo?["place"] as? Place else {return}
+            self.setRegion(place: place)
+        }
+        
+        setRegion(place: resultPlaces.first)
+        
+    }
+    func setRegion(place: Place?){
+        
+        guard let place = place,let latitude = place.latitude, let longtitude = place.longtitude else {return}
+        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: latitude, longitude: longtitude), latitudinalMeters: 100, longitudinalMeters: 100)
+        mapView.setRegion(region, animated: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -61,6 +78,16 @@ class SearchViewController: UIViewController {
         setResultView()
     }
     
+    func setAnnotation(result: [Place]){
+        mapView.removeAnnotations(mapView.annotations)
+        for item in result{
+            if let la = item.latitude, let lo = item.longtitude{
+                let annotation = PlaceListAnnotation(coordinate: CLLocationCoordinate2D(latitude: la, longitude: lo), place: item, color: .accent)
+                
+                mapView.addAnnotation(annotation)
+            }
+        }
+    }
     
     private func setResultView(){
         let bottomSheetVCSB = UIStoryboard(name: "Jinhee", bundle: nil)
@@ -84,6 +111,7 @@ class SearchViewController: UIViewController {
         
         if let vc = bottomSheetVC as? ScrollableBottomSheetViewController{
             vc.newMeeting = newMeeting
+            setAnnotation(result: resultPlaces)
         }
         
         if let bottomSheetVC{
@@ -91,17 +119,35 @@ class SearchViewController: UIViewController {
             present(bottomSheetVC, animated: true)
         }
     }
-    
 }
 
 extension SearchViewController: MKMapViewDelegate{
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        //사용자의 현재 위치를 표시하는 경우 기본뷰를 표시하도록 nil 리턴
+        guard !(annotation is MKUserLocation) else {return nil}
+        //어노테이션이 포인트 어노테이션이면 마커 뷰를 표시
+        if let placeListAnnotation = annotation as? PlaceListAnnotation {
+            let marker = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier, for: annotation) as! MKMarkerAnnotationView
+            marker.markerTintColor = .accent
+            return marker
+        }
+        return nil
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        if let annotation = view.annotation as? PlaceListAnnotation{
+            setRegion(place: annotation.place)
+            NotificationCenter.default.post(name: .annotationSelected, object: nil, userInfo: ["place": annotation.place])
+        }
+    }
     
 }
 
 extension SearchViewController: CLLocationManagerDelegate{
     
     func move(to location: CLLocation){
-        let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: 100, longitudinalMeters: 100)
+        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude - 0.001, longitude: location.coordinate.longitude)
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: 1000, longitudinalMeters: 1000)
         mapView.setRegion(region, animated: true)
     }
     
@@ -143,16 +189,20 @@ extension SearchViewController: CLLocationManagerDelegate{
         manager.stopUpdatingLocation()
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let currentLocation = locations.last{
-            move(to: currentLocation)
-        }
-    }
+    //    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    //        if let currentLocation = locations.last{
+    //            move(to: currentLocation)
+    //        }
+    //    }
 }
 
 extension SearchViewController: UISearchBarDelegate{
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         navigationController?.popViewController(animated: false)
     }
+}
+
+extension Notification.Name{
+    static let annotationSelected = Notification.Name("annotationSelected")
 }
 

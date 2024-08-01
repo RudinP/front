@@ -41,6 +41,7 @@
 		4BC68AAD2BA2B67300FC6546 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC68AAC2BA2B67300FC6546 /* MainViewController.swift */; };
 		4BC68AB02BA2DAF200FC6546 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC68AAF2BA2DAF200FC6546 /* MainCollectionViewCell.swift */; };
 		4BC68AB22BA2DBD300FC6546 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC68AB12BA2DBD300FC6546 /* MainTableViewCell.swift */; };
+		4BE209FB2C5881BC00060C5B /* PlaceListAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE209FA2C5881BC00060C5B /* PlaceListAnnotation.swift */; };
 		4BE731832C3E2AA1008733C9 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE731822C3E2AA1008733C9 /* Server.swift */; };
 		4BE731852C3E569E008733C9 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE731842C3E569E008733C9 /* SearchResultViewController.swift */; };
 		4BE731982C436A1C008733C9 /* LaunchingSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE731972C436A1C008733C9 /* LaunchingSegue.swift */; };
@@ -99,6 +100,8 @@
 		4BC68AAC2BA2B67300FC6546 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4BC68AAF2BA2DAF200FC6546 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		4BC68AB12BA2DBD300FC6546 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		4BE209F82C587DFD00060C5B /* gpxgenerator_path.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = gpxgenerator_path.gpx; sourceTree = "<group>"; };
+		4BE209FA2C5881BC00060C5B /* PlaceListAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListAnnotation.swift; sourceTree = "<group>"; };
 		4BE731822C3E2AA1008733C9 /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		4BE731842C3E569E008733C9 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		4BE731972C436A1C008733C9 /* LaunchingSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchingSegue.swift; sourceTree = "<group>"; };
@@ -135,6 +138,7 @@
 		4BA12D722BA004CE00BC4EB0 = {
 			isa = PBXGroup;
 			children = (
+				4BE209F82C587DFD00060C5B /* gpxgenerator_path.gpx */,
 				4BA12D7D2BA004CE00BC4EB0 /* Foodle */,
 				4BA12D7C2BA004CE00BC4EB0 /* Products */,
 			);
@@ -151,6 +155,7 @@
 		4BA12D7D2BA004CE00BC4EB0 /* Foodle */ = {
 			isa = PBXGroup;
 			children = (
+				4BE209F92C58817C00060C5B /* Annotation */,
 				4BB159FE2BB5329E0090A6DE /* Utility */,
 				4BC68AB32BA2DCA800FC6546 /* Cell */,
 				4BC68AAE2BA2D7FF00FC6546 /* Model */,
@@ -241,6 +246,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		4BE209F92C58817C00060C5B /* Annotation */ = {
+			isa = PBXGroup;
+			children = (
+				4BE209FA2C5881BC00060C5B /* PlaceListAnnotation.swift */,
+			);
+			path = Annotation;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -325,6 +338,7 @@
 				4B70D9C52BF5BC1800F3C965 /* MyPlaceScrollableViewController.swift in Sources */,
 				4B70D9BD2BF5AF4D00F3C965 /* MyPlaceViewController.swift in Sources */,
 				4BC68AB02BA2DAF200FC6546 /* MainCollectionViewCell.swift in Sources */,
+				4BE209FB2C5881BC00060C5B /* PlaceListAnnotation.swift in Sources */,
 				92FABE102C172641000E2DE6 /* FriendsDetailViewController.swift in Sources */,
 				92B688632BBB177D00D7DF2C /* FriendsListViewCell.swift in Sources */,
 				4BF819382C2927F4006BE538 /* Place.swift in Sources */,
@@ -532,7 +546,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Jinhee;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -563,7 +577,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Jinhee;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

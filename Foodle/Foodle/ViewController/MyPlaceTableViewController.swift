@@ -11,12 +11,16 @@ class MyPlaceTableViewController: UIViewController {
     
     var placeListIndex: Int?
     var placeIndex: Int?
+    var place: Place?
     @IBOutlet weak var tableView: UITableView!
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? DetailPlaceViewController{
             if let placeIndex, let placeLists{
                 vc.place = placeLists[placeListIndex!].places?[placeIndex]
+            }
+            if let place{
+                vc.place = place
             }
         }
     }
@@ -46,6 +50,9 @@ extension MyPlaceTableViewController: UITableViewDataSource, UITableViewDelegate
         if let placeListIndex{
             return placeLists?[placeListIndex].places?.count ?? 0
         }
+        if let place{
+            return 1
+        }
         return 0
     }
     
@@ -66,12 +73,34 @@ extension MyPlaceTableViewController: UITableViewDataSource, UITableViewDelegate
                 }
             }
         }
+        if let target = place{
+            cell.starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
+            cell.addressLabel.text = target.address
+            cell.breakLabel.text = "휴일 " + target.close
+            cell.distanceLabel.text = target.distance
+            cell.isOpenLabel.text = target.isWorking
+            cell.placeCategoryLabel.text = target.category
+            cell.placeNameLabel.text = target.placeName
+            
+            if let imageUrlString = target.images?.first {
+                cell.placeImageView.setImageFromStringURL(imageUrlString)
+            }
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         placeIndex = indexPath.row
+        if let placeListIndex{
+            guard let target = placeLists?[placeListIndex].places?[indexPath.row] else {return}
+            NotificationCenter.default.post(name: .listPlaceSelected, object: nil, userInfo: ["place": target])
+        }
+        
         performSegue(withIdentifier: "ToDetail", sender: nil)
     }
+    
+}
 
+extension Notification.Name{
+    static let listPlaceSelected = Notification.Name("listPlaceSelected")
 }
