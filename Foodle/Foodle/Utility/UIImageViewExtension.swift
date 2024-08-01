@@ -13,12 +13,19 @@ extension UIImageView{
       if let url = URL(string: stringUrl) {
         URLSession.shared.dataTask(with: url) { (data, response, error) in
           // Error handling...
-          guard let imageData = data else { return }
+            guard let imageData = data else {
+                DispatchQueue.main.async {
+                    self.image = nil
+                }
+                return
+            }
 
           DispatchQueue.main.async {
             self.image = UIImage(data: imageData)
           }
         }.resume()
+      } else {
+          self.image = nil
       }
     }
 }

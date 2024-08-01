@@ -49,6 +49,7 @@ class SearchViewController: UIViewController {
         addSearchBar()
         mapView.showsUserLocation = true
         mapView.showsUserTrackingButton = true
+        mapView.delegate = self
         
         NotificationCenter.default.addObserver(forName: .meetingPlaceAdded, object: nil, queue: .main) { _ in
             guard let vc = addMeetingPlaceVC else {return}
