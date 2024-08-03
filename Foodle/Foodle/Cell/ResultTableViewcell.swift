@@ -18,6 +18,7 @@ class ResultTableViewcell: UITableViewCell {
     @IBOutlet weak var placeImageView: UIImageView!
     @IBOutlet weak var starButton: UIButton!
     @IBOutlet weak var addMeetingPlaceButton: UIButton!
+    @IBOutlet weak var stackView: UIStackView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,6 +28,10 @@ class ResultTableViewcell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func hideButton(_ hide: Bool){
+        addMeetingPlaceButton.isHidden = hide
     }
     
 }

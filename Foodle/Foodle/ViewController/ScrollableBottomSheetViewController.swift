@@ -62,6 +62,11 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewD
         return resultPlaces.count
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        guard newMeeting != nil else { return 170 }
+        return 218
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "resultTableViewCell") as! ResultTableViewcell
         let target = resultPlaces[indexPath.row]
@@ -71,9 +76,9 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewD
             cell.starButton.setImage(UIImage(systemName: "star"), for: .normal)
         }
         if newMeeting != nil{
-            cell.addMeetingPlaceButton.isHidden = false
+            cell.hideButton(false)
         } else {
-            cell.addMeetingPlaceButton.isHidden = true
+            cell.hideButton(true)
         }
         cell.addressLabel.text = target.address
         cell.breakLabel.text = "휴일 " + target.close
