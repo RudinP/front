@@ -15,18 +15,24 @@ class FriendsDetailViewController: UIViewController, UICollectionViewDataSource,
     
     var friendsNameText: String?
     var profileImgUrl: String?
+    var friendUid: String? 
     
-    let upcomingMeetings: [Meeting] = dummyMeetingsUpcoming
-    let placeList: [Place] = dummyPlaces
+    var upcomingMeetings: [Meeting] = []
+    var placeLists: [PlaceList]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let activityIndicator = UIActivityIndicatorView(style: .large)
+        activityIndicator.center = view.center
+        activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
         
         if let friendsNameText = friendsNameText {
             friendsNameLabel.text = friendsNameText
         }
         
-        if let profileImgUrl = profileImgUrl{
+        if let profileImgUrl = profileImgUrl {
             profileImg.setImageFromStringURL(profileImgUrl)
         }
         
@@ -35,13 +41,38 @@ class FriendsDetailViewController: UIViewController, UICollectionViewDataSource,
         
         placeCollectionView.dataSource = self
         placeCollectionView.delegate = self
+        
+        fetchMeeting(user!.uid!) { meetings in
+            DispatchQueue.global().async {
+                if let meetings = meetings {
+                    meetingsUpcoming = getUpcoming(meetings: meetings)
+                    
+                    self.upcomingMeetings = meetingsUpcoming.filter { meeting in
+                        meeting.joiners?.contains(where: { $0.uid == self.friendUid }) ?? false
+                    }
+                    
+                    DispatchQueue.main.async {
+                        self.collectionView.reloadData()
+                        activityIndicator.stopAnimating()
+                        activityIndicator.removeFromSuperview()
+                    }
+                }
+            }
+        }
+        
+        fetchPlaceLists(friendUid ?? "") { placeLists in
+            DispatchQueue.main.async {
+                self.placeLists = placeLists
+                self.placeCollectionView.reloadData()
+            }
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.collectionView {
             return upcomingMeetings.count
         } else if collectionView == self.placeCollectionView {
-            return placeList.count
+            return placeLists?.flatMap { $0.places ?? [] }.count ?? 0
         } else {
             return 0
         }
@@ -66,9 +97,10 @@ class FriendsDetailViewController: UIViewController, UICollectionViewDataSource,
                 fatalError("Unable to dequeue PlaceCollectionViewCell")
             }
             
-            let place = placeList[indexPath.item]
+            let places = placeLists?.flatMap { $0.places ?? [] } ?? []
+            let place = places[indexPath.item]
             
-            if let imageUrlString = place.images?.first{
+            if let imageUrlString = place.images?.first {
                 cell.placeImg.setImageFromStringURL(imageUrlString)
             }
             
@@ -90,4 +122,16 @@ class PlaceCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var placeImg: UIImageView!
     @IBOutlet weak var placeName: UILabel!
     @IBOutlet weak var placeButton: UIButton!
+    
+    func setImageFromStringURL(_ urlString: String) {
+        if let url = URL(string: urlString) {
+            DispatchQueue.global().async {
+                if let data = try? Data(contentsOf: url) {
+                    DispatchQueue.main.async {
+                        self.placeImg.image = UIImage(data: data)
+                    }
+                }
+            }
+        }
+    }
 }

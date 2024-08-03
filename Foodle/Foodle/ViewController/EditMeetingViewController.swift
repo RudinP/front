@@ -33,8 +33,6 @@ class EditMeetingViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     var scrollView: UIScrollView!
-    
-    var meeting = meetings
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,9 +105,9 @@ class EditMeetingViewController: UIViewController, UICollectionViewDataSource, U
     func addFriend(_ friend: Friend) {
         if let index = index {
             if self.section == 0 {
-                meetingsToday[index].joiners?.append(friend.user)
+                todayMeetings[index].joiners?.append(friend.user)
             } else if self.section == 1 {
-                meetingsUpcoming[collectionViewItem!].joiners?.append(friend.user)
+                upcomingMeetings[collectionViewItem!].joiners?.append(friend.user)
             }
         }
     }
@@ -117,9 +115,9 @@ class EditMeetingViewController: UIViewController, UICollectionViewDataSource, U
     func removeFriend(_ friend: Friend) {
         if let index = index {
             if self.section == 0 {
-                meetingsToday[index].joiners?.removeAll { $0.uid == friend.user.uid }
+                todayMeetings[index].joiners?.removeAll { $0.uid == friend.user.uid }
             } else if self.section == 1 {
-                meetingsUpcoming[collectionViewItem!].joiners?.removeAll { $0.uid == friend.user.uid }
+                upcomingMeetings[collectionViewItem!].joiners?.removeAll { $0.uid == friend.user.uid }
             }
         }
     }
@@ -127,9 +125,9 @@ class EditMeetingViewController: UIViewController, UICollectionViewDataSource, U
     func isSelected(_ friend: Friend) -> Bool {
         if let index = index {
             if self.section == 0 {
-                return meetingsToday[index].joiners?.contains(where: { $0.uid == friend.user.uid }) ?? false
+                return todayMeetings[index].joiners?.contains(where: { $0.uid == friend.user.uid }) ?? false
             } else if self.section == 1 {
-                return meetingsUpcoming[collectionViewItem!].joiners?.contains(where: { $0.uid == friend.user.uid }) ?? false
+                return upcomingMeetings[collectionViewItem!].joiners?.contains(where: { $0.uid == friend.user.uid }) ?? false
             }
         }
         return false
@@ -143,9 +141,9 @@ class EditMeetingViewController: UIViewController, UICollectionViewDataSource, U
         if collectionView == selectedName {
             if let index = index {
                 if self.section == 0 {
-                    return meetingsToday[index].joiners?.count ?? 0
+                    return todayMeetings[index].joiners?.count ?? 0
                 } else if self.section == 1 {
-                    return meetingsUpcoming[collectionViewItem!].joiners?.count ?? 0
+                    return upcomingMeetings[collectionViewItem!].joiners?.count ?? 0
                 }
             }
         }
@@ -159,9 +157,9 @@ class EditMeetingViewController: UIViewController, UICollectionViewDataSource, U
             var joiners: [User] = []
             
             if self.section == 0 {
-                joiners = meetingsToday[index!].joiners ?? []
+                joiners = todayMeetings[index!].joiners ?? []
             } else if self.section == 1 {
-                joiners = meetingsUpcoming[collectionViewItem!].joiners ?? []
+                joiners = upcomingMeetings[collectionViewItem!].joiners ?? []
             }
             
             let user = joiners[indexPath.item]
@@ -169,11 +167,10 @@ class EditMeetingViewController: UIViewController, UICollectionViewDataSource, U
             if let friend = Friends?.first(where: { $0.user.uid == user.uid }) {
                 cell.selectedName.text = friend.user.nickName
                 cell.onDeleteButtonTapped = { [weak self] in
-                    self?.removeFriend(friend)
-                    self?.selectedName.reloadData()
-                    self?.favTable.reloadData()
-                    self?.allTable.reloadData()
+                    self?.removeFriendByUID(friend.user.uid ?? "")
                 }
+            } else if user.uid == user.uid {
+                cell.selectedName.text = user.nickName
             }
             
             return cell
