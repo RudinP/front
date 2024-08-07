@@ -44,6 +44,11 @@ class SearchResultViewController: UIViewController{
         }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        resultPlaces.removeAll()
+    }
+    
 }
 extension SearchResultViewController: UISearchControllerDelegate, UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

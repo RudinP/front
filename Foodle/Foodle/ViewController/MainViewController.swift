@@ -214,9 +214,18 @@ class MainViewController: UIViewController, MainTableViewCellDelegate {
         if segue.identifier == "detailMeeting" {
             guard let detailVC = segue.destination as? DetailMeetingViewController else { return }
             
-            detailVC.section = selectedSection
-            detailVC.index = selectedIndex
-            detailVC.collectionViewItem = selectedItemIndex
+            var selectedMeeting: Meeting?
+            
+            if let index = selectedIndex {
+                if selectedSection == 0 {
+                    selectedMeeting = meetingsToday[index]
+                } else if selectedSection == 1{
+                    guard let selectedItemIndex else {return}
+                    selectedMeeting = meetingsUpcoming[selectedItemIndex]
+                }
+            }
+            
+            detailVC.selectedMeeting = selectedMeeting
         }
     }
 }
