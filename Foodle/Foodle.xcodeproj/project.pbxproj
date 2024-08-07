@@ -41,6 +41,7 @@
 		4BC68AAD2BA2B67300FC6546 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC68AAC2BA2B67300FC6546 /* MainViewController.swift */; };
 		4BC68AB02BA2DAF200FC6546 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC68AAF2BA2DAF200FC6546 /* MainCollectionViewCell.swift */; };
 		4BC68AB22BA2DBD300FC6546 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC68AB12BA2DBD300FC6546 /* MainTableViewCell.swift */; };
+		4BDCED042C63096F009EB190 /* PreferredTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDCED032C63096F009EB190 /* PreferredTime.swift */; };
 		4BE209FB2C5881BC00060C5B /* PlaceListAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE209FA2C5881BC00060C5B /* PlaceListAnnotation.swift */; };
 		4BE731832C3E2AA1008733C9 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE731822C3E2AA1008733C9 /* Server.swift */; };
 		4BE731852C3E569E008733C9 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE731842C3E569E008733C9 /* SearchResultViewController.swift */; };
@@ -100,6 +101,7 @@
 		4BC68AAC2BA2B67300FC6546 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		4BC68AAF2BA2DAF200FC6546 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		4BC68AB12BA2DBD300FC6546 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		4BDCED032C63096F009EB190 /* PreferredTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferredTime.swift; sourceTree = "<group>"; };
 		4BE209F82C587DFD00060C5B /* gpxgenerator_path.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = gpxgenerator_path.gpx; sourceTree = "<group>"; };
 		4BE209FA2C5881BC00060C5B /* PlaceListAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListAnnotation.swift; sourceTree = "<group>"; };
 		4BE731822C3E2AA1008733C9 /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				4BF8193F2C292BE5006BE538 /* User.swift */,
 				4BF819412C292ED0006BE538 /* PlaceList.swift */,
 				4B63886B2C2FB5E800ED10F0 /* Day.swift */,
+				4BDCED032C63096F009EB190 /* PreferredTime.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 				92D3DE662C2762E100CC3673 /* DetailMeetingViewController.swift in Sources */,
 				4BA12D812BA004CE00BC4EB0 /* SceneDelegate.swift in Sources */,
 				4B772F4A2C34EDEE00975B4C /* UIImageViewExtension.swift in Sources */,
+				4BDCED042C63096F009EB190 /* PreferredTime.swift in Sources */,
 				4B1122392BE33EA000A2E577 /* ScrollableBottomSheetViewController.swift in Sources */,
 				4B7395102BAC31BB006843DB /* AddMeetingPlaceViewController.swift in Sources */,
 				4B63886C2C2FB5E800ED10F0 /* Day.swift in Sources */,

@@ -13,5 +13,8 @@ struct User: Codable{
     var profileImage: String?
     var name: String?
     var nickName: String?
+    var preferredTime: PreferredTime?
+    var likeWord: [String]?
+    var dislikeWord: [String]?
 }
 
