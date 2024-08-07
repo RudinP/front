@@ -69,6 +69,12 @@ class AddMeetingPlaceViewController: UIViewController{
         if identifier != "toSearch"{
             if editableMeeting != nil{
                 editableMeeting?.origin = newMeeting
+                if let addedFriends = editableMeeting?.addedFriends{
+                    editableMeeting?.origin?.joiners?.append(contentsOf: addedFriends)
+                }
+                updateMeeting(editableMeeting?.origin) {
+                    NotificationCenter.default.post(name: .meetingAdded, object: nil, userInfo: nil)
+                }
             } else {
                 addMeeting(newMeeting){
                     NotificationCenter.default.post(name: .meetingAdded, object: nil, userInfo: nil)
