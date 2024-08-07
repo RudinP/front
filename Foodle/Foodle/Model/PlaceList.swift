@@ -37,5 +37,3 @@ extension PlaceList{
         }
     }
 }
-var dummyPlaceLists = [PlaceList(lid: 0, name: "리스트 이름", color: "", places: dummyPlaces),
-                       PlaceList(lid: 1, name: "리스트 이름2", color: "", places: [Place]())]

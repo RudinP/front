@@ -113,8 +113,3 @@ extension Place{
     }
 }
 
-let dummyPlaces: [Place] = [
-    Place(placeName: "장소1", images: ["https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190829_73%2F1567055108272gpOOC_JPEG%2FU4WOfRsgMaItW5HIhgOA5tJI.jpg","https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190829_73%2F1567055108272gpOOC_JPEG%2FU4WOfRsgMaItW5HIhgOA5tJI.jpg"], instaURL: "https://www.naver.com", rating: 4.5, reviewURL: "https://www.naver.com", category: "음식점", latitude: 23.2323, longtitude: 23.2323, address: "경기도 수원시 영통구 어쩌구", working: ["10:00~23:00","10:00~23:00","10:00~23:00","10:00~23:00","10:00~23:00","10:00~23:00","10:00~23:00"], breakTime: ["16:00~17:00","16:00~17:00","16:00~17:00","16:00~17:00","16:00~17:00","16:00~17:00","16:00~17:00"]),
-    Place(placeName: "장소2", images: ["https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190829_73%2F1567055108272gpOOC_JPEG%2FU4WOfRsgMaItW5HIhgOA5tJI.jpg","https://search.pstatic.net/common/?src=https%3A%2F%2Fldb-phinf.pstatic.net%2F20190829_73%2F1567055108272gpOOC_JPEG%2FU4WOfRsgMaItW5HIhgOA5tJI.jpg"], instaURL: "https://www.naver.com", rating: 4.5, reviewURL: "https://www.naver.com", category: "음식점", latitude: 23.2323, longtitude: 23.2323, address: "경기도 수원시 영통구 어쩌구", working: ["10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00"], breakTime: ["10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00","10:00~13:00"])
-]
-

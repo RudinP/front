@@ -20,6 +20,3 @@ extension MeetingPlace{
         return formatter.string(from: time)
     }
 }
-
-let dummyMeetingPlaces = [MeetingPlace(place: dummyPlaces[0], time: Date()), MeetingPlace(place: dummyPlaces[1], time: Date())]
-let dummyMeetingPlaces2 = [MeetingPlace(place: dummyPlaces[0], time: Date()), MeetingPlace(place: dummyPlaces[1], time: Date()), MeetingPlace(place: dummyPlaces[2], time: Date())]
