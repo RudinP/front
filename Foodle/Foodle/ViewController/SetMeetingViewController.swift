@@ -9,6 +9,8 @@ import UIKit
 
 class SetMeetingViewController: UIViewController {
     var newMeeting: Meeting?
+    var editableMeeting: EditableMeeting?
+    
     @IBOutlet weak var datePicker: UIDatePicker!
     
     @IBOutlet weak var meetingNameTextField: UITextField!
@@ -27,13 +29,15 @@ class SetMeetingViewController: UIViewController {
     
     func checkDup() -> Bool{
         for meeting in getToday(meetings: meetings, date: datePicker.date){
-            if let date = meeting.date{
-                if date.formatted() == datePicker.date.formatted(){
-                    return true
-                }
-                if let last = meeting.places?.last, let lastDate = last.time {
-                    if date < datePicker.date && lastDate > datePicker.date{
+            if meeting.mid != newMeeting?.mid{
+                if let date = meeting.date{
+                    if date.formatted() == datePicker.date.formatted(){
                         return true
+                    }
+                    if let last = meeting.places?.last, let lastDate = last.time {
+                        if date < datePicker.date && lastDate > datePicker.date{
+                            return true
+                        }
                     }
                 }
             }
@@ -54,6 +58,10 @@ class SetMeetingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if editableMeeting != nil {
+            newMeeting = editableMeeting?.origin
+        }
+        
         tableView.dataSource = self
         tableView.delegate = self
         meetingNameTextField.delegate = self
@@ -66,35 +74,37 @@ class SetMeetingViewController: UIViewController {
             if let data = noti.userInfo?["newMeeting"] as? Meeting{
                 self.newMeeting = data
             }
+            
         }
     }
     
     override func viewWillDisappear(_ animated: Bool)
-     {
-         super.viewWillDisappear(animated)
-         self.resignFirstResponder()
-         
-         if self.isMovingFromParent == true
-         {
-             if let name = meetingNameTextField.text{
-                 newMeeting?.name = name
-             }
-             newMeeting?.date = datePicker.date
-             guard let newMeeting else {return}
-             NotificationCenter.default.post(name: .poppedWhenMeetingAdding, object: nil, userInfo: ["newMeeting": newMeeting])
-         }
-     }
-
+    {
+        super.viewWillDisappear(animated)
+        self.resignFirstResponder()
+        
+        if self.isMovingFromParent == true
+        {
+            if let name = meetingNameTextField.text{
+                newMeeting?.name = name
+            }
+            newMeeting?.date = datePicker.date
+            guard let newMeeting else {return}
+            NotificationCenter.default.post(name: .poppedWhenMeetingAdding, object: nil, userInfo: ["newMeeting": newMeeting])
+        }
+        
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toAddMeetingPlace"{
             if let vc = segue.destination as? AddMeetingPlaceViewController{
+                editableMeeting?.origin = newMeeting
                 vc.newMeeting = newMeeting
+                vc.editableMeeting = editableMeeting
             }
         }
-        if let vc = segue.destination as? SelectFriendsViewController{
-            vc.newMeeting = newMeeting
-        }
+        
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {

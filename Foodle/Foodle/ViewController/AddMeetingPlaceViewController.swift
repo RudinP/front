@@ -11,6 +11,7 @@ var addMeetingPlaceVC: UIViewController?
 
 class AddMeetingPlaceViewController: UIViewController{
     var newMeeting: Meeting?
+    var editableMeeting: EditableMeeting?
     
     @IBOutlet weak var addMeetingPlaceTableView: UITableView!
     
@@ -32,6 +33,10 @@ class AddMeetingPlaceViewController: UIViewController{
         super.viewDidLoad()
         
         addMeetingPlaceVC = self
+        
+        if editableMeeting != nil {
+            newMeeting = editableMeeting?.origin
+        }
         
         if newMeeting?.places == nil{
             newMeeting?.places = [MeetingPlace]()
@@ -62,8 +67,12 @@ class AddMeetingPlaceViewController: UIViewController{
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier != "toSearch"{
-            addMeeting(newMeeting){
-                NotificationCenter.default.post(name: .meetingAdded, object: nil, userInfo: nil)
+            if editableMeeting != nil{
+                editableMeeting?.origin = newMeeting
+            } else {
+                addMeeting(newMeeting){
+                    NotificationCenter.default.post(name: .meetingAdded, object: nil, userInfo: nil)
+                }
             }
         }
         if let places = newMeeting?.places, places.isEmpty {

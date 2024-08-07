@@ -39,6 +39,12 @@ class EditMeetingViewController: UIViewController, UICollectionViewDataSource, U
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(forName: .poppedWhenMeetingAdding, object: nil, queue: .main) { noti in
+            if let data = noti.userInfo?["newMeeting"] as? Meeting{
+                self.editableMeeting?.origin = data
+            }
+        }
+        
         Friends = friends
         editableMeeting?.addedFriends = [User]()
         
@@ -61,13 +67,20 @@ class EditMeetingViewController: UIViewController, UICollectionViewDataSource, U
         
         guard let joiners = editableMeeting?.origin?.joiners else {return}
         for item in joiners{
-            guard let friend = friends?.first(where: { $0.user.uid == item.uid }) else {return}
+            guard let friend = friends?.first(where: { $0.user.uid == item.uid }) else {continue}
             updateFriendState(for: friend)
         }
+        
     }
     
     @objc func nextButtonTapped() {
         performSegue(withIdentifier: "showSetMeeting", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? SetMeetingViewController{
+            vc.editableMeeting = editableMeeting
+        }
     }
     
     func setupScrollView() {
