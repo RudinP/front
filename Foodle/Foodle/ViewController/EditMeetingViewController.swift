@@ -58,6 +58,12 @@ class EditMeetingViewController: UIViewController, UICollectionViewDataSource, U
         // favTable과 allTable의 스크롤 비활성화
         self.favTable.isScrollEnabled = false
         self.allTable.isScrollEnabled = false
+        
+        guard let joiners = editableMeeting?.origin?.joiners else {return}
+        for item in joiners{
+            guard let friend = friends?.first(where: { $0.user.uid == item.uid }) else {return}
+            updateFriendState(for: friend)
+        }
     }
     
     @objc func nextButtonTapped() {

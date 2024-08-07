@@ -54,7 +54,8 @@ class DetailMeetingViewController: UIViewController, CLLocationManagerDelegate, 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "EditMeeting" {
             if let editVC = segue.destination as? EditMeetingViewController {
-                editVC.editableMeeting?.origin = selectedMeeting
+                let editableMeeting = EditableMeeting(origin: selectedMeeting)
+                editVC.editableMeeting = editableMeeting
             }
         }
     }
