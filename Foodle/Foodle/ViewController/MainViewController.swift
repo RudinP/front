@@ -9,6 +9,7 @@ import UIKit
 
 class MainViewController: UIViewController, MainTableViewCellDelegate {
     
+    @IBOutlet weak var loadingView: UIView!
     @IBOutlet weak var floatingButton: UIButton!
     @IBOutlet weak var addMeetButton: UIButton!
     @IBOutlet weak var floatingStackView: UIStackView!
@@ -53,14 +54,19 @@ class MainViewController: UIViewController, MainTableViewCellDelegate {
 
         addSearchBar()
         updateDaily()
-        
+        configureRefreshControl()
         NotificationCenter.default.addObserver(forName: .meetingAdded, object: nil, queue: .main){_ in 
-            if let uid = user?.uid{
-                fetchMeeting(uid) { result in
-                    meetings = result
-                    DispatchQueue.main.async{
-                        self.reloadData()
-                    }
+            self.loadingView.isHidden = false
+            guard let uid = user?.uid else {
+                self.loadingView.isHidden = true
+                return
+            }
+            
+            fetchMeeting(uid) { result in
+                meetings = result
+                DispatchQueue.main.async {
+                    self.reloadData()
+                    self.loadingView.isHidden = true
                 }
             }
         }
@@ -226,6 +232,25 @@ class MainViewController: UIViewController, MainTableViewCellDelegate {
             }
             
             detailVC.selectedMeeting = selectedMeeting
+        }
+    }
+    
+    func configureRefreshControl(){
+        mainTableView.refreshControl = UIRefreshControl()
+        mainTableView.refreshControl?.addTarget(self, action: #selector(refetchData), for: .valueChanged)
+    }
+    
+    @objc func refetchData(){
+        guard let uid = user?.uid else {
+            mainTableView.refreshControl?.endRefreshing()
+            return
+        }
+        fetchMeeting(uid) { result in
+            meetings = result
+            DispatchQueue.main.async{
+                self.reloadData()
+                self.mainTableView.refreshControl?.endRefreshing()
+            }
         }
     }
 }

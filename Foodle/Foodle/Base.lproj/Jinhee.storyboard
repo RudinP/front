@@ -329,16 +329,33 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X6C-Uf-Vox">
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="NAz-qC-gOO">
+                                        <rect key="frame" x="178" y="314.66666666666669" width="37" height="37"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <constraints>
+                                    <constraint firstItem="NAz-qC-gOO" firstAttribute="centerY" secondItem="X6C-Uf-Vox" secondAttribute="centerY" id="Eb4-xY-cxM"/>
+                                    <constraint firstItem="NAz-qC-gOO" firstAttribute="centerX" secondItem="X6C-Uf-Vox" secondAttribute="centerX" id="QHG-rT-wKZ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="tintColor" name="AccentColor"/>
                         <constraints>
+                            <constraint firstItem="X6C-Uf-Vox" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="5vm-f5-DAO"/>
                             <constraint firstItem="naU-71-KJ7" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="LNZ-BM-qRl"/>
                             <constraint firstItem="naU-71-KJ7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SHG-WL-5YF"/>
+                            <constraint firstItem="X6C-Uf-Vox" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="W3k-aH-Uax"/>
                             <constraint firstItem="FnV-nd-NA8" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-30" id="cJM-hs-RJx"/>
                             <constraint firstItem="FnV-nd-NA8" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-30" id="iTh-lg-5PO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="X6C-Uf-Vox" secondAttribute="trailing" id="jKp-TS-j6k"/>
                             <constraint firstAttribute="bottom" secondItem="naU-71-KJ7" secondAttribute="bottom" id="lLn-uc-9fk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="X6C-Uf-Vox" secondAttribute="bottom" id="t3b-sE-2Fw"/>
                             <constraint firstItem="naU-71-KJ7" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="usX-Ui-iWo"/>
                         </constraints>
                     </view>
@@ -347,6 +364,7 @@
                         <outlet property="addMeetButton" destination="V5l-1f-QKf" id="VUq-Vy-h2R"/>
                         <outlet property="floatingButton" destination="Gbg-rp-Zto" id="87S-s2-uWa"/>
                         <outlet property="floatingStackView" destination="FnV-nd-NA8" id="hBy-jj-fdY"/>
+                        <outlet property="loadingView" destination="X6C-Uf-Vox" id="5Dm-fk-u1W"/>
                         <outlet property="mainTableView" destination="naU-71-KJ7" id="OhI-Hu-etg"/>
                         <segue destination="oXt-Ob-nUh" kind="show" identifier="ToProfile" id="qTS-Is-2No"/>
                         <segue destination="XcB-7E-opn" kind="show" identifier="showSearch" id="1QQ-We-7oB"/>
@@ -1837,6 +1855,9 @@
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="scrollViewTexturedBackgroundColor">
             <color red="0.43529411764705883" green="0.44313725490196076" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
