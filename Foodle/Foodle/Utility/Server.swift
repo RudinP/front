@@ -41,6 +41,7 @@ func fetchUser(_ uid: String, completion: @escaping (User?) -> Void){
         do{
             let decoder = JSONDecoder()
             let result = try decoder.decode(User.self, from: data)
+            print(result)
             completion(result)
         } catch {
             print(error)

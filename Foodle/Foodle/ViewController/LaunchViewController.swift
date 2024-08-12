@@ -24,7 +24,6 @@ class LaunchViewController: UIViewController {
         dispatchGroup.enter()
         fetchUser("1") { result in
             user = result
-            
             guard let uid = user?.uid else {
                 dispatchGroup.leave()
                 return
