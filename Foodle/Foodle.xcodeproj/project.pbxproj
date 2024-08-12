@@ -47,6 +47,7 @@
 		4BE731852C3E569E008733C9 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE731842C3E569E008733C9 /* SearchResultViewController.swift */; };
 		4BE731982C436A1C008733C9 /* LaunchingSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE731972C436A1C008733C9 /* LaunchingSegue.swift */; };
 		4BE7319A2C436AD7008733C9 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE731992C436AD7008733C9 /* LaunchViewController.swift */; };
+		4BF519BA2C69C7190082D374 /* ServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF519B92C69C7190082D374 /* ServerResponse.swift */; };
 		4BF819382C2927F4006BE538 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF819372C2927F4006BE538 /* Place.swift */; };
 		4BF8193A2C292B8E006BE538 /* MeetingPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF819392C292B8E006BE538 /* MeetingPlace.swift */; };
 		4BF8193C2C292BAE006BE538 /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF8193B2C292BAE006BE538 /* Meeting.swift */; };
@@ -108,6 +109,7 @@
 		4BE731842C3E569E008733C9 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		4BE731972C436A1C008733C9 /* LaunchingSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchingSegue.swift; sourceTree = "<group>"; };
 		4BE731992C436AD7008733C9 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		4BF519B92C69C7190082D374 /* ServerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerResponse.swift; sourceTree = "<group>"; };
 		4BF819372C2927F4006BE538 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		4BF819392C292B8E006BE538 /* MeetingPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingPlace.swift; sourceTree = "<group>"; };
 		4BF8193B2C292BAE006BE538 /* Meeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				4BF819412C292ED0006BE538 /* PlaceList.swift */,
 				4B63886B2C2FB5E800ED10F0 /* Day.swift */,
 				4BDCED032C63096F009EB190 /* PreferredTime.swift */,
+				4BF519B92C69C7190082D374 /* ServerResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				4B70D9C32BF5BAF600F3C965 /* MyPlaceTableViewCell.swift in Sources */,
 				92EA73172BF0D1830075472C /* MyPageViewController.swift in Sources */,
 				4B5D9B6F2BBE406400F1BD58 /* DetailPlaceViewController.swift in Sources */,
+				4BF519BA2C69C7190082D374 /* ServerResponse.swift in Sources */,
 				4B7395122BAC3D32006843DB /* AddMeetingPlaceTableViewCell.swift in Sources */,
 				4B70D9C52BF5BC1800F3C965 /* MyPlaceScrollableViewController.swift in Sources */,
 				4B70D9BD2BF5AF4D00F3C965 /* MyPlaceViewController.swift in Sources */,
