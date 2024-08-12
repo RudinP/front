@@ -315,8 +315,6 @@ func addMeeting(_ meeting: Meeting?, completion: @escaping () -> Void){
     
     guard let data = try? encoder.encode(meeting) else { return }
     
-    print("JSON Data: \(String(data: data, encoding: .utf8) ?? "nil")")
-    
     var request = URLRequest(url: url)
     request.httpMethod = "POST"
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -356,6 +354,38 @@ func updateFriendFavorite(_ friend: Friend?, completion: @escaping () -> Void){
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     
     print("JSON Data: \(String(data: data, encoding: .utf8) ?? "nil")")
+    
+    let task = URLSession.shared.uploadTask(with: request, from: data) { (data, response, error) in
+        if let error = error {
+            NSLog("An error has occurred: \(error.localizedDescription)")
+            return
+        }
+        
+        if let httpResponse = response as? HTTPURLResponse, !(200...299).contains(httpResponse.statusCode) {
+            NSLog("Server error: \(httpResponse.statusCode)")
+            return
+        }
+        completion()
+    }
+    
+    task.resume()
+}
+
+
+func updateMeeting(_ meeting: Meeting?, completion: @escaping () -> Void){
+    var url = url!
+    url.append(path: "/api/meetings/update")
+    
+    let encoder = JSONEncoder()
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
+    encoder.dateEncodingStrategy = .formatted(dateFormatter)
+    
+    guard let data = try? encoder.encode(meeting) else { return }
+    
+    var request = URLRequest(url: url)
+    request.httpMethod = "POST"
+    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     
     let task = URLSession.shared.uploadTask(with: request, from: data) { (data, response, error) in
         if let error = error {

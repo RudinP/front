@@ -6,7 +6,7 @@
 //
 
 import Foundation
-enum Day: String, CaseIterable{
+enum Day: String, CaseIterable, Codable{
     case 월
     case 화
     case 수

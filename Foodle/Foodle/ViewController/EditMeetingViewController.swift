@@ -7,6 +7,11 @@
 
 import UIKit
 
+struct EditableMeeting{
+    var origin: Meeting?
+    var addedFriends: [User]?
+}
+
 class EditMeetingViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var selectedName: UICollectionView!
@@ -14,13 +19,10 @@ class EditMeetingViewController: UIViewController, UICollectionViewDataSource, U
     @IBOutlet var favTable: UITableView!
     @IBOutlet var allLabel: UILabel!
     @IBOutlet var allTable: UITableView!
-    var section: Int?
-    var index: Int?
-    var collectionViewItem: Int?
     
     var Friends: [Friend]?
-    var todayMeetings: [Meeting] = meetingsToday
-    var upcomingMeetings: [Meeting] = meetingsUpcoming
+    
+    var editableMeeting: EditableMeeting?
     
     // 모든 친구 데이터 (즐겨찾기 포함)
     var allFriends: [Friend] {
@@ -37,7 +39,14 @@ class EditMeetingViewController: UIViewController, UICollectionViewDataSource, U
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(forName: .poppedWhenMeetingAdding, object: nil, queue: .main) { noti in
+            if let data = noti.userInfo?["newMeeting"] as? Meeting{
+                self.editableMeeting?.origin = data
+            }
+        }
+        
         Friends = friends
+        editableMeeting?.addedFriends = [User]()
         
         setupScrollView()
         
@@ -55,10 +64,23 @@ class EditMeetingViewController: UIViewController, UICollectionViewDataSource, U
         // favTable과 allTable의 스크롤 비활성화
         self.favTable.isScrollEnabled = false
         self.allTable.isScrollEnabled = false
+        
+        guard let joiners = editableMeeting?.origin?.joiners else {return}
+        for item in joiners{
+            guard let friend = friends?.first(where: { $0.user.uid == item.uid }) else {continue}
+            updateFriendState(for: friend)
+        }
+        
     }
     
     @objc func nextButtonTapped() {
         performSegue(withIdentifier: "showSetMeeting", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? SetMeetingViewController{
+            vc.editableMeeting = editableMeeting
+        }
     }
     
     func setupScrollView() {
@@ -92,7 +114,9 @@ class EditMeetingViewController: UIViewController, UICollectionViewDataSource, U
     
     func updateFriendState(for friend: Friend) {
         if isSelected(friend) {
-            removeFriend(friend)
+            if let addedJoiners = editableMeeting?.addedFriends, addedJoiners.contains(where: { $0.uid == friend.user.uid }){
+                removeFriend(friend)
+            }
         } else {
             addFriend(friend)
         }
@@ -103,32 +127,21 @@ class EditMeetingViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     func addFriend(_ friend: Friend) {
-        if let index = index {
-            if self.section == 0 {
-                todayMeetings[index].joiners?.append(friend.user)
-            } else if self.section == 1 {
-                upcomingMeetings[collectionViewItem!].joiners?.append(friend.user)
-            }
-        }
+        editableMeeting?.addedFriends?.append(friend.user)
     }
 
     func removeFriend(_ friend: Friend) {
-        if let index = index {
-            if self.section == 0 {
-                todayMeetings[index].joiners?.removeAll { $0.uid == friend.user.uid }
-            } else if self.section == 1 {
-                upcomingMeetings[collectionViewItem!].joiners?.removeAll { $0.uid == friend.user.uid }
-            }
-        }
+        editableMeeting?.addedFriends?.removeAll{ $0.uid == friend.user.uid }
     }
     
     func isSelected(_ friend: Friend) -> Bool {
-        if let index = index {
-            if self.section == 0 {
-                return todayMeetings[index].joiners?.contains(where: { $0.uid == friend.user.uid }) ?? false
-            } else if self.section == 1 {
-                return upcomingMeetings[collectionViewItem!].joiners?.contains(where: { $0.uid == friend.user.uid }) ?? false
-            }
+        guard let joiners = editableMeeting?.origin?.joiners else {return false}
+        if joiners.contains(where: { $0.uid == friend.user.uid }){
+            return true
+        }
+        guard let addedJoiners = editableMeeting?.addedFriends else {return false}
+        if addedJoiners.contains(where: { $0.uid == friend.user.uid }){
+            return true
         }
         return false
     }
@@ -139,13 +152,7 @@ class EditMeetingViewController: UIViewController, UICollectionViewDataSource, U
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == selectedName {
-            if let index = index {
-                if self.section == 0 {
-                    return todayMeetings[index].joiners?.count ?? 0
-                } else if self.section == 1 {
-                    return upcomingMeetings[collectionViewItem!].joiners?.count ?? 0
-                }
-            }
+            return (editableMeeting?.origin?.joiners?.count ?? 0) + (editableMeeting?.addedFriends?.count ?? 0)
         }
         return 0
     }
@@ -154,12 +161,9 @@ class EditMeetingViewController: UIViewController, UICollectionViewDataSource, U
         if collectionView == selectedName {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EditMeetingSelectFriendsNameCell", for: indexPath) as! EditMeetingSelectFriendsNameCollectionViewCell
             
-            var joiners: [User] = []
-            
-            if self.section == 0 {
-                joiners = todayMeetings[index!].joiners ?? []
-            } else if self.section == 1 {
-                joiners = upcomingMeetings[collectionViewItem!].joiners ?? []
+            var joiners = editableMeeting?.origin?.joiners ?? []
+            if let content = editableMeeting?.addedFriends{
+                joiners.append(contentsOf: content)
             }
             
             let user = joiners[indexPath.item]
@@ -167,7 +171,9 @@ class EditMeetingViewController: UIViewController, UICollectionViewDataSource, U
             if let friend = Friends?.first(where: { $0.user.uid == user.uid }) {
                 cell.selectedName.text = friend.user.nickName
                 cell.onDeleteButtonTapped = { [weak self] in
-                    self?.removeFriendByUID(friend.user.uid ?? "")
+                    if let joiners = self?.editableMeeting?.addedFriends, joiners.contains(where: {$0.uid == user.uid}){
+                        self?.removeFriendByUID(friend.user.uid ?? "")
+                    }
                 }
             } else if user.uid == user.uid {
                 cell.selectedName.text = user.nickName
