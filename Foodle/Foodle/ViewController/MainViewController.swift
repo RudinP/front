@@ -57,17 +57,23 @@ class MainViewController: UIViewController, MainTableViewCellDelegate {
         configureRefreshControl()
         NotificationCenter.default.addObserver(forName: .meetingAdded, object: nil, queue: .main){_ in 
             self.loadingView.isHidden = false
+            let group = DispatchGroup()
+            
+            group.enter()
             guard let uid = user?.uid else {
                 self.loadingView.isHidden = true
+                group.leave()
                 return
             }
             
             fetchMeeting(uid) { result in
                 meetings = result
-                DispatchQueue.main.async {
-                    self.reloadData()
-                    self.loadingView.isHidden = true
-                }
+                group.leave()
+            }
+            
+            group.notify(queue: .main) {
+                self.reloadData()
+                self.loadingView.isHidden = true
             }
         }
     }
