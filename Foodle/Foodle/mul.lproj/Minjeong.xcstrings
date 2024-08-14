@@ -361,6 +361,30 @@
         }
       }
     },
+    "I6r-8r-5WU.configuration.title" : {
+      "comment" : "Class = \"UIButton\"; configuration.title = \"로그아웃\"; ObjectID = \"I6r-8r-5WU\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "로그아웃"
+          }
+        }
+      }
+    },
+    "I6r-8r-5WU.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"I6r-8r-5WU\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        }
+      }
+    },
     "ifE-1T-wMm.text" : {
       "comment" : "Class = \"UILabel\"; text = \"즐겨찾기한 친구\"; ObjectID = \"ifE-1T-wMm\";",
       "extractionState" : "extracted_with_value",

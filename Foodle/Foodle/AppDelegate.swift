@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import KakaoSDKCommon
 
 var url = URL(string:"http://ec2-3-39-156-254.ap-northeast-2.compute.amazonaws.com:8080")
 
@@ -15,6 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // 메인번들에 있는 카카오 앱키 불러오기
+        let kakaoAppKey = Bundle.main.infoDictionary?["KAKAO_NATIVE_APP_KEY"] ?? ""
+        
+        // kakao SDK 초기화
+        KakaoSDK.initSDK(appKey: kakaoAppKey as! String)
         
         let appearance = UITabBarAppearance()
         let tabBar = UITabBar()
