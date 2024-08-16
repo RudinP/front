@@ -13,6 +13,7 @@ var url = URL(string:"http://ec2-3-39-156-254.ap-northeast-2.compute.amazonaws.c
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -33,6 +34,60 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        if let kakaoAppKey = Bundle.main.infoDictionary?["KAKAO_NATIVE_APP_KEY"] as? String {
+            if url.scheme == "kakao\(kakaoAppKey)" {
+                if let components = URLComponents(url: url, resolvingAgainstBaseURL: false) {
+                    if let queryItems = components.queryItems {
+                        let params = queryItems.reduce(into: [String: String]()) { (result, item) in
+                            result[item.name] = item.value
+                        }
+                        handleKakaoLink(params: params)
+                    }
+                }
+                return true
+            }
+        }
+        return false
+    }
+
+    func handleKakaoLink(params: [String: String]) {
+        if let uid = params["uid"], let fid = params["fid"] {
+            // 친구 추가 로직
+            print("Add friend with uid: \(uid), fid: \(fid)")
+            
+            // 서버에 친구 추가 요청을 보내기
+            let urlString = "http://3.39.156.254:8080/api/friends/Create?uid=\(uid)&fid=\(fid)"
+            
+            guard let url = URL(string: urlString) else {
+                print("Invalid URL")
+                return
+            }
+            
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                if let error = error {
+                    print("Error: \(error.localizedDescription)")
+                    return
+                }
+                
+                guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                    print("Invalid response")
+                    return
+                }
+                
+                if let data = data {
+                    let responseString = String(data: data, encoding: .utf8)
+                    print("Response: \(responseString ?? "")")
+                }
+            }
+            
+            task.resume()
+        }
+    }
+
     // MARK: UISceneSession Lifecycle
     
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
