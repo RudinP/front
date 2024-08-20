@@ -8,6 +8,7 @@
 import UIKit
 import CoreData
 import NaverThirdPartyLogin
+import KakaoSDKCommon
 
 var url = URL(string:"http://ec2-3-39-156-254.ap-northeast-2.compute.amazonaws.com:8080")
 
@@ -25,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().scrollEdgeAppearance = appearance
         
         settingNaverSNSLogin()
+        let kakaoAppKey = Bundle.main.infoDictionary?["KAKAO_NATIVE_APP_KEY"] ?? ""
+        KakaoSDK.initSDK(appKey: kakaoAppKey as! String)
         
         return true
     }

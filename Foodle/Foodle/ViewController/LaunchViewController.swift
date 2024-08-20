@@ -8,24 +8,22 @@
 import UIKit
 
 class LaunchViewController: UIViewController {
-    
-    @IBAction func login(_ sender: Any) {
-        NaverSNSLogin.shared.login()
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
-//        prepareData {
-//            DispatchQueue.main.async{
-//                self.performSegue(withIdentifier: "didFinishLoading", sender: nil)
-//            }
-//        }
+        prepareData {
+            DispatchQueue.main.async{
+                self.performSegue(withIdentifier: "didFinishLoading", sender: nil)
+            }
+        }
     }
     
     final func prepareData(completion: @escaping () -> Void){
         let dispatchGroup = DispatchGroup()
         
+        let uid = user?.uid ?? "1"
+        
         dispatchGroup.enter()
-        fetchUser("1") { result in
+        fetchUser(uid) { result in
             user = result
             guard let uid = user?.uid else {
                 dispatchGroup.leave()

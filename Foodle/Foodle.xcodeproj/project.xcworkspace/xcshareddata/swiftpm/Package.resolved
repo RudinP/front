@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "kakao-ios-sdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kakao/kakao-ios-sdk",
+      "state" : {
+        "branch" : "master",
+        "revision" : "66b3bddc2657e8ccb7a16fa0264aac99c57be09b"
+      }
+    },
+    {
       "identity" : "naveridlogin-sdk-ios",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/naver/naveridlogin-sdk-ios",

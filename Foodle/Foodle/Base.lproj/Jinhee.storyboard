@@ -1060,7 +1060,7 @@
         <!--Launch View Controller-->
         <scene sceneID="x3H-2z-ALg">
             <objects>
-                <viewController id="UnA-Zd-0y7" customClass="LaunchViewController" customModule="Foodle" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LaunchVC" id="UnA-Zd-0y7" customClass="LaunchViewController" customModule="Foodle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IVg-7k-QUG">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1076,15 +1076,6 @@
                                     </activityIndicatorView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6V-aa-me3">
-                                <rect key="frame" x="159" y="129" width="75" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
-                                <connections>
-                                    <action selector="login:" destination="UnA-Zd-0y7" eventType="touchUpInside" id="IEM-TM-MxO"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bdS-HM-JYY"/>
                         <color key="backgroundColor" name="AccentColor"/>

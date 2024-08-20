@@ -40,6 +40,11 @@
 		4BB92B792C72F9BE000DFE0A /* NaverSNSLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB92B782C72F9BE000DFE0A /* NaverSNSLogin.swift */; };
 		4BB92B7C2C72FAAF000DFE0A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4BB92B7B2C72FAAF000DFE0A /* Alamofire */; };
 		4BB92B7E2C72FAAF000DFE0A /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 4BB92B7D2C72FAAF000DFE0A /* AlamofireDynamic */; };
+		4BB92B812C748554000DFE0A /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 4BB92B802C748554000DFE0A /* KakaoSDK */; };
+		4BB92B832C748554000DFE0A /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 4BB92B822C748554000DFE0A /* KakaoSDKAuth */; };
+		4BB92B852C748554000DFE0A /* KakaoSDKCert in Frameworks */ = {isa = PBXBuildFile; productRef = 4BB92B842C748554000DFE0A /* KakaoSDKCert */; };
+		4BB92B872C748554000DFE0A /* KakaoSDKCertCore in Frameworks */ = {isa = PBXBuildFile; productRef = 4BB92B862C748554000DFE0A /* KakaoSDKCertCore */; };
+		4BB92B892C748554000DFE0A /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 4BB92B882C748554000DFE0A /* KakaoSDKCommon */; };
 		4BB965C92C23C33F00F7E429 /* AddListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB965C82C23C33F00F7E429 /* AddListViewController.swift */; };
 		4BB965CB2C23C44D00F7E429 /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB965CA2C23C44D00F7E429 /* ColorCollectionViewCell.swift */; };
 		4BC68AAD2BA2B67300FC6546 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC68AAC2BA2B67300FC6546 /* MainViewController.swift */; };
@@ -62,7 +67,7 @@
 		920E00012C4977EB00BAEA25 /* EditMeetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920E00002C4977EB00BAEA25 /* EditMeetingViewController.swift */; };
 		923B80FE2C0230C600B771E7 /* ScheduleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B80FD2C0230C600B771E7 /* ScheduleListViewController.swift */; };
 		927E19CE2C0239AD004D9F96 /* Minjeong.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 927E19CD2C0239AD004D9F96 /* Minjeong.storyboard */; };
-		92B688482BB0A20400D7DF2C /* LoginViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B688472BB0A20400D7DF2C /* LoginViewCell.swift */; };
+		92B688482BB0A20400D7DF2C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B688472BB0A20400D7DF2C /* LoginViewController.swift */; };
 		92B688632BBB177D00D7DF2C /* FriendsListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B688622BBB177D00D7DF2C /* FriendsListViewCell.swift */; };
 		92D3DE662C2762E100CC3673 /* DetailMeetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D3DE652C2762E100CC3673 /* DetailMeetingViewController.swift */; };
 		92EA73172BF0D1830075472C /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA73162BF0D1830075472C /* MyPageViewController.swift */; };
@@ -102,6 +107,7 @@
 		4BA12D8F2BA004CF00BC4EB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BB159FF2BB532BC0090A6DE /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		4BB92B782C72F9BE000DFE0A /* NaverSNSLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverSNSLogin.swift; sourceTree = "<group>"; };
+		4BB92B8A2C748675000DFE0A /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		4BB965C82C23C33F00F7E429 /* AddListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListViewController.swift; sourceTree = "<group>"; };
 		4BB965CA2C23C44D00F7E429 /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		4BC68AAC2BA2B67300FC6546 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -126,7 +132,7 @@
 		923B80FD2C0230C600B771E7 /* ScheduleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleListViewController.swift; sourceTree = "<group>"; };
 		927E19CC2C0239AD004D9F96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Minjeong.storyboard; sourceTree = "<group>"; };
 		927E19CF2C0239AD004D9F96 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/Minjeong.xcstrings; sourceTree = "<group>"; };
-		92B688472BB0A20400D7DF2C /* LoginViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewCell.swift; sourceTree = "<group>"; };
+		92B688472BB0A20400D7DF2C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		92B688622BBB177D00D7DF2C /* FriendsListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListViewCell.swift; sourceTree = "<group>"; };
 		92D3DE652C2762E100CC3673 /* DetailMeetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMeetingViewController.swift; sourceTree = "<group>"; };
 		92EA73162BF0D1830075472C /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
@@ -138,9 +144,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BB92B892C748554000DFE0A /* KakaoSDKCommon in Frameworks */,
 				4BB92B772C72F693000DFE0A /* NaverThirdPartyLogin in Frameworks */,
+				4BB92B812C748554000DFE0A /* KakaoSDK in Frameworks */,
 				4BB92B7E2C72FAAF000DFE0A /* AlamofireDynamic in Frameworks */,
+				4BB92B852C748554000DFE0A /* KakaoSDKCert in Frameworks */,
 				4BB92B7C2C72FAAF000DFE0A /* Alamofire in Frameworks */,
+				4BB92B832C748554000DFE0A /* KakaoSDKAuth in Frameworks */,
+				4BB92B872C748554000DFE0A /* KakaoSDKCertCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +191,7 @@
 				4BA12D8C2BA004CF00BC4EB0 /* LaunchScreen.storyboard */,
 				4BA12D8F2BA004CF00BC4EB0 /* Info.plist */,
 				4BA12D872BA004CE00BC4EB0 /* Foodle.xcdatamodeld */,
+				4BB92B8A2C748675000DFE0A /* Config.xcconfig */,
 				4B5D9B722BBE53A400F1BD58 /* Settings.bundle */,
 			);
 			path = Foodle;
@@ -188,6 +200,7 @@
 		4BA12D972BA2AAA800BC4EB0 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				92B688472BB0A20400D7DF2C /* LoginViewController.swift */,
 				92EA73162BF0D1830075472C /* MyPageViewController.swift */,
 				4BC68AAC2BA2B67300FC6546 /* MainViewController.swift */,
 				4B73950B2BAC3187006843DB /* SelectFriendsViewController.swift */,
@@ -249,7 +262,6 @@
 				4BC68AAF2BA2DAF200FC6546 /* MainCollectionViewCell.swift */,
 				4B1261362BA31450002F52BD /* UpcomingCollectionViewCell.swift */,
 				4B7395112BAC3D32006843DB /* AddMeetingPlaceTableViewCell.swift */,
-				92B688472BB0A20400D7DF2C /* LoginViewCell.swift */,
 				92B688622BBB177D00D7DF2C /* FriendsListViewCell.swift */,
 				4B5D9B702BBE4CB200F1BD58 /* PlaceImageCollectionViewCell.swift */,
 				4B11223F2BE351D200A2E577 /* ResultTableViewcell.swift */,
@@ -289,6 +301,11 @@
 				4BB92B762C72F693000DFE0A /* NaverThirdPartyLogin */,
 				4BB92B7B2C72FAAF000DFE0A /* Alamofire */,
 				4BB92B7D2C72FAAF000DFE0A /* AlamofireDynamic */,
+				4BB92B802C748554000DFE0A /* KakaoSDK */,
+				4BB92B822C748554000DFE0A /* KakaoSDKAuth */,
+				4BB92B842C748554000DFE0A /* KakaoSDKCert */,
+				4BB92B862C748554000DFE0A /* KakaoSDKCertCore */,
+				4BB92B882C748554000DFE0A /* KakaoSDKCommon */,
 			);
 			productName = Foodle;
 			productReference = 4BA12D7B2BA004CE00BC4EB0 /* Foodle.app */;
@@ -321,6 +338,7 @@
 			packageReferences = (
 				4BB92B752C72F693000DFE0A /* XCRemoteSwiftPackageReference "naveridlogin-sdk-ios" */,
 				4BB92B7A2C72FAAF000DFE0A /* XCRemoteSwiftPackageReference "Alamofire" */,
+				4BB92B7F2C748554000DFE0A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 			);
 			productRefGroup = 4BA12D7C2BA004CE00BC4EB0 /* Products */;
 			projectDirPath = "";
@@ -382,7 +400,7 @@
 				4BF8193E2C292BD6006BE538 /* Friend.swift in Sources */,
 				4B73950E2BAC31A4006843DB /* SetMeetingViewController.swift in Sources */,
 				4B772F4C2C34F1DD00975B4C /* UIColorExtension.swift in Sources */,
-				92B688482BB0A20400D7DF2C /* LoginViewCell.swift in Sources */,
+				92B688482BB0A20400D7DF2C /* LoginViewController.swift in Sources */,
 				4BE731852C3E569E008733C9 /* SearchResultViewController.swift in Sources */,
 				4B23DBDF2BFEF09600E5E4FD /* MyPlaceTableViewController.swift in Sources */,
 				4BE731982C436A1C008733C9 /* LaunchingSegue.swift in Sources */,
@@ -439,6 +457,7 @@
 /* Begin XCBuildConfiguration section */
 		4BA12D902BA004CF00BC4EB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4BB92B8A2C748675000DFE0A /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -502,6 +521,7 @@
 		};
 		4BA12D912BA004CF00BC4EB0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4BB92B8A2C748675000DFE0A /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -558,6 +578,7 @@
 		};
 		4BA12D932BA004CF00BC4EB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4BB92B8A2C748675000DFE0A /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -590,6 +611,7 @@
 		};
 		4BA12D942BA004CF00BC4EB0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4BB92B8A2C748675000DFE0A /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -660,6 +682,14 @@
 				minimumVersion = 5.9.1;
 			};
 		};
+		4BB92B7F2C748554000DFE0A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -677,6 +707,31 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4BB92B7A2C72FAAF000DFE0A /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = AlamofireDynamic;
+		};
+		4BB92B802C748554000DFE0A /* KakaoSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4BB92B7F2C748554000DFE0A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDK;
+		};
+		4BB92B822C748554000DFE0A /* KakaoSDKAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4BB92B7F2C748554000DFE0A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKAuth;
+		};
+		4BB92B842C748554000DFE0A /* KakaoSDKCert */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4BB92B7F2C748554000DFE0A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKCert;
+		};
+		4BB92B862C748554000DFE0A /* KakaoSDKCertCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4BB92B7F2C748554000DFE0A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKCertCore;
+		};
+		4BB92B882C748554000DFE0A /* KakaoSDKCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4BB92B7F2C748554000DFE0A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKCommon;
 		};
 /* End XCSwiftPackageProductDependency section */
 
