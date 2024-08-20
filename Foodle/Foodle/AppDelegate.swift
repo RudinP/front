@@ -9,6 +9,7 @@ import UIKit
 import CoreData
 import KakaoSDKCommon
 import NaverThirdPartyLogin
+import KakaoSDKCommon
 
 var url = URL(string:"http://ec2-3-39-156-254.ap-northeast-2.compute.amazonaws.com:8080")
 
@@ -18,12 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        // 메인번들에 있는 카카오 앱키 불러오기
-        let kakaoAppKey = Bundle.main.infoDictionary?["KAKAO_NATIVE_APP_KEY"] ?? ""
-        
-        // kakao SDK 초기화
-        KakaoSDK.initSDK(appKey: kakaoAppKey as! String)
+    
         
         let appearance = UITabBarAppearance()
         let tabBar = UITabBar()
@@ -33,6 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().scrollEdgeAppearance = appearance
         
         settingNaverSNSLogin()
+        let kakaoAppKey = Bundle.main.infoDictionary?["KAKAO_NATIVE_APP_KEY"] ?? ""
+        KakaoSDK.initSDK(appKey: kakaoAppKey as! String)
         
         return true
     }
@@ -50,6 +48,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
                 return true
             }
+        } else {
+            NaverThirdPartyLoginConnection.getSharedInstance().application(app, open: url, options: options)
         }
         return false
     }
@@ -107,10 +107,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             instance?.consumerSecret = "MRUyHLBRkT"
             instance?.appName = "foodle"
         }
-    
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        NaverThirdPartyLoginConnection.getSharedInstance().application(app, open: url, options: options)
-    }
+
 
     // MARK: UISceneSession Lifecycle
     

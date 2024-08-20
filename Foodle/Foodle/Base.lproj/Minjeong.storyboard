@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -11,10 +11,20 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Jinhee-->
+        <scene sceneID="GI7-Mr-DqZ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Jinhee" id="eiM-wB-95g" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="l8G-On-X3J"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="98j-NV-UIH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="599" y="-557"/>
+        </scene>
         <!--로그인-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="LoginView" title="로그인" id="Y6W-OH-hqX" customClass="LoginViewCell" customModule="Foodle" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginView" title="로그인" id="Y6W-OH-hqX" customClass="LoginViewController" customModule="Foodle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" autoresizesSubviews="NO" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -51,7 +61,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button" image="icon_naver.png"/>
                                 <connections>
-                                    <segue destination="VjF-NV-nZS" kind="show" id="SUG-wf-gkr"/>
+                                    <action selector="naverLogin:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="OhR-Iq-FpB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pKz-DV-b4O">
@@ -61,9 +71,6 @@
                                     <accessibilityTraits key="traits" button="YES" image="YES"/>
                                 </accessibility>
                                 <state key="normal" title="Button" image="icon_apple_2.jpg"/>
-                                <connections>
-                                    <segue destination="VjF-NV-nZS" kind="show" id="PF0-uy-KCr"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="개인정보 이용 처리 방침" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F6u-4h-fWU">
                                 <rect key="frame" x="93" y="671" width="206" height="27"/>
@@ -90,6 +97,7 @@
                         <outlet property="logoutButton" destination="I6r-8r-5WU" id="uBY-9W-EUa"/>
                         <outlet property="naverButton" destination="rpc-w2-bMt" id="2kG-cD-fFL"/>
                         <outlet property="privacyLabel" destination="F6u-4h-fWU" id="Anw-ie-y7A"/>
+                        <segue destination="eiM-wB-95g" kind="show" identifier="toLaunch" id="3dY-cQ-kcL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -737,7 +745,7 @@
             <objects>
                 <viewController title="마이페이지" id="VjF-NV-nZS" customClass="MyPageViewController" customModule="Foodle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iRJ-dV-lL5">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GYt-i3-ZyA">
@@ -1232,9 +1240,6 @@
             <point key="canvasLocation" x="-1846" y="1025"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="PF0-uy-KCr"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="calendar" catalog="system" width="128" height="107"/>
         <image name="circle.fill" catalog="system" width="128" height="123"/>

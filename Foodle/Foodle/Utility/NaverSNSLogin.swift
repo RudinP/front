@@ -18,9 +18,14 @@ class NaverSNSLogin: NSObject {
         fetchUser(uid) { result in
             guard let result else {
                 createUser(userInfo) {
+                    guard let uid = userInfo.uid else {return}
+                    fetchUser(uid) { result in
+                        user = result
+                    }
                 }
                 return
             }
+            user = result
             print(result)
         }
         
@@ -56,7 +61,7 @@ class NaverSNSLogin: NSObject {
         
         guard let isValidAccessToken = instance?.isValidAccessTokenExpireTimeNow() else {
             //로그인 필요
-            login()
+            login(){}
             return
         }
         
@@ -70,7 +75,7 @@ class NaverSNSLogin: NSObject {
     }
     
     //로그인 한다.
-    func login() {
+    func login(completion: @escaping () -> Void) {
         instance?.delegate = self
         instance?.requestThirdPartyLogin()
     }
