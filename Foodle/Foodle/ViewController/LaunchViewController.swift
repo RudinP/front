@@ -9,13 +9,16 @@ import UIKit
 
 class LaunchViewController: UIViewController {
     
+    @IBAction func login(_ sender: Any) {
+        NaverSNSLogin.shared.login()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        prepareData {
-            DispatchQueue.main.async{
-                self.performSegue(withIdentifier: "didFinishLoading", sender: nil)
-            }
-        }
+//        prepareData {
+//            DispatchQueue.main.async{
+//                self.performSegue(withIdentifier: "didFinishLoading", sender: nil)
+//            }
+//        }
     }
     
     final func prepareData(completion: @escaping () -> Void){
