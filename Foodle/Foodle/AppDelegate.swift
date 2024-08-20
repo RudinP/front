@@ -19,12 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        // 메인번들에 있는 카카오 앱키 불러오기
-        let kakaoAppKey = Bundle.main.infoDictionary?["KAKAO_NATIVE_APP_KEY"] ?? ""
-        
-        // kakao SDK 초기화
-        KakaoSDK.initSDK(appKey: kakaoAppKey as! String)
+    
         
         let appearance = UITabBarAppearance()
         let tabBar = UITabBar()
@@ -53,6 +48,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
                 return true
             }
+        } else {
+            NaverThirdPartyLoginConnection.getSharedInstance().application(app, open: url, options: options)
         }
         return false
     }
@@ -110,10 +107,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             instance?.consumerSecret = "MRUyHLBRkT"
             instance?.appName = "foodle"
         }
-    
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        NaverThirdPartyLoginConnection.getSharedInstance().application(app, open: url, options: options)
-    }
+
 
     // MARK: UISceneSession Lifecycle
     
