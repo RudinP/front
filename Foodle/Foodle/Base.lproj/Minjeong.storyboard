@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -41,6 +42,9 @@
                                 </accessibility>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button" image="icon_kakao.png"/>
+                                <connections>
+                                    <segue destination="VjF-NV-nZS" kind="show" id="ppV-Bb-Hpv"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rpc-w2-bMt">
                                 <rect key="frame" x="156" y="385" width="80" height="80"/>
@@ -72,12 +76,6 @@
                                 <color key="textColor" name="AccentColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I6r-8r-5WU">
-                                <rect key="frame" x="152" y="542" width="83" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="로그아웃"/>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -87,7 +85,6 @@
                         <outlet property="kakaoButton" destination="wHp-xW-TCD" id="iXg-6J-iRa"/>
                         <outlet property="loginLabel" destination="Mge-M9-bXJ" id="JwX-dR-Rai"/>
                         <outlet property="loginLabel2" destination="0Mo-aH-5HO" id="5oh-UE-hnK"/>
-                        <outlet property="logoutButton" destination="I6r-8r-5WU" id="uBY-9W-EUa"/>
                         <outlet property="naverButton" destination="rpc-w2-bMt" id="2kG-cD-fFL"/>
                         <outlet property="privacyLabel" destination="F6u-4h-fWU" id="Anw-ie-y7A"/>
                     </connections>
@@ -1233,7 +1230,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="PF0-uy-KCr"/>
+        <segue reference="SUG-wf-gkr"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="calendar" catalog="system" width="128" height="107"/>
