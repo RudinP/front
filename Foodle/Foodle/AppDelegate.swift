@@ -8,6 +8,7 @@
 import UIKit
 import CoreData
 import KakaoSDKCommon
+import NaverThirdPartyLogin
 
 var url = URL(string:"http://ec2-3-39-156-254.ap-northeast-2.compute.amazonaws.com:8080")
 
@@ -30,6 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         appearance.backgroundColor = UIColor.white
         tabBar.standardAppearance = appearance;
         UITabBar.appearance().scrollEdgeAppearance = appearance
+        
+        settingNaverSNSLogin()
         
         return true
     }
@@ -86,6 +89,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             task.resume()
         }
+    }
+
+    /// 네이버 로그인 셋팅
+        func settingNaverSNSLogin() {
+            
+            let instance = NaverThirdPartyLoginConnection.getSharedInstance()
+            //네이버 앱으로 인증하는 방식 활성화
+            instance?.isNaverAppOauthEnable = true
+            //SafariViewController에서 인증하는 방식 활성화
+            instance?.isInAppOauthEnable = true
+            //인증 화면을 아이폰의 세로모드에서만 적용
+            instance?.isOnlyPortraitSupportedInIphone()
+            
+            instance?.serviceUrlScheme = "foodle"
+            instance?.consumerKey = "WLeUMAvND1zA5FO1oAG8"
+            instance?.consumerSecret = "MRUyHLBRkT"
+            instance?.appName = "foodle"
+        }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        NaverThirdPartyLoginConnection.getSharedInstance().application(app, open: url, options: options)
     }
 
     // MARK: UISceneSession Lifecycle

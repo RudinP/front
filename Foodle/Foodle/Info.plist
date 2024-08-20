@@ -10,6 +10,7 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>kakao${KAKAO_NATIVE_APP_KEY}</string>
+        <string>foodle</string>
 			</array>
 		</dict>
 	</array>
@@ -19,7 +20,11 @@
 	<array>
 		<string>kakaokompassauth</string>
 		<string>kakaolink</string>
+    <string>naversearchapp</string>
+		<string>naversearchthridlogin</string>
 	</array>
+  <key>CFBundleURLName</key>
+			<string>com.SSFC.Foodle</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

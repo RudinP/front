@@ -36,6 +36,10 @@
 		4BA12D8B2BA004CF00BC4EB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BA12D8A2BA004CF00BC4EB0 /* Assets.xcassets */; };
 		4BA12D8E2BA004CF00BC4EB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA12D8C2BA004CF00BC4EB0 /* LaunchScreen.storyboard */; };
 		4BB15A002BB532BC0090A6DE /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB159FF2BB532BC0090A6DE /* UIImageExtension.swift */; };
+		4BB92B772C72F693000DFE0A /* NaverThirdPartyLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 4BB92B762C72F693000DFE0A /* NaverThirdPartyLogin */; };
+		4BB92B792C72F9BE000DFE0A /* NaverSNSLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB92B782C72F9BE000DFE0A /* NaverSNSLogin.swift */; };
+		4BB92B7C2C72FAAF000DFE0A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4BB92B7B2C72FAAF000DFE0A /* Alamofire */; };
+		4BB92B7E2C72FAAF000DFE0A /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 4BB92B7D2C72FAAF000DFE0A /* AlamofireDynamic */; };
 		4BB965C92C23C33F00F7E429 /* AddListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB965C82C23C33F00F7E429 /* AddListViewController.swift */; };
 		4BB965CB2C23C44D00F7E429 /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB965CA2C23C44D00F7E429 /* ColorCollectionViewCell.swift */; };
 		4BC68AAD2BA2B67300FC6546 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC68AAC2BA2B67300FC6546 /* MainViewController.swift */; };
@@ -111,6 +115,7 @@
 		4BA12D8D2BA004CF00BC4EB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4BA12D8F2BA004CF00BC4EB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BB159FF2BB532BC0090A6DE /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		4BB92B782C72F9BE000DFE0A /* NaverSNSLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverSNSLogin.swift; sourceTree = "<group>"; };
 		4BB965C82C23C33F00F7E429 /* AddListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListViewController.swift; sourceTree = "<group>"; };
 		4BB965CA2C23C44D00F7E429 /* ColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		4BC68AAC2BA2B67300FC6546 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +166,9 @@
 				920E00322C6D494700BAEA25 /* KakaoSDKTalk in Frameworks */,
 				920E002A2C6D494700BAEA25 /* KakaoSDKFriend in Frameworks */,
 				920E00302C6D494700BAEA25 /* KakaoSDKShare in Frameworks */,
+				4BB92B772C72F693000DFE0A /* NaverThirdPartyLogin in Frameworks */,
+				4BB92B7E2C72FAAF000DFE0A /* AlamofireDynamic in Frameworks */,
+				4BB92B7C2C72FAAF000DFE0A /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +251,7 @@
 				4BE731822C3E2AA1008733C9 /* Server.swift */,
 				4BE731972C436A1C008733C9 /* LaunchingSegue.swift */,
 				4B1C91AF2C4611BC00CCB03E /* URLExtension.swift */,
+				4BB92B782C72F9BE000DFE0A /* NaverSNSLogin.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -319,6 +328,9 @@
 				920E00312C6D494700BAEA25 /* KakaoSDKTalk */,
 				920E00332C6D494700BAEA25 /* KakaoSDKTemplate */,
 				920E00352C6D494700BAEA25 /* KakaoSDKUser */,
+				4BB92B762C72F693000DFE0A /* NaverThirdPartyLogin */,
+				4BB92B7B2C72FAAF000DFE0A /* Alamofire */,
+				4BB92B7D2C72FAAF000DFE0A /* AlamofireDynamic */,
 			);
 			productName = Foodle;
 			productReference = 4BA12D7B2BA004CE00BC4EB0 /* Foodle.app */;
@@ -350,6 +362,8 @@
 			mainGroup = 4BA12D722BA004CE00BC4EB0;
 			packageReferences = (
 				920E001E2C6D494700BAEA25 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				4BB92B752C72F693000DFE0A /* XCRemoteSwiftPackageReference "naveridlogin-sdk-ios" */,
+				4BB92B7A2C72FAAF000DFE0A /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 4BA12D7C2BA004CE00BC4EB0 /* Products */;
 			projectDirPath = "";
@@ -401,6 +415,7 @@
 				4B5D9B712BBE4CB200F1BD58 /* PlaceImageCollectionViewCell.swift in Sources */,
 				4B1122372BE33BA500A2E577 /* UIViewExtension.swift in Sources */,
 				4BB965C92C23C33F00F7E429 /* AddListViewController.swift in Sources */,
+				4BB92B792C72F9BE000DFE0A /* NaverSNSLogin.swift in Sources */,
 				4BE7319A2C436AD7008733C9 /* LaunchViewController.swift in Sources */,
 				4BA12D892BA004CE00BC4EB0 /* Foodle.xcdatamodeld in Sources */,
 				4B73950C2BAC3187006843DB /* SelectFriendsViewController.swift in Sources */,
@@ -681,6 +696,9 @@
 		920E001E2C6D494700BAEA25 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+		4BB92B752C72F693000DFE0A /* XCRemoteSwiftPackageReference "naveridlogin-sdk-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/naver/naveridlogin-sdk-ios";
 			requirement = {
 				branch = master;
 				kind = branch;
@@ -748,6 +766,31 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 920E001E2C6D494700BAEA25 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDKUser;
+		4BB92B7A2C72FAAF000DFE0A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4BB92B762C72F693000DFE0A /* NaverThirdPartyLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4BB92B752C72F693000DFE0A /* XCRemoteSwiftPackageReference "naveridlogin-sdk-ios" */;
+			productName = NaverThirdPartyLogin;
+		};
+		4BB92B7B2C72FAAF000DFE0A /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4BB92B7A2C72FAAF000DFE0A /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		4BB92B7D2C72FAAF000DFE0A /* AlamofireDynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4BB92B7A2C72FAAF000DFE0A /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = AlamofireDynamic;
 		};
 /* End XCSwiftPackageProductDependency section */
 
