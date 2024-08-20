@@ -1,9 +1,0 @@
-//
-// Config.xcconfig
-// Foodle
-//
-// Created by 민정 on 8/15/24.
-//
-// Configuration settings file format documentation can be found at:
-// https://help.apple.com/xcode/#/dev745c5c974
-KAKAO_NATIVE_APP_KEY = bd950435d37342bd13ad21eec79077ce
