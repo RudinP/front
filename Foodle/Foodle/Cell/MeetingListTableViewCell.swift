@@ -12,9 +12,11 @@ class MeetingListTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var joinersLabel: UILabel!
+    @IBOutlet weak var cardView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.layer.cornerRadius = 10
+        cardView.layer.cornerRadius = 10
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
