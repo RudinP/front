@@ -278,6 +278,16 @@
             </objects>
             <point key="canvasLocation" x="-321" y="1025"/>
         </scene>
+        <!--MeetingListViewController-->
+        <scene sceneID="lQK-eg-55l">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Jinhee" referencedIdentifier="MeetingListViewController" id="7G3-0Q-KFH" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Iyh-9C-wJc"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CAj-sm-tkZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="67" y="1158"/>
+        </scene>
         <!--일정 추가 - 친구 선택-->
         <scene sceneID="G3j-zv-iCR">
             <objects>
@@ -718,14 +728,29 @@
                                     <outlet property="delegate" destination="CXr-rK-u3c" id="oMr-RA-trL"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CrF-Wa-M9N">
+                                <rect key="frame" x="316" y="70" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Fvy-hP-DvN"/>
+                                    <constraint firstAttribute="height" constant="50" id="qid-FW-DkT"/>
+                                </constraints>
+                                <color key="tintColor" name="AccentColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="list.bullet" catalog="system"/>
+                                <connections>
+                                    <segue destination="7G3-0Q-KFH" kind="show" id="fYs-lO-mT8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Rfk-x5-pjI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="hJS-oa-CyT" firstAttribute="leading" secondItem="Rfk-x5-pjI" secondAttribute="leading" constant="16" id="HB3-q6-RpB"/>
+                            <constraint firstItem="CrF-Wa-M9N" firstAttribute="top" secondItem="Rfk-x5-pjI" secondAttribute="top" constant="11" id="I4L-DT-Y6c"/>
                             <constraint firstItem="hJS-oa-CyT" firstAttribute="top" secondItem="Rfk-x5-pjI" secondAttribute="top" constant="390" id="IXJ-Su-n3r"/>
                             <constraint firstItem="Rfk-x5-pjI" firstAttribute="bottom" secondItem="hJS-oa-CyT" secondAttribute="bottom" id="XBp-4W-UWg"/>
                             <constraint firstItem="Rfk-x5-pjI" firstAttribute="trailing" secondItem="hJS-oa-CyT" secondAttribute="trailing" constant="16" id="aEY-GG-FFa"/>
+                            <constraint firstItem="Rfk-x5-pjI" firstAttribute="trailing" secondItem="CrF-Wa-M9N" secondAttribute="trailing" constant="27" id="iKs-ik-YcI"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="일정 목록" image="calendar" catalog="system" id="Uab-lA-u1R"/>
@@ -1247,6 +1272,7 @@
         <image name="icon_apple_2.jpg" width="839" height="839"/>
         <image name="icon_kakao.png" width="384" height="384"/>
         <image name="icon_naver.png" width="512" height="512"/>
+        <image name="list.bullet" catalog="system" width="128" height="87"/>
         <image name="map" catalog="system" width="128" height="112"/>
         <image name="pawprint" catalog="system" width="128" height="114"/>
         <image name="xmark" catalog="system" width="128" height="113"/>

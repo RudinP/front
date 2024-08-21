@@ -265,6 +265,18 @@
         }
       }
     },
+    "CrF-Wa-M9N.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"CrF-Wa-M9N\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        }
+      }
+    },
     "CXr-rK-u3c.title" : {
       "comment" : "Class = \"UIViewController\"; title = \"일정 목록\"; ObjectID = \"CXr-rK-u3c\";",
       "extractionState" : "extracted_with_value",
