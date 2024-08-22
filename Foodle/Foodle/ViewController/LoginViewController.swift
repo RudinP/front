@@ -18,9 +18,7 @@ class LoginViewController: UIViewController {
     @IBOutlet var appleButton: UIButton!
     @IBOutlet var privacyLabel: UILabel!
     @IBOutlet weak var logoutButton: UIButton!
-    
-    var user: User?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -68,7 +66,6 @@ class LoginViewController: UIViewController {
                 }
             }
         }
-        toLaunch()
     }
     
     private func toLaunch(){
@@ -86,33 +83,35 @@ class LoginViewController: UIViewController {
     
     // 사용자 정보 가져오기
     private func kakaoGetUserInfo() {
-        UserApi.shared.me { (user, error) in
+        UserApi.shared.me { (kakaoUser, error) in
             if let error = error {
                 print(error)
-            } else {
-                guard let user = user else { return }
+                return
+            }
+            guard let kakaoUser = kakaoUser else { return }
 
-                guard let id = user.id else { return }
-                
-                let uid = String(id)
-                let profileImage = user.kakaoAccount?.profile?.profileImageUrl?.absoluteString ?? ""
-                let nickname = user.kakaoAccount?.profile?.nickname ?? ""
+            guard let id = kakaoUser.id else { return }
 
-                let userInfo = User(uid: uid, profileImage: profileImage, name: nickname, nickName: nickname)
-                
-                fetchUser(uid) { result in
-                    if let result = result {
-                        self.user = result
-                        print("Existing user: \(result)")
-                    } else {
-                        createUser(userInfo) {
-                            guard let uid = userInfo.uid else { return }
-                            fetchUser(uid) { result in
-                                self.user = result
-                                print("Created new user: \(String(describing: result))")
-                            }
+            let uid = String(id)
+            let profileImage = kakaoUser.kakaoAccount?.profile?.profileImageUrl?.absoluteString ?? ""
+            let nickname = kakaoUser.kakaoAccount?.profile?.nickname ?? ""
+
+            let newUser = User(uid: uid, profileImage: profileImage, name: nickname, nickName: nickname)
+            
+            fetchUser(uid) { result in
+                if let result = result {
+                    user = result
+                    //print("Existing user: \(result)")
+                } else {
+                    createUser(newUser) {
+                        fetchUser(uid) { result in
+                            user = result
+                            //print("Created new user: \(String(describing: result))")
                         }
                     }
+                }
+                DispatchQueue.main.async {
+                    self.toLaunch()
                 }
             }
         }
