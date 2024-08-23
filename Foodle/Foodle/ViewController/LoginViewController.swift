@@ -18,7 +18,7 @@ class LoginViewController: UIViewController {
     @IBOutlet var appleButton: UIButton!
     @IBOutlet var privacyLabel: UILabel!
     @IBOutlet weak var logoutButton: UIButton!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -66,7 +66,6 @@ class LoginViewController: UIViewController {
                 }
             }
         }
-        toLaunch()
     }
     
     private func toLaunch(){
@@ -84,56 +83,35 @@ class LoginViewController: UIViewController {
     
     // 사용자 정보 가져오기
     private func kakaoGetUserInfo() {
-        UserApi.shared.me { (user, error) in
+        UserApi.shared.me { (kakaoUser, error) in
             if let error = error {
                 print(error)
-            } else {
-                guard let user = user else { return }
+                return
+            }
+            guard let kakaoUser = kakaoUser else { return }
 
-                var scopes = [String]()
-                if (user.kakaoAccount?.profileNeedsAgreement == true) { scopes.append("profile") }
-                if (user.kakaoAccount?.emailNeedsAgreement == true) { scopes.append("account_email") }
-                if (user.kakaoAccount?.birthdayNeedsAgreement == true) { scopes.append("birthday") }
-                if (user.kakaoAccount?.birthyearNeedsAgreement == true) { scopes.append("birthyear") }
-                if (user.kakaoAccount?.genderNeedsAgreement == true) { scopes.append("gender") }
-                if (user.kakaoAccount?.phoneNumberNeedsAgreement == true) { scopes.append("phone_number") }
-                if (user.kakaoAccount?.ageRangeNeedsAgreement == true) { scopes.append("age_range") }
-                if (user.kakaoAccount?.ciNeedsAgreement == true) { scopes.append("account_ci") }
+            guard let id = kakaoUser.id else { return }
 
-                if scopes.count > 0 {
-                    print("사용자에게 추가 동의를 받아야 합니다.")
-                    UserApi.shared.loginWithKakaoAccount(scopes: scopes) { (_, error) in
-                        if let error = error {
-                            print(error)
-                        } else {
-                            UserApi.shared.me { (user, error) in
-                                if let error = error {
-                                    print(error)
-                                } else {
-                                    print("me() success.")
-                                    guard let user = user else { return }
+            let uid = String(id)
+            let profileImage = kakaoUser.kakaoAccount?.profile?.profileImageUrl?.absoluteString ?? ""
+            let nickname = kakaoUser.kakaoAccount?.profile?.nickname ?? ""
 
-                                    let userName = user.kakaoAccount?.profile?.nickname
-                                    let userEmail = user.kakaoAccount?.email
-                                    let userGender = user.kakaoAccount?.gender
-                                    let userProfile = user.kakaoAccount?.profile?.profileImageUrl
-                                    let userBirthYear = user.kakaoAccount?.birthyear
-
-                                    let contentText = """
-                                    user name: \(userName ?? "N/A")
-                                    userEmail: \(userEmail ?? "N/A")
-                                    userGender: \(userGender?.rawValue ?? "N/A")
-                                    userBirthYear: \(userBirthYear ?? "N/A")
-                                    userProfile: \(userProfile?.absoluteString ?? "N/A")
-                                    """
-
-                                    print(contentText)
-                                }
-                            }
+            let newUser = User(uid: uid, profileImage: profileImage, name: nickname, nickName: nickname)
+            
+            fetchUser(uid) { result in
+                if let result = result {
+                    user = result
+                    //print("Existing user: \(result)")
+                } else {
+                    createUser(newUser) {
+                        fetchUser(uid) { result in
+                            user = result
+                            //print("Created new user: \(String(describing: result))")
                         }
                     }
-                } else {
-                    print("사용자의 추가 동의가 필요하지 않습니다.")
+                }
+                DispatchQueue.main.async {
+                    self.toLaunch()
                 }
             }
         }
