@@ -15,10 +15,15 @@ class NaverSNSLogin: NSObject {
         let response = loginData.response
         let userInfo = User(uid:response.id, profileImage: response.profile_image, name: response.name, nickName: response.nickname)
         guard let uid = userInfo.uid else {return}
+        let group = DispatchGroup()
+        group.enter()
         fetchUser(uid) { result in
             guard let result else {
                 createUser(userInfo) {
-                    guard let uid = userInfo.uid else {return}
+                    guard let uid = userInfo.uid else {
+                        group.leave()
+                        return
+                    }
                     fetchUser(uid) { result in
                         user = result
                     }
@@ -27,6 +32,10 @@ class NaverSNSLogin: NSObject {
             }
             user = result
             print(result)
+            group.leave()
+        }
+        group.notify(queue: . main) {
+            NotificationCenter.default.post(name: .loginCompleted, object: nil)
         }
         
     }

@@ -36,16 +36,16 @@
 		4BA12D8B2BA004CF00BC4EB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BA12D8A2BA004CF00BC4EB0 /* Assets.xcassets */; };
 		4BA12D8E2BA004CF00BC4EB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BA12D8C2BA004CF00BC4EB0 /* LaunchScreen.storyboard */; };
 		4BB15A002BB532BC0090A6DE /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB159FF2BB532BC0090A6DE /* UIImageExtension.swift */; };
-		4BB92B772C72F693000DFE0A /* NaverThirdPartyLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 4BB92B762C72F693000DFE0A /* NaverThirdPartyLogin */; };
 		4BB92B792C72F9BE000DFE0A /* NaverSNSLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB92B782C72F9BE000DFE0A /* NaverSNSLogin.swift */; };
-		4BB92B812C748554000DFE0A /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 4BB92B802C748554000DFE0A /* KakaoSDK */; };
-		4BB92B832C748554000DFE0A /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 4BB92B822C748554000DFE0A /* KakaoSDKAuth */; };
-		4BB92B852C748554000DFE0A /* KakaoSDKCert in Frameworks */ = {isa = PBXBuildFile; productRef = 4BB92B842C748554000DFE0A /* KakaoSDKCert */; };
-		4BB92B872C748554000DFE0A /* KakaoSDKCertCore in Frameworks */ = {isa = PBXBuildFile; productRef = 4BB92B862C748554000DFE0A /* KakaoSDKCertCore */; };
-		4BB92B892C748554000DFE0A /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 4BB92B882C748554000DFE0A /* KakaoSDKCommon */; };
 		4BB92B8C2C749879000DFE0A /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 4BB92B8B2C749879000DFE0A /* Config.xcconfig */; };
 		4BB92B8E2C75934F000DFE0A /* MeetingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB92B8D2C75934F000DFE0A /* MeetingListViewController.swift */; };
 		4BB92B902C759687000DFE0A /* MeetingListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB92B8F2C759687000DFE0A /* MeetingListTableViewCell.swift */; };
+		4BB92B9E2C798CCD000DFE0A /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 4BB92B9D2C798CCD000DFE0A /* KakaoSDK */; };
+		4BB92BA02C798CCD000DFE0A /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 4BB92B9F2C798CCD000DFE0A /* KakaoSDKAuth */; };
+		4BB92BA22C798CCD000DFE0A /* KakaoSDKCert in Frameworks */ = {isa = PBXBuildFile; productRef = 4BB92BA12C798CCD000DFE0A /* KakaoSDKCert */; };
+		4BB92BA42C798CCD000DFE0A /* KakaoSDKCertCore in Frameworks */ = {isa = PBXBuildFile; productRef = 4BB92BA32C798CCD000DFE0A /* KakaoSDKCertCore */; };
+		4BB92BA62C798CCD000DFE0A /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 4BB92BA52C798CCD000DFE0A /* KakaoSDKCommon */; };
+		4BB92BA82C798CE2000DFE0A /* NaverThirdPartyLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 4BB92BA72C798CE2000DFE0A /* NaverThirdPartyLogin */; };
 		4BB965C92C23C33F00F7E429 /* AddListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB965C82C23C33F00F7E429 /* AddListViewController.swift */; };
 		4BB965CB2C23C44D00F7E429 /* ColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB965CA2C23C44D00F7E429 /* ColorCollectionViewCell.swift */; };
 		4BC68AAD2BA2B67300FC6546 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC68AAC2BA2B67300FC6546 /* MainViewController.swift */; };
@@ -148,13 +148,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4BB92B892C748554000DFE0A /* KakaoSDKCommon in Frameworks */,
 				920E00462C749BE900BAEA25 /* Alamofire in Frameworks */,
-				4BB92B772C72F693000DFE0A /* NaverThirdPartyLogin in Frameworks */,
-				4BB92B812C748554000DFE0A /* KakaoSDK in Frameworks */,
-				4BB92B852C748554000DFE0A /* KakaoSDKCert in Frameworks */,
-				4BB92B832C748554000DFE0A /* KakaoSDKAuth in Frameworks */,
-				4BB92B872C748554000DFE0A /* KakaoSDKCertCore in Frameworks */,
+				4BB92B9E2C798CCD000DFE0A /* KakaoSDK in Frameworks */,
+				4BB92BA82C798CE2000DFE0A /* NaverThirdPartyLogin in Frameworks */,
+				4BB92BA42C798CCD000DFE0A /* KakaoSDKCertCore in Frameworks */,
+				4BB92BA02C798CCD000DFE0A /* KakaoSDKAuth in Frameworks */,
+				4BB92BA62C798CCD000DFE0A /* KakaoSDKCommon in Frameworks */,
+				4BB92BA22C798CCD000DFE0A /* KakaoSDKCert in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,13 +303,13 @@
 			);
 			name = Foodle;
 			packageProductDependencies = (
-				4BB92B762C72F693000DFE0A /* NaverThirdPartyLogin */,
-				4BB92B802C748554000DFE0A /* KakaoSDK */,
-				4BB92B822C748554000DFE0A /* KakaoSDKAuth */,
-				4BB92B842C748554000DFE0A /* KakaoSDKCert */,
-				4BB92B862C748554000DFE0A /* KakaoSDKCertCore */,
-				4BB92B882C748554000DFE0A /* KakaoSDKCommon */,
 				920E00452C749BE900BAEA25 /* Alamofire */,
+				4BB92B9D2C798CCD000DFE0A /* KakaoSDK */,
+				4BB92B9F2C798CCD000DFE0A /* KakaoSDKAuth */,
+				4BB92BA12C798CCD000DFE0A /* KakaoSDKCert */,
+				4BB92BA32C798CCD000DFE0A /* KakaoSDKCertCore */,
+				4BB92BA52C798CCD000DFE0A /* KakaoSDKCommon */,
+				4BB92BA72C798CE2000DFE0A /* NaverThirdPartyLogin */,
 			);
 			productName = Foodle;
 			productReference = 4BA12D7B2BA004CE00BC4EB0 /* Foodle.app */;
@@ -700,35 +700,35 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4BB92B762C72F693000DFE0A /* NaverThirdPartyLogin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4BB92B752C72F693000DFE0A /* XCRemoteSwiftPackageReference "naveridlogin-sdk-ios" */;
-			productName = NaverThirdPartyLogin;
-		};
-		4BB92B802C748554000DFE0A /* KakaoSDK */ = {
+		4BB92B9D2C798CCD000DFE0A /* KakaoSDK */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4BB92B7F2C748554000DFE0A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDK;
 		};
-		4BB92B822C748554000DFE0A /* KakaoSDKAuth */ = {
+		4BB92B9F2C798CCD000DFE0A /* KakaoSDKAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4BB92B7F2C748554000DFE0A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDKAuth;
 		};
-		4BB92B842C748554000DFE0A /* KakaoSDKCert */ = {
+		4BB92BA12C798CCD000DFE0A /* KakaoSDKCert */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4BB92B7F2C748554000DFE0A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDKCert;
 		};
-		4BB92B862C748554000DFE0A /* KakaoSDKCertCore */ = {
+		4BB92BA32C798CCD000DFE0A /* KakaoSDKCertCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4BB92B7F2C748554000DFE0A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDKCertCore;
 		};
-		4BB92B882C748554000DFE0A /* KakaoSDKCommon */ = {
+		4BB92BA52C798CCD000DFE0A /* KakaoSDKCommon */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4BB92B7F2C748554000DFE0A /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDKCommon;
+		};
+		4BB92BA72C798CE2000DFE0A /* NaverThirdPartyLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4BB92B752C72F693000DFE0A /* XCRemoteSwiftPackageReference "naveridlogin-sdk-ios" */;
+			productName = NaverThirdPartyLogin;
 		};
 		920E00452C749BE900BAEA25 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

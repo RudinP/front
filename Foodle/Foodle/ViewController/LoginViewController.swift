@@ -39,6 +39,10 @@ class LoginViewController: UIViewController {
 
         // 로그아웃 버튼 액션 연결
         logoutButton.addTarget(self, action: #selector(handleKakaoLogout), for: .touchUpInside)
+        
+        NotificationCenter.default.addObserver(forName: .loginCompleted, object: nil, queue: .main) { _ in
+            self.toLaunch()
+        }
     }
 
     // 카카오톡 로그인 버튼을 눌렀을 때 실행되는 메서드
@@ -78,7 +82,6 @@ class LoginViewController: UIViewController {
     @IBAction func naverLogin(_ sender: Any) {
         NaverSNSLogin.shared.login(){
         }
-        toLaunch()
     }
     
     // 사용자 정보 가져오기
@@ -99,19 +102,25 @@ class LoginViewController: UIViewController {
             let newUser = User(uid: uid, profileImage: profileImage, name: nickname, nickName: nickname)
             
             fetchUser(uid) { result in
+                let group = DispatchGroup()
+                
+                group.enter()
                 if let result = result {
                     user = result
                     //print("Existing user: \(result)")
+                    group.leave()
                 } else {
+                    group.enter()
                     createUser(newUser) {
                         fetchUser(uid) { result in
                             user = result
                             //print("Created new user: \(String(describing: result))")
                         }
+                        group.leave()
                     }
                 }
-                DispatchQueue.main.async {
-                    self.toLaunch()
+                group.notify(queue: .main) {
+                    NotificationCenter.default.post(name: .loginCompleted, object: nil, userInfo: nil)
                 }
             }
         }
@@ -127,4 +136,8 @@ class LoginViewController: UIViewController {
             }
         }
     }
+}
+
+extension Notification.Name{
+    static let loginCompleted = Notification.Name("loginCompleted")
 }
