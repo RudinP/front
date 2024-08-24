@@ -81,6 +81,7 @@ class LoginViewController: UIViewController {
 
     @IBAction func naverLogin(_ sender: Any) {
         NaverSNSLogin.shared.login(){
+            UserDefaultsManager.userData = user
         }
     }
     
@@ -120,6 +121,7 @@ class LoginViewController: UIViewController {
                     }
                 }
                 group.notify(queue: .main) {
+                    UserDefaultsManager.userData = user
                     NotificationCenter.default.post(name: .loginCompleted, object: nil, userInfo: nil)
                 }
             }
@@ -132,6 +134,7 @@ class LoginViewController: UIViewController {
             if let error = error {
                 print(error)
             } else {
+                UserDefaultsManager.userData = nil
                 print("logout() success.")
             }
         }

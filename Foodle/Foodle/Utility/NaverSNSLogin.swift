@@ -31,7 +31,7 @@ class NaverSNSLogin: NSObject {
                 return
             }
             user = result
-            print(result)
+            UserDefaultsManager.userData = user
             group.leave()
         }
         group.notify(queue: . main) {
@@ -100,6 +100,7 @@ class NaverSNSLogin: NSObject {
         instance?.delegate = self
         //SampleAppUser.shared.removeAllData()    //앱에 저장된 사용자 정보 삭제
         instance?.resetToken()
+        UserDefaultsManager.userData = nil
     }
     
     //네이버 로그인 서비스 연결을 해지한다.
