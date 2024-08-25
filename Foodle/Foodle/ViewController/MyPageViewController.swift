@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import KakaoSDKAuth
+import KakaoSDKUser
 
 class MyPageViewController: UIViewController {
     @IBOutlet var profileImg_1: UIImageView!
@@ -43,6 +45,7 @@ class MyPageViewController: UIViewController {
             
             fetchFriendCode(for: uid)
             withdrawalButton.addTarget(self, action: #selector(withdrawalButtonTapped), for: .touchUpInside)
+            logoutButton.addTarget(self, action: #selector(logoutButtonTapped), for: .touchUpInside)
         }
     }
     
@@ -133,5 +136,27 @@ class MyPageViewController: UIViewController {
             }
         }
         task.resume()
+    }
+    
+    @objc func logoutButtonTapped() {
+        UserApi.shared.logout { (error) in
+            if let error = error {
+                print("Kakao logout failed: \(error.localizedDescription)")
+            } else {
+                print("Kakao logout success.")
+                // 로그아웃 후 첫 화면으로 전환
+                DispatchQueue.main.async {
+                    if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+                        let storyboard = UIStoryboard(name: "Minjeong", bundle: nil)
+                        if let initialViewController = storyboard.instantiateInitialViewController() {
+                            let window = windowScene.windows.first
+                            window?.rootViewController = initialViewController
+                            window?.makeKeyAndVisible()
+                        }
+                    }
+                }
+            }
+        }
+        user = nil
     }
 }

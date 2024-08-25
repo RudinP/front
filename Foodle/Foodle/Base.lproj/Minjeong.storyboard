@@ -82,12 +82,6 @@
                                 <color key="textColor" name="AccentColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I6r-8r-5WU">
-                                <rect key="frame" x="152" y="542" width="83" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="로그아웃"/>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -97,7 +91,6 @@
                         <outlet property="kakaoButton" destination="wHp-xW-TCD" id="iXg-6J-iRa"/>
                         <outlet property="loginLabel" destination="Mge-M9-bXJ" id="JwX-dR-Rai"/>
                         <outlet property="loginLabel2" destination="0Mo-aH-5HO" id="5oh-UE-hnK"/>
-                        <outlet property="logoutButton" destination="I6r-8r-5WU" id="uBY-9W-EUa"/>
                         <outlet property="naverButton" destination="rpc-w2-bMt" id="2kG-cD-fFL"/>
                         <outlet property="privacyLabel" destination="F6u-4h-fWU" id="Anw-ie-y7A"/>
                         <segue destination="eiM-wB-95g" kind="show" identifier="toLaunch" id="3dY-cQ-kcL"/>
