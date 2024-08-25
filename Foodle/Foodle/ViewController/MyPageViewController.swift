@@ -42,6 +42,7 @@ class MyPageViewController: UIViewController {
             guard let uid = user.uid else { return }
             
             fetchFriendCode(for: uid)
+            withdrawalButton.addTarget(self, action: #selector(withdrawalButtonTapped), for: .touchUpInside)
         }
     }
     
@@ -71,8 +72,6 @@ class MyPageViewController: UIViewController {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        request.httpBody = nil
-        
         let task = URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
             if let error = error {
                 print("Failed to fetch friend code: \(error.localizedDescription)")
@@ -91,6 +90,46 @@ class MyPageViewController: UIViewController {
                 }
             } else {
                 print("Failed to convert response data to string")
+            }
+        }
+        task.resume()
+    }
+    
+    @objc func withdrawalButtonTapped() {
+        var url = url!
+        url.append(path: "/api/users/delete")
+        
+        guard let uid = user?.uid else {
+            return
+        }
+        
+        url.append(queryItems: [URLQueryItem(name: "uid", value: uid)])
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("Failed to delete user: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                print("Failed to delete user: Invalid response")
+                return
+            }
+            
+            DispatchQueue.main.async {
+                // 유저 탈퇴 후 첫 화면으로 전환
+                if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+                    let storyboard = UIStoryboard(name: "Minjeong", bundle: nil)
+                    if let initialViewController = storyboard.instantiateInitialViewController() {
+                        let window = windowScene.windows.first
+                        window?.rootViewController = initialViewController
+                        window?.makeKeyAndVisible()
+                    }
+                }
             }
         }
         task.resume()
