@@ -721,6 +721,18 @@
         }
       }
     },
+    "XlD-LP-o8v.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"친구 추가 코드\"; ObjectID = \"XlD-LP-o8v\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "친구 추가 코드"
+          }
+        }
+      }
+    },
     "xms-62-65z.text" : {
       "comment" : "Class = \"UILabel\"; text = \"고등학교 동창회\"; ObjectID = \"xms-62-65z\";",
       "extractionState" : "extracted_with_value",

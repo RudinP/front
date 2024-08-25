@@ -16,6 +16,7 @@ class MyPageViewController: UIViewController {
     @IBOutlet var saveButton: UIButton!
     @IBOutlet var logoutButton: UIButton!
     @IBOutlet var withdrawalButton: UIButton!
+    @IBOutlet weak var addFriendsCode: UILabel!
     
     var myPageUser: User?
     
@@ -37,6 +38,10 @@ class MyPageViewController: UIViewController {
             }
             nameLabel.text = user.name
             nicknameLabel.text = user.nickName
+            
+            guard let uid = user.uid else { return }
+            
+            fetchFriendCode(for: uid)
         }
     }
     
@@ -48,6 +53,45 @@ class MyPageViewController: UIViewController {
                 return
             }
             completion(UIImage(data: data))
+        }
+        task.resume()
+    }
+    
+    func fetchFriendCode(for uid: String) {
+        var url = url!
+        url.append(path: "/api/users/getFriendCode")
+        
+        guard let uid = user?.uid else {
+                return
+            }
+        
+        url.append(queryItems: [URLQueryItem(name: "uid", value: uid)])
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        request.httpBody = nil
+        
+        let task = URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
+            if let error = error {
+                print("Failed to fetch friend code: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let data = data else {
+                print("No data received")
+                return
+            }
+            
+            if let responseString = String(data: data, encoding: .utf8) {
+                //print("Response data as string: \(responseString)")
+                DispatchQueue.main.async {
+                    self?.addFriendsCode.text = responseString
+                }
+            } else {
+                print("Failed to convert response data to string")
+            }
         }
         task.resume()
     }
