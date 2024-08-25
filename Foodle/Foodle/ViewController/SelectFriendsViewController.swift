@@ -14,7 +14,6 @@ class SelectFriendsViewController: UIViewController, UICollectionViewDataSource,
     @IBOutlet var favTable: UITableView!
     @IBOutlet var allLabel: UILabel!
     @IBOutlet var allTable: UITableView!
-    @IBOutlet var addFriends: UIButton!
     
 
     var newMeeting: Meeting?//추가할 미팅
@@ -90,7 +89,6 @@ class SelectFriendsViewController: UIViewController, UICollectionViewDataSource,
         scrollView.addSubview(favTable)
         scrollView.addSubview(allLabel)
         scrollView.addSubview(allTable)
-        scrollView.addSubview(addFriends)
     }
     
     override func viewDidLayoutSubviews() {
@@ -104,9 +102,7 @@ class SelectFriendsViewController: UIViewController, UICollectionViewDataSource,
         allLabel.frame.origin.y = favTable.frame.maxY + 30
         allTable.frame.origin.y = allLabel.frame.maxY + 10
         allTable.frame.size.height = CGFloat(allFriends.count) * 75 // allTable의 높이를 개수에 맞게 설정
-        
-        addFriends.frame.origin.y = allTable.frame.maxY + 10
-                
+    
         // 스크롤 뷰의 contentSize 조정
         let contentHeight = allTable.frame.origin.y + allTable.frame.size.height + 90
         scrollView.contentSize = CGSize(width: scrollView.frame.size.width, height: contentHeight)
