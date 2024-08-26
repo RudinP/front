@@ -349,6 +349,18 @@
         }
       }
     },
+    "G5z-8e-xzb.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"친구 추가하기\"; ObjectID = \"G5z-8e-xzb\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "친구 추가하기"
+          }
+        }
+      }
+    },
     "gen-5q-BgZ.normalTitle" : {
       "comment" : "Class = \"UIButton\"; normalTitle = \"회원탈퇴\"; ObjectID = \"gen-5q-BgZ\";",
       "extractionState" : "extracted_with_value",
@@ -369,30 +381,6 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "친구 상세"
-          }
-        }
-      }
-    },
-    "I6r-8r-5WU.configuration.title" : {
-      "comment" : "Class = \"UIButton\"; configuration.title = \"로그아웃\"; ObjectID = \"I6r-8r-5WU\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "로그아웃"
-          }
-        }
-      }
-    },
-    "I6r-8r-5WU.normalTitle" : {
-      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"I6r-8r-5WU\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Button"
           }
         }
       }
@@ -441,18 +429,6 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "2024/01/01 월"
-          }
-        }
-      }
-    },
-    "Ld2-I4-VJu.normalTitle" : {
-      "comment" : "Class = \"UIButton\"; normalTitle = \"친구 추가하기\"; ObjectID = \"Ld2-I4-VJu\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "친구 추가하기"
           }
         }
       }
@@ -717,6 +693,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Label"
+          }
+        }
+      }
+    },
+    "XlD-LP-o8v.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"친구 추가 코드\"; ObjectID = \"XlD-LP-o8v\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "친구 추가 코드"
           }
         }
       }

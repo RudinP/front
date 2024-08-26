@@ -17,7 +17,6 @@ class LoginViewController: UIViewController {
     @IBOutlet var naverButton: UIButton!
     @IBOutlet var appleButton: UIButton!
     @IBOutlet var privacyLabel: UILabel!
-    @IBOutlet weak var logoutButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +33,6 @@ class LoginViewController: UIViewController {
             loginLabel.attributedText = attributedString
         }
         
-        // 카카오 버튼 액션 연결
         kakaoButton.addTarget(self, action: #selector(handleKakaoLogin), for: .touchUpInside)
 
         // 로그아웃 버튼 액션 연결
@@ -127,7 +125,7 @@ class LoginViewController: UIViewController {
             }
         }
     }
-
+  
     // 로그아웃 버튼을 눌렀을 때 실행되는 메서드
     @objc private func handleKakaoLogout() {
         UserApi.shared.logout { (error) in

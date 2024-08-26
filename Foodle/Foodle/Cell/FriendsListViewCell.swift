@@ -14,6 +14,8 @@ class FriendsListViewCell: UIViewController {
     @IBOutlet var allLabel: UILabel!
     @IBOutlet var allTable: UITableView!
     @IBOutlet var addFriends: UIButton!
+    @IBOutlet weak var friendCode: UITextField!
+    @IBOutlet weak var addLabel: UILabel!
     
     var Friends: [Friend]?
     
@@ -56,6 +58,8 @@ class FriendsListViewCell: UIViewController {
         scrollView.addSubview(allLabel)
         scrollView.addSubview(allTable)
         scrollView.addSubview(addFriends)
+        scrollView.addSubview(friendCode)
+        scrollView.addSubview(addLabel)
     }
     
     override func viewDidLayoutSubviews() {
@@ -69,11 +73,66 @@ class FriendsListViewCell: UIViewController {
         allTable.frame.origin.y = allLabel.frame.maxY + 10
         allTable.frame.size.height = CGFloat(allFriends.count) * 75 // allTable의 높이를 개수에 맞게 설정
         
-        addFriends.frame.origin.y = allTable.frame.maxY + 10
+        addLabel.frame.origin.y = allTable.frame.maxY + 30
+        
+        addFriends.frame.origin.y =  addLabel.frame.maxY + 10
+        friendCode.frame.origin.y =  addLabel.frame.maxY + 10
                 
         // 스크롤 뷰의 contentSize 조정
-        let contentHeight = allTable.frame.origin.y + allTable.frame.size.height + 90
+        let contentHeight = addFriends.frame.origin.y + addFriends.frame.size.height + 90
         scrollView.contentSize = CGSize(width: scrollView.frame.size.width, height: contentHeight)
+    }
+    
+    @IBAction func addFriendsButtonTapped(_ sender: UIButton) {
+        var url = url!
+        url.append(path: "/api/friends/CreateByCode")
+        
+        guard let uid = user?.uid else {
+                return
+            }
+
+        guard let code = friendCode.text, !code.isEmpty else {
+            print("Friend code is empty")
+            return
+        }
+        
+        url.append(queryItems: [URLQueryItem(name: "uid", value: uid)])
+        url.append(queryItems: [URLQueryItem(name: "code", value: code)])
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let task = URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
+            if let error = error {
+                print("Failed to add friend: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                print("Failed to add friend: Invalid response")
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self?.reloadTables()
+            }
+        }
+        task.resume()
+    }
+    
+    func reloadTables() {
+        favTable.reloadData()
+        allTable.reloadData()
+        viewDidLayoutSubviews()
+        
+        fetchFriends(user!.uid!) { friend in
+            friends = friend
+            DispatchQueue.main.async{
+                self.favTable.reloadData()
+                self.allTable.reloadData()
+            }
+        }
     }
 }
 
@@ -107,20 +166,6 @@ extension FriendsListViewCell: UITableViewDelegate, UITableViewDataSource {
             cell.configure(with: friend)
             cell.delegate = self
             return cell
-        }
-    }
-    
-    func reloadTables() {
-        favTable.reloadData()
-        allTable.reloadData()
-        viewDidLayoutSubviews()
-        
-        fetchFriends(user!.uid!) { friend in
-            friends = friend
-            DispatchQueue.main.async{
-                self.favTable.reloadData()
-                self.allTable.reloadData()
-            }
         }
     }
     
