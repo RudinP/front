@@ -766,7 +766,7 @@
         <!--마이페이지-->
         <scene sceneID="KXn-hs-8aN">
             <objects>
-                <viewController title="마이페이지" id="VjF-NV-nZS" customClass="MyPageViewController" customModule="Foodle" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mypage" title="마이페이지" id="VjF-NV-nZS" customClass="MyPageViewController" customModule="Foodle" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iRJ-dV-lL5">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
