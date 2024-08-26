@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct Place: Codable{
     var placeName: String?
@@ -44,7 +45,12 @@ extension Place{
     }
 
     var distance: String {
-        return "0m"
+        guard let latitude = self.latitude, let longtitude = self.longtitude else { return "0m"}
+        let location = CLLocation(latitude: latitude, longitude: longtitude)
+        guard let userLocation = CLLocationManager().location else { return "0m" }
+        let distance = location.distance(from: userLocation)
+        
+        return distance.distanceString ?? "0m"
     }
     
     var close: String {
@@ -110,6 +116,21 @@ extension Place{
     
     func isEqual(_ place: Place) -> Bool{
         return self.placeName == place.placeName && self.longtitude == place.longtitude && self.latitude == place.latitude
+    }
+}
+
+fileprivate let formatter: MeasurementFormatter = {
+    let f = MeasurementFormatter()
+    f.unitOptions = .naturalScale //저장한 값에 따라서 알맞은 포맷팅을 해줌
+    f.locale = Locale(identifier: "ko_kr")
+    f.numberFormatter.maximumFractionDigits = 0 //소수점 표시 X
+    return f
+}()
+
+extension CLLocationDistance{
+    var distanceString: String? {
+        let distance = Measurement(value: self, unit: UnitLength.meters)
+        return formatter.string(from: distance)
     }
 }
 
