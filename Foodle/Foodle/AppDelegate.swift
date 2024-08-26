@@ -35,6 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // kakao SDK 초기화
         KakaoSDK.initSDK(appKey: kakaoAppKey as! String)
         
+        user = UserDefaultsManager.userData
+        
         return true
     }
     
