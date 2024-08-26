@@ -35,9 +35,6 @@ class LoginViewController: UIViewController {
         
         kakaoButton.addTarget(self, action: #selector(handleKakaoLogin), for: .touchUpInside)
 
-        // 로그아웃 버튼 액션 연결
-        logoutButton.addTarget(self, action: #selector(handleKakaoLogout), for: .touchUpInside)
-        
         NotificationCenter.default.addObserver(forName: .loginCompleted, object: nil, queue: .main) { _ in
             self.toLaunch()
         }
