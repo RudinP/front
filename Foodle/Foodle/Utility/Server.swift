@@ -184,7 +184,7 @@ func fetchPlaceLists(_ uid: String, completion: @escaping ([PlaceList]?) -> Void
 }
 struct SearchPlace: Encodable{
     var meeting: Meeting?
-    var byName: String?
+    var placeName: String?
 }
 func searchPlace(_ byName: String?, _ meeting: Meeting? = nil, completion: @escaping ([Place]?) -> Void){
     guard let byName else { return }
@@ -195,7 +195,7 @@ func searchPlace(_ byName: String?, _ meeting: Meeting? = nil, completion: @esca
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        let data = SearchPlace(meeting: meeting, byName: byName)
+        let data = SearchPlace(meeting: meeting, placeName: byName)
         
         guard let meetingData = try? JSONEncoder().encode(data) else { return }
         
