@@ -183,11 +183,17 @@ func fetchPlaceLists(_ uid: String, completion: @escaping ([PlaceList]?) -> Void
     task.resume()
 }
 
-func searchPlace(_ byName: String?, completion: @escaping ([Place]?) -> Void){
+func searchPlace(_ byName: String?, _ meeting: Meeting? = nil, completion: @escaping ([Place]?) -> Void){
     guard let byName else { return }
     
+    
     var url = url!
-    url.append(path: "/api/place/byPlaceName")
+    if meeting != nil , let queryItems = meeting?.asQueryItems(){
+        url.append(path:"/api/meetings/getPreferredPlacebyPlaceName")
+        url.append(queryItems: queryItems)
+    } else {
+        url.append(path: "/api/place/byPlaceName")
+    }
     url.append(queryItems: [URLQueryItem(name: "placeName", value: byName)])
     
     let session = URLSession.shared
@@ -429,3 +435,18 @@ func createUser(_ user: User?, completion: @escaping () -> Void){
     
     task.resume()
 }
+
+extension Encodable {
+    func asQueryItems() -> [URLQueryItem]? {
+        guard let data = try? JSONEncoder().encode(self),
+              let jsonObject = try? JSONSerialization.jsonObject(with: data, options: []),
+              let dictionary = jsonObject as? [String: Any] else {
+            return nil
+        }
+
+        return dictionary.map { key, value in
+            URLQueryItem(name: key, value: "\(value)")
+        }
+    }
+}
+

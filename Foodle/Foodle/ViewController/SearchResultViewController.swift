@@ -84,12 +84,21 @@ extension SearchResultViewController: UISearchControllerDelegate, UISearchBarDel
                 self.tableView.reloadData()
             }
         } else {
-            
-            searchPlace(keyword) { result in
-                guard let result = result else { return }
-                resultPlaces = result
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
+            if newMeeting != nil{
+                searchPlace(keyword, newMeeting) { result in
+                    guard let result = result else { return }
+                    resultPlaces = result
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                }
+            } else {
+                searchPlace(keyword) { result in
+                    guard let result = result else { return }
+                    resultPlaces = result
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
                 }
             }
         }
