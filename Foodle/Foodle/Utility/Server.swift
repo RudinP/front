@@ -182,56 +182,88 @@ func fetchPlaceLists(_ uid: String, completion: @escaping ([PlaceList]?) -> Void
     }
     task.resume()
 }
-
+struct SearchPlace: Encodable{
+    var meeting: Meeting?
+    var byName: String?
+}
 func searchPlace(_ byName: String?, _ meeting: Meeting? = nil, completion: @escaping ([Place]?) -> Void){
     guard let byName else { return }
-    
-    
     var url = url!
-    if meeting != nil , let queryItems = meeting?.asQueryItems(){
+    if meeting != nil {
         url.append(path:"/api/meetings/getPreferredPlacebyPlaceName")
-        url.append(queryItems: queryItems)
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let data = SearchPlace(meeting: meeting, byName: byName)
+        
+        guard let meetingData = try? JSONEncoder().encode(data) else { return }
+        
+        let task = URLSession.shared.uploadTask(with: request, from: meetingData) { (data, response, error) in
+            if let error = error {
+                NSLog("An error has occurred: \(error.localizedDescription)")
+                return
+            }
+            if let httpResponse = response as? HTTPURLResponse, !(200...299).contains(httpResponse.statusCode) {
+                NSLog("Server error: \(httpResponse.statusCode)")
+                return
+            }
+            guard let data else
+            {
+                completion(nil)
+                return
+            }
+            
+            do{
+                let decoder = JSONDecoder()
+                let result = try decoder.decode([Place].self, from: data)
+                completion(result)
+            } catch {
+                print(error)
+                completion(nil)
+            }
+        }
+        task.resume()
     } else {
         url.append(path: "/api/place/byPlaceName")
+        url.append(queryItems: [URLQueryItem(name: "placeName", value: byName)])
+        let session = URLSession.shared
+        let task = session.dataTask(with: url) { data, response, error in
+            if error != nil{
+                completion(nil)
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse else
+            {
+                completion(nil)
+                return
+            }
+            
+            guard httpResponse.statusCode == 200 else
+            {
+                print(httpResponse.statusCode)
+                completion(nil)
+                return
+            }
+            
+            guard let data else
+            {
+                completion(nil)
+                return
+            }
+            
+            do{
+                let decoder = JSONDecoder()
+                let result = try decoder.decode([Place].self, from: data)
+                completion(result)
+            } catch {
+                print(error)
+                completion(nil)
+            }
+        }
+        task.resume()
     }
-    url.append(queryItems: [URLQueryItem(name: "placeName", value: byName)])
-    
-    let session = URLSession.shared
-    let task = session.dataTask(with: url) { data, response, error in
-        if error != nil{
-            completion(nil)
-            return
-        }
-        
-        guard let httpResponse = response as? HTTPURLResponse else
-        {
-            completion(nil)
-            return
-        }
-        
-        guard httpResponse.statusCode == 200 else
-        {
-            print(httpResponse.statusCode)
-            completion(nil)
-            return
-        }
-        
-        guard let data else
-        {
-            completion(nil)
-            return
-        }
-        
-        do{
-            let decoder = JSONDecoder()
-            let result = try decoder.decode([Place].self, from: data)
-            completion(result)
-        } catch {
-            print(error)
-            completion(nil)
-        }
-    }
-    task.resume()
 }
 
 func createPlaceList(_ list: PlaceList, completion: @escaping () -> Void){
@@ -434,19 +466,5 @@ func createUser(_ user: User?, completion: @escaping () -> Void){
     }
     
     task.resume()
-}
-
-extension Encodable {
-    func asQueryItems() -> [URLQueryItem]? {
-        guard let data = try? JSONEncoder().encode(self),
-              let jsonObject = try? JSONSerialization.jsonObject(with: data, options: []),
-              let dictionary = jsonObject as? [String: Any] else {
-            return nil
-        }
-
-        return dictionary.map { key, value in
-            URLQueryItem(name: key, value: "\(value)")
-        }
-    }
 }
 
