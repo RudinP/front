@@ -39,7 +39,10 @@ func fetchUser(_ uid: String, completion: @escaping (User?) -> Void){
         }
         
         do{
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
             let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .formatted(formatter)
             let result = try decoder.decode(User.self, from: data)
             print(result)
             completion(result)

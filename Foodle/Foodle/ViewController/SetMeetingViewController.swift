@@ -10,6 +10,7 @@ import UIKit
 class SetMeetingViewController: UIViewController {
     var newMeeting: Meeting?
     var editableMeeting: EditableMeeting?
+    var recommendedTime = [Date]()
     
     @IBOutlet weak var datePicker: UIDatePicker!
     
@@ -18,13 +19,17 @@ class SetMeetingViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     @IBAction func setDate(_ sender: UIDatePicker) {
+        recommendedTime = recommendTime()
         newMeeting?.date = sender.date
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "ko_KR")
         formatter.dateFormat = "YYYY.MM.dd (E) a h:mm"
         meetingDateLabel.text = formatter.string(from: sender.date)
         tableView.reloadData()
+        collectionView.reloadData()
     }
     
     func checkDup() -> Bool{
@@ -69,6 +74,8 @@ class SetMeetingViewController: UIViewController {
         loadDataIfNeeded()
         setDate(datePicker)
         datePicker.minimumDate = Date.now
+        
+        recommendedTime = recommendTime()
         
         NotificationCenter.default.addObserver(forName: .poppedWhenMeetingAdding, object: nil, queue: .main) { noti in
             if let data = noti.userInfo?["newMeeting"] as? Meeting{
@@ -151,6 +158,48 @@ class SetMeetingViewController: UIViewController {
         }
     }
     
+    func recommendTime() -> [Date]{
+        var result = [Date]()
+        var stringResult = [[String]]()
+        
+        let day = datePicker.date
+        let calendar = Calendar.current
+        let component = calendar.dateComponents([.day], from: day)
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        dateFormatter.dateFormat = "E"
+        
+        var selectedDay: Day?
+        if let dayString = calendar.date(from: component){
+            let str = dateFormatter.string(from: dayString)
+            selectedDay = Day(rawValue: str)
+        }
+        
+        let pTimes = newMeeting?.joiners?.map({ user in
+            user.preferredTime?.filter({ pTime in
+                pTime.day == selectedDay
+            })
+        })
+        
+        let times:[PreferredTime] = pTimes?.flatMap{$0!} ?? []
+        guard times.count > 0 else {return result}
+        
+        var start = times.map { $0.start }.max()!
+        let end = times.map { $0.end }.min()!
+        
+        if start < end {
+            result.append(start)
+            while let t = start.nextHour(), t < end{
+                result.append(t)
+            }
+        }
+        
+        return result
+    }
+
+    @IBAction func selectRecommend(_ sender: UIButton) {
+        datePicker.date.setTime(recommendedTime[sender.tag])
+    }
 }
 
 extension SetMeetingViewController: UITableViewDelegate, UITableViewDataSource{
@@ -185,4 +234,24 @@ extension SetMeetingViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
     }
+}
+
+extension SetMeetingViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return recommendedTime.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecommendedTimeCollectionViewCell", for: indexPath) as! RecommendedTimeCollectionViewCell
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko_KR")
+        formatter.dateFormat = "a h:mm"
+        cell.timeButton.setTitle(formatter.string(from: recommendedTime[indexPath.item]), for: .normal)
+        cell.timeButton.setTitle(formatter.string(from: recommendedTime[indexPath.item]), for: .selected)
+        cell.tag = indexPath.item
+        
+        return cell
+    }
+    
+    
 }
