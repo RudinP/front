@@ -19,6 +19,7 @@ class FriendsDetailViewController: UIViewController, UICollectionViewDataSource,
     
     var upcomingMeetings: [Meeting] = []
     var placeLists: [PlaceList]?
+    var selectedMeeting: Meeting?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +65,18 @@ class FriendsDetailViewController: UIViewController, UICollectionViewDataSource,
             DispatchQueue.main.async {
                 self.placeLists = placeLists
                 self.placeCollectionView.reloadData()
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetailMeetingFriends" {
+            if let indexPath = collectionView.indexPathsForSelectedItems?.first {
+                let selectedMeeting = upcomingMeetings[indexPath.item]
+                
+                if let destinationVC = segue.destination as? FriendMeetingDetailViewController {
+                    destinationVC.selectedMeeting = selectedMeeting
+                }
             }
         }
     }
