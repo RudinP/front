@@ -8,7 +8,6 @@
 import UIKit
 
 class ScheduleListViewController: UIViewController{
-    @IBOutlet weak var scheListLabel: UILabel!
     @IBOutlet weak var calendar: UIDatePicker!
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -43,6 +42,20 @@ extension ScheduleListViewController: UICollectionViewDataSource, UICollectionVi
         cell.scheDateLabel.text = schedule.dateString
                 
         return cell
+    }
+}
+
+extension ScheduleListViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showMeetingDetail2" {
+            if let indexPath = collectionView.indexPathsForSelectedItems?.first {
+                let selectedMeeting = getToday(meetings: meetings, date: date)[indexPath.item]
+                
+                if let destinationVC = segue.destination as? FriendMeetingDetailViewController {
+                    destinationVC.selectedMeeting = selectedMeeting
+                }
+            }
+        }
     }
 }
 

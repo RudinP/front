@@ -241,6 +241,18 @@
         }
       }
     },
+    "Bit-9K-Zs6.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"스타벅스\"; ObjectID = \"Bit-9K-Zs6\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "스타벅스"
+          }
+        }
+      }
+    },
     "Blj-FY-IIB.title" : {
       "comment" : "Class = \"UIViewController\"; title = \"약속 상세\"; ObjectID = \"Blj-FY-IIB\";",
       "extractionState" : "extracted_with_value",
@@ -249,6 +261,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "약속 상세"
+          }
+        }
+      }
+    },
+    "btn-3T-dCV.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"정기 회의\"; ObjectID = \"btn-3T-dCV\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "정기 회의"
           }
         }
       }
@@ -325,6 +349,30 @@
         }
       }
     },
+    "dod-y9-aTw.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"0:00am\"; ObjectID = \"dod-y9-aTw\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "0:00am"
+          }
+        }
+      }
+    },
+    "exf-Qp-Grq.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"닉네임\"; ObjectID = \"exf-Qp-Grq\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "닉네임"
+          }
+        }
+      }
+    },
     "F6u-4h-fWU.text" : {
       "comment" : "Class = \"UILabel\"; text = \"개인정보 이용 처리 방침\"; ObjectID = \"F6u-4h-fWU\";",
       "extractionState" : "extracted_with_value",
@@ -361,6 +409,18 @@
         }
       }
     },
+    "gAH-Kh-zfF.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"●\"; ObjectID = \"gAH-Kh-zfF\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "●"
+          }
+        }
+      }
+    },
     "gen-5q-BgZ.normalTitle" : {
       "comment" : "Class = \"UIButton\"; normalTitle = \"회원탈퇴\"; ObjectID = \"gen-5q-BgZ\";",
       "extractionState" : "extracted_with_value",
@@ -369,6 +429,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "회원탈퇴"
+          }
+        }
+      }
+    },
+    "gLh-lo-SHR.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"약속 날짜\"; ObjectID = \"gLh-lo-SHR\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "약속 날짜"
           }
         }
       }
@@ -393,6 +465,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "즐겨찾기한 친구"
+          }
+        }
+      }
+    },
+    "ii2-Cg-MpD.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"1\"; ObjectID = \"ii2-Cg-MpD\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "1"
           }
         }
       }
@@ -505,18 +589,6 @@
         }
       }
     },
-    "pKz-DV-b4O.normalTitle" : {
-      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"pKz-DV-b4O\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Button"
-          }
-        }
-      }
-    },
     "qs4-Pb-Zf5.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Label\"; ObjectID = \"qs4-Pb-Zf5\";",
       "extractionState" : "extracted_with_value",
@@ -601,6 +673,18 @@
         }
       }
     },
+    "uzR-Se-Jur.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"2024.01.01\"; ObjectID = \"uzR-Se-Jur\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "2024.01.01"
+          }
+        }
+      }
+    },
     "v3w-Yp-EYP.normalTitle" : {
       "comment" : "Class = \"UIButton\"; normalTitle = \"친구 추가하기\"; ObjectID = \"v3w-Yp-EYP\";",
       "extractionState" : "extracted_with_value",
@@ -681,6 +765,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Button"
+          }
+        }
+      }
+    },
+    "x6v-ia-MhX.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"경기도 안양시\"; ObjectID = \"x6v-ia-MhX\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "경기도 안양시"
           }
         }
       }
