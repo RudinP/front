@@ -39,6 +39,30 @@ class DetailMeetingViewController: UIViewController, CLLocationManagerDelegate, 
         if let date = selectedMeeting.date {
             meetingDate.text = formatDateToString(date: date)
         }
+        
+        addAnnotationsForMeetingPlaces()
+    }
+    
+    func addAnnotationsForMeetingPlaces() {
+        guard let places = selectedMeeting?.places else { return }
+
+        for (index, meetingPlace) in places.enumerated() {
+            guard let place = meetingPlace.place,
+                  let latitude = place.latitude,
+                  let longitude = place.longtitude else { continue }
+
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+            annotation.title = place.placeName
+            annotation.subtitle = place.address
+            map.addAnnotation(annotation)
+
+            // 첫 번째 장소 위치로 지도 중심 설정
+            if index == 0 {
+                let region = MKCoordinateRegion(center: annotation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+                map.setRegion(region, animated: true)
+            }
+        }
     }
     
     func formatDateToString(date: Date) -> String {
@@ -65,11 +89,6 @@ class DetailMeetingViewController: UIViewController, CLLocationManagerDelegate, 
         let spanValue = MKCoordinateSpan(latitudeDelta: span, longitudeDelta: span)
         let pRegion = MKCoordinateRegion(center: pLocation, span: spanValue)
         map.setRegion(pRegion, animated: true)
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
-        let pLocation = locations.last
-        goLocation(latitudeValue: (pLocation?.coordinate.latitude)!, longitudeValue: (pLocation?.coordinate.longitude)!, delta: 0.01)
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
