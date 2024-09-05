@@ -1,14 +1,14 @@
 //
-//  DetailMeetingViewController.swift
+//  FriendMeetingDetailViewController.swift
 //  Foodle
 //
-//  Created by 민정 on 6/23/24.
+//  Created by 민정 on 9/4/24.
 //
 
 import UIKit
 import MapKit
 
-class DetailMeetingViewController: UIViewController, CLLocationManagerDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
+class FriendMeetingDetailViewController: UIViewController, CLLocationManagerDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
     @IBOutlet weak var meetingName: UILabel!
     @IBOutlet weak var meetingDate: UILabel!
     @IBOutlet weak var map: MKMapView!
@@ -20,68 +20,44 @@ class DetailMeetingViewController: UIViewController, CLLocationManagerDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let editButton = UIBarButtonItem(title: "편집", style: .plain, target: self, action: #selector(nextButtonTapped))
-        navigationItem.rightBarButtonItem = editButton
-        
+
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
         map.showsUserLocation = true
-        
+
         fName.dataSource = self
         fName.delegate = self
         meeting.dataSource = self
         meeting.delegate = self
-        
-        guard let selectedMeeting else {return}
-        meetingName.text = selectedMeeting.name
-        if let date = selectedMeeting.date {
-            meetingDate.text = formatDateToString(date: date)
+
+        if let selectedMeeting = selectedMeeting {
+            meetingName.text = selectedMeeting.name ?? "Unknown Meeting Name"
+            meetingDate.text = selectedMeeting.date.map { formatDateToString(date: $0) } ?? "Unknown Date"
+            
+            print("Received meeting: \(selectedMeeting.name ?? "Unknown Meeting Name")")
+        } else {
+            meetingName.text = "No Meeting"
+            meetingDate.text = "No Date"
         }
         
-        addAnnotationsForMeetingPlaces()
+        updateUI()
     }
     
-    func addAnnotationsForMeetingPlaces() {
-        guard let places = selectedMeeting?.places else { return }
-
-        for (index, meetingPlace) in places.enumerated() {
-            guard let place = meetingPlace.place,
-                  let latitude = place.latitude,
-                  let longitude = place.longtitude else { continue }
-
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-            annotation.title = place.placeName
-            annotation.subtitle = place.address
-            map.addAnnotation(annotation)
-
-            // 첫 번째 장소 위치로 지도 중심 설정
-            if index == 0 {
-                let region = MKCoordinateRegion(center: annotation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-                map.setRegion(region, animated: true)
-            }
+    func updateUI() {
+        if let selectedMeeting = selectedMeeting {
+            meetingName.text = selectedMeeting.name ?? "Unknown Meeting Name"
+            meetingDate.text = selectedMeeting.date.map { formatDateToString(date: $0) } ?? "Unknown Date"
+        } else {
+            meetingName.text = "No Meeting"
+            meetingDate.text = "No Date"
         }
     }
-    
+
     func formatDateToString(date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy.MM.dd"
         return dateFormatter.string(from: date)
-    }
-    
-    @objc func nextButtonTapped() {
-        performSegue(withIdentifier: "EditMeeting", sender: self)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "EditMeeting" {
-            if let editVC = segue.destination as? EditMeetingViewController {
-                let editableMeeting = EditableMeeting(origin: selectedMeeting)
-                editVC.editableMeeting = editableMeeting
-            }
-        }
     }
     
     func goLocation(latitudeValue: CLLocationDegrees, longitudeValue : CLLocationDegrees, delta span :Double) {
@@ -89,6 +65,11 @@ class DetailMeetingViewController: UIViewController, CLLocationManagerDelegate, 
         let spanValue = MKCoordinateSpan(latitudeDelta: span, longitudeDelta: span)
         let pRegion = MKCoordinateRegion(center: pLocation, span: spanValue)
         map.setRegion(pRegion, animated: true)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
+        let pLocation = locations.last
+        goLocation(latitudeValue: (pLocation?.coordinate.latitude)!, longitudeValue: (pLocation?.coordinate.longitude)!, delta: 0.01)
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -106,13 +87,13 @@ class DetailMeetingViewController: UIViewController, CLLocationManagerDelegate, 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == fName {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MeetingFriendsNameCell", for: indexPath) as! MeetingFriendsNameCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MeetingFriendsNameCell2", for: indexPath) as! MeetingFriendsNameCell2
             if let joiners = selectedMeeting?.joiners {
                 cell.nameLabel.text = joiners[indexPath.item].nickName
             }
             return cell
         } else if collectionView == meeting {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MeetingDetailCell", for: indexPath) as! MeetingDetailCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MeetingDetailCell2", for: indexPath) as! MeetingDetailCell2
                 if let places = selectedMeeting?.places {
                     let detail = places[indexPath.item]
                     cell.numberLabel.text = "\(indexPath.item + 1)"
@@ -126,11 +107,11 @@ class DetailMeetingViewController: UIViewController, CLLocationManagerDelegate, 
     }
 }
 
-class MeetingFriendsNameCell: UICollectionViewCell {
+class MeetingFriendsNameCell2: UICollectionViewCell {
     @IBOutlet weak var nameLabel: UILabel!
 }
 
-class MeetingDetailCell: UICollectionViewCell {
+class MeetingDetailCell2: UICollectionViewCell {
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!

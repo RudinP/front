@@ -15,7 +15,6 @@ class LoginViewController: UIViewController {
     @IBOutlet var loginLabel2: UILabel!
     @IBOutlet var kakaoButton: UIButton!
     @IBOutlet var naverButton: UIButton!
-    @IBOutlet var appleButton: UIButton!
     @IBOutlet var privacyLabel: UILabel!
 
     override func viewDidLoad() {
