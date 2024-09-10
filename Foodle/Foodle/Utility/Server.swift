@@ -182,50 +182,88 @@ func fetchPlaceLists(_ uid: String, completion: @escaping ([PlaceList]?) -> Void
     }
     task.resume()
 }
-
-func searchPlace(_ byName: String?, completion: @escaping ([Place]?) -> Void){
+struct SearchPlace: Encodable{
+    var meeting: Meeting?
+    var placeName: String?
+}
+func searchPlace(_ byName: String?, _ meeting: Meeting? = nil, completion: @escaping ([Place]?) -> Void){
     guard let byName else { return }
-    
     var url = url!
-    url.append(path: "/api/place/byPlaceName")
-    url.append(queryItems: [URLQueryItem(name: "placeName", value: byName)])
-    
-    let session = URLSession.shared
-    let task = session.dataTask(with: url) { data, response, error in
-        if error != nil{
-            completion(nil)
-            return
-        }
+    if meeting != nil {
+        url.append(path:"/api/meetings/getPreferredPlacebyPlaceName")
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        guard let httpResponse = response as? HTTPURLResponse else
-        {
-            completion(nil)
-            return
-        }
+        let data = SearchPlace(meeting: meeting, placeName: byName)
         
-        guard httpResponse.statusCode == 200 else
-        {
-            print(httpResponse.statusCode)
-            completion(nil)
-            return
-        }
+        guard let meetingData = try? JSONEncoder().encode(data) else { return }
         
-        guard let data else
-        {
-            completion(nil)
-            return
+        let task = URLSession.shared.uploadTask(with: request, from: meetingData) { (data, response, error) in
+            if let error = error {
+                NSLog("An error has occurred: \(error.localizedDescription)")
+                return
+            }
+            if let httpResponse = response as? HTTPURLResponse, !(200...299).contains(httpResponse.statusCode) {
+                NSLog("Server error: \(httpResponse.statusCode)")
+                return
+            }
+            guard let data else
+            {
+                completion(nil)
+                return
+            }
+            
+            do{
+                let decoder = JSONDecoder()
+                let result = try decoder.decode([Place].self, from: data)
+                completion(result)
+            } catch {
+                print(error)
+                completion(nil)
+            }
         }
-        
-        do{
-            let decoder = JSONDecoder()
-            let result = try decoder.decode([Place].self, from: data)
-            completion(result)
-        } catch {
-            print(error)
-            completion(nil)
+        task.resume()
+    } else {
+        url.append(path: "/api/place/byPlaceName")
+        url.append(queryItems: [URLQueryItem(name: "placeName", value: byName)])
+        let session = URLSession.shared
+        let task = session.dataTask(with: url) { data, response, error in
+            if error != nil{
+                completion(nil)
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse else
+            {
+                completion(nil)
+                return
+            }
+            
+            guard httpResponse.statusCode == 200 else
+            {
+                print(httpResponse.statusCode)
+                completion(nil)
+                return
+            }
+            
+            guard let data else
+            {
+                completion(nil)
+                return
+            }
+            
+            do{
+                let decoder = JSONDecoder()
+                let result = try decoder.decode([Place].self, from: data)
+                completion(result)
+            } catch {
+                print(error)
+                completion(nil)
+            }
         }
+        task.resume()
     }
-    task.resume()
 }
 
 func createPlaceList(_ list: PlaceList, completion: @escaping () -> Void){
@@ -429,3 +467,4 @@ func createUser(_ user: User?, completion: @escaping () -> Void){
     
     task.resume()
 }
+
