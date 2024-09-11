@@ -140,9 +140,9 @@ class MyPageViewController: UIViewController {
     
     @objc func logoutButtonTapped() {
         UserApi.shared.logout { (error) in
-            if let error = error {
+            /*if let error = error {
                 print("Kakao logout failed: \(error.localizedDescription)")
-            } else {
+            } else {*/
                 print("Kakao logout success.")
                 // 로그아웃 후 첫 화면으로 전환
                 DispatchQueue.main.async {
@@ -156,7 +156,7 @@ class MyPageViewController: UIViewController {
                     }
                 }
             }
-        }
+        //}
         user = nil
     }
 }
