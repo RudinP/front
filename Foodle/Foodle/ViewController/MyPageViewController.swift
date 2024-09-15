@@ -19,6 +19,7 @@ class MyPageViewController: UIViewController {
     @IBOutlet var logoutButton: UIButton!
     @IBOutlet var withdrawalButton: UIButton!
     @IBOutlet weak var addFriendsCode: UILabel!
+    @IBOutlet weak var timeKeywordButton: UIButton!
     
     var myPageUser: User?
     
@@ -47,6 +48,10 @@ class MyPageViewController: UIViewController {
             withdrawalButton.addTarget(self, action: #selector(withdrawalButtonTapped), for: .touchUpInside)
             logoutButton.addTarget(self, action: #selector(logoutButtonTapped), for: .touchUpInside)
         }
+        
+        let SecondAccent: UIColor = UIColor(red: 0.817, green: 0.807, blue: 0.914, alpha: 1.0)
+        timeKeywordButton.layer.borderWidth = 1
+        timeKeywordButton.layer.borderColor = SecondAccent.cgColor
     }
     
     func loadImageAsync(from url: URL, completion: @escaping (UIImage?) -> Void) {
