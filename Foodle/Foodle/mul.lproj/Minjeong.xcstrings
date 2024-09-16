@@ -193,18 +193,6 @@
         }
       }
     },
-    "a2Q-BT-9q9.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"2~10글자 까지만 가능해요!\"; ObjectID = \"a2Q-BT-9q9\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "2~10글자 까지만 가능해요!"
-          }
-        }
-      }
-    },
     "a5e-l9-uVY.text" : {
       "comment" : "Class = \"UILabel\"; text = \"닉네임\"; ObjectID = \"a5e-l9-uVY\";",
       "extractionState" : "extracted_with_value",
@@ -765,6 +753,30 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Label"
+          }
+        }
+      }
+    },
+    "QUX-Rg-Dg2.configuration.title" : {
+      "comment" : "Class = \"UIButton\"; configuration.title = \"복사\"; ObjectID = \"QUX-Rg-Dg2\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "복사"
+          }
+        }
+      }
+    },
+    "QUX-Rg-Dg2.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"QUX-Rg-Dg2\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
           }
         }
       }
