@@ -469,12 +469,9 @@ func createUser(_ user: User?, completion: @escaping () -> Void){
 }
 
 func updateUser(user: User, completion: @escaping () -> Void) {
-    //var url = url!
-    //url.append(path: "/api/users/update")
-    var url = URL(string: "http://3.39.156.254:8080/api/users/update")!
-    // 디버깅: URL 출력
-    print("Request URL: \(url.absoluteString)")
-    
+    var url = url!
+    url.append(path: "/api/users/update")
+
     var request = URLRequest(url: url)
     request.httpMethod = "POST"
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -485,7 +482,7 @@ func updateUser(user: User, completion: @escaping () -> Void) {
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
-                print("Error updating user: \(error.localizedDescription)")
+                print("Error updating user: \(error)")
                 completion()
                 return
             }
@@ -494,6 +491,7 @@ func updateUser(user: User, completion: @escaping () -> Void) {
                 switch httpResponse.statusCode {
                 case 200:
                     print("Update successful.")
+                    completion()
                 case 404:
                     print("Error: API endpoint not found (404).")
                 default:
@@ -508,7 +506,7 @@ func updateUser(user: User, completion: @escaping () -> Void) {
         
         task.resume()
     } catch {
-        print("Error encoding user: \(error.localizedDescription)")
+        print("Error encoding user: \(error)")
         completion()
     }
 }

@@ -505,18 +505,6 @@
         }
       }
     },
-    "gR1-xK-JMR.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"code\"; ObjectID = \"gR1-xK-JMR\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "code"
-          }
-        }
-      }
-    },
     "hbg-Fz-Noe.title" : {
       "comment" : "Class = \"UIViewController\"; title = \"친구 상세\"; ObjectID = \"hbg-Fz-Noe\";",
       "extractionState" : "extracted_with_value",
