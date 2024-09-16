@@ -1154,7 +1154,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="saveButtonTapped:" destination="9pl-o8-XwS" eventType="touchUpInside" id="2vW-Ai-aDk"/>
+                                    <action selector="saveButtonTapped:" destination="9pl-o8-XwS" eventType="touchUpInside" id="Juw-Gz-p5P"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="선호 시간대" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HdD-Jt-Lpc">
@@ -1228,6 +1228,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="rBk-de-g6S"/>
                     <connections>
+                        <outlet property="dislikeWordText" destination="lMA-OW-7Pn" id="ipL-hf-xo8"/>
+                        <outlet property="likeWordText" destination="66M-8y-D52" id="UVB-fw-HxW"/>
                         <outlet property="saveButton" destination="d1n-sN-JjN" id="8dc-yJ-J5r"/>
                         <outlet property="tableView" destination="P27-pV-p5J" id="KgB-Wk-jW5"/>
                     </connections>

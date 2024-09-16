@@ -10,8 +10,9 @@ import UIKit
 class UserSettingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var likeWordText: UITextField!
+    @IBOutlet weak var dislikeWordText: UITextField!
     var preferredTimeList: [PreferredTime] = []
-    var user: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +26,34 @@ class UserSettingViewController: UIViewController, UITableViewDataSource, UITabl
         } else {
             preferredTimeList = Array(repeating: PreferredTime(day: .월, start: "00:00", end: "00:00"), count: 7)
         }
+
+        if let user = user {
+            likeWordText.text = user.likeWord?.joined(separator: "/") ?? ""
+            dislikeWordText.text = user.dislikeWord?.joined(separator: "/") ?? ""
+        }
         
         tableView.reloadData()
+    }
+    
+    @IBAction func saveButtonTapped(_ sender: UIButton) {
+        let likeWords = likeWordText.text?.split(separator: "/").map { $0.trimmingCharacters(in: .whitespaces) } ?? []
+        let dislikeWords = dislikeWordText.text?.split(separator: "/").map { $0.trimmingCharacters(in: .whitespaces) } ?? []
+
+        guard let uid = user?.uid else {
+            return
+        }
+
+        let updateCompletion: () -> Void = { [weak self] in
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "성공", message: "성공적으로 저장되었습니다.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self?.present(alert, animated: true, completion: nil)
+            }
+        }
+
+        updateUserLikeWords(uid: uid, likeWords: likeWords) {
+            updateUserDislikeWords(uid: uid, dislikeWords: dislikeWords, completion: updateCompletion)
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
