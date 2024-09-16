@@ -25,6 +25,18 @@
         }
       }
     },
+    "1Dj-if-bnY.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"고등학교 동창회\"; ObjectID = \"1Dj-if-bnY\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "고등학교 동창회"
+          }
+        }
+      }
+    },
     "1gg-hD-Dxx.text" : {
       "comment" : "Class = \"UILabel\"; text = \"선호 키워드\"; ObjectID = \"1gg-hD-Dxx\";",
       "extractionState" : "extracted_with_value",
@@ -85,26 +97,14 @@
         }
       }
     },
-    "4PY-3x-9P4.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"이름\"; ObjectID = \"4PY-3x-9P4\";",
+    "4pR-Yl-mRU.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"이름\"; ObjectID = \"4pR-Yl-mRU\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "이름"
-          }
-        }
-      }
-    },
-    "5Ha-ZS-hNI.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"2024/01/01 월\"; ObjectID = \"5Ha-ZS-hNI\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "2024/01/01 월"
           }
         }
       }
@@ -265,6 +265,18 @@
         }
       }
     },
+    "aqT-Qu-yNf.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"선호 시간대\"; ObjectID = \"aqT-Qu-yNf\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "선호 시간대"
+          }
+        }
+      }
+    },
     "b4F-4V-zwq.text" : {
       "comment" : "Class = \"UILabel\"; text = \"닉네임\"; ObjectID = \"b4F-4V-zwq\";",
       "extractionState" : "extracted_with_value",
@@ -321,6 +333,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "정기 회의"
+          }
+        }
+      }
+    },
+    "cBM-vC-tE8.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"2024/01/01 월\"; ObjectID = \"cBM-vC-tE8\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "2024/01/01 월"
           }
         }
       }
@@ -469,6 +493,18 @@
         }
       }
     },
+    "g8M-Ld-xSI.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"비선호 키워드\"; ObjectID = \"g8M-Ld-xSI\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "비선호 키워드"
+          }
+        }
+      }
+    },
     "gAH-Kh-zfF.text" : {
       "comment" : "Class = \"UILabel\"; text = \"●\"; ObjectID = \"gAH-Kh-zfF\";",
       "extractionState" : "extracted_with_value",
@@ -477,6 +513,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "●"
+          }
+        }
+      }
+    },
+    "gEF-xc-68c.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"gEF-xc-68c\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
           }
         }
       }
@@ -501,6 +549,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "약속 날짜"
+          }
+        }
+      }
+    },
+    "gTY-z1-TOk.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"나와의 다가오는 약속\"; ObjectID = \"gTY-z1-TOk\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "나와의 다가오는 약속"
           }
         }
       }
@@ -589,6 +649,18 @@
         }
       }
     },
+    "kgU-2c-8E0.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"친구의 플레이스\"; ObjectID = \"kgU-2c-8E0\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "친구의 플레이스"
+          }
+        }
+      }
+    },
     "Koz-IQ-UHk.normalTitle" : {
       "comment" : "Class = \"UIButton\"; normalTitle = \"로그아웃\"; ObjectID = \"Koz-IQ-UHk\";",
       "extractionState" : "extracted_with_value",
@@ -637,18 +709,6 @@
         }
       }
     },
-    "nUY-mv-wWJ.normalTitle" : {
-      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"nUY-mv-wWJ\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Button"
-          }
-        }
-      }
-    },
     "nVE-u2-RRD.text" : {
       "comment" : "Class = \"UILabel\"; text = \"닉네임\"; ObjectID = \"nVE-u2-RRD\";",
       "extractionState" : "extracted_with_value",
@@ -685,8 +745,8 @@
         }
       }
     },
-    "pKp-qt-15T.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"금별맥주\"; ObjectID = \"pKp-qt-15T\";",
+    "QJj-Dg-nzm.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"금별맥주\"; ObjectID = \"QJj-Dg-nzm\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
@@ -733,6 +793,30 @@
         }
       }
     },
+    "row-QA-j6M.configuration.title" : {
+      "comment" : "Class = \"UIButton\"; configuration.title = \"Button\"; ObjectID = \"row-QA-j6M\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        }
+      }
+    },
+    "row-QA-j6M.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"row-QA-j6M\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        }
+      }
+    },
     "rpc-w2-bMt.normalTitle" : {
       "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"rpc-w2-bMt\";",
       "extractionState" : "extracted_with_value",
@@ -745,14 +829,14 @@
         }
       }
     },
-    "Tl8-6F-157.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"나와의 다가오는 약속\"; ObjectID = \"Tl8-6F-157\";",
+    "Sj1-Mf-gba.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"선호 키워드\"; ObjectID = \"Sj1-Mf-gba\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "나와의 다가오는 약속"
+            "value" : "선호 키워드"
           }
         }
       }
@@ -806,13 +890,13 @@
       }
     },
     "v3w-Yp-EYP.normalTitle" : {
-      "comment" : "Class = \"UIButton\"; normalTitle = \"친구 추가하기\"; ObjectID = \"v3w-Yp-EYP\";",
+      "comment" : "Class = \"UIButton\"; normalTitle = \"친구 추가\"; ObjectID = \"v3w-Yp-EYP\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "친구 추가하기"
+            "value" : "친구 추가"
           }
         }
       }
@@ -889,6 +973,18 @@
         }
       }
     },
+    "WF1-QG-9Mi.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Label\"; ObjectID = \"WF1-QG-9Mi\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Label"
+          }
+        }
+      }
+    },
     "WgV-gH-Vuf.text" : {
       "comment" : "Class = \"UILabel\"; text = \"2024.01.01\"; ObjectID = \"WgV-gH-Vuf\";",
       "extractionState" : "extracted_with_value",
@@ -945,30 +1041,6 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "친구 추가 코드"
-          }
-        }
-      }
-    },
-    "xms-62-65z.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"고등학교 동창회\"; ObjectID = \"xms-62-65z\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "고등학교 동창회"
-          }
-        }
-      }
-    },
-    "XTi-Fl-eVP.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"친구의 플레이스\"; ObjectID = \"XTi-Fl-eVP\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "친구의 플레이스"
           }
         }
       }

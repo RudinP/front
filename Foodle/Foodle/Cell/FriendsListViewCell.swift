@@ -17,6 +17,12 @@ class FriendsListViewCell: UIViewController {
     @IBOutlet weak var friendCode: UITextField!
     @IBOutlet weak var addLabel: UILabel!
     
+    var activityIndicator: UIActivityIndicatorView = {
+        let spinner = UIActivityIndicatorView(style: .large)
+        spinner.hidesWhenStopped = true
+        return spinner
+    }()
+
     var Friends: [Friend]?
     
     // 모든 친구 데이터 (즐겨찾기 포함)
@@ -46,6 +52,9 @@ class FriendsListViewCell: UIViewController {
         // favTable과 allTable의 스크롤 비활성화
         self.favTable.isScrollEnabled = false
         self.allTable.isScrollEnabled = false
+        
+        activityIndicator.center = view.center
+        view.addSubview(activityIndicator)
     }
     
     func setupScrollView() {
@@ -88,8 +97,8 @@ class FriendsListViewCell: UIViewController {
         url.append(path: "/api/friends/CreateByCode")
         
         guard let uid = user?.uid else {
-                return
-            }
+            return
+        }
 
         guard let code = friendCode.text, !code.isEmpty else {
             print("Friend code is empty")
@@ -103,7 +112,15 @@ class FriendsListViewCell: UIViewController {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
+        DispatchQueue.main.async {
+            self.activityIndicator.startAnimating()
+        }
+
         let task = URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
+            DispatchQueue.main.async {
+                self?.activityIndicator.stopAnimating()
+            }
+
             if let error = error {
                 print("Failed to add friend: \(error.localizedDescription)")
                 return
@@ -188,6 +205,9 @@ extension FriendsListViewCell: UITableViewDelegate, UITableViewDataSource {
                 destinationVC.friendsNameText = selectedFriend.user.nickName
                 destinationVC.profileImgUrl = selectedFriend.user.profileImage
                 destinationVC.friendUid = selectedFriend.user.uid
+                destinationVC.friendLikeWord = selectedFriend.user.likeWord
+                destinationVC.friendDislikeWord = selectedFriend.user.dislikeWord
+                destinationVC.friendTime = selectedFriend.user.preferredTime
             }
         }
     }
