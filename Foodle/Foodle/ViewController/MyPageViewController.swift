@@ -54,6 +54,36 @@ class MyPageViewController: UIViewController {
         timeKeywordButton.layer.borderColor = SecondAccent.cgColor
     }
     
+    @IBAction func saveButtonTapped(_ sender: UIButton) {
+        guard let uid = user?.uid else {
+            return
+        }
+
+        guard let newNickname = nicknameInput.text, !newNickname.isEmpty else {
+            return
+        }
+
+        let updatedUser = User(
+            uid: uid,
+            profileImage: user?.profileImage,
+            name: user?.name,
+            nickName: newNickname,
+            preferredTime: user?.preferredTime,
+            likeWord: user?.likeWord,
+            dislikeWord: user?.dislikeWord
+        )
+
+        updateUser(user: updatedUser) { [weak self] in
+            DispatchQueue.main.async {
+                self?.nicknameLabel.text = newNickname
+                
+                let alert = UIAlertController(title: "성공", message: "성공적으로 저장되었습니다.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self?.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+
     func loadImageAsync(from url: URL, completion: @escaping (UIImage?) -> Void) {
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil else {

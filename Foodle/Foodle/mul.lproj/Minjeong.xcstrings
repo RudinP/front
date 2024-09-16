@@ -793,30 +793,6 @@
         }
       }
     },
-    "row-QA-j6M.configuration.title" : {
-      "comment" : "Class = \"UIButton\"; configuration.title = \"Button\"; ObjectID = \"row-QA-j6M\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Button"
-          }
-        }
-      }
-    },
-    "row-QA-j6M.normalTitle" : {
-      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"row-QA-j6M\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Button"
-          }
-        }
-      }
-    },
     "rpc-w2-bMt.normalTitle" : {
       "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"rpc-w2-bMt\";",
       "extractionState" : "extracted_with_value",
