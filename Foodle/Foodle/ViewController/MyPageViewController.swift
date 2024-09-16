@@ -20,6 +20,7 @@ class MyPageViewController: UIViewController {
     @IBOutlet var withdrawalButton: UIButton!
     @IBOutlet weak var addFriendsCode: UILabel!
     @IBOutlet weak var timeKeywordButton: UIButton!
+    @IBOutlet weak var copyButton: UIButton!
     
     var myPageUser: User?
     
@@ -54,6 +55,49 @@ class MyPageViewController: UIViewController {
         timeKeywordButton.layer.borderColor = SecondAccent.cgColor
     }
     
+    @IBAction func copyButtonTapped(_ sender: UIButton) {
+        if let codeText = addFriendsCode.text {
+            UIPasteboard.general.string = codeText
+            let alert = UIAlertController(title: "", message: "친구 추가 코드가 클립보드에 복사되었습니다.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "오류", message: "복사할 친구 코드가 없습니다.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+
+    @IBAction func saveButtonTapped(_ sender: UIButton) {
+        guard let uid = user?.uid else {
+            return
+        }
+
+        guard let newNickname = nicknameInput.text, !newNickname.isEmpty else {
+            return
+        }
+
+        let updatedUser = User(
+            uid: uid,
+            profileImage: user?.profileImage,
+            name: user?.name,
+            nickName: newNickname,
+            preferredTime: user?.preferredTime,
+            likeWord: user?.likeWord,
+            dislikeWord: user?.dislikeWord
+        )
+
+        updateUser(user: updatedUser) { [weak self] in
+            DispatchQueue.main.async {
+                self?.nicknameLabel.text = newNickname
+                
+                let alert = UIAlertController(title: "", message: "성공적으로 저장되었습니다.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self?.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+
     func loadImageAsync(from url: URL, completion: @escaping (UIImage?) -> Void) {
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil else {
