@@ -468,3 +468,127 @@ func createUser(_ user: User?, completion: @escaping () -> Void){
     task.resume()
 }
 
+func updateUser(user: User, completion: @escaping () -> Void) {
+    var url = url!
+    url.append(path: "/api/users/update")
+
+    var request = URLRequest(url: url)
+    request.httpMethod = "POST"
+    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    
+    do {
+        let jsonData = try JSONEncoder().encode(user)
+        request.httpBody = jsonData
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("Error updating user: \(error)")
+                completion()
+                return
+            }
+            
+            if let httpResponse = response as? HTTPURLResponse {
+                switch httpResponse.statusCode {
+                case 200:
+                    print("Update successful.")
+                    completion()
+                case 404:
+                    print("Error: API endpoint not found (404).")
+                default:
+                    print("Server error: \(httpResponse.statusCode)")
+                }
+            } else {
+                print("Unexpected response.")
+            }
+            
+            completion()
+        }
+        
+        task.resume()
+    } catch {
+        print("Error encoding user: \(error)")
+        completion()
+    }
+}
+
+func updateUserLikeWords(uid: String, likeWords: [String], completion: @escaping () -> Void) {
+    var url = url!
+    url.append(path: "/api/users/update/likeWord")
+    
+    let likeWordsString = likeWords.joined(separator: ",")
+    
+    let queryItems = [
+        URLQueryItem(name: "uid", value: uid),
+        URLQueryItem(name: "likeWord", value: likeWordsString)
+    ]
+    url.append(queryItems: queryItems)
+    
+    var request = URLRequest(url: url)
+    request.httpMethod = "GET"
+    
+    let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        if let error = error {
+            print("Error updating user like words: \(error)")
+            completion()
+            return
+        }
+        
+        if let httpResponse = response as? HTTPURLResponse {
+            switch httpResponse.statusCode {
+            case 200:
+                print("Like words update successful.")
+            case 404:
+                print("Error: API endpoint not found (404).")
+            default:
+                print("Server error: \(httpResponse.statusCode)")
+            }
+        } else {
+            print("Unexpected response.")
+        }
+        
+        completion()
+    }
+    
+    task.resume()
+}
+
+func updateUserDislikeWords(uid: String, dislikeWords: [String], completion: @escaping () -> Void) {
+    var url = url!
+    url.append(path: "/api/users/update/dislikeWord")
+    
+    let dislikeWordsString = dislikeWords.joined(separator: ",")
+    
+    let queryItems = [
+        URLQueryItem(name: "uid", value: uid),
+        URLQueryItem(name: "dislikeWord", value: dislikeWordsString)
+    ]
+    url.append(queryItems: queryItems)
+    
+    var request = URLRequest(url: url)
+    request.httpMethod = "GET"
+    
+    let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        if let error = error {
+            print("Error updating user dislike words: \(error)")
+            completion()
+            return
+        }
+        
+        if let httpResponse = response as? HTTPURLResponse {
+            switch httpResponse.statusCode {
+            case 200:
+                print("Dislike words update successful.")
+            case 404:
+                print("Error: API endpoint not found (404).")
+            default:
+                print("Server error: \(httpResponse.statusCode)")
+            }
+        } else {
+            print("Unexpected response.")
+        }
+        
+        completion()
+    }
+    
+    task.resume()
+}

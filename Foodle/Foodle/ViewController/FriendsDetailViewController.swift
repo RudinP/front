@@ -11,11 +11,24 @@ class FriendsDetailViewController: UIViewController, UICollectionViewDataSource,
     @IBOutlet var friendsNameLabel: UILabel!
     @IBOutlet var profileImg: UIImageView!
     @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet weak var likeWordLabel: UILabel!
+    @IBOutlet weak var dislikeWordLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet var placeCollectionView: UICollectionView!
+    
+    @IBOutlet weak var label1: UILabel!
+    @IBOutlet weak var label2: UILabel!
+    @IBOutlet weak var label3: UILabel!
+    @IBOutlet weak var label4: UILabel!
+    @IBOutlet weak var label5: UILabel!
+    var scrollView: UIScrollView!
     
     var friendsNameText: String?
     var profileImgUrl: String?
     var friendUid: String? 
+    var friendLikeWord: [String]?
+    var friendDislikeWord: [String]?
+    var friendTime: [PreferredTime]?
     
     var upcomingMeetings: [Meeting] = []
     var placeLists: [PlaceList]?
@@ -23,6 +36,8 @@ class FriendsDetailViewController: UIViewController, UICollectionViewDataSource,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupScrollView()
         
         let activityIndicator = UIActivityIndicatorView(style: .large)
         activityIndicator.center = view.center
@@ -37,6 +52,26 @@ class FriendsDetailViewController: UIViewController, UICollectionViewDataSource,
             profileImg.setImageFromStringURL(profileImgUrl)
         }
         
+        if let friendLikeWord = friendLikeWord {
+            likeWordLabel.text = friendLikeWord.joined(separator: ", ")
+        }
+        
+        if let friendDislikeWord = friendDislikeWord {
+            dislikeWordLabel.text = friendDislikeWord.joined(separator: ", ")
+        }
+        
+        if let friendTime = friendTime {
+            var timeText = ""
+            for time in friendTime {
+                if time.start != "00:00" && time.end != "00:00" {
+                    let dayString = dayToString(day: time.day)
+                    timeText += "\(dayString) \(time.start) ~ \(time.end)\n"
+                }
+            }
+            timeLabel.numberOfLines = 0
+            timeLabel.text = timeText.trimmingCharacters(in: .whitespacesAndNewlines)
+        }
+
         collectionView.dataSource = self
         collectionView.delegate = self
         
@@ -66,6 +101,50 @@ class FriendsDetailViewController: UIViewController, UICollectionViewDataSource,
                 self.placeLists = placeLists
                 self.placeCollectionView.reloadData()
             }
+        }
+    }
+    
+    func setupScrollView() {
+        scrollView = UIScrollView(frame: view.bounds)
+        view.addSubview(scrollView)
+        
+        scrollView.addSubview(friendsNameLabel)
+        scrollView.addSubview(profileImg)
+        scrollView.addSubview(label1)
+        scrollView.addSubview(collectionView)
+        scrollView.addSubview(label2)
+        scrollView.addSubview(likeWordLabel)
+        scrollView.addSubview(label3)
+        scrollView.addSubview(label4)
+        scrollView.addSubview(label5)
+        scrollView.addSubview(dislikeWordLabel)
+        scrollView.addSubview(timeLabel)
+        scrollView.addSubview(placeCollectionView)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        let contentHeight = timeLabel.frame.origin.y + timeLabel.frame.size.height + 90
+        scrollView.contentSize = CGSize(width: scrollView.frame.size.width, height: contentHeight)
+    }
+
+    func dayToString(day: Day) -> String {
+        switch day {
+        case .월:
+            return "월요일"
+        case .화:
+            return "화요일"
+        case .수:
+            return "수요일"
+        case .목:
+            return "목요일"
+        case .금:
+            return "금요일"
+        case .토:
+            return "토요일"
+        case .일:
+            return "일요일"
         }
     }
     

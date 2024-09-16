@@ -69,6 +69,7 @@
 		920E00012C4977EB00BAEA25 /* EditMeetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920E00002C4977EB00BAEA25 /* EditMeetingViewController.swift */; };
 		920E00462C749BE900BAEA25 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 920E00452C749BE900BAEA25 /* Alamofire */; };
 		920E00482C88A6C400BAEA25 /* FriendMeetingDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920E00472C88A6C400BAEA25 /* FriendMeetingDetailViewController.swift */; };
+		922618D52C976C73009C7D89 /* UserSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922618D42C976C73009C7D89 /* UserSettingViewController.swift */; };
 		923B80FE2C0230C600B771E7 /* ScheduleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B80FD2C0230C600B771E7 /* ScheduleListViewController.swift */; };
 		927E19CE2C0239AD004D9F96 /* Minjeong.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 927E19CD2C0239AD004D9F96 /* Minjeong.storyboard */; };
 		92B688482BB0A20400D7DF2C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B688472BB0A20400D7DF2C /* LoginViewController.swift */; };
@@ -137,6 +138,7 @@
 		4BFA46122C2BB8DA00240F4E /* RoundedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCollectionViewCell.swift; sourceTree = "<group>"; };
 		920E00002C4977EB00BAEA25 /* EditMeetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMeetingViewController.swift; sourceTree = "<group>"; };
 		920E00472C88A6C400BAEA25 /* FriendMeetingDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendMeetingDetailViewController.swift; sourceTree = "<group>"; };
+		922618D42C976C73009C7D89 /* UserSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingViewController.swift; sourceTree = "<group>"; };
 		923B80FD2C0230C600B771E7 /* ScheduleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleListViewController.swift; sourceTree = "<group>"; };
 		927E19CC2C0239AD004D9F96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Minjeong.storyboard; sourceTree = "<group>"; };
 		927E19CF2C0239AD004D9F96 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/Minjeong.xcstrings; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				4BE731992C436AD7008733C9 /* LaunchViewController.swift */,
 				4BB92B8D2C75934F000DFE0A /* MeetingListViewController.swift */,
 				920E00472C88A6C400BAEA25 /* FriendMeetingDetailViewController.swift */,
+				922618D42C976C73009C7D89 /* UserSettingViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				4B8D3EF22C22B2BC00A344D1 /* AddPlaceViewController.swift in Sources */,
 				4BF8193E2C292BD6006BE538 /* Friend.swift in Sources */,
 				4B73950E2BAC31A4006843DB /* SetMeetingViewController.swift in Sources */,
+				922618D52C976C73009C7D89 /* UserSettingViewController.swift in Sources */,
 				4B772F4C2C34F1DD00975B4C /* UIColorExtension.swift in Sources */,
 				92B688482BB0A20400D7DF2C /* LoginViewController.swift in Sources */,
 				4BE731852C3E569E008733C9 /* SearchResultViewController.swift in Sources */,
