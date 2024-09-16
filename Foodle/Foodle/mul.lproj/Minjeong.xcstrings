@@ -445,18 +445,6 @@
         }
       }
     },
-    "F6u-4h-fWU.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"개인정보 이용 처리 방침\"; ObjectID = \"F6u-4h-fWU\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "개인정보 이용 처리 방침"
-          }
-        }
-      }
-    },
     "FUH-Ke-RrB.text" : {
       "comment" : "Class = \"UILabel\"; text = \"1\"; ObjectID = \"FUH-Ke-RrB\";",
       "extractionState" : "extracted_with_value",

@@ -130,9 +130,18 @@ class FriendsListViewCell: UIViewController {
                 print("Failed to add friend: Invalid response")
                 return
             }
-            
-            DispatchQueue.main.async {
-                self?.reloadTables()
+
+            fetchFriends(uid) { [weak self] friends in
+                DispatchQueue.main.async {
+                    self?.Friends = friends
+                    self?.reloadTables()
+                    
+                    let alert = UIAlertController(title: "", message: "성공적으로 추가되었습니다.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self?.present(alert, animated: true, completion: nil)
+                    
+                    print(self?.Friends ?? "No friends")
+                }
             }
         }
         task.resume()
