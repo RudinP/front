@@ -15,15 +15,9 @@ class LoginViewController: UIViewController {
     @IBOutlet var loginLabel2: UILabel!
     @IBOutlet var kakaoButton: UIButton!
     @IBOutlet var naverButton: UIButton!
-    @IBOutlet var privacyLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // PrivacyLabel에 밑줄 추가
-        let attributedString = NSMutableAttributedString(string: "개인정보 이용 처리 방침")
-        attributedString.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: NSRange(location: 0, length: attributedString.length))
-        privacyLabel.attributedText = attributedString
         
         // '프들'만 볼드체로 변경
         if let labelText = loginLabel.text {
