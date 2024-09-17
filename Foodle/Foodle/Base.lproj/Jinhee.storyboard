@@ -442,6 +442,10 @@
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xEA-cg-HnS">
                                                                     <rect key="frame" x="5" y="5" width="116" height="38"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="120" id="aln-Dh-rYf"/>
+                                                                        <constraint firstAttribute="height" constant="40" id="cIa-0Z-iqA"/>
+                                                                    </constraints>
                                                                     <state key="normal" title="Button"/>
                                                                     <buttonConfiguration key="configuration" style="tinted" title="12:00"/>
                                                                     <connections>
