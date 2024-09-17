@@ -218,6 +218,13 @@ class MainViewController: UIViewController, MainTableViewCellDelegate {
             present(alert, animated: true, completion: nil)
             return false  // segue 실행하지 않음
         }
+        // 다가오는 약속 없는 경우
+        if identifier == "detailMeeting" && meetingsUpcoming.isEmpty {
+            let alert = UIAlertController(title: "알림", message: "다가오는 약속이 없습니다.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+            return false  // segue 실행하지 않음
+        }
         
         return true // segue 실행
     }
@@ -229,9 +236,9 @@ class MainViewController: UIViewController, MainTableViewCellDelegate {
             var selectedMeeting: Meeting?
             
             if let index = selectedIndex {
-                if selectedSection == 0 {
+                if selectedSection == 0 && !meetingsToday.isEmpty{
                     selectedMeeting = meetingsToday[index]
-                } else if selectedSection == 1{
+                } else if selectedSection == 1 && !meetingsUpcoming.isEmpty{
                     guard let selectedItemIndex else {return}
                     selectedMeeting = meetingsUpcoming[selectedItemIndex]
                 }

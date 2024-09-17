@@ -37,6 +37,14 @@ class UserSettingViewController: UIViewController, UITableViewDataSource, UITabl
         
         tableView.reloadData()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        guard let uid = user?.uid else {return}
+        fetchUser(uid) { result in
+            user = result
+        }
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Day.allCases.count // 항상 7개의 셀(요일)로 고정
@@ -114,13 +122,8 @@ class UserSettingViewCell: UITableViewCell {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
         
-        if let startTime = dateFormatter.date(from: preferredTime.start) {
-            startTimePicker.date = startTime
-        }
-        
-        if let endTime = dateFormatter.date(from: preferredTime.end) {
-            endTimePicker.date = endTime
-        }
+        startTimePicker.date = preferredTime.startDate
+        endTimePicker.date = preferredTime.endDate
     }
 
     override func awakeFromNib() {
@@ -128,6 +131,7 @@ class UserSettingViewCell: UITableViewCell {
         
         startTimePicker.datePickerMode = .time
         endTimePicker.datePickerMode = .time
+        endTimePicker.minimumDate = startTimePicker.date
         
         let locale = Locale(identifier: "en_GB")
         startTimePicker.locale = locale

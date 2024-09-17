@@ -74,7 +74,7 @@ class SetMeetingViewController: UIViewController {
         loadDataIfNeeded()
         setDate(datePicker)
         datePicker.minimumDate = Date.now
-        
+        datePicker.calendar.locale = Locale(identifier: "ko_KR")
         recommendedTime = recommendTime()
         
         NotificationCenter.default.addObserver(forName: .poppedWhenMeetingAdding, object: nil, queue: .main) { noti in
@@ -160,20 +160,18 @@ class SetMeetingViewController: UIViewController {
     
     func recommendTime() -> [Date]{
         var result = [Date]()
-        var stringResult = [[String]]()
         
         let day = datePicker.date
-        let calendar = Calendar.current
-        let component = calendar.dateComponents([.day], from: day)
+
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ko_KR")
         dateFormatter.dateFormat = "E"
         
         var selectedDay: Day?
-        if let dayString = calendar.date(from: component){
-            let str = dateFormatter.string(from: dayString)
-            selectedDay = Day(rawValue: str)
-        }
+        let str = dateFormatter.string(from: day)
+        print(str)
+        selectedDay = Day(rawValue: str)
+        
         
         let pTimes = newMeeting?.joiners?.map({ user in
             user.preferredTime?.filter({ pTime in
@@ -181,16 +179,24 @@ class SetMeetingViewController: UIViewController {
             })
         })
         
-        let times:[PreferredTime] = pTimes?.flatMap{$0!} ?? []
+        let times:[PreferredTime] = pTimes?.flatMap{$0 ?? []} ?? []
         guard times.count > 0 else {return result}
         
-        var start = times.map { $0.start }.max()!
-        let end = times.map { $0.end }.min()!
+        let start = times.map { $0.startDate }.max()!
+        let end = times.map { $0.endDate }.min()!
+        
+        let f = DateFormatter()
+        f.locale = Locale(identifier: "ko_KR")
+        f.dateFormat = "HH:mm"
+        
+        print(f.string(from: start), f.string(from: end))
         
         if start < end {
-            result.append(start)
-            while let t = start.nextHour(), t < end{
+            var t = start
+            
+            while t <= end{
                 result.append(t)
+                t = t.adding(hours: 1)
             }
         }
         
@@ -248,10 +254,9 @@ extension SetMeetingViewController: UICollectionViewDelegate, UICollectionViewDa
         formatter.dateFormat = "a h:mm"
         cell.timeButton.setTitle(formatter.string(from: recommendedTime[indexPath.item]), for: .normal)
         cell.timeButton.setTitle(formatter.string(from: recommendedTime[indexPath.item]), for: .selected)
-        cell.tag = indexPath.item
+        cell.timeButton.tag = indexPath.item
         
         return cell
     }
-    
     
 }
