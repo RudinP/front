@@ -9,6 +9,6 @@ import Foundation
 
 struct PreferredTime: Codable{
     var day: Day
-    var start: String
-    var end: String
+    var start: Date
+    var end: Date
 }
