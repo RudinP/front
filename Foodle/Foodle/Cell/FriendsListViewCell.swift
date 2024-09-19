@@ -55,18 +55,8 @@ class FriendsListViewCell: UIViewController {
         
         activityIndicator.center = view.center
         view.addSubview(activityIndicator)
-        hideKeyboard()
     }
     
-    @objc func dismissKeyboard() {
-           view.endEditing(true)
-       }
-    
-    func hideKeyboard() {
-            let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
-                                                                     action: #selector(dismissKeyboard))
-            view.addGestureRecognizer(tap)
-    }
     
     
     func setupScrollView() {
@@ -345,5 +335,11 @@ class AllCell: UITableViewCell {
     
     @IBAction func buttonTapped(_ sender: UIButton) {
         delegate?.didTapFavoriteButton(on: self)
+    }
+}
+
+extension FriendsListViewCell: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
     }
 }
