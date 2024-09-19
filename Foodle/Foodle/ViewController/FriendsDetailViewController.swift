@@ -102,6 +102,16 @@ class FriendsDetailViewController: UIViewController, UICollectionViewDataSource,
                 self.placeCollectionView.reloadData()
             }
         }
+        
+        timeLabel.numberOfLines = 0
+        
+        timeLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            timeLabel.topAnchor.constraint(equalTo: label5.bottomAnchor, constant: 9),
+            timeLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 31),
+            timeLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -31),
+            timeLabel.bottomAnchor.constraint(greaterThanOrEqualTo: scrollView.bottomAnchor, constant: -40)
+        ])
     }
     
     func setupScrollView() {
