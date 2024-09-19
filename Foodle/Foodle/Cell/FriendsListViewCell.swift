@@ -55,7 +55,19 @@ class FriendsListViewCell: UIViewController {
         
         activityIndicator.center = view.center
         view.addSubview(activityIndicator)
+        hideKeyboard()
     }
+    
+    @objc func dismissKeyboard() {
+           view.endEditing(true)
+       }
+    
+    func hideKeyboard() {
+            let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
+                                                                     action: #selector(dismissKeyboard))
+            view.addGestureRecognizer(tap)
+    }
+    
     
     func setupScrollView() {
         scrollView = UIScrollView(frame: view.bounds)
