@@ -102,20 +102,6 @@ class SetMeetingViewController: UIViewController {
         
     }
     
-    func hideKeyboard() {
-            let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
-                                                                     action: #selector(dismissKeyboard))
-            view.addGestureRecognizer(tap)
-            
-            // 또는 아래처럼 작성하셔도 됩니다.
-            
-           // view.addGestureRecognizer(UITapGestureRecognizer(target: self,
-           //                                                  action: #selector(dismissKeyboard)))
-        }
-        
-       @objc func dismissKeyboard() {
-           view.endEditing(true)
-       }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toAddMeetingPlace"{
