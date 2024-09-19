@@ -17,6 +17,8 @@ class FriendsListViewCell: UIViewController {
     @IBOutlet weak var friendCode: UITextField!
     @IBOutlet weak var addLabel: UILabel!
     
+    var refreshControl = UIRefreshControl()
+    
     var activityIndicator: UIActivityIndicatorView = {
         let spinner = UIActivityIndicatorView(style: .large)
         spinner.hidesWhenStopped = true
@@ -43,6 +45,9 @@ class FriendsListViewCell: UIViewController {
         Friends = friends
         
         setupScrollView()
+
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        scrollView.refreshControl = refreshControl
         
         self.favTable.delegate = self
         self.favTable.dataSource = self
@@ -56,8 +61,11 @@ class FriendsListViewCell: UIViewController {
         activityIndicator.center = view.center
         view.addSubview(activityIndicator)
     }
-    
-    
+
+    @objc func refreshData() {
+        reloadTables()
+        refreshControl.endRefreshing()
+    }
     
     func setupScrollView() {
         scrollView = UIScrollView(frame: view.bounds)
@@ -141,8 +149,6 @@ class FriendsListViewCell: UIViewController {
                     let alert = UIAlertController(title: "", message: "성공적으로 추가되었습니다.", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                     self?.present(alert, animated: true, completion: nil)
-                    
-                    print(self?.Friends ?? "No friends")
                 }
             }
         }
@@ -154,8 +160,8 @@ class FriendsListViewCell: UIViewController {
         allTable.reloadData()
         viewDidLayoutSubviews()
         
-        fetchFriends(user!.uid!) { friend in
-            friends = friend
+        fetchFriends(user!.uid!) { [self] friend in
+            Friends = friend
             DispatchQueue.main.async{
                 self.favTable.reloadData()
                 self.allTable.reloadData()
