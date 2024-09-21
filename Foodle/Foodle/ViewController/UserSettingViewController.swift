@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UserSettingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class UserSettingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var likeWordText: UITextField!
@@ -38,6 +38,11 @@ class UserSettingViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.reloadData()
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         guard let uid = user?.uid else {return}

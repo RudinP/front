@@ -98,7 +98,7 @@ class FriendsListViewCell: UIViewController {
         friendCode.frame.origin.y =  addLabel.frame.maxY + 10
                 
         // 스크롤 뷰의 contentSize 조정
-        let contentHeight = addFriends.frame.origin.y + addFriends.frame.size.height + 90
+        let contentHeight = addFriends.frame.origin.y + addFriends.frame.size.height + 220
         scrollView.contentSize = CGSize(width: scrollView.frame.size.width, height: contentHeight)
     }
     
