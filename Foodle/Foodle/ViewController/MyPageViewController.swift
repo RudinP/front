@@ -171,6 +171,7 @@ class MyPageViewController: UIViewController {
                 print("Failed to delete user: Invalid response")
                 return
             }
+            UserDefaultsManager.userData = nil
             
             DispatchQueue.main.async {
                 // 유저 탈퇴 후 첫 화면으로 전환
@@ -206,6 +207,6 @@ class MyPageViewController: UIViewController {
                 }
             }
         //}
-        user = nil
+        UserDefaultsManager.userData = nil
     }
 }
