@@ -601,6 +601,18 @@
         }
       }
     },
+    "Ipb-li-A4k.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"존재하지 않습니다.\"; ObjectID = \"Ipb-li-A4k\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "존재하지 않습니다."
+          }
+        }
+      }
+    },
     "Jga-63-A4e.text" : {
       "comment" : "Class = \"UILabel\"; text = \"~\"; ObjectID = \"Jga-63-A4e\";",
       "extractionState" : "extracted_with_value",
@@ -777,6 +789,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "이름"
+          }
+        }
+      }
+    },
+    "REV-Ok-C3y.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"존재하지 않습니다.\"; ObjectID = \"REV-Ok-C3y\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "존재하지 않습니다."
           }
         }
       }

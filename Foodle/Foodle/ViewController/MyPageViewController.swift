@@ -9,7 +9,7 @@ import UIKit
 import KakaoSDKAuth
 import KakaoSDKUser
 
-class MyPageViewController: UIViewController {
+class MyPageViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var profileImg_1: UIImageView!
     @IBOutlet var profileImg_2: UIImageView!
     @IBOutlet var nameLabel: UILabel!
@@ -53,6 +53,11 @@ class MyPageViewController: UIViewController {
         let SecondAccent: UIColor = UIColor(red: 0.817, green: 0.807, blue: 0.914, alpha: 1.0)
         timeKeywordButton.layer.borderWidth = 1
         timeKeywordButton.layer.borderColor = SecondAccent.cgColor
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     @IBAction func copyButtonTapped(_ sender: UIButton) {

@@ -15,10 +15,10 @@ class SelectFriendsViewController: UIViewController, UICollectionViewDataSource,
     @IBOutlet var allLabel: UILabel!
     @IBOutlet var allTable: UITableView!
     
-
+    var refreshControl = UIRefreshControl()
+    
     var newMeeting: Meeting?//추가할 미팅
     var Friends: [Friend]?
-
     
     // 모든 친구 데이터 (즐겨찾기 포함)
     var allFriends: [Friend] {
@@ -40,13 +40,15 @@ class SelectFriendsViewController: UIViewController, UICollectionViewDataSource,
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         Friends = friends
         
         setupScrollView()
+        
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        scrollView.refreshControl = refreshControl
         
         self.title = "친구 선택"
         let nextButton = UIBarButtonItem(title: "다음", style: .plain, target: self, action: #selector(nextButtonTapped))
@@ -73,6 +75,25 @@ class SelectFriendsViewController: UIViewController, UICollectionViewDataSource,
                 self.newMeeting = data
             }
         }
+    }
+    
+    func reloadTables() {
+        favTable.reloadData()
+        allTable.reloadData()
+        viewDidLayoutSubviews()
+        
+        fetchFriends(user!.uid!) { [self] friend in
+            Friends = friend
+            DispatchQueue.main.async{
+                self.favTable.reloadData()
+                self.allTable.reloadData()
+            }
+        }
+    }
+    
+    @objc func refreshData() {
+        reloadTables()
+        refreshControl.endRefreshing()
     }
     
     @objc func nextButtonTapped() {

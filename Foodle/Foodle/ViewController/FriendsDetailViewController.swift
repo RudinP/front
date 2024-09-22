@@ -102,6 +102,16 @@ class FriendsDetailViewController: UIViewController, UICollectionViewDataSource,
                 self.placeCollectionView.reloadData()
             }
         }
+        
+        timeLabel.numberOfLines = 0
+        
+        timeLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            timeLabel.topAnchor.constraint(equalTo: label5.bottomAnchor, constant: 9),
+            timeLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 31),
+            timeLabel.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -31),
+            timeLabel.bottomAnchor.constraint(greaterThanOrEqualTo: scrollView.bottomAnchor, constant: -40)
+        ])
     }
     
     func setupScrollView() {
@@ -162,43 +172,49 @@ class FriendsDetailViewController: UIViewController, UICollectionViewDataSource,
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.collectionView {
-            return upcomingMeetings.count
+            return upcomingMeetings.isEmpty ? 1 : upcomingMeetings.count
         } else if collectionView == self.placeCollectionView {
-            return placeLists?.flatMap { $0.places ?? [] }.count ?? 0
-        } else {
-            return 0
+            return (placeLists?.flatMap { $0.places ?? [] }.isEmpty == true) ? 1 : (placeLists?.flatMap { $0.places ?? [] }.count ?? 0)
         }
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.collectionView {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FriendsScheduleCell", for: indexPath) as? FriendsScheduleCollectionViewCell else {
-                fatalError("Unable to dequeue FriendsScheduleCollectionViewCell")
+            if upcomingMeetings.isEmpty {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EmptyCell", for: indexPath)
+                return cell
+            } else {
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FriendsScheduleCell", for: indexPath) as? FriendsScheduleCollectionViewCell else {
+                    fatalError("Unable to dequeue FriendsScheduleCollectionViewCell")
+                }
+                
+                let meeting = upcomingMeetings[indexPath.item]
+                cell.meetingNameLabel.text = meeting.name
+                
+                if let dateString = meeting.dateString {
+                    cell.meetingDateLabel.text = dateString
+                }
+                
+                return cell
             }
-            
-            let meeting = upcomingMeetings[indexPath.item]
-            cell.meetingNameLabel.text = meeting.name
-            
-            if let dateString = meeting.dateString {
-                cell.meetingDateLabel.text = dateString
-            }
-            
-            return cell
         } else if collectionView == self.placeCollectionView {
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "placeCell", for: indexPath) as? PlaceCollectionViewCell else {
-                fatalError("Unable to dequeue PlaceCollectionViewCell")
+            if placeLists?.flatMap({ $0.places ?? [] }).isEmpty == true {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "EmptyCell", for: indexPath)
+                return cell
+            } else {
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "placeCell", for: indexPath) as? PlaceCollectionViewCell else {
+                    fatalError("Unable to dequeue PlaceCollectionViewCell")
+                }
+                
+                let places = placeLists?.flatMap { $0.places ?? [] } ?? []
+                let place = places[indexPath.item]
+                if let imageUrlString = place.images?.first {
+                    cell.placeImg.setImageFromStringURL(imageUrlString)
+                }
+                cell.placeName.text = place.placeName
+                return cell
             }
-            
-            let places = placeLists?.flatMap { $0.places ?? [] } ?? []
-            let place = places[indexPath.item]
-            
-            if let imageUrlString = place.images?.first {
-                cell.placeImg.setImageFromStringURL(imageUrlString)
-            }
-            
-            cell.placeName.text = place.placeName
-            
-            return cell
         } else {
             return UICollectionViewCell()
         }
