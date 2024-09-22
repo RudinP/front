@@ -22,6 +22,7 @@ class EditMeetingViewController: UIViewController, UICollectionViewDataSource, U
     
     var Friends: [Friend]?
     
+    var refreshControl = UIRefreshControl()
     var editableMeeting: EditableMeeting?
     
     // 모든 친구 데이터 (즐겨찾기 포함)
@@ -50,6 +51,9 @@ class EditMeetingViewController: UIViewController, UICollectionViewDataSource, U
         
         setupScrollView()
         
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        scrollView.refreshControl = refreshControl
+        
         self.title = "친구 선택"
         let nextButton = UIBarButtonItem(title: "다음", style: .plain, target: self, action: #selector(nextButtonTapped))
         navigationItem.rightBarButtonItem = nextButton
@@ -71,6 +75,25 @@ class EditMeetingViewController: UIViewController, UICollectionViewDataSource, U
             updateFriendState(for: friend)
         }
         
+    }
+    
+    func reloadTables() {
+        favTable.reloadData()
+        allTable.reloadData()
+        viewDidLayoutSubviews()
+        
+        fetchFriends(user!.uid!) { [self] friend in
+            Friends = friend
+            DispatchQueue.main.async{
+                self.favTable.reloadData()
+                self.allTable.reloadData()
+            }
+        }
+    }
+    
+    @objc func refreshData() {
+        reloadTables()
+        refreshControl.endRefreshing()
     }
     
     @objc func nextButtonTapped() {
