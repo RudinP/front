@@ -136,7 +136,6 @@ class UserSettingViewCell: UITableViewCell {
         
         startTimePicker.datePickerMode = .time
         endTimePicker.datePickerMode = .time
-        endTimePicker.minimumDate = startTimePicker.date
         
         let locale = Locale(identifier: "en_GB")
         startTimePicker.locale = locale
