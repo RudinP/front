@@ -200,7 +200,12 @@ func searchPlace(_ byName: String?, _ meeting: Meeting? = nil, completion: @esca
         
         let data = SearchPlace(meeting: meeting, placeName: byName)
         
-        guard let meetingData = try? JSONEncoder().encode(data) else { return }
+        let encoder = JSONEncoder()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
+        
+        encoder.dateEncodingStrategy = .formatted(dateFormatter)
+        guard let meetingData = try? encoder.encode(data) else { return }
         
         let task = URLSession.shared.uploadTask(with: request, from: meetingData) { (data, response, error) in
             if let error = error {
