@@ -14,6 +14,7 @@
 		4B1C864E2C50A23700409DD8 /* SetMeetingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1C864D2C50A23700409DD8 /* SetMeetingTableViewCell.swift */; };
 		4B1C91B02C4611BC00CCB03E /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1C91AF2C4611BC00CCB03E /* URLExtension.swift */; };
 		4B23DBDF2BFEF09600E5E4FD /* MyPlaceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B23DBDE2BFEF09600E5E4FD /* MyPlaceTableViewController.swift */; };
+		4B2B50232CB0E6AB004B3E68 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2B50222CB0E6AB004B3E68 /* NotificationManager.swift */; };
 		4B5D9B6D2BBE3FFB00F1BD58 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D9B6C2BBE3FFB00F1BD58 /* SearchViewController.swift */; };
 		4B5D9B6F2BBE406400F1BD58 /* DetailPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D9B6E2BBE406400F1BD58 /* DetailPlaceViewController.swift */; };
 		4B5D9B712BBE4CB200F1BD58 /* PlaceImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5D9B702BBE4CB200F1BD58 /* PlaceImageCollectionViewCell.swift */; };
@@ -89,6 +90,7 @@
 		4B1C864D2C50A23700409DD8 /* SetMeetingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetMeetingTableViewCell.swift; sourceTree = "<group>"; };
 		4B1C91AF2C4611BC00CCB03E /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
 		4B23DBDE2BFEF09600E5E4FD /* MyPlaceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlaceTableViewController.swift; sourceTree = "<group>"; };
+		4B2B50222CB0E6AB004B3E68 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		4B5D9B6C2BBE3FFB00F1BD58 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		4B5D9B6E2BBE406400F1BD58 /* DetailPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPlaceViewController.swift; sourceTree = "<group>"; };
 		4B5D9B702BBE4CB200F1BD58 /* PlaceImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceImageCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 				4BB92B782C72F9BE000DFE0A /* NaverSNSLogin.swift */,
 				4BB92BA92C799455000DFE0A /* UserDefaultManager.swift */,
 				4BD686122C82C45300CCDD5E /* DateExtension.swift */,
+				4B2B50222CB0E6AB004B3E68 /* NotificationManager.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 				4BE731982C436A1C008733C9 /* LaunchingSegue.swift in Sources */,
 				4B1C864E2C50A23700409DD8 /* SetMeetingTableViewCell.swift in Sources */,
 				4BE731832C3E2AA1008733C9 /* Server.swift in Sources */,
+				4B2B50232CB0E6AB004B3E68 /* NotificationManager.swift in Sources */,
 				923B80FE2C0230C600B771E7 /* ScheduleListViewController.swift in Sources */,
 				92D3DE662C2762E100CC3673 /* DetailMeetingViewController.swift in Sources */,
 				4BA12D812BA004CE00BC4EB0 /* SceneDelegate.swift in Sources */,
