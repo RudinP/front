@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-    
+        
         
         let appearance = UITabBarAppearance()
         let tabBar = UITabBar()
@@ -37,31 +37,74 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         user = UserDefaultsManager.userData
         
+        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
+        
+        NotificationManager.shared.requestAuthorization()
+        
         return true
+    }
+    
+    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        if let userData = UserDefaultsManager.userData{
+            user = userData
+            runDailyTask()
+        }
+        completionHandler(.newData)
+    }
+    
+    func runDailyTask() {
+        if let userId = user?.uid{
+            fetchMeeting(userId) { result in
+                let originMeetingsCount = UserDefaults.standard.integer(forKey: "MeetingsCount")
+                let newMeetingsCount = result?.count ?? originMeetingsCount
+                if originMeetingsCount != newMeetingsCount{
+                    self.alertNewMeetings()
+                }
+            }
+        }
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        UIApplication.shared.applicationIconBadgeNumber = 0
+    }
+    
+    func alertNewMeetings(){
+        let content = UNMutableNotificationContent()
+        content.title = "알림"
+        content.body = "새로운 약속을 확인해주세요"
+        content.sound = .default
+        content.badge = 1
+        
+        let request = UNNotificationRequest(identifier: "DailyTaskNotification", content: content, trigger: nil)
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print("Error scheduling notification: \(error)")
+            }
+        }
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         NaverThirdPartyLoginConnection.getSharedInstance().application(app, open: url, options: options)
     }
-
+    
     /// 네이버 로그인 셋팅
-        func settingNaverSNSLogin() {
-            
-            let instance = NaverThirdPartyLoginConnection.getSharedInstance()
-            //네이버 앱으로 인증하는 방식 활성화
-            instance?.isNaverAppOauthEnable = true
-            //SafariViewController에서 인증하는 방식 활성화
-            instance?.isInAppOauthEnable = true
-            //인증 화면을 아이폰의 세로모드에서만 적용
-            instance?.isOnlyPortraitSupportedInIphone()
-            
-            instance?.serviceUrlScheme = "foodle"
-            instance?.consumerKey = "WLeUMAvND1zA5FO1oAG8"
-            instance?.consumerSecret = "MRUyHLBRkT"
-            instance?.appName = "foodle"
-        }
-
-
+    func settingNaverSNSLogin() {
+        
+        let instance = NaverThirdPartyLoginConnection.getSharedInstance()
+        //네이버 앱으로 인증하는 방식 활성화
+        instance?.isNaverAppOauthEnable = true
+        //SafariViewController에서 인증하는 방식 활성화
+        instance?.isInAppOauthEnable = true
+        //인증 화면을 아이폰의 세로모드에서만 적용
+        instance?.isOnlyPortraitSupportedInIphone()
+        
+        instance?.serviceUrlScheme = "foodle"
+        instance?.consumerKey = "WLeUMAvND1zA5FO1oAG8"
+        instance?.consumerSecret = "MRUyHLBRkT"
+        instance?.appName = "foodle"
+    }
+    
+    
     // MARK: UISceneSession Lifecycle
     
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
@@ -79,31 +122,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Core Data stack
     
     lazy var persistentContainer: NSPersistentContainer = {
-        /*
-         The persistent container for the application. This implementation
-         creates and returns a container, having loaded the store for the
-         application to it. This property is optional since there are legitimate
-         error conditions that could cause the creation of the store to fail.
-         */
+        
         let container = NSPersistentContainer(name: "Foodle")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                 
-                /*
-                 Typical reasons for an error here include:
-                 * The parent directory does not exist, cannot be created, or disallows writing.
-                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-                 * The device is out of space.
-                 * The store could not be migrated to the current model version.
-                 Check the error message to determine what the actual problem was.
-                 */
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
         return container
     }()
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        saveUserData()
+    }
+    
+    func saveUserData() {
+        let meetingsCount = meetings?.count ?? 0
+        UserDefaults.standard.setValue(meetingsCount, forKey: "MeetingsCount")
+    }
+    
     
     // MARK: - Core Data Saving support
     
