@@ -116,7 +116,12 @@ extension AddMeetingPlaceViewController: UITableViewDelegate, UITableViewDataSou
             cell.timePicker.date = time
             cell.timePicker.minimumDate = newMeeting?.date
             if indexPath.row == 0{
-                cell.timePicker.maximumDate = newMeeting?.date
+                cell.timePicker.isEnabled = false
+                if let date = newMeeting?.date{
+                    cell.timePicker.date = date
+                }
+            } else {
+                cell.timePicker.isEnabled = true
             }
         }
         cell.orderLabel.text = "\(indexPath.row + 1)"

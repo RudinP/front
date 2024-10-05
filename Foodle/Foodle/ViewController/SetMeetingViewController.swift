@@ -191,6 +191,7 @@ class SetMeetingViewController: UIViewController {
 
     @IBAction func selectRecommend(_ sender: UIButton) {
         datePicker.date.setTime(recommendedTime[sender.tag])
+        setDate(datePicker)
     }
 }
 
