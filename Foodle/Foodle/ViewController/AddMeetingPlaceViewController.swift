@@ -28,6 +28,14 @@ class AddMeetingPlaceViewController: UIViewController{
         presentedViewController?.dismiss(animated: true)
         addMeetingPlaceTableView.reloadData()
     }
+
+    func timeConfigure(){
+        for i in 0 ..< (newMeeting?.places?.count ?? 0) {
+            let indexPath = IndexPath(row: i, section: 0)
+            let cell = addMeetingPlaceTableView.cellForRow(at: indexPath) as! AddMeetingPlaceTableViewCell
+            newMeeting?.places?[i].time = cell.timePicker.date
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +75,7 @@ class AddMeetingPlaceViewController: UIViewController{
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier != "toSearch"{
+            timeConfigure()
             if editableMeeting != nil{
                 editableMeeting?.origin = newMeeting
                 if let addedFriends = editableMeeting?.addedFriends{
@@ -127,6 +136,8 @@ extension AddMeetingPlaceViewController: UITableViewDelegate, UITableViewDataSou
         cell.orderLabel.text = "\(indexPath.row + 1)"
         
         cell.timePicker.tag = indexPath.row
+        
+        
         
         return cell
     }
