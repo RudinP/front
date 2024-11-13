@@ -14,6 +14,7 @@ class SearchViewController: UIViewController {
     let manager = CLLocationManager()
     var bottomSheetVC: UIViewController?
     var newMeeting: Meeting?
+    var searchResults =  [Place]()
     
     func addSearchBar(){
         let search = UISearchController()
@@ -63,7 +64,7 @@ class SearchViewController: UIViewController {
             self.setRegion(place: place)
         }
         
-        setRegion(place: resultPlaces.first)
+        setRegion(place: searchResults.first)
         
     }
     func setRegion(place: Place?){
@@ -111,7 +112,8 @@ class SearchViewController: UIViewController {
         
         if let vc = bottomSheetVC as? ScrollableBottomSheetViewController{
             vc.newMeeting = newMeeting
-            setAnnotation(result: resultPlaces)
+            vc.searchResults = searchResults
+            setAnnotation(result: searchResults)
         }
         
         if let bottomSheetVC{

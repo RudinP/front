@@ -7,13 +7,13 @@
 
 import UIKit
 
-var resultPlaces = [Place]()
 var keyword = String()
 
 class SearchResultViewController: UIViewController{
     
     @IBOutlet weak var tableView: UITableView!
     var newMeeting: Meeting?
+    var resultPlaces = [Place]()
     
     func addSearchBar(){
         let search = UISearchController()
@@ -41,11 +41,14 @@ class SearchResultViewController: UIViewController{
         segue.destination.modalPresentationStyle = .fullScreen
         if let vc = segue.destination as? SearchViewController{
             vc.newMeeting = newMeeting
+            vc.searchResults = resultPlaces
         }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        resultPlaces.removeAll()
+        tableView.reloadData()
     }
     
 }
@@ -80,14 +83,12 @@ extension SearchResultViewController: UISearchControllerDelegate, UISearchBarDel
         
         if keyword.isEmpty {
             resultPlaces.removeAll()
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
+            tableView.reloadData()
         } else {
             if newMeeting != nil{
                 searchPlace(keyword, newMeeting) { result in
                     guard let result = result else { return }
-                    resultPlaces = result
+                    self.resultPlaces = result
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
@@ -95,7 +96,7 @@ extension SearchResultViewController: UISearchControllerDelegate, UISearchBarDel
             } else {
                 searchPlace(keyword) { result in
                     guard let result = result else { return }
-                    resultPlaces = result
+                    self.resultPlaces = result
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
