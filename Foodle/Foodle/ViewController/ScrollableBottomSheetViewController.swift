@@ -5,6 +5,7 @@ class ScrollableBottomSheetViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var targetIndex: Int?
     var newMeeting: Meeting?
+    var searchResults = [Place]()
     
     @IBAction func addPlaceToList(_ sender: UIButton) {
         targetIndex = sender.tag
@@ -12,20 +13,20 @@ class ScrollableBottomSheetViewController: UIViewController {
     }
     
     @IBAction func addMeetingPlace(_ sender: UIButton) {
-        NotificationCenter.default.post(name: .meetingPlaceAdded, object: nil, userInfo: ["placeToMeet":resultPlaces[sender.tag]])
+        NotificationCenter.default.post(name: .meetingPlaceAdded, object: nil, userInfo: ["placeToMeet":searchResults[sender.tag]])
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addPlaceToList"{
             if let vc = segue.destination as? AddPlaceViewController{
                 if let targetIndex{
-                    vc.place = resultPlaces[targetIndex]
+                    vc.place = searchResults[targetIndex]
                 }
             }
         } else if segue.identifier == "showDetail"{
             if let vc = segue.destination as? DetailPlaceViewController{
                 if let targetIndex{
-                    vc.place = resultPlaces[targetIndex]
+                    vc.place = searchResults[targetIndex]
                 }
             }
         }
@@ -42,7 +43,7 @@ class ScrollableBottomSheetViewController: UIViewController {
         
         NotificationCenter.default.addObserver(forName: .annotationSelected, object: nil, queue: .main) { noti in
             guard let place = noti.userInfo?["place"] as? Place else {return}
-            let row = resultPlaces.firstIndex { resultPlace in
+            let row = self.searchResults.firstIndex { resultPlace in
                 place.isEqual(resultPlace)
             }
             let indexPath = IndexPath(row: row ?? 0, section: 0)
@@ -59,7 +60,7 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return resultPlaces.count
+        return searchResults.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -69,7 +70,7 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "resultTableViewCell") as! ResultTableViewcell
-        let target = resultPlaces[indexPath.row]
+        let target = searchResults[indexPath.row]
         if target.getIsStarred(){
             cell.starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
         } else {
@@ -101,7 +102,7 @@ extension ScrollableBottomSheetViewController: UITableViewDelegate, UITableViewD
         targetIndex = indexPath.row
         tableView.scrollToNearestSelectedRow(at: .top, animated: true)
         if let index = targetIndex{
-            let place = resultPlaces[index]
+            let place = searchResults[index]
             NotificationCenter.default.post(name: .placeSelected, object: nil, userInfo: ["place": place])
         }
         performSegue(withIdentifier: "showDetail", sender: nil)
